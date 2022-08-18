@@ -5,12 +5,59 @@
 
   En la teoría de la complejidad computacional, el diseño y el análisis de algoritmos consituye una parte importante que nos proporciona una estimación teórica de los recursos que se necesitan para resolver una tarea computacional, entre ellos los recursos de tiempo y espacio necesarios para ejecutarlo.
 
-  En éste artículo documentaremos algunos recursos disponibles que hay en internet en donde podríamos aprender de forma autónoma un curso sobre análisis de algoritmos.
+  En éste artículo documentaremos algunos recursos disponibles que hay en internet en donde podríamos aprender de forma autodidacta un curso sobre análisis de algoritmos.
 
-* uwu
+* Recursos en línea
 
-  q onda
+  A la fecha, es muy fácil encontrar información por internet, y sobre temas como computación no hay excepción. Para esta parte, enlistaremos algunos cursos sobre la materia en dos: cursos o tutoriales en video; y cursos, artículos o guías completas en páginas de internet.
+  
+** Cursos en video
 
-** Sobre la navidad
+*** Curso completo de freeCodeCamp
 
-   Prueba
+    En un sólo video, de un poco más de 5 horas de duración, de abarca un curso completo sobre Análisis de Algoritmos y Estructuras de Datos.
+
+    Éste está dividido en tres partes:
+
+    1. Introducción a los Algoritmos.
+    2. Introducción a las Estructuras de Datos.
+    3. Búsquedas y Ordenamientos.
+
+
+    Más que nada, podemos considerarlo como un repaso sobre lo que se vió en un curso pasado como lo fue en /Estructuras de Datos/.
+
+    [[https://www.youtube.com/watch?v=8hly31xKli0][Link al video]]
+
+*** Curso de algoritmos de Abdul Bari
+
+    Ésta es una lista de reproducción que consta de 84 videos. Cada video tiene en promedio una duración de 20 minutos, sin embargo, es uno de los cursos más completos en video que podemos encontrar.
+
+    Da una introducción a los algoritmos y cómo analizarlos, complejidad computacional, notaciones asintóticas, relaciones de recurrencia, y explicaciones del funcionamiento de algoritmos como la raíz cuadrada, ordenamientos, multiplicación de matrices, algoritmos en gráficas, y muchos otros.
+
+    [[https://www.youtube.com/watch?v=0IAPZzGSbME&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O][Link a la lista de reproducción]]
+
+*** Repaso sobre el cálculo de complejidad de GeeksgorGeeks
+
+    En este video recordamos cómo funciona el cálculo de la complejidad de un algoritmo, repasando los ciclos, las secuencias =if-else=, entre otras.
+
+    [[https://www.youtube.com/watch?v=KXAbAa1mieU][Link al video]]
+
+** Cursos textuales
+
+*** Fundamentos de Algoritmos por GeeksforGeeks
+
+    En ésta página, podremos encontrar un curso bastante completo, dando una introducción a los algoritmos, complejidad, técnicas de diseño, análisis de algoritmos, tipos de algoritmos y su explicación, la importancia y la relación que tienen los algoritmos y las estructuras de datos, y más.
+    
+    [[https://www.geeksforgeeks.org/fundamentals-of-algorithms/][Link]]
+
+*** /DAA Tutorial/ - Javatpoint
+
+    Si lo que necesita uno es un curso basto sobre el diseño y el análisis de algoritmos, uno de los recursos mejor documentados sobre el tema, es el que nos provee la página /javatpoint/, pues comprende un temario extenso y bien explicado
+
+    [[https://www.javatpoint.com/daa-tutorial][DAA Tutorial]]
+
+*** /Design and Analysis of Algorithms/ - Tutorialspoint
+
+    Como una alternativa igual de extensa, también está el curso que proporciona /tutorialspoint/
+
+    [[https://www.tutorialspoint.com/design_and_analysis_of_algorithms/analysis_of_algorithms.htm][Design and Analysis of Algorithms]]
