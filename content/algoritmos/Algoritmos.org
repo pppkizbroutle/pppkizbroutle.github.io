@@ -1,0 +1,12 @@
+#+title: Diseño y Análisis de Algoritmos
+#+author: Erik Rangel Limón
+
+* Introuducción
+
+  En la teoría de la complejidad computacional, el diseño y el análisis de algoritmos consituye una parte importante que nos proporciona una estimación teórica de los recursos que se necesitan para resolver una tarea computacional, entre ellos los recursos de tiempo y espacio necesarios para ejecutarlo.
+
+  En éste artículo documentaremos algunos recursos disponibles que hay en internet en donde podríamos aprender de forma autónoma un curso sobre análisis de algoritmos.
+
+* uwu
+
+  q onda
