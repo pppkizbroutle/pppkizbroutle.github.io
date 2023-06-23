@@ -9,3 +9,13 @@
 * Proyectos
 
   - [[./algoritmos/Algoritmos.org][Sobre Análisis de Algoritmos y los recursos que hay en Internet]]
+
+  - [[./geometria/index.html][Cierre Convexo para un conjunto de círculos]]
+
+    Es un /"canvas"/ en blanco para dibujar círculos y mostrar en tiempo
+    real cómo se comporta el cierre convexo.
+
+    El cierre convexo de manera informal es como si le pusiéramos una
+    liga alrededor de todas las figuras en el plano.
+
+
