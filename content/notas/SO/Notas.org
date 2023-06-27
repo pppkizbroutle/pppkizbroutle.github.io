@@ -1,0 +1,2216 @@
+#+title: Sistemas Operativos
+#+author: Erik Rangel Limón
+#+startup: content
+#+startup: latexpreview
+
+* Bibliografía
+
+  + Fundamentals of operating systems. Andrew Lister, R Eager. 5ta edición.
+  + Operating System Concepts. Silberschatz el al. 8va edición.
+  + Schaum's Outline of Operating Systems. J. Archer HArris. 1ra edición.
+  
+* Contacto
+
+  - alanmartinez_012@ciencias.unam.mx
+
+* Evaluación
+
+  | Rubros    | Porcentaje |
+  |-----------+------------|
+  | Exámenes  |            |
+  | parciales |         30 |
+  |-----------+------------|
+  | Tareas    |         35 |
+  |-----------+------------|
+  | Prácticas |         35 |
+
+  Hay cuatro exámenes durante el curso.
+
+  Hay una tarea cada dos semanas, una práctica cada dos semanas.
+
+  Una vez se entregue alguna tarea, práctica o examen, ya no se tiene
+  derecho a NP.
+  
+* Notas de Clase
+
+** Clase 1
+   
+*** Temario
+
+    1. Introducción
+
+       1.1 Historia
+
+       1.2 Procesos
+
+    2. Núcleo
+
+    3. Manejo de memoria
+
+    4. Entrada - Salida
+
+    5. Sistemas de archivos
+   
+*** Pintos.
+
+    Desarrollado por la universidad de Stanford.
+    
+    Un kérnel semi-completo especializado para dar el curso de Sistemas
+    Operativos.
+
+    Tiene funciones incompletas o que funcionan mal para resolverlas a
+    manera de práctica.
+
+    Será utilizado para la parte práctica del curso.
+
+    Está desarrollado en C y ensamblador, contiene mucho código.
+
+** Laboratorio 1
+   
+*** Kérnel
+
+    Es un programa que se encarga de administrar el hardware de una
+    computadora.
+
+    * CPU
+      
+    * Memoria principal
+
+      - ROM
+
+      - RAM
+
+    * Entrada / Salida
+
+*** Arranque de una computadora.
+
+    El CPU en su registo =PC-IP= contiene la dirección hacia la ROM
+    (memoria principal) la cual guarda la BIOS.
+
+    La BIOS contiene órdenes para verificar el hardware que contiene
+    una computadora y puede variar.
+
+    Al final de este proceso, puede cargar el MBR del sistema
+    operativo que esté guardado en una unidad de la meoria secundaria.
+
+    El MBR se carga de cargar el Sistema Operativo (Kernel).
+
+**** PCB
+
+     /*Process Control Block*/
+
+     De manera general es la siguiente.
+     
+      #+begin_src c
+struct proceso{
+  int ID;
+  int prioridad;
+  void* instruccion; // Es un apuntador que se entiende como una
+		     // dirección de memoria
+}
+      #+end_src     
+
+** Laboratorio 2
+
+*** PCB en Pintos 
+
+    Es algo así:
+    
+    #+begin_src c
+struct thread{
+  tid_t tid;
+  enum thread status status;
+  char name[16];
+  uint8_t *stack;
+  int priority;
+  struct list_elem allelem;
+  struct list_elem elem;
+  
+#ifdef USERPROG
+  uint32_t *pagedir;
+#endif
+  
+  unsigned magic;
+}
+    #+end_src
+
+    Los procesos en pintos se inicializan de la siguiente manera:
+
+    | 4 kB |                |
+    |------+----------------|
+    |      | kernel stack   | <- en este bloque se guardará la pila de ejecución
+    |      | !              |
+    |      | !              |
+    |      | V              |
+    |      | grows downward |
+    |      |                |
+    |      |                |
+    |      |                |
+    |      |                |
+    |------+----------------|
+    |      | magic          |  <- en este bloque almacenaremos el PCB
+    |      | !              |
+    |      | !              |
+    |      | name           |
+    |      | status         |
+    | 0 kB |                |
+    |------+----------------|
+
+    Nuestro sistema operativa funciona a partir de procesos que sería
+    nuestro =struct thread= el cual se guardará como en el diagrama, en
+    un bloque de =4 kB=.
+    
+**** Pila de ejecución
+
+     En ella se guardaran variables locales e identificadores de
+     función.
+
+**** Listas para usar en Pintos
+
+     =all_list= contiene a todos los procesos.
+     
+     =ready_list= sólo vamos a tener todos los procesos que están listos
+     para ejecutarse.
+
+**** Thread unblock
+
+     Lo que hace esta función es agregar nuestro /thread/ a la
+     =ready_list=.
+
+     En nuestro proceso de inicialización
+
+** Clase 2
+
+*** Pefacio: Diferencias entre programas comunes y un Sistema Operativo
+
+    | Programa Usual                   | Sistema Operativo                      |
+    |----------------------------------+----------------------------------------|
+    | Todo es programado en lenguajes  | Mezcla de lenguajes de programación    |
+    | de alto nivel                    | "sin runtime" combinado con uso        |
+    |                                  | obligatorio de ensamblador             |
+    |----------------------------------+----------------------------------------|
+    | Tiene recursos lógicos de alto   | Tiene recursos de HW de bajo nivel     |
+    | nivel como memoria dinámica,     | como administrador de                  |
+    | archivos y directorios, sockets  | interrupciones, controlador de         |
+    | , ventanas, canales de audio,    | memoria, controladores de              |
+    | etc...                           | dispositivos.                          |
+    |----------------------------------+----------------------------------------|
+    | Modelo de programa de uno o      | Un único proceso con miles de tareas   |
+    | varios hilos que apila sus       | (hilos) que se transfieren el control  |
+    | llamadas subrutinas              | en puntos casi arbitrarios. Sus        |
+    |                                  | subrutinas no se apilan necesariamente |
+    |                                  | , sino que brinca de una a otra        |
+    |                                  | (goto's/código espagheti).             |
+    |----------------------------------+----------------------------------------|
+    | Concurrencia inexistente, o      | Concurrencia explícita, sin mecanismos |
+    | colaborativa con mecanismos de   | de sincronización existentes: tiene    |
+    | sincronización de alto nivel     | que crearlos.                          |
+    | (semáforos, candados, monitores) |                                        |
+    |----------------------------------+----------------------------------------|
+    | Algoritmos offline de tiempo de  | Algoritmo online de larga vida         |
+    | vida preciso (Conocen toda su    | (Conocen su entrada por pedacitos y    |
+    | entrada desde el inicio, la      | cada cierto tiempo deben dar           |
+    | procesan y devuelven su salida)  | respuestas intentando predecir las     |
+    |                                  | siguiente entradas. Terminan al apagar |
+    |                                  | el sistema).                           |
+
+*** Introducción
+
+**** Historia de los sistemas operativos
+
+     - Comenzó con el surgimiento de las computadoras en hardware
+       en 1940.
+     - ENIAC fue contruida en 1940, pesaba 30 toneladas, tenía 2
+       metros de alto, 1 metro de profundidad y 33 mentro de longitud.
+     - Contaba con más de 18,000 bublos que los enfriaban 80
+       ventiladores.
+     - Las computadoras inicialmente comenzaron usando bulbos.
+     - Eventualmente cambió la forma de hacer programas, de hacer un
+       recableado de la computadora a cargar datos por medio de
+       tarjetas perforadas, para posteriormente pasar a cintas
+       perforadas.
+     - Posteriormente ya se utilizaron lectores de tarjetas,
+       impresoras y nuidades de cinta magnética como elementos
+       adicionales del hardware.
+     - Finalmente, los ensambladares, cargadores y librerías de
+       utilidades simples se desarrollaron como las primeras
+       herramientas de software.
+
+** Laboratorio 3
+
+*** Bootstraping en Pintos
+
+    Después de haber creado el thread idle, aloja la memoria
+    necesaria, y finalmente /desbloquea/ el thread.
+
+    La función thread espera al thread principal, y posteriormente lo
+    bloquea y se invoca un "/halt/" desde el ensamblador.
+
+*** Manejo de threads en Pintos
+
+    Para que el sistema operativo evite que un proceso utilice más cpu
+    de lo esperado se utiliza un Timer, el cual mandará una
+    /interrupción/ para determinar que el proceso debe hace ahora otra
+    cosa.
+
+    Pintos cuenta con un manejador de interrupciones, el cual tiene un
+    contador de ticks y por defecto a cada proceso le da un total de
+    un 4 ticks, para después mandar llamar al respectivo manejador y
+    manda a llamar a la función =thread yield=.
+
+    Si el thread actual no es el "idle", entonces se agrega a la ready
+    list. Lo que permite que el Kernel le ayude a asignar su
+    respectivo thread.
+
+    El timer_sleep funciona de tal manera que, recibe una cantidad de
+    ticks; inicia un timer, y posteriormente el proceso se agrega a la
+    ready_list, si todavía no a pasado el tiempo necesario, entonces
+    de vuelve a agregar a la ready_list, y así sucesivamente hasta que
+    ha pasado el tiempo suficiente.
+
+** Clase 3
+
+*** Historia de los sistemas operativos
+
+    - Finalmente, surgió la idea de la multiprogramación.
+      
+    - En lugar de tener un sólo proceso ahora se cargaban varios
+      procesos de manera simultánea, dividiendo los recursos de la
+      computadora.
+      
+    - Mientras un proceso está haciendo un trabajo de I/O, el sistema
+      operativo elige a tro proceso para ejecutarse hasta que el
+      proceso actual a otra operación I/O.
+
+    - Con el desarrollo de computación interactiva en 1970, emergieron
+      los sistemas de tiempo compartido.
+
+    - En estos sistemas, había múltiples usuarios con acceso a una
+      terminal (que no es una computadora) conectada a una computadora
+      principal.
+
+    - Otro tipo de computadora son los sistemas multiprocesador, que
+      como su nombre o dice, tiene múltiples procesadores que
+      comparten memoria y dispositivos periféricos.
+
+    - Con esta configuración, éstas computadoras tuvieron mejor poder
+      de computación.
+
+** Clase 4
+   
+*** Hoy en día los Sistemas Operativos
+
+    - Carga programas y los ejecuta
+    - Les da memoria
+    - Les asigna tiempo de procesador
+    - Les permite comunicarse
+    - Los elimina
+    - Controla los dispositivos
+    - Provee E/S de alto nivel (archivos, sockets)
+    - Ofrece recursos gráfica (ventanas)
+    - Administra energía
+    - Tareas administrativas, cuyo propósito final es permitir que
+      haya aplicaciones.
+
+*** Objetivos
+
+    - Mostrar el panorama de los componentes más importantes de los
+      sitemas operativos.
+    - Dar principios elementales de organización.
+
+*** Estructura de computadoras
+
+    - Un sistema de cómputo se puede dividir en cuatro componentes:
+
+      + Hardware - ofrece recursos de cómputo elementales
+
+	CPU, memorio, Dispositivos E/S
+
+      + Sistema Operativo
+
+	Controla y coordina el uso de hardware entre varias
+        aplicaciones y usuarios
+
+      + Programas de aplicación - Definen la manera en que los
+        recursos de cómputo son usados para resolver los problemas de
+        los usuarios.
+
+	Procesadores de texto, compiladores, navegadores web, videojuegos
+
+      + Usuarios
+
+	Gente, máquinas, otras computadoras.
+
+
+    | Software     | Kernel          |
+    |--------------+-----------------|
+    | Hardware     |                 |
+    |--------------+-----------------|
+    | Modo usuario | Modo supervisor |
+
+*** Definición de Sistema operativo
+
+    - Es un asignador de recursos
+
+      + Administra todos los recursos
+
+      + Decide entre solicituden en conflicto para un uso justo y
+        eficiente de los recursos.
+
+    - Es un programa de control
+
+      + Controla la ejecución de programas para prevenir errores y un
+        uso impropio de la computadora.
+
+** Clase 5
+*** Definición de Sistemas Operativos
+
+    - No hay una definición aceptada universalmente.
+      
+    - "Todo lo que un vendedor incluye cuando ordenas un sistema
+      operativo" es una primera aproximación
+
+      - Pero cada vez se incluyen más extras
+
+    - "El programa que corre todo el tiempo" es el kernel. Todo lo
+      demás (ejecutable) es un programa del sistema (viene con el
+      sistema operativo) o un programa de aplicación.
+
+    - "Un sistema operativo es como un gobierno".
+
+*** Organización de computadoras
+      
+    - Operación de un sistema de cómputo
+
+      - Uno o más CPUs y controladores de dispositivos se conectan a
+        un bus común brindando acceso a una memoria compartida,
+
+      - Ejecución concurrente de CPUs y dispositivos compitiendo por
+        ciclos de la memoria.
+
+** Clase 6
+*** ¿Qué es un sistema operativo?
+
+   - Un programa que administra y gestiona los recursos.
+
+     Éstos recursos son requeridos por los procesos.
+
+     Un proceso tiene varias definiciones también.
+
+     + _Programa en ejecución_
+
+     + Cambio en el estado de la memoria por acción del procesador.
+
+     Un recurso va a ser el tiempo de uso del procesador.
+
+     Los procesos por lo generalmente son extremadamente rápidos, pero
+     éstos pueden usar muchos recursos.
+
+   - La gestión de recursos de hacen mediante algoritmos de
+     calendarización.
+
+   - También un sistema operativo es encargado de la seguridad de un
+     sistema.
+
+   - Empareja el terreno entre le usuario, los programas de aplicación
+     y el hardware.
+     
+*** POSIX
+
+    /Portable Operating System Interface/
+
+    Antes los Sistemas Operativos eran específicos del Harware, y la
+    llegada de éste se hizo para el uso general en cualquier
+    computadora de su tiempo.
+
+** Clase 7
+*** Operación de Sistemas de Cómputo
+
+    - Los dispositivos de E/S y los CPUs se puede ejecutar
+      simutáneamente.
+
+    - Cada controlador de dispositivo está a cargo de un tipo de
+      dispositivo particular.
+
+    - Cada controlador de dispositivo tiene un buffer local.
+
+    - El CPU mueve datos desde/hacia memoria principal hacia/desde
+      buffers locales.
+
+    - La E/S es del dispositivo al buffer local del controlador.
+
+    - El controlador de dispositivo informa al CPU que ha terminado su
+      operación causando una /interrupción/.
+      
+*** Funciones comunes de las interrupciones
+
+    - Generalmente transfieren el control a la rutina de servicio de
+      interrupción.
+      
+    - El sistema de interrupciones debe guardar la dirección de la
+      intrucción interrumpida.
+
+    - Las demás interrupciones son deshabilitadas mientras otra
+      interrupción está siendo procesada para prevenir una pérdida de
+      información.
+
+    - Una trampa es una interrupción generada por software causada por
+      un error o una solicitud.
+
+    - Una llamada al sistema es una /trampa/ que es activada por un
+      proceso para solicitar un servicio al Sistema Operativo.
+
+    - *Un sistema de cómputo es dirigido por interrupciones.*
+
+** Clase 8
+*** ¿Cómo trabaja una computadora moderna?
+
+    Cada procesador tiene una forma distinta de comunicarse con los
+    dispositivos, pero todos acceden a la misma memoria.
+
+    un núcleo puede estar desocupado, ejecutando una rutina de
+    servicio de interrupción o ejecutando un proceso de usuario o de
+    kérnel.
+** Laboratorio 4
+*** thread.c
+
+    #+begin_src c
+timer_interrupt(struct init_frame *args UNUSED){
+  ticks++;
+  thread_tick();
+  struct list_elem* nodo = list_begin(&dormidos);
+  while(nodo != list_end(&dormidos)){
+    struct thread* t = list_entry(nodo, struct thread, elem);
+    t->por dormir --;
+    if (t->por_dormir <= 0){
+      nodo = list_remove(nodo);
+      thread_unblock(t);
+    }else{
+      nodo = list_next(nodo);
+    }
+  }
+}
+    #+end_src
+    
+*** timer.c
+
+    #+begin_src c
+void timer_sleep (int64_t ticks){
+  int64_t start = timer_ticks();
+  ASSERT (intr_get_level() == INTR_ON);
+  enum intr_level old = intr_set_level(INTR_OFF);
+  struct thread* t = thread_current();
+  t->por_dormir = ticks;
+  list_push_back(&dormidos, &thread_current()->elem);
+  thread_block();
+  intr_set_level(old);
+}
+    #+end_src
+
+*** punto extra
+
+    #+begin_src c
+struct dormido{
+  int64_t ticks;
+  struct thread* t;
+  struct list_elem elem;
+}
+
+struct dormido d;
+d->ticks = ticks;
+d->t = thread_current();
+list_push_back(&dormidos, &thread_current()->elem);
+    #+end_src
+
+** Clase 9
+*** Proceso
+
+    - Un proceso va a ser un programa en ejecución.
+
+      - El kérnel es un programa que siempre se está ejecutando en una
+        computadora.
+	
+*** Memoria en el sistema.
+
+    - Primaria:
+
+      Suelen no se suficientemente amplios para alamacenar los datos
+      de los programas necesarios.
+
+      Suelen ser memorias volátiles; la cual no conserva lo almacenado
+      si no hay flujo de energía.
+
+      Por lo general utilizan una dinámica de acceoso aleatorio, pero
+      no necesariamente.
+
+      Ésta memoria se encuentra más cerca del procesador.
+    
+      Algunos ejemplos pueden ser la RAM, la memoria Caché y los
+      Registros.
+      
+    - Secundaria:
+
+      Por lo general tiene mayor capacidad de almacenamiento que la
+      memoria primaria, esto pues su principal función es la de
+      resguardar la información.
+
+      Éstas unidades no son volátiles.
+
+      Las operaciones más costosas en recursos del Sistema Operativo
+      son las de accesso y escritura directos al disco duro.
+
+
+    Los procesos necesitan tiempo de uso de procesador, y todo proceso
+    pasa por el porcesador.
+
+    Sin embargo no todo proceso pasa por la RAM, sino puede utilizar
+    alguna otra de las memorias principales.
+
+** Clase 10
+*** Ciclo de instrucciones del CPU
+    
+**** Fetch
+
+     Éste consiste en obtener o buscar las instrucciones.
+
+**** Decode
+
+     Ver de qué trata la instrucción.
+
+**** Execute
+
+     Ejecutar la instrucción.
+
+**** Write
+
+     En caso de ser necesario para el proceso.
+
+*** Interrupciones
+
+    El proceso de interrupciones del sistema consiste en detener una
+    tarea para realizar otra con mayor importancia o interrumpir por
+    conveniencia del sistema.
+
+    Por lo general son impulsos/señales eléctricas.
+
+    El proceso de interrupciones consta de los siguientes pasos:
+
+    1. El hardware/software tiene un proceso llamado "solicitud de
+       interrupción" en el que la CPU detecta después de ejecutar una
+       instrucción.
+
+    2. Sí hay una interrupción, la CPU detecta que un "controlador de
+       dispositivo" a firmado una solicitud de interrupción lee el
+       número de interrupción, "salta" a la interrupción misma y traza
+       un "vector de interrupción".
+
+       El vector de interrupción consta de información importante;
+       hacia dónde va la interrupción, de dónde viene y una copia del
+       estado del proceso.
+
+
+    En Sistemas Operativos modernos se necesitan añadir las siguientes
+    características para un manejo más sofisticado de las
+    interrupciones:
+
+    1. Tener la capacidad de diferir el manejo de la interrupción
+       durante el proceso crítico.
+       
+    2. Tener interrupciones _multinivel_ para que el Sistema Operativo
+       pueda distinguir entre interrupciones de _alta_ y _baja_ prioridad.
+
+    3. Tener una forma eficiente de enviar una interrupción adecuada
+       para cada dispositivo.
+
+** Clase 11
+*** Capas del kérnel
+    
+**** Núcleo
+
+     Permite que los procesos existan como entidades calendarizables.
+
+     En éste núcleo se pueden ejecutar instrucciones privilegiadas.
+
+**** Memoria
+
+     Permite asignar memoria dinámica a los procesos.
+
+**** Entrada / Salida
+
+     Da una arquitectura coherente para hacer operaciones de Entrada /
+     Salida.
+
+**** Archivos
+
+     Almacenamiento persistente y administración del almacenamiento
+     secundario.
+
+*** Jerarquía de los dispositivos de alacenamiento
+
+    1. Registros
+    2. Caché
+    3. Memoria principal
+    4. Discos electrónico
+    5. Discos magnéticos
+    6. Discos ópticas
+    7. Cintas magnéticas
+
+*** Sistemas Operativos de fuente abierta
+
+    - Los sistemas operativos que se ofrecen en forma de código fuente
+      en lugar de simplemente código binario de *fuente cerrada*.
+
+    - Para contrarrestas el movimiento de protección de copia y la
+      administración de derechos digital.
+
+    - Comenzando por la Free Software Foundation, la cual tiene
+      izquierdos de copia.
+
+    - Ejemplos incluyen GNU/Linux, Solaris, BSD, entre otros.
+
+** Clase 12
+*** Proceso
+
+    - Unidad de trabajo del sistema
+
+      - Un proceso por actividad
+
+	- Ejms:
+
+	  - Procesos de sistema:
+
+	    - Calentarización
+
+	    - E/S
+
+	    - Sistema de archivos
+
+	  - Procesos de usuario
+
+	    - Navegador web
+
+	    - Editor de textos
+
+
+    - Dinámico
+      
+      - Su estado va cambiando
+
+    - Corresponde a la ejecución de uno o más programas/rutinas
+
+
+    - Dinámico
+      
+      - Recursos asociados
+
+	- Identificador de procesaso (PID)
+
+	- Memoria
+
+	- Archivos
+
+	- Sockets: Son el mecanismo con el que se puede tener
+          comunicación en red.
+
+	- Apuntador de instrucción actual
+
+      - Administrados por el Sistema Operativo
+
+	- En tiempo de creación
+
+	- En tiempo de ejecución
+** Clase 13
+*** Glosario
+
+    - Procesador: Un chip físico que ejecuta las funciones de un CPU
+    - Core: La unidad de cálculo básico del CPU.
+    - Multicore: Incluye múltiples núcleos de computación en la misma CPU.
+    - Multiprocesador: Que incluye múltiples procesadores en la CPU.
+      
+**** CPU con procesador único
+
+     CPU la cual contiene un sólo procesador; un sólo core que ejecuta
+     todas las funciones.
+
+***** Programación Secuencial
+
+      Se puede hacer computación Paralela/Concurrente/Distribuida,
+      pero no es lo idóneo
+
+      Sus ventajas es que es más simple de programar y fiable, pero
+      los procesos se ejecutan más lentos.
+
+**** CPU con multiprocesadores
+
+     El incremento de la velocidad de un programa utilizando mútiples
+     procesadores. En computación concurrente está limitado por la
+     fracción secuencial del programa.
+
+     En un sistema distribuido (clusters), la memoria no es compartida
+     y no están físicamente en el mismo lugar.
+
+     En el cómputo concurrente, la memoria es compartida pues se
+     utiliza la misma computadora.
+
+     En el cómputo paralelo, de igual maner se comparte memoria pues
+     utilizan el mismo CPU
+
+** Clase 14
+*** Programa / rutina
+
+    - Conjunto de instrucciones y datos que desciben los pasos de una
+      tarea
+      
+      - Ordenar arreglos: =qsort(libc)=
+
+      - Limpiar pantalla: =/bin/clear=
+
+      - Editor: =C:\\Windows\Noteád.exe=
+
+    - Estático
+
+    - En lenguaje de máquina
+      
+*** Procesador
+
+    - Agente que ejecuta las instrucciones de un programa, para poder
+      llevar a cabo un proceso
+
+      - El proceso "corre" en el procesador
+
+      - El procesador "corre" el proceso
+
+    - El programa asociado a un proceso no necesarimente enstá en el
+      Software
+
+      - Ejemplo: Rutinas de un controlador USB (firmware)
+
+	- Un procesador capaz de ejecutar un sólo tipo de proceso
+
+*** Aplicación
+
+    - Una aplicación sofisticada consiste de varios procesos.
+
+      - Una hoja de cálculo.
+
+*** Concurrencia y no-determinismo
+
+    - Activación de varios procesos al mismo tiempo
+
+**** Concurrencia aparente
+
+     - #procesos > #procesadores
+
+       - Los procesos alternan entre procesos
+
+       - Ilusión de concurrencia real
+
+***** Analogía
+
+      - Un secretario realiza múltiples tareas
+
+	- Escribir documentos
+
+	- Capturar dictado
+
+	- Preparar café
+
+	- Contestar teléfonos
+
+*** No determinismo
+
+    - Impredicibilidad de:
+
+      - Instrucción en la que se interrumpe un proceso.
+
+	- Orden relativo de ejecución de instrucciones de procesos
+          diferentes.
+
+      - Tiempo que tomará una operaciónde Entrada / Salida
+
+	- Orden / Tiempo de interrupciones
+
+      - Solicitud de recursos de un proceso
+
+	- Archivos / Sockets / Memoria / ...
+
+      - Interrupción / intercambio de procesos
+
+	- Debemos recordar el punto y el estado en el que está para
+          poder regresar después a su ejecución.
+
+** Clase 15
+*** Los procesos
+
+    - Cooperan, compiten por recursos
+      
+    - Áreas en la que la sincronización/CIP es esencial:
+      
+      - Exclusión mutua
+	
+      - Sincronización
+	
+      - Prevención de Deadlocks
+	
+**** Exclusión mutua
+
+     - Hay recursos que no pueden usarse por dos procesos al mismo tiempo
+
+       - Impresora
+
+       - Localidades de memoria
+
+
+     El problema es asegurar que un sólo procesos tiene acceso a
+     cierto recurso en un momento dado.
+
+**** Agentes de reseva de boleto
+
+     - Agente A observa si el asiento 5 está disponible, y pregunta a
+       su cliente.
+       
+     - Agente B observa si el asiento 5 está disponible, y pregunta a
+       su cliente.
+
+     - Agente A reserva el asiento 5.
+
+     - Agente B reserva el asiento 5.
+
+**** Sincronización
+
+     - La velocidad relatica de procesos es impredecible
+       
+       - Depende de la frecuencia con que son interrumpidos.
+	 
+	 - $\Rightarrow$ Los procesos son _asíncronos_.
+	   
+     - Algunos prosesos se deben _sincronizar_
+       
+     - Productores / Consumidores
+
+**** Deadlock
+
+     - Situación en que un grupo de procesos se bloquea
+
+       - Un proceso ocupa un recurso que el otro necesita para
+         continuar.
+
+     - (/Filósofos cenando/)
+
+*** Semáforos
+
+    Fueron inventados por Dijkstra en 1965
+
+    - Un semáforo es una variable enteera que se manipula con sólo dos
+      operaciones *indivisibles*.
+      
+      - wait(sem) (/down/)
+ 
+      - signal(sem) (/up/)
+
+    - Tan pronto puede, decrementa el semáforo en exactamente una
+      unidad.
+
+    - Incrementa el semáforo en exáctamente un unidad.
+
+** Clase 16
+*** wait(sem)
+
+    Existe un retraso potencial cuando =sem= es 0.
+
+    No hay retraso si =sem= es mayor a 0.
+
+    Potencial costo: cambio de contexto.
+
+    Sólo se puede contirunar cuando algún =signal()= hace que =sem= sea
+    disnto a 0.
+
+    Un sólo proceso podrá continuar, pero no sabemos cual.
+    
+*** Invariante
+
+    Cada =signal()= incrementa el semáforo.
+
+    Cada =wait()= completada, decrementa el semáforo.
+
+    =val(sem)==inicial(sem)+signals(sem)-waits(sem)=
+
+*** Exclusión mutua
+
+    - El problema es asegurar que un solo proceso tiene acceso a
+      cierto recurso en un momento dado.
+
+      - una solución sería utilizar un semáforo por recurso.
+
+	- El valor inicial del semáforo es 1.
+	
+	- =wait(sem_recurso)=
+
+	- uso de recurso
+
+	- =signal(sem_recurso)=
+
+** Laboratorio 5
+*** thread.c
+
+    Insertar de manera ordenada por medio de una función compare.
+    
+    #+begin_src c
+void thread_create(args){
+  //...
+  thread_unblock(t);
+  
+  if (thread_current()->priority < t->priority){
+    thread_yield();
+  }
+  //...
+}
+
+
+void thread_set_priority(int new_priority){
+  if (new_priority < thread_current()){
+    //...
+  }
+}
+
+// o
+
+void thread_unblock(struct thread* t){
+  //list_push_back(...)
+  list_insert_ordered(...,compare,...);
+  //...
+  if(thread_current()->priority < t->priority){
+    if (!intr_context()){
+      thread_yield();
+    }else{
+      intr_yield_on_return();
+    }
+  }
+}
+
+//extra
+
+next_thread_to_run(){
+  //Modificar para acceder a la posición en el arreglo con la
+  //prioridad más alta.
+}
+    #+end_src
+    
+*** synch.c
+
+    #+begin_src c
+void sema_up(struct*){
+  //...
+  sema->value++;
+  if (!list_empty(...)){
+    ...
+  }
+  //...
+}
+    #+end_src
+
+** Clase 17
+*** Sincronización
+
+    EL proceso B puede pasar por L2 sólo si A ya pasó por L1.
+    
+*** Productores/Consumidor
+
+    - Los productores producen elementos indefinidamente.
+
+    - Los consumidores los utilizan
+
+      - Se usa un buffer con capacidad finita para depositar/extraer los elementos
+
+      - Regulación bidireccional
+
+    - Ejemplos:
+
+      - Serivdor de impresión
+
+      - Transferencias por red (ssh/ youtube)
+
+      - Servidor de ventanas/aplicación gráficas (eventos GUI)
+
+      - Tuberías de Unix
+
+      - Drivers (Entrada: productores / Salida: consumidores)
+
+** Clase 18
+*** Solución Productores/consumidores
+
+    Productores
+    
+    #+begin_src prog
+while true do
+      produce item;
+      wait(espacio_discponible);
+      wait(buffer_manipulable);
+      insert item into buffer;
+      signal(buffer_manipulable);
+      signal(elemento_disponible);
+done
+    #+end_src
+
+    Consumidores
+    
+    #+begin_src prog
+while true do
+      wait(elemento_disponible);
+      wait(buffer_manipulable);
+      item <- pop buffer;
+      signal(buffer_manipulable);
+      signal(espacio_disponible);
+      consume item;
+done
+    #+end_src
+
+    Los valores iniciales serían =espacio_disponible:=N= y
+    =elemento_disponible:=0=.
+** Laboratorio 6
+*** thread.c
+
+    Añadir variable =load_avg=0;=
+
+    Todas las operaciones van en la función =thread_tick=
+
+    Incluir =devices/timer.h= (=#include=)
+
+    #+begin_src c
+struct thread* t = thread_current();
+if (timer_ticks() % TIMER_FREQ == 0){
+  int c59_60 = fixpoint(59, 60);
+  int c1_60 = fixpoint(1, 60);
+  load_avg = c59_60 * load_avg + c1_60 * list_size(&ready_list);
+ }
+thread_current()->recent_cpu++;
+    #+end_src
+    
+    #+begin_src c
+thread_get_nice(void){
+  return thread_current()->nice;
+}
+    #+end_src
+
+    =thread_get_load_avg= y =thread_get_recent_cpu= deben ser editadas.
+** Clase 19
+*** Servicios del sistema
+
+    - Manejador de archivos: Son los programas que crean, borran,
+      renombran e imprimen; en general manipulan archivos y
+      directorios.
+
+      - =touch [ruta del archivo]=
+
+      - =mkdir [nombre / ruta del archivo]=
+
+      - =ls [ruta del archivo o directorio]=
+
+      - =rm [ruta de origen] [ruta de destino]=
+
+      - =cp [ruta de origen] [ruta de destino]=
+
+      - =rsync= copia con permiso
+
+    - Información o Estatus: Programas que preguntan al sistema acerca
+      del estado mismo.
+
+      - =top=
+
+      - =chmod=
+
+      - =date=
+
+      - =uname=
+
+      - =date=
+
+      - =uptime=
+
+    - Comunicación: Permiten crear comunicación entre procesos.
+
+      - =ssh=
+
+      - =wget=
+** Clase 20
+*** MLFQ
+
+    - Conceptos básicos
+
+      - Ráfagas de CPU en procesos interactivos
+
+      - Calendarizador
+
+	- Non-preemptive
+
+	- Preemptive
+
+	- Parámetros a optimizar
+
+      - Despachador
+
+      - Ejemplos de:
+
+	- First Come, First Served
+
+	- Shorted Job first
+
+	  - Estimación de longitud de ráfagas de CPU
+
+	- Prioridades; con colas multinivel
+
+	  - Hambruna
+** Laboratiorio 7
+*** ¿Por qué no podemos usar floats?
+
+    Es posible usarlos en un entorno de kérnel, sin embargo es más
+    costoso usarlos pues hay que estar pendiente también del uso de
+    los registros que se utilizan al operar con numeros con punto
+    flotante.
+** Clase 21
+*** Manejador de interrupciones de primer nivel
+
+
+    Su labor es responder a las interrucpciones, con mayor o menor ayda del HW
+
+    Se ejecuta con interrupciones deshabilitadas.
+
+    - Determina la fuente
+
+    - Procesa la interrupción: ejcuta una rutina de servicio de
+      interrupción asociada.
+
+
+    Puede hacer parcialmente el trabajo para el manejador de
+    interrupciones de segundo nivel.
+
+    Puede alterar el estado de los procesos.
+
+    La parte del núcleo encargado de responder a las señales.
+
+    - Externas
+
+    - Internas: Llamadas al sistema por medio de software.
+
+
+    Realiza dos principales tareas
+
+    - Determinar la fuente
+
+    - Inicial el servicio de interrupción
+
+
+    Se ejecuta en modo supervisor
+
+    Se asegura que los datos que podría reescribir del procesos
+    interrumpido sean guardados.
+
+    - El /FLIH/ debe ser muy simple: tal vez no haya que guardar todo el
+      contexto.
+      
+**** Determinar la fuente de la interrupción
+
+     Puede ser más o menos fácil, dependiendo del soporte del HW.
+
+     - Sin soporte: cadena de omisiones (/skip chain/), la rutina de
+       servicio de interrupción encuesta a los dispositivos asociados
+       a un mismo canal de interrupción revisando su estado antes de
+       ejecutar su respectiva rutina de servicio de interrupción.
+
+       Hay que probar las potenciales fuentes de la ibterrupción,
+       hasta enconstrarla.
+
+     - Con soporte: Dependiendo de la fuente, el rpcesador brinca a
+       una dirección de memoria diferente.
+
+       - Una combinación de ambas (por ejemplo, en Linux)
+
+
+     La interrupciones se deshabilitan cuando se transfiere control al
+     /FLIH/.
+
+     - Totalmente: Se deshabilitan todas las interrupciones.
+
+     - Parcialmente: Se enmascaran las de prioridades menores o igual.
+
+
+     Se rehabilitan al salir del /FLIH/
+
+**** Iniciar el servicio de la interrupción
+
+     Se llama a la rutina adecuada.
+
+     - Como se ejecuta en modo supervisor, y con interrupciones
+       enmascaradas, la rutina debe ser lo más pequeña posible.
+
+     - Se debe hacer lo mínimo posible y después se puede acabar de
+       procesar la interrupción.
+
+     - Ejemplo: /FLIH/ de teclado:
+
+       - Copia el dato de entrada a un buffer.
+
+       - Un proceso normal se encarga de transferirlo al proceso
+         indicado, después.
+
+**** Interrupciones y cambio de estado de procesos
+
+     Generalmente una interrupción altera el estado de algunos procesos.
+
+     - La conlcusión de una transferencia puede hacer ejecutable al
+       proceso que habí sido supendido al solicitarla.
+
+     - Una llamada al sistema wait() sobre un semáforo nulo, cambia el
+       estado del proceso que se está ejecuntando a no-ejecutable.
+
+
+     Como consecuencia, tal vez sea mejor cambiar de proceso
+     actual. Cede el control al despachador.
+
+** Laboratiorio 8
+
+*** Práctica 4: Sincronización
+
+    Utilizar como base la práctica 2.
+
+    Si queremos usar un dispositivo externo, un ejemplo (mal hecho)
+    sería el siguiente:
+    
+    #+begin_src c
+int device_init = 0;
+
+void do_something(){
+  if (device_init == 0){
+    device_init = 1;
+    init_device();
+  }
+  use_device();
+}
+    #+end_src
+
+    Es incorrecto pues con procesos concurrente puede ocurrir que dos
+    o procesos entren al mimso tiempo en la comparación y ambos sea
+    correcto pues su valor está en 0 y por tanto el dispositivo se
+    inicializaría más de una vez.
+
+    Una solución correcta sería utilizar semáforos
+
+    El semáforo utiliza un while, pues otro hilo al hacer sema_up,
+    puede cambiar el valor del semáforo y el primer thread no volvería
+    a revisar su valor, y por tanto dos hilos podrían entrar a la
+    sección crítica.
+    
+    En multinúcleo apagar las interrupciones usando semáforos no
+    funciona pues se desactivarían sólo las interrupciones de un sólo
+    núcleo.
+
+    =thread.h=
+    
+    #+begin_src c
+struct thread{
+  //...
+  int priority_old;
+  //
+}
+    #+end_src
+
+    =synch.c=
+
+    inicializar old_priority en -1.
+    
+    #+begin_src c
+lock_acquire(struct lock *lock){
+  ///...
+  struct thread *t = thread_current();
+  if (lock->holder != NULL && lock->holder->priority < t->priority){
+    lock->old_priority = t->holder->priority;
+    lock->holder->priority = t->priority;
+    //t->donation = lock
+    lock->holder->donation = lock
+  }
+  sema_down(&lock->semaphore);
+  lock->holder = thread_current();
+}
+    #+end_src
+
+    devolver la prioridad en =lock_release=.
+
+    Sin emabrgo en =lock_release= ésto puede ser incorrecto dado que un
+    thread puede tener varios locks;
+
+    en lugar de eso es conveniente guardar la variable =old_priority= en
+    el =struct lock=.
+
+    Para la segunda prueba, no hay que dejar que se bajen la prioridad
+    aquellos threads a los que se donó prioridad.
+
+    Para ello en el =struct thread= guardamos el lock que nos está donando.
+
+    Y en =lock_aquire= Cambiamos =lock->holder->donation = lock= ; por lo
+    que ya en =thread_set_priority= cambiamos directo la prioridad
+    anterior accediendo al lock que guardamos.
+
+    Si recibimos múltiples donaciones hay que guardar la prioridad
+    original antes de haber entrado en contexto de donación.
+
+    - =priority_donate_one=
+
+      Se tiene un lock y el proceso main recibe dos donaciones, al
+      hacer lock release se deshace de las prioridades donadas.
+
+    - =priority_donate_lower=
+
+      La prueba lo que hace es verificar que cuando un proceso con
+      prioridad donada, se baja la prioridad, ésta sólo se cambia
+      cuando termina el contexto de donación.
+
+      Cuando se hace release, debe ver si el lock pertenece al mismo
+      contexto de donación.
+
+    - =priority_donate_multiple=
+
+      Hace dos donaciones con dos locks distintos; cada proceso que
+      dona una prioridado lo hace por medio de un lock distinto.
+
+      se obtienen dos locks a y b; primero se libera b y luego a.
+
+    - =priority_donate_multiple2=
+
+      Lo mismo que el anterior, pero primero se libera a y luego b.
+
+      Si todavía se encuentra en contexto de donación, no cambiamos la
+      prioridad.
+    
+      Para ésto hay que regresar a la prioridad original, prioridad
+      original guardada en el thread.
+
+    - =priority_nest=
+
+      Si un proceso hace una donación a alguien que donó tiene que
+      esparcir esas donaciones.
+
+      Hay que guardar un apuntador al thread al que donaron; verificar
+      si dicha variable no es nulo; y mientras sea así, actualizamos
+      la variable.
+
+** Clase 22
+
+*** Sistemas operativos (repaso)
+
+    *Sistema Operativo*
+    
+    Es un administrador de recursos que actúa como el intermediario
+    entre el hardware y el usuario final.
+
+    *Tareas de un Sistema Operativo*
+    
+    Realiza la gestión de procesos, recursos, archivos, dispositivos
+    de entrada-salida, protección y seguridad.
+
+    *Pasos que realiza un procesador*
+
+    Fetch, Decode, Execute, (Write), Check Interruption.
+
+    - Fetch: Obtener la instrucción
+
+    - Decode: Ver en qué consiste la instrucción
+
+    - Execute: Ejecuta la instrucción
+
+    - Write: De ser necesario almacena valores en registros
+
+    - Check interruption: Revisa si hay interrupciones.
+
+
+    *Llamadas al sistema*
+    
+    Una llamada al sistema es una petición por software similar a una
+    interrupción por software.
+
+    *¿Por qué el cambio de sistemas monoprocesador a multiprocesador?*
+
+    Se cambió a sistemas multiprocesador por el rendimiento y por el
+    surgimiento de sistemas multiusuario que aumentaban la carga de
+    los sistemas.
+
+    *¿Qué son las trampas?*
+
+    Una trampa puede ser una señal (o en algunos casos una
+    interrupción) que generalmente informa de un error a otra entidad
+    del sistema, como al mismo sistema o a otro proceso.
+    
+    *Características de los sistemas multiprocesador*
+
+    - Tienen por lo general un mejor rendimiento dado que puede
+      realizar múltiples tareas simultáneamente.
+
+    - Tiene uno o más hilos por cada núcleo.
+
+    - Tienen uno o más niveles de caché por núcleo.
+
+    - Todos los procesadores tienen el mismo rendimiento para acceder
+      a memoria.
+
+
+    *Calendarización*
+    
+    La calendarización es una parte del Sistema Operativo por medio
+    del cual se decide el orden y tiempo de uso de procesador que se
+    le van a dar a los procesos.
+
+    *Niveles de protección en un sistema operativo*
+    
+    Los niveles de protección que tienen los procesadores son:
+
+    - Modo usuario
+
+    - Modo kernel, modo supervisor, o modo privilegiado
+
+
+    *¿Cómo ocurren las transiciones de modo usuario a modo kernel?*
+
+    - Al cargar el kernel; que generalmente se hace mediante el
+      bootloader, se inicializa en modo kernel, y al terminar se pasa
+      a modo usuario.
+
+    - Cuando ocurre una interrupción por hardware o software, o al
+      ocurrir un error, se cambia de modo usuario a modo kernel.
+
+    - Cuando ocurren llamadas al sistema.
+
+
+    *Proceso*
+    
+    Un proceso es una tarea en ejecución o que se va a ejecutar
+
+    *Tipos de memoria en un sistema*
+    
+    Los 4 tipos de memoria en un sistema son:
+
+    - RAM (Memoria Principal)
+
+    - Discos duros (Memoria Secundaria)
+
+    - Caché
+
+    - Registros del CPU
+
+
+    *¿Qué es una máquina virtual?*
+
+    Software que emula un sistema de cómputo.
+
+    *Proceso actual*
+    
+    El proceso actual es el proceso que se encuentra en ejecución en
+    un instante.
+
+    *Descriptor de hardware*
+
+    Un descriptor de hardware de proceso almacena la información del
+    estado de un proceso.
+
+    *Idea de la demostración del protocolo "Productores-Consumidores"*
+
+    En caso de no ser correcto, entonces deben existir dos o más
+    procesos que se encuentran en la sección crítica (la manipulación
+    de la colección finita).
+
+    Según la especificación, entonces ésto quiere decir decir que al
+    menos dos procesos en su función =wait= vieron que había lugares
+    disponibles (o había elementos, según sea el caso) en la
+    colección, y que ambos vieron que el búfer era manipulable, sin
+    embargo el primero de ellos debió haber hecho que el estado del
+    semáforo cambiará por la función =wait= y como ambos se encuentran
+    en la sección crítica, éste primer proceso aún no utiliza la
+    función =signal= para éste semáforo, por tanto no debió haber pasado
+    el segundo.
+
+    Esto último es una contradicción, y como vino de suponer que el
+    protocolo no funcionaba correctamente, seguimos entonces que el
+    protocolo de Productores-Consumidores es correcto.
+
+    *Embriones/Precursores de los sistemas operativos*
+
+    - Sistemas de procesamiento de Lote (Batch-Processing Systems):
+
+      En estos sistemas los usuarios enviaban trabajos en lotes, y la
+      computadora los procesaba secuencialmente.
+
+    - Programas Monitores:
+
+      Eran sistemas de Software que proporcionaban funcionalidad
+      básica de gestión de recursos y programación.
+
+    - Sistemas de Tiempo Compartido:
+
+      Permitían a varios usuarios compartir el mismo sistema
+      informático simultáneamente, y cada uno de ellos podía acceder a
+      una "máquina virtual" o una porción de tiempo de los recursos
+      del sistema.
+
+    - Sistemas de multiprogramación:
+
+      Fueron diseñados para aumentar la utilización de los recusrsos
+      informáticos permitiendo que varios programas se cargaran en
+      memoria simultáneamente. Utilizaban técnicas como el
+      intercambio, paginación y segmentación para asignar la gestión
+      de memoria a diferentes programas.
+
+    - Programas de Control:
+
+      Proporcionaban un control básico y coordinación de los
+      dispositivos de entrada/salida y recursos del sistema.
+
+    - Sistemas de Archivos:
+
+      Gestionan el almacenamiento y recuperación de archivos en
+      dispositivos de alamacenamiento.
+
+** Clase 23
+   
+*** Page Replacement
+
+    - Cadena de referencia: Al evaluar un algoritmo se toma una cadena
+      de memoria en particular, denominada como "cadena de
+      referencia".
+
+    - Page Frames: Páginas en dodnde se pueden asignar una parte de la
+      Cadena de Referencia.
+
+      *Optimal Page Replacement* guarda en frames de tamaño finito
+      partes de la cadena de referencia, de tal manera que se guardan
+      todas los datos que se van a usar eventualmente revisando el
+      resto de la cadena en cada iteración.
+
+      *LRU Page Replacement* 
+
+** Clase 24
+
+*** Administración de memoria
+
+**** Motivación
+
+     1. Realojamiento
+
+	- Es imposible saber de antemano qué otros procesos se
+          ejcutarán al mismo tiempo.
+
+	- El programador no puede hacer referencias a posiciones de
+          memoria absolutas.
+
+     2. Protección
+
+	- Un proceso no debe tener acceso a la memoria de otro
+
+	  - Todos los accesos a memoria se deben checar en tiempo de
+            ejecución para asegurarse de que se refieren al espacio de
+            momria del proceso actual.
+
+     3. Compartición
+
+	- A veces hace falta compartir memoria entre procesos.
+
+	  - Instancias del mismo programa pueden convenientemente
+            compartir una sola copia del programa.
+
+	  - Consumidores/Productores deben compartir un buffer.
+
+     4. Intercambio de memoria: Swapping
+
+	- La RAM es típicamente pequeña: conviene usar discos para
+          "extender" la memoria.
+
+	- Se puede hacer a mano (overlay programming)
+
+	  - Complicado, propenso a errores
+
+	- O con ayuda de la computadora (Memoria de intercambio)
+
+**** Memoria Virtual
+
+     - Mecanismo de traducción de direcciones en tiempo de ejecución
+       (mapeo de direcciones)
+
+     - Distinción entre
+
+       - Direcciones de programa (programador, procesador)
+
+       - Direcciones de memoria (hardware)
+
+     - Espacio de direcciones /virtuales/, Espacio de memoria /física/.
+
+       - $f:D\rightarrow M$
+
+**** Espacio de direcciones virtual
+
+     - No necesariamente es lineal
+
+     - Puede ser mayor, menor o igual que el espacio de memoria.
+
+     - El programador "ve" y "usa" una /memoria virtual/, diferente a la
+       memoria /física/.
+
+*** Implementación de memoria virtual
+
+**** Registros base y límite
+
+     - El registro base contiene la menor dirección accedida por el
+       proceso.
+
+       - Todo acceso a la memori de este proceso es relativo a esa
+         dirección base.
+
+	 - $f(a)=B+a$
+
+     - La /relocalización/ es trivial
+
+     - La /protección/ se lleva a cabo /limitando/ la /máxima/ dirección
+       referenciable: /registro límite/.
+
+     - Ayuda a cubrir los requisitos de /relocalización/ y /protección/.
+
+** Clase 25
+
+*** Implementación de memoria virtual
+
+**** Registros base y límite
+
+     1. Si $a<0$; violación de memoria.
+
+     2. $a'=B+a$
+
+     3. Si $a'>limite$: violación de memoria.
+
+     4. $a'$ es la dirección física solicitada.
+
+
+     Notemos que:
+
+     - El espacio de direcciones es lineal.
+     - El espacio de direcciones es menor o igual que el espacio de
+       memoria.
+     - No hay compartición.
+
+**** Paginación
+
+     - Se inventó en los 60s
+
+     - El espacio de direcciones virtual se divide en páginas
+
+       - Bloque de direcciones de memoria de tamño fijo
+
+     - La memoria RAM de sivide en marcos de página.
+
+       - Bloque de direcciones de memoria de tamaño fijo
+
+     - Los marcos de página se reparten entre los procesos.
+
+       - En un momento dado, un proceso tiene páginas.
+   
+** Clase 26
+
+*** Memoria virtual
+
+    Idealmente quisieramos que todo nuestro programa estuviera
+    completo en la meoria principal.
+
+    - Memoria lógica: Memoria "intangible" creada por el sistema
+      operativo manejado con direcciones lógicas.
+
+    - Memoria virtual: incluye la separación de
+
+    - MMU (Memory Management Unit)
+
+    - Paginación por demanda:
+
+** Clase 27
+
+*** Memoria Virtual    
+**** Paginación
+
+     Lo que hace la MMU en tiempo de ejecución es recibir una
+     dirección de memoria virtual y ésta lo mapea a una direción de
+     memoria física.
+     
+***** ¿A qué página física corresponde la página virtual p?
+
+      - Tabla de páginas (esquema simple):
+
+	- Una tabla por proceso: un apuntador a la tabla del proceso
+          actual ser carga en un registro del procesador.
+
+	- La entrada $p$ - ésima indica el marco de página que le
+          corresponde a la página $p$, y un poco de información
+          administrativa:
+
+	  - Cuántas veces la página se ha referenciado.
+
+	  - Tiempo de última referencia.
+
+	  - Si se ha escrito a esa dirección.
+
+** Clase 28
+
+*** Múltiples niveles de tablas
+
+    - Se divide el total de p´aginas en directorios de tamaño fijo.
+
+      - Pentium y posteirores: dos niveles.
+
+      - Sparc (32 bits): 3 niveles.
+
+      - Motorola 68030 (32 bits): 4 niveles.
+
+    - Se realiza un acceso a RAM por cada nivel de "página".
+
+** Clase 29
+
+*** Paginación
+
+    Hay una tabla de paginación por proceso en el sistema.
+
+    Debe haber un apuntador a la tabla del proceso actual en un
+    registro del procesador.
+
+    Para cambiar de proceso acutal, recuperamos la dirección de la TAP
+    del nuevo proceso a partir de su descriptor de HW, y la escribimos
+    en el registro adecuado de la MMU.
+
+    Invalidamos las entradas del TLB.
+
+    Restauramos el resto del entorno volátil del proceso a ejecutar.
+
+*** Ejemplos de aplicaciones de paginación:
+
+    - Comparir memoria:
+
+      - Páginas virtuales de diferentes procesos se asocian a la misma
+        página física.
+
+      - Si la memoria no es totalmente compartida: copy-on-write
+
+	- Es un mecanismo que permite posponer la copia de bloques de memoria hasta que uno de los procesos hace una modificación sobre ese bloque.
+
+      - Archivos mapeados a memoria:
+
+	- Es una técnica para facilitar el acceso a archivos: el
+          archivo se ve cocmo un "arreglo" en memoria.
+
+
+    ZSWAP: Compresión de memoria en lugar de mandarla a almacenamiento
+    secundario (en la práctica ocurre una combinación de ZSWAP e
+    intercambio).
+
+*** Estrategias de reemplazo de página
+
+    Cuando una falla de página ocurre, pude ser necesario traer la página referenciada de memoria secunda a RAM.
+
+    - Es posible que no haya una página física libre para poder copiar
+      esta página en ella.
+
+    - Debemos entonces "hacer espacio" en la RAM.
+
+    - ¿De qué manera podemos hacer espacio?
+
+      - Mandar todo un procesos a disco.
+
+      - Estrategias de reemplazo de páginas.
+
+    - Las que no usan estadísticas de uso.
+
+    - Las que sí usan estadísticas de uso.
+
+      - Referenced bit
+
+      - Dirty bit.
+      
+** Clase 30
+
+*** Estrategias que no usan estadísticas de uso
+
+    - FIFO: El primero en entrar es el pimero en salir.
+
+      - Fácil de implementar. Sólo hace galta implementar una cola
+        (lista doblemente ligada por ejemplo).
+
+      - Sin embargo tiene un desempeño pobre:
+
+	- Ignora que la página más vieja puede ser la más
+          referenciada
+
+	- Sucede el fenómeno "anomalía de Belady":
+
+	  - Incrementar la memoria baja el desempeño.
+
+*** Anomalía de Belady.
+
+    Existen dos tamaños de memoria uno menor que el otro, tal que el
+    número de fallos en la secuencia de referencias del primer tamaño
+    de memoria es menor que el segundo tamaño de memoria.
+
+*** Estrategias que sí usan estadísticas de uso
+
+    - Intentan predecir el uso futuro a partir del historial de uso
+      anterior.
+
+      - Esto se justifica mediante el principio de localidad de regerencias.
+
+	- Reloj: Modificación simple de FIFO (Esquema más simple usado
+          en la práctica).
+
+	- LRU: La del último acceso más viejo. (Usada en la práctica)
+
+	- LFU: Menos usadas frecuentemente.
+
+      - La implementación es un poco más complicada y requiere ayuda
+        de HW.
+
+      - Se puede demostrar que LRU (y cualquier otra técnica con la stack propoerty)
+
+**** Second Chance
+
+     El candidato a página víctima es toavía la que entró primero,
+     pero si esa página fue referenciada, gana otra oportunidad de
+     mantenerse presente, perdiendo su estatus de "referenciada".
+
+** Clase 31
+
+*** Descriptor de dispositivo
+
+    - Es una estructura de datos. Cada dispositivo tiene su propio
+      descriptor. Algunos campos son:
+
+      - identificador del dispositivo
+
+      - Apuntadores a funciones para manipular el dispositivo.
+
+      - Estado: Si el dispositivo está ocupado, libre o roto.
+
+      - El proceso que lo está usando
+
+      - Dos monitores para sincronización
+
+    - El núcleo accede a los dispositivos mediante la lista
+      "estructura de dispositivos".
+
+** Clase 32
+
+*** Examen Silver Chat
+
+    - 9.3 Paging 60
+
+    - 9.4 Structure of the Page table 371
+
+    - 10.5 Allocation of framse 413
+
+    - 10.8 Kernel Memory 467
+
+*** Sobre la administración de memoria
+
+    - Realojamieno
+
+    - Compartición: Exclusión en la memoria
+
+    - Protección: Durante un proceso no se puede ocupar la memoria de
+      otro proceso.
+
+    - Swapping: Si la memoria está llena, intercambia datos entre la
+      memoria principal y secundaria.
+
+      Se utiliza en caso de fallos de página
+
+      - FIFO
+
+      - LRU
+
+      - OPT
+
+    - Memoria Virtual: Mapeo de direcciones virtuales a físicas.
+
+    - MMU: Memory Management Unit
+
+      Comunicación entre
+
+      - Función mapea direcciones de memoria.
+    
+      - Alcance de un proceso en la memoria.
+
+    - Base Register: Indica la dirección en memoria más pequeña a la
+      cual puede acceder el proceso, es decir, en donde empieza su
+      espacio de dirección.
+
+    - Limit Register: Indica el tamaño de este rango de Direcciones,
+      es decir, si se le suma el "base register" y obtemnemos la
+      direción en memoria más grande.
+
+    - Demostrar por qué LRU no presenta la anomalía de Belady.
+
+** Clase 33
+
+*** El panorama de Entrada / Salida
+
+    Un proceso manda a inicializar una llamada a sistema de entrada /
+    salida, para posteriorimente mandar a llamar un wait para
+    verificar si ya se completó la operación solicitada.
+
+    Por otra parte en la llamada a sistema se identifica el
+    dispositivo por su device descriptor, encola el nuevo trabajo y
+    hace un signal de que hay un trabajo pendiente para el
+    dispositivo.
+
+    
+**** Descriptor de dispositivo
+
+     Cada dispositivo tiene su propio descriptor:
+     
+     - Identificador del dispositivo
+
+     - Apuntadores a funciones para manipular el dispositivo.
+
+     - Estado del dispositivo; Si está ocupado, libre, o roto
+
+     - El proceso que lo está usando
+
+     - Dos monitores para sincronización
+
+     - Dos monitores para sincronización: /request pending,/ /operation
+       complete/
+
+     - Cola de trabajos
+
+
+     El kernel por lo general tiene instalado un driver para controlar
+     el dispositivo.
+
+**** Driver de dispositivo
+
+     - Hay un dispositivo "driver"por cada dispositivo
+
+       - Su trabajo es esperar a que haya peticiones y procesarlas.
+
+       - En un "consumidor" de IORB's
+
+
+     #+begin_src prog
+repite indefinidamente:
+    begin
+        wait(request_pending);
+	toma un IORB de la cola;
+	extrae los detalles de la solicitud;
+	inicia operación de E/S;
+	wait(operation_complete);
+	if error then plant_error_info; exit # notifica al proceso que hubo un error
+	traduce caracteres si es necesario;
+	transfiere datos al destino;
+	signal(reques_services);
+	delete IORB;
+     end;
+     #+end_src
+
+     Escribe de acuerdo a las especificaciones del dispositivo en sus
+     registros de control.     
+     
+** Clase 34
+
+*** Dispositivos de Entrada y Salida
+
+    - Diferencias:
+
+      - Velocidad: Los dispositivos transmiten a distintas
+        velocidades.
+
+      - Representación de Datos:
+
+	- La forma en que codifican los datos que transmite cada
+          dispositivo de E / S es distinta.
+
+      - Operaciones permitidas:
+
+	- El tipo de operación que piede realizar el dispositivo E/S.
+
+	  Telcado: Entrada
+
+	  Bocina: Salida
+
+*** Unidad de transferencia
+
+    Los datos de un dispositivo de Entrada / Salida son diferentes,
+    por ejemplo un disco duro transmite por bloques, mientras que un
+    teclado envía un sólo caracter.
+
+*** DOIO
+
+    =DOIO(stream, amount, mode, destination, semaphore)=
+
+    Es el nombre del procedimiento para un dispositivo E/S
+
+    - stream: Localiza el dispositivo por medio de señales eléctricas.
+
+    - amount: (La cantidad / El tamaño) de los datos a transmitir.
+    
+    - mode: La operación a realizar por el dispositivo E/S.
+
+    - destination: Destino de la información
+
+    - semaphore: Almacena el estado del proceso.
+
+
+    Su función principal es asignar el flujo (el trabajo) al
+    dispositivo E/S (añadirlo al IORB), comprobar la consistencia de
+    los parámetros, e iniciar el servicio de petición.
+
+*** Procedimiento re-entrante
+
+    Puede ser utilizado por varios dispositivos a la vez.
+
+*** Descriptor de dispositivo
+
+    - Id
+      
+    - Estatus
+
+    - Características
+
+    - Current IORB /Input-Output Request Block/
+
+      * Destino
+
+      * Cantidad
+
+      * Mode
+
+      * Next
+
+      Es una cola de procedimientos que requiere hacer el dispositivo
+
+    - Semáforo pendientes
+
+    - Semáforo completados
+  
+*** Pasos del DOIO
+
+    1. Se identifica el dispositivo E/S.
+
+    2. Una vez identificado, se ven los parámetros de entrada y salida
+       del dispositivo; si se detecta un error se puede mandar una
+       salida para verificar.
+
+    3. Se mete en la cola IORB.
+
+    4. Se hace o no el procedimiento que tniene que hacer el
+       dispositivo E/S.
+
+*** alanmart12
+
+** Clase 35
+
+*** Preguntas
+
+    ¿Cuáles son los componentes activos en una operacion de E/S?
+
+    ¿Quién se comunica con quién?
+
+    Cada dirección de comunicación, ¿de qué componente compartido se apoya?
+
+    ¿Cúáles son los parámetros de DOIO y qué significan?
+
+    Hay tres semáforos, ¿quién inicializa cada uno de ellos?
+
+    - El proceso inicializador de dispositivos
+
+
+    ¿Quién ejecuta al proceso driver?
+
+    - El proceso que pide la solicitud de E/S
+
+** Clase 36
+
+*** Sistema de archivos
+
+    * Archivo: Unidad de almacenamiento de archivos}
+
+      Se utiliza un modelo de archivo como modelos de coleccion lineal
+      de bytes (bloques).
+
+    * Directorio: Estructura para mapear nombres a archivos
+
+*** Bloques secuenciales
+
+    - Pros:
+
+      - Acceso aleatorio.
+
+      - Un bloque dañado sólo saña un archivo
+
+    - Contras: Fragmentación -> Compactación
+
+      - Difícil añadir o eliminar bloques al interior del archivo.
+
+      - Hay que saber de antemano la cnatidad de bloques que hay que
+        asignar.
+
+*** Bloques enlazados
+
+    - Los bloques de un archivo se estructuran en una lista ligada
+      contenida en él mismo.
+
+    - En el directorio se guarda un apuntador al primer y último
+      bloque.
+
+    - Cada bloque tien un apuntador al siguiente.
+
+
+    Pros:
+
+    - No hay fragemntación interna.
+
+    - No hace falta realizar compactación (aunque ayuda defrag)
+
+
+    Cons:
+
+    - Acceso secuencial únicamente, Avanzar al bloque siguiente
+      implica una lectora de disco.
+
+    - Sobrecarga de espacio por los apuntadores.
+
+
+    Para minimizar las desventajas, en lugar de bloques: conjuntos de
+    tamaño fijo de bloques consecutivos.
+
+*** Tabla de asignación de archivo (FAT)
+
+    En lugar de tener una cadena de bloques distribuida en distintas
+    localizaciones, los consolidamos en una tabla de asignación
+    almacenados en una región compacta del disco.
+    
+    - Variación del esquema enlazado.
+
+    - El disco se divide en clusters.
+
+    - Se hace una tabla que contiene una entrada por cluster.
+
+    - Si el cluster c es el i-ésimo del archivo f, la entrada c-+esima
+      de la tabla contiene el número del cluste i+1-eśimo de f.
+
+    - Una entrada de directorio contiene un apuntador al prmer y
+      útlimo cluster del archivo.
+
+* Tareas [4/5]
+
+  - [X] Práctica 1: Reimplementar la función timer_sleep para que no
+    utilice espera ocupada.
+  - [X] Tarea 1:
+    Enviar a: alanmartinez-012@ciencias.unam.mx
+    Asunto: Tarea1SO 2023-2
+    Cuerpo: - Nombre Completo
+    - No Cuenta
+  - [X] Práctica 2
+  - [X] Tarea 2
+  - [ ] Primer Parcial: Miércoles 29 de marzo
+    - /Embriones/ de los Sistemas Operativos
+    - Ogranización de Computadoras
+    - Interrupciones
+    - Llamadas al sistema y señales
+    - Procesos: Protocolos y semáforos

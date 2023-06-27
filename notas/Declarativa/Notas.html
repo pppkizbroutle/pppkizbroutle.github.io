@@ -1,0 +1,2039 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-06-27 Tue 13:54 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Programación Declarativa</title>
+<meta name="author" content="Erik Rangel Limón" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">/* Base */html,body {    background-color: #222;    min-height: 100%;    line-height: 1.5;}body {    color: #fafafa;    font-family: "Courier New";}::selection {    background-color:  #2ecc40;    color: white;}/* Responsive content positioning */@media only screen and (min-width: 1020px) /* Large screens */{    body{        padding: 10vh 25vw;    }}@media only screen and (max-width: 1020px) and (min-width: 750px) /* Small screens */{    body{        padding: 5vh 10vw;    }}@media only screen and (max-width: 750px) /* Small screens */{    body{        padding: 2vh 5vw;    }}/* Headers */h1{font-size: 2.5rem;}h2{font-size: 1.7rem;}h1 > .subtitle, h3, h4, h5, h6{font-size: 1.3rem;}.title{    margin-bottom: 2.5rem;}/* Padding & Margin */* {margin: 0; padding: 0;}pre, blockquote, ul, ol, p, table{    margin: 1rem 0;}h1, h2{margin-top: 2rem; line-height: 2rem;}h3, h4, h5, h6{margin-top: 1rem;}/* Links  */a, a:visited {    color: #01ff70;    text-decoration: underline;}a:hover, a:focus, a:active {    color: #2ecc40;}/* Code */pre {    font-family: "Courier New";    padding: .5rem;    background-color: #333;    padding: 0.5rem;    border-radius: 0.2rem;    font-size: 0.9rem;    color: #EEE;    overflow-x: auto;}.org-keyword{    color: #01ff70;}.org-rainbow-delimiters-depth-1{    color: #2ecc40;}.org-rainbow-delimiters-depth-2{    color: #01ff70;}/* Blockquotes */blockquote {    border-left: 3px solid #01ff70;    padding-left: 1rem;}li{    list-style-position: inside;}/* Tags */.tag{    margin-top: 0.5rem;    display: block;    color: white;    font-size: var(--font-size-xsmall);}.tag > span{		font-weight: 400;    font-size: 0.8rem;    background-color: #444;    text-transform: uppercase;    border-radius: 2px;    width: fit-content;    height: auto;    padding: 1px 5px;}/* Keywords */.todo{    color: #2ecc40;}.done{    color: #444;}/* Overflows */.outline-text-2, .outline-text-3, .outline-text-4{	  max-width: 100%;	  overflow-x: auto;}/* Table */tr:nth-child(even) {    background-color: #333;}th, td{    padding: 0.5rem;    text-align: center;}.underline{    text-decoration: underline;}img{    max-width: 100%;    height: auto;}</style>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Programación Declarativa</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgf2bdb91">Evaluación</a></li>
+<li><a href="#orgfab2940">Notas de Clase</a>
+<ul>
+<li><a href="#orgc6a3cd3">Clase 1</a>
+<ul>
+<li><a href="#org128755b">Temario</a></li>
+</ul>
+</li>
+<li><a href="#org2d033da">Clase 2</a>
+<ul>
+<li><a href="#org757c183">Prolog (Tarea)</a></li>
+<li><a href="#org4b41411">Lenguaje Funcional</a></li>
+</ul>
+</li>
+<li><a href="#orgb7d24da">Clase 3</a>
+<ul>
+<li><a href="#org3b95967">Haskell</a></li>
+</ul>
+</li>
+<li><a href="#orgcc4a538">Clase 4</a>
+<ul>
+<li><a href="#orgc188cc2">Paradigma / Estilo de Programación</a></li>
+<li><a href="#org69318e3">Lenguajes lógicos</a></li>
+<li><a href="#org6b6c8b8">Lenguajes funcionales</a></li>
+<li><a href="#org6883eec">Lógica de predicados</a></li>
+</ul>
+</li>
+<li><a href="#orgbf1830c">Clase 5</a>
+<ul>
+<li><a href="#org6463601">Lógica de predicados (Primer orden)</a></li>
+</ul>
+</li>
+<li><a href="#orgd248ed9">Clase 6</a>
+<ul>
+<li><a href="#org0506d3a">Fundamentos teóricos de la programación lógica</a></li>
+<li><a href="#orgc1e7fa6">Cláusula</a></li>
+<li><a href="#org838e5ae">Resolución binaria</a></li>
+</ul>
+</li>
+<li><a href="#org7bd7c71">Clase 7</a>
+<ul>
+<li><a href="#org63a089e">Resolución binaria</a></li>
+</ul>
+</li>
+<li><a href="#orgcc26208">Clase 8</a>
+<ul>
+<li><a href="#orgbb9b69f">Programación lógica</a></li>
+<li><a href="#org0384c51">Árbol SLD</a></li>
+<li><a href="#org99d46b2">Prolog</a></li>
+</ul>
+</li>
+<li><a href="#org69b19cb">Clase 9</a>
+<ul>
+<li><a href="#org36b258f">Prolog</a></li>
+</ul>
+</li>
+<li><a href="#orgf9774ac">Clase 12</a>
+<ul>
+<li><a href="#orged9afee">Listas en prolog</a></li>
+</ul>
+</li>
+<li><a href="#orgdf3d94a">Clase 13</a>
+<ul>
+<li><a href="#org742eeed">Ejercicios prolog</a></li>
+</ul>
+</li>
+<li><a href="#orga531d17">Clase 14</a>
+<ul>
+<li><a href="#org4319ee0">Prolog operadores</a></li>
+<li><a href="#org8b997f6">Precedencia</a></li>
+<li><a href="#org5ce3ee5">Asociatividad</a></li>
+<li><a href="#orge244605">Definir operadores en prolog</a></li>
+<li><a href="#org6916d56">No determinismo en prolog</a></li>
+</ul>
+</li>
+<li><a href="#org2f2cced">Clase 15</a>
+<ul>
+<li><a href="#org35895aa">Fibonacci en prolog</a></li>
+<li><a href="#orgf4e1f4e">Operador de corte en prolog</a></li>
+<li><a href="#org0a4d13d">Negación como falla</a></li>
+<li><a href="#org2e2829b">Programación funcional</a></li>
+</ul>
+</li>
+<li><a href="#orgd99c26b">Clase 16</a>
+<ul>
+<li><a href="#org549c013">Recursión de cola</a></li>
+</ul>
+</li>
+<li><a href="#org0483a56">Clase 17</a>
+<ul>
+<li><a href="#orgb4e3da0">Propiedad universal</a></li>
+<li><a href="#orgc6e40d9">Principio de fusión</a></li>
+</ul>
+</li>
+<li><a href="#org43b4f97">Clase 18</a>
+<ul>
+<li><a href="#org04a8043">Evaluación perezosa</a></li>
+<li><a href="#org6ee04f5">Sistemas de tipos</a></li>
+<li><a href="#orge1b4582">Definición de tipos en Haskell</a></li>
+<li><a href="#org32cb370">Inferencia de tipos</a></li>
+<li><a href="#orgfb541f2">Clases de tipos</a></li>
+</ul>
+</li>
+<li><a href="#orge89dd38">Clase 19</a>
+<ul>
+<li><a href="#orgafa1097">Kinds</a></li>
+</ul>
+</li>
+<li><a href="#org4655047">Clase 20</a>
+<ul>
+<li><a href="#orgbb84f38">Construcción del sistema</a></li>
+</ul>
+</li>
+<li><a href="#org1dc3e6a">Clase 21</a>
+<ul>
+<li><a href="#org0f294be">Funtores, funtores aplicativos y mónadas</a></li>
+</ul>
+</li>
+<li><a href="#orgaba604c">Clase 22</a>
+<ul>
+<li><a href="#org8099b9e">Programación funcional</a></li>
+<li><a href="#orgf9ca0ee">Lenguajes multiparadigma</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org52441df">Tareas <code>[1/2]</code></a></li>
+</ul>
+</div>
+</div>
+<p>
+Cambio en el horario
+</p>
+
+<p>
+lunes y miércoles de 17 a 16:30
+</p>
+
+<p>
+No habrá laboratorio
+</p>
+
+<div id="outline-container-orgf2bdb91" class="outline-2">
+<h2 id="orgf2bdb91">Evaluación</h2>
+<div class="outline-text-2" id="text-orgf2bdb91">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Rubro</th>
+<th scope="col" class="org-right">Porcentaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Tareas</td>
+<td class="org-right">60%</td>
+</tr>
+
+<tr>
+<td class="org-left">Proyecto final</td>
+<td class="org-right">40%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgfab2940" class="outline-2">
+<h2 id="orgfab2940">Notas de Clase</h2>
+<div class="outline-text-2" id="text-orgfab2940">
+</div>
+<div id="outline-container-orgc6a3cd3" class="outline-3">
+<h3 id="orgc6a3cd3">Clase 1</h3>
+<div class="outline-text-3" id="text-orgc6a3cd3">
+</div>
+<div id="outline-container-org128755b" class="outline-4">
+<h4 id="org128755b">Temario</h4>
+<div class="outline-text-4" id="text-org128755b">
+<ol class="org-ol">
+<li>Programación lógica (Prolog)</li>
+
+<li>Programación funcional (Haskell)</li>
+
+<li>Programación declarativa con otros estilos</li>
+
+<li>Programación declarativa en el mundo</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2d033da" class="outline-3">
+<h3 id="org2d033da">Clase 2</h3>
+<div class="outline-text-3" id="text-org2d033da">
+</div>
+<div id="outline-container-org757c183" class="outline-4">
+<h4 id="org757c183">Prolog (Tarea)</h4>
+<div class="outline-text-4" id="text-org757c183">
+<ul class="org-ul">
+<li>Es un lenguaje muy ligado con la inteligencia artificial y con
+la lingüística computacional.</li>
+
+<li>Tiene sus raíces en la lógica de primer orden y la lógica
+formal.</li>
+
+<li>Es un lenguaje principalmente declarativo.</li>
+
+<li>Tiene extensiones y versiones con características imperativas,
+concurrentes.</li>
+
+<li>El funcionamiento del lenguaje es mediante relaciones, las
+cuales pueden representar hechos o reglas, con las que una
+computación se puede realizar mediante una búsqueda sobre éstas
+relaciones.</li>
+
+<li>Conclusiones lógicas (relaciones).</li>
+
+<li>Tiene wildcards.</li>
+
+<li>Tiene listas.</li>
+
+<li>Fue uno de los primeros lenguajes lógicos, y sigue siendo el
+lenguaje más popular de ellos, de la cual se distribuyen varias
+versiones de ellos.</li>
+
+<li>Es mayormente utilizado para demostraciones de teoremas,
+sistemas expertos, reescripción de términos, así como también
+para el procesamiento de lenguaje natural, el cual fue su
+intensión de uso original.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4b41411" class="outline-4">
+<h4 id="org4b41411">Lenguaje Funcional</h4>
+<div class="outline-text-4" id="text-org4b41411">
+<ul class="org-ul">
+<li><p>
+Funcional:
+</p>
+
+<p>
+Tiene efectos secundarios, como entradas aleatorias, escritura y
+lectura del disco, hora y tiempo, entre otras cosas.
+</p></li>
+
+<li><p>
+Puramente funcional:
+</p>
+
+<p>
+Evita en la mayoría de lo posible los efectos secundarios de una
+computadora.
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb7d24da" class="outline-3">
+<h3 id="orgb7d24da">Clase 3</h3>
+<div class="outline-text-3" id="text-orgb7d24da">
+</div>
+<div id="outline-container-org3b95967" class="outline-4">
+<h4 id="org3b95967">Haskell</h4>
+<div class="outline-text-4" id="text-org3b95967">
+<ul class="org-ul">
+<li>Es un lenguaje puramente funcional</li>
+
+<li>Currificación; lo que quiere decir es que una función con varios
+parámetros la convierte a varias funciones de un sólo parámetro.</li>
+
+<li>Philip Wadler introdujo la teoría de categorías a la
+programación funcional, lo que permitió el uso de efectos
+secundarios en lenguajes puramente funcionales.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcc4a538" class="outline-3">
+<h3 id="orgcc4a538">Clase 4</h3>
+<div class="outline-text-3" id="text-orgcc4a538">
+</div>
+<div id="outline-container-orgc188cc2" class="outline-4">
+<h4 id="orgc188cc2">Paradigma / Estilo de Programación</h4>
+<div class="outline-text-4" id="text-orgc188cc2">
+<p>
+Existen dos principales
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="orgef9cd11"></a>Imperativo (Cómo)<br />
+<div class="outline-text-5" id="text-orgef9cd11">
+<p>
+Éste se enfoca más en explicar un programa como un conjunto de
+instrucciones.
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="orgf56cd74"></a>¿Por qué son Turing Completos?<br />
+<div class="outline-text-6" id="text-orgf56cd74">
+<p>
+Se ha demostrado que si un lenguaje imperativo tiene:
+</p>
+
+<ul class="org-ul">
+<li>Secuencia</li>
+<li>Decisión</li>
+<li>Repetición</li>
+</ul>
+
+
+<p>
+Entonces el lenguaje es turing completo.
+</p>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="orga99e194"></a>Declarativo (Qué)<br />
+<div class="outline-text-5" id="text-orga99e194">
+<p>
+Estos nacen a partir de conceptos de las matemáticas
+</p>
+
+<p>
+Uno de los primeros lenguajes declarativos fue lisp como una
+nueva manera de programar, el cual intentó utilizar el cálculo
+lambda para su sintaxis.
+</p>
+
+<p>
+A partir de <b>Lisp</b> surgen algunas vertientes que implementan de
+manera correcta el cálculo lambda, como <i>Haskell</i>, <i>Ocaml</i>, <i>Scheme</i>,
+<i>Racket</i>.
+</p>
+
+<p>
+Una de las características de los lenguajes declarativos son las
+siguientes:
+</p>
+
+<ul class="org-ul">
+<li>Utilizan la recursión como método de iteración.</li>
+
+<li>Es más fácil demostrar que un algoritmo es correcto.</li>
+
+<li>Las funciones actúan como miembros de primera clase.</li>
+
+<li>Sistemas de tipos "elegantes".</li>
+
+<li>No tienen efectos secundarios, si el lenguaje no los tiene en
+su totalidad se dice entonces que es un leguaje puro.</li>
+
+<li>Tienen fuertes bases matemáticas como la lógica, el cálculo
+\(\lambda\), y la teoría de categorías.</li>
+
+<li>Evaluación perezosa (<i>Lazy evaluation</i>).</li>
+
+<li>Por lo general existen listas en los lenguajes declarativos.</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org191050a"></a>¿Por qué es Turing Completo?<br />
+<div class="outline-text-6" id="text-org191050a">
+<p>
+Sabemos que el Cálculo \(\lambda\) es equivalente a una Máquina de
+Turing, por lo que un lenguaje declarativo será Turing Completo
+si tiene:
+</p>
+
+<ul class="org-ul">
+<li>Funciones</li>
+<li>Aplicaciones</li>
+<li>Variables</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org69318e3" class="outline-4">
+<h4 id="org69318e3">Lenguajes lógicos</h4>
+<div class="outline-text-4" id="text-org69318e3">
+<ul class="org-ul">
+<li>Usa hechos y reglas de inferencia</li>
+<li>Tiene como base la lógica de la primer orden</li>
+<li>Usa cláusulas de Horn</li>
+<li>Unificación (Resolución binaria)</li>
+<li>Retroceso</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6b6c8b8" class="outline-4">
+<h4 id="org6b6c8b8">Lenguajes funcionales</h4>
+<div class="outline-text-4" id="text-org6b6c8b8">
+<ul class="org-ul">
+<li>Utiliza funciones para representar programas.</li>
+<li>Usa $&beta;$-reducciones para evaluar funciones.</li>
+<li>Se llega cuando llega a una forma normal.</li>
+<li>Usa teoría de categorías.
+
+<ul class="org-ul">
+<li>Patrones recursivos</li>
+<li>Functores</li>
+<li>Mónadas</li>
+<li>Monoides</li>
+<li>Aplicativos</li>
+<li>Entre otros &#x2026;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6883eec" class="outline-4">
+<h4 id="org6883eec">Lógica de predicados</h4>
+<div class="outline-text-4" id="text-org6883eec">
+<p>
+La lógica proposicional tiene varias similitudes con la lógica de
+predicados, entre ellos sabemos que algunos son:
+</p>
+
+<ul class="org-ul">
+<li>Sintaxis</li>
+<li>Semántica</li>
+<li>Deducción / Inferencia / Teoría de la prueba</li>
+</ul>
+
+<p>
+Sabemos que éste tiene:
+</p>
+
+<ul class="org-ul">
+<li>Valores*</li>
+<li>Constantes*</li>
+<li>Predicados</li>
+<li>Funciones*</li>
+<li>Opoeradores</li>
+<li>Cuantificadores</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Estos son términos</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbf1830c" class="outline-3">
+<h3 id="orgbf1830c">Clase 5</h3>
+<div class="outline-text-3" id="text-orgbf1830c">
+</div>
+<div id="outline-container-org6463601" class="outline-4">
+<h4 id="org6463601">Lógica de predicados (Primer orden)</h4>
+<div class="outline-text-4" id="text-org6463601">
+<p>
+Hereda las características de la lógica proposicional, agregángole
+los cuantificadores universales y existenciales.
+</p>
+
+<p>
+\(U\) será nuestro universo de discurso, y a partir de ellos podemos
+determinar cuántos elementos de un universo cuentan con una
+propiedad.
+</p>
+
+<p>
+Vamos a tener variables, funciones y cuantificadores.
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="org0914525"></a>Equivalencias lógicas<br />
+<div class="outline-text-5" id="text-org0914525">
+<ol class="org-ol">
+<li>\[\forall x.\forall x.\varphi\equiv\forall x. \varphi\]</li>
+
+<li>\[\exists x.\exists x.\varphi\equiv\exists x.\varphi\]</li>
+
+<li>\[\exists x.\forall x.\varphi\equiv\forall x.\varphi\]</li>
+
+<li>\[\forall x.\exists x.\varphi\equiv\exists x.\varphi\]</li>
+
+<li>\[\forall x.\varphi\equiv\forall y. (\varphi[x:=y])\]   \[y\notin FV(\varphi)\]</li>
+
+<li>\[\exists x.\varphi\equiv\exists y. (\varphi[x:=y])\]   \[y\notin FV(\varphi)\]</li>
+
+<li>\[\forall x.\varphi\equiv\varphi\]   \[x\notin FV(\varphi)\]</li>
+
+<li>\[\exists x.\varphi\equiv\varphi\]   \[x\notin FV(\varphi)\]</li>
+</ol>
+</div>
+</li>
+
+<li><a id="org69f6264"></a>Formas normales<br />
+<div class="outline-text-5" id="text-org69f6264">
+<ol class="org-ol">
+<li>Rectificación
+
+<ul class="org-ul">
+<li><p>
+Cuantificadores con variables ajenas
+</p>
+
+<p>
+\[\forall x.\exists y.\neg\forall w.\exists z. (P(x,y)\vee\neg Q(x)\rightarrow \exists w. \neg T(a,w))\]
+</p>
+
+<p>
+\[\Rightarrow \forall x.\exists y.\neg(P(x,y)\vee\neg Q(x)\rightarrow \exists u. \neg T(a,u))\]
+</p></li>
+</ul></li>
+
+<li>Forma Normal Negativa
+
+<ul class="org-ul">
+<li>Introduce negaciones a fórmulas atómicas</li>
+
+<li><p>
+Quita \(\Rightarrow\) y \(\Leftrightarrow\)
+</p>
+
+<p>
+\[\forall x.\exists y.\neg(P(x,y)\vee\neg Q(x)\rightarrow \exists u. \neg T(a,u))\]
+</p>
+
+<p>
+\[\Rightarrow \forall x.\exists y.\neg(\neg(P(x,y)\vee\neg Q(x))\vee\exists u.\neg T(a,u))\]
+</p>
+
+<p>
+\[\Rightarrow \forall x.\exists y.\neg\neg(P(x,y)\vee\neg Q(x))\wedge\neg\exists u.\neg T(a,u)\]
+</p>
+
+<p>
+\[\Rightarrow \forall x.\exists y.(P(x,y\vee\neg Q(x))\wegde\forall u.T(a,u))\]
+</p></li>
+</ul></li>
+
+<li>Forma Normal Pronex
+
+<ul class="org-ul">
+<li><p>
+Factoriza cuantificadores
+</p>
+
+<p>
+\[\forall x.(\ldots\exists y.(\ldots))\Rightarrow \forall x.\exist y.(\ldots)\]
+</p>
+
+<p>
+Si \(x\in FV(\varphi)\) y \(\star\in\{\wedge,\vee,\rightarrow\}\):
+</p>
+
+<ol class="org-ol">
+<li>\[\varphi\star\forall x.\psi\equiv\forall x.(\varphi\star\psi)\]</li>
+
+<li>\[\varphi\star\exists x.\psi\equiv\exists x.(\varphi\star\psi)\]</li>
+</ol></li>
+</ul></li>
+</ol>
+
+
+<p>
+\[\forall x.\exists y.(P(x,y\vee\neg Q(x))\wegde\forall u.T(a,u))\]
+</p>
+
+<p>
+\[\Rightarrow\forall x.\exists y.\forall u. (P(x,y)\vee\neg Q(x))\wedge T(a,u)\]
+</p>
+
+<ol class="org-ol">
+<li>Forma Normal de Skolen
+
+<ul class="org-ul">
+<li>Elimina cuantificadores existenciales
+
+<ol class="org-ol">
+<li>\(\exists x.\varphi\cong \varphi[x:=c]\)</li>
+
+<li>\(\forall x_1\ldots\forall x_n.\exists y.\varphi\cong \forall x_1\ldots\forall x_n. \varphi[y:=g(x_1,\ldots,x_n)]\)</li>
+</ol></li>
+</ul></li>
+</ol>
+
+
+<p>
+\[\forall x.\exists y.\forall u. (P(x,y)\vee\neg Q(x))\wedge T(a,u)\]
+</p>
+
+<p>
+\[\Rightarrow\forall x.\forall u. (P(x,f(x))\vee\neg Q(x))\wedge T(a,u)\]
+</p>
+
+<ol class="org-ol">
+<li>Forma Clausular
+
+<ul class="org-ul">
+<li>Representación sin \(\forall\).</li>
+</ul></li>
+</ol>
+
+<p>
+\[\forall x.\forall u. (P(x,f(x))\vee\neg Q(x))\wedge T(a,u)\]
+</p>
+
+<p>
+\[\Rightarrow \{P(x,f(x))\vee\neg Q(x), T(a,u)\}\]
+</p>
+
+<p>
+<i>Nota adicional A</i>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd248ed9" class="outline-3">
+<h3 id="orgd248ed9">Clase 6</h3>
+<div class="outline-text-3" id="text-orgd248ed9">
+</div>
+<div id="outline-container-org0506d3a" class="outline-4">
+<h4 id="org0506d3a">Fundamentos teóricos de la programación lógica</h4>
+<div class="outline-text-4" id="text-org0506d3a">
+</div>
+<ul class="org-ul">
+<li><a id="orgdfeba7b"></a>Lógica de primer orden<br />
+<div class="outline-text-5" id="text-orgdfeba7b">
+<ul class="org-ul">
+<li>Fórmulas atómicas:
+
+<ul class="org-ul">
+<li>Constantes lógicas \(\top\), \(\bot\)</li>
+
+<li>Predicados aplicados a términos.</li>
+</ul></li>
+
+<li>Términos:
+
+<ul class="org-ul">
+<li>Constantes: \((c_1,\ldots,c_n)\)</li>
+
+<li>Variables \((x_1,\ldots,x_n)\)</li>
+
+<li>Funciones aplicadas a términos \(f(t_1,\ldots,t_n)\)</li>
+</ul></li>
+
+<li>Fórmulas compuestas:
+
+<ul class="org-ul">
+<li>Conectivos \((\neg,\wedge,\vee,\rightarrow,\leftrightarrow)\)</li>
+
+<li>Cuantificadores \((\exists x.\varphi,\exists x.\varphi)\)</li>
+</ul></li>
+</ul>
+
+
+<p>
+"Hay dos pizzas, la primera es de pepperoni, la segunda de
+hawaiana.
+</p>
+
+<p>
+Sólo como pizza si hay hawaiana
+</p>
+
+<p>
+¿Puedo comer pizza?"
+</p>
+
+<p>
+En la programación lógica vamos a tener:
+</p>
+
+<ul class="org-ul">
+<li>Cláusulas que representan lo que sabemos del problema, llamadas
+base de conocimiento.</li>
+
+<li>Una cláusula llamada cuestión, llamada consulta.</li>
+
+<li>Para saber si la consulta es verdadera o falsa, aplicaremos
+resolución binaria con unificación. Si podemos llegar a la
+cláusula vacía decimos que la consulta es verdadera.</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orgc1e7fa6" class="outline-4">
+<h4 id="orgc1e7fa6">Cláusula</h4>
+<div class="outline-text-4" id="text-orgc1e7fa6">
+<p>
+Una cláusula es una disyunción de fórmulas atómicas o su negación
+(literales).
+</p>
+
+<p>
+\(C=\ell_1\vee\ell_2\vee\cdots\ell_n\)
+</p>
+
+<ul class="org-ul">
+<li><p>
+Notación conjuntista
+</p>
+
+<p>
+\[C=\{\ell_1,\ldots,\ell_n\}\]
+</p></li>
+</ul>
+
+
+<ol class="org-ol">
+<li><p>
+Conmutatividad
+</p>
+
+<p>
+\(P_i\) positivas
+</p>
+
+<p>
+\(Q_i\) negativas
+</p>
+
+<p>
+\[\neg P_1\vee\neg P_2\vee\ldots\vee\neg P_n\vee Q_1\vee Q_2\vee\cdots\vee Q_n\]
+</p></li>
+
+<li><p>
+De Morgan
+</p>
+
+<p>
+\[\]\[\neg(P_1\wedge\cdots\wedge P_j)\vee(Q_1\vee Q_2\vee\cdots\vee Q_n)\]
+</p></li>
+
+<li><p>
+Definición de implicación
+</p>
+
+<p>
+\[(P_1\wedge\cdots\wedge P_j)\rightarrow(Q_1\vee Q_2\vee\cdots\vee Q_n)\]
+</p></li>
+
+<li><p>
+Quitando operadores
+</p>
+
+<p>
+\(P_1,P_2,\ldots,P_n\rightarrow Q_1,Q_2,\ldots,Q_n\)
+</p></li>
+
+<li><p>
+Volteamos la implicación
+</p>
+
+<p>
+\[P_1,P_2,\ldots,P_n\rightarrow Q_1,Q_2,\ldots,Q_n\]
+</p></li>
+</ol>
+
+
+<ul class="org-ul">
+<li><p>
+<b>Cláusula de Horn</b>.
+</p>
+
+<p>
+Es una cláusula con a lo más una literal positiva. Las cláusulas
+de Horn son a lo más alguna de las siguientes.
+</p>
+
+<ul class="org-ul">
+<li>Hechos: Una literal positiva y ninguna negativa.</li>
+
+<li>Reglas: Una literal positiva y al menos una negativa.</li>
+
+<li>Metas: Ninugna positiva y al menos una negativa.</li>
+
+<li>Vacía: Sin literales</li>
+</ul></li>
+</ul>
+
+
+<p>
+Un programa lógico P es un conjunto de hechos y reglas (base de
+conocimientos). Las consultas se representan con metas.
+</p>
+
+<p>
+Dado un programa \(\mathbb{P}\) y una consulta \(C\) queremos verificar
+</p>
+
+<p>
+\[\mathbb{P}\models C\]
+</p>
+
+<p>
+\[\exists x. P(x),\exists y. H(y),\forall z.(H(z)\rightarrow C(z)),C(x)\]
+</p>
+
+<p>
+\[\{P(a),P(b),\neg H(z)\vee C(z),\neg C(x)\}\]
+</p>
+
+<p>
+El programa lógico entonces se vería como sigue:
+</p>
+
+<p>
+\[P(a)\leftarrow\]
+</p>
+
+<p>
+\[H(b)\leftarrow\]
+</p>
+
+<p>
+\[C(z)\leftarrow H(z)\]
+</p>
+
+<p>
+Consulta: \(\leftarrow C(x)\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org838e5ae" class="outline-4">
+<h4 id="org838e5ae">Resolución binaria</h4>
+<div class="outline-text-4" id="text-org838e5ae">
+<p>
+Es un método que permite decidir la consecuencia lógia
+\(\Gamma\models\varphi\), al llegar a la cláusula vacía a partir del
+conjunto \[\Gamma\cup\{\neg\ell\}\]
+</p>
+
+<p>
+\(\infer{(C_1\vee D_1)\sigma}{C=_{\text{def}}C_1\vee\ell & D=_{\text{def}}D_1\vee\ell' & Var(C)\cap Var(D)=\emptyset & \sigma=umg\ de\ \{\ell^c,\ell'\}}\)
+</p>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-org7bd7c71" class="outline-3">
+<h3 id="org7bd7c71">Clase 7</h3>
+<div class="outline-text-3" id="text-org7bd7c71">
+</div>
+<div id="outline-container-org63a089e" class="outline-4">
+<h4 id="org63a089e">Resolución binaria</h4>
+<div class="outline-text-4" id="text-org63a089e">
+<ul class="org-ul">
+<li>Forma clausular</li>
+<li>Algoritmo de unificación</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcc26208" class="outline-3">
+<h3 id="orgcc26208">Clase 8</h3>
+<div class="outline-text-3" id="text-orgcc26208">
+</div>
+<div id="outline-container-orgbb9b69f" class="outline-4">
+<h4 id="orgbb9b69f">Programación lógica</h4>
+<div class="outline-text-4" id="text-orgbb9b69f">
+<p>
+\(P(a)\leftarrow\)
+\(H(b)\leftarrow\)
+\(C(z)\leftarrow H(z)\)
+</p>
+
+<p>
+\(\leftarrow C(x)\) Meta
+\(\mathbb{P}\models C\)
+</p>
+
+<ol class="org-ol">
+<li>\(\leftarrow H(z)\) Res\((4,3)\) \([x:=z]\)</li>
+<li>\(\leftarrow\) Res(5,2) \([z:=b]\)</li>
+</ol>
+
+
+<p>
+Hay dos procesos de búsqueda de pruebas en la programación lógica,
+en la cual tenemos la búsqueda hacia atrás, y la búsqueda hacia
+adelante.
+</p>
+
+<p>
+En prolog, tenemos lo que se conoce como backtracking (o
+retroceso)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0384c51" class="outline-4">
+<h4 id="org0384c51">Árbol SLD</h4>
+<div class="outline-text-4" id="text-org0384c51">
+<p>
+Tenemos el siguiente programa
+</p>
+
+<ol class="org-ol">
+<li>\(p(a)\leftarrow\)</li>
+<li>\(p(b)\leftarrow\)</li>
+<li>\(q(a)\leftarrow\)</li>
+<li>\(r(f(y))\leftarrow p(y), q(y)\)</li>
+<li>\(\leftarrow r(x)\)</li>
+<li>\(\leftarrow p(y),q(y)\)</li>
+<li>\(\leftarrow q(a)\)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org99d46b2" class="outline-4">
+<h4 id="org99d46b2">Prolog</h4>
+<div class="outline-text-4" id="text-org99d46b2">
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">Tipos b&#225;sicos</span>
+<span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">&#193;tomos (t&#233;rminos m&#225;s peque&#241;os)</span>
+juanito
+m
+esto_es_un_atomo
+x1
+***
+<span style="font-style: italic;">'esto es un &#225;tomo'</span>
+
+<span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">Variables</span>
+<span style="font-weight: bold; font-style: italic;">X</span>
+<span style="font-weight: bold; font-style: italic;">EstoEsUnaVariable</span>
+<span style="font-weight: bold; font-style: italic;">_var</span>
+<span style="font-weight: bold; font-style: italic;">_</span>
+
+<span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">N&#250;meros</span>
+12313
+1.92
+-502
+
+<span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">T&#233;rminos compuestos</span>
+<span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">1. Funtor (&#225;tomo)</span>
+<span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">2. Lista de argumentos</span>
+<span style="font-weight: bold;">funtor</span>(a,b)
+<span style="font-style: italic;">'funtorcito'</span>(termino)
+<span style="font-weight: bold;">g</span>(f(a,b),h(c,d))
+</pre>
+</div>
+
+<p>
+Primero en prolog se definen hechos y reglas, si queremos un
+programa para saber quién es más alto que alguien, tenemos lo
+siguiente.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">Base de conocimientos</span>
+<span style="font-weight: bold;">alto</span>(juan,adriana).
+<span style="font-weight: bold;">alto</span>(ricardo,juan).
+<span style="font-weight: bold;">alto</span>(javier,ricardo).
+<span style="font-weight: bold;">alto</span>(alejandro,adriana).
+<span style="font-weight: bold;">alto</span>(javier,alejandro).
+
+<span style="font-weight: bold;">mas_alto</span>(<span style="font-weight: bold; font-style: italic;">X</span>,<span style="font-weight: bold; font-style: italic;">Y</span>) :- alto(<span style="font-weight: bold; font-style: italic;">X</span>,<span style="font-weight: bold; font-style: italic;">Y</span>).
+<span style="font-weight: bold;">mas_alto</span>(<span style="font-weight: bold; font-style: italic;">X</span>,<span style="font-weight: bold; font-style: italic;">Y</span>) :- alto(<span style="font-weight: bold; font-style: italic;">X</span>,<span style="font-weight: bold; font-style: italic;">Z</span>), mas_alto(<span style="font-weight: bold; font-style: italic;">Z</span>,<span style="font-weight: bold; font-style: italic;">Y</span>).
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org69b19cb" class="outline-3">
+<h3 id="org69b19cb">Clase 9</h3>
+<div class="outline-text-3" id="text-org69b19cb">
+</div>
+<div id="outline-container-org36b258f" class="outline-4">
+<h4 id="org36b258f">Prolog</h4>
+<div class="outline-text-4" id="text-org36b258f">
+<p>
+Éste utiliza el principio del universo cerrado, en donde si
+nuestro sistema no puede demostrar alguna propiedad, éste dirá que
+es falso.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf9774ac" class="outline-3">
+<h3 id="orgf9774ac">Clase 12</h3>
+<div class="outline-text-3" id="text-orgf9774ac">
+</div>
+<div id="outline-container-orged9afee" class="outline-4">
+<h4 id="orged9afee">Listas en prolog</h4>
+<div class="outline-text-4" id="text-orged9afee">
+<ul class="org-ul">
+<li>La lista vacía es una lista, y en prolog se denota como <code>[]</code>.</li>
+
+<li>Si \(x\) es un elemento de un conjunto cualquiera, y \(xs\) es una
+lista con elementos de cualquier conjunto, entonces <code>[x|xs]</code> es
+una lista.</li>
+
+<li>Son todas.</li>
+</ul>
+
+
+<p>
+Vamos a implementar la propiedad <code>contiene(x,L)</code>, que nos dirá si <code>x</code>
+está contenido en <code>L</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">contiene</span>(<span style="font-weight: bold; font-style: italic;">E</span>,<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">E</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">XS</span><span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold;">contiene</span>(<span style="font-weight: bold; font-style: italic;">E</span>,<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">_</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">XS</span><span style="font-weight: bold;">]</span>) :- contiene(<span style="font-weight: bold; font-style: italic;">E</span>,<span style="font-weight: bold; font-style: italic;">XS</span>).
+</pre>
+</div>
+
+<p>
+    Si queremos un predicado que calcula la suma de los elementos de
+    una lista.
+%@ 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">suma</span>(<span style="font-weight: bold;">[]</span>,0).
+<span style="font-weight: bold;">suma</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X</span><span style="font-weight: bold;">]</span>,<span style="font-weight: bold; font-style: italic;">X</span>).
+<span style="font-weight: bold;">suma</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">XS</span><span style="font-weight: bold;">]</span>,<span style="font-weight: bold; font-style: italic;">Y</span>) :-
+    suma(<span style="font-weight: bold; font-style: italic;">XS</span>,<span style="font-weight: bold; font-style: italic;">Z</span>),
+    <span style="font-weight: bold; font-style: italic;">Y</span> is <span style="font-weight: bold; font-style: italic;">X</span> + <span style="font-weight: bold; font-style: italic;">Z</span>
+</pre>
+</div>
+
+<p>
+Si queremos un predicado que calcule la concatenación de dos
+listas.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">concat</span>(<span style="font-weight: bold; font-style: italic;">L1</span>,<span style="font-weight: bold;">[]</span>,<span style="font-weight: bold; font-style: italic;">L1</span>).
+<span style="font-weight: bold;">concat</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">XS</span><span style="font-weight: bold;">]</span>,<span style="font-weight: bold; font-style: italic;">L2</span>,<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">ZS</span><span style="font-weight: bold;">]</span>) :- concat(<span style="font-weight: bold; font-style: italic;">XS</span>,<span style="font-weight: bold; font-style: italic;">L2</span>,<span style="font-weight: bold; font-style: italic;">ZS</span>).
+</pre>
+</div>
+
+<p>
+Si queremos un predicado que calcule la concatenación de dos
+listas.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">concat</span>(<span style="font-weight: bold;">[]</span>,<span style="font-weight: bold; font-style: italic;">L2</span>,<span style="font-weight: bold; font-style: italic;">L2</span>)
+<span style="font-weight: bold;">concat</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">XS</span><span style="font-weight: bold;">]</span>,<span style="font-weight: bold; font-style: italic;">L2</span>,<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">ZS</span><span style="font-weight: bold;">]</span>) :- concat(<span style="font-weight: bold; font-style: italic;">XS</span>,<span style="font-weight: bold; font-style: italic;">L2</span>,<span style="font-weight: bold; font-style: italic;">ZS</span>)
+
+<span style="font-weight: bold;">reversa</span>(<span style="font-weight: bold;">[]</span>,<span style="font-weight: bold;">[]</span>).
+<span style="font-weight: bold;">reversa</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">XS</span><span style="font-weight: bold;">]</span>,<span style="font-weight: bold; font-style: italic;">YS</span>) :- reversa(<span style="font-weight: bold; font-style: italic;">XS</span>,<span style="font-weight: bold; font-style: italic;">ZS</span>), concat(<span style="font-weight: bold; font-style: italic;">ZS</span>,<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X</span><span style="font-weight: bold;">]</span>,<span style="font-weight: bold; font-style: italic;">YS</span>) 
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdf3d94a" class="outline-3">
+<h3 id="orgdf3d94a">Clase 13</h3>
+<div class="outline-text-3" id="text-orgdf3d94a">
+</div>
+<div id="outline-container-org742eeed" class="outline-4">
+<h4 id="org742eeed">Ejercicios prolog</h4>
+<div class="outline-text-4" id="text-org742eeed">
+</div>
+<ul class="org-ul">
+<li><a id="orgee97029"></a>Contención<br />
+<div class="outline-text-5" id="text-orgee97029">
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">contiene</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">H</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">_</span><span style="font-weight: bold;">]</span>,<span style="font-weight: bold; font-style: italic;">H</span>).
+<span style="font-weight: bold;">contiene</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">_</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">T</span><span style="font-weight: bold;">]</span>,<span style="font-weight: bold; font-style: italic;">X</span>) :- contiene(<span style="font-weight: bold; font-style: italic;">T</span>,<span style="font-weight: bold; font-style: italic;">X</span>).
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org83ea23a"></a>Suma de elementos de una lista (recursiva)<br />
+<div class="outline-text-5" id="text-org83ea23a">
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">suma</span>(<span style="font-weight: bold;">[]</span>,0).
+<span style="font-weight: bold;">suma</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">H</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">T</span><span style="font-weight: bold;">]</span>,<span style="font-weight: bold; font-style: italic;">S</span>) :- suma(<span style="font-weight: bold; font-style: italic;">T</span>,<span style="font-weight: bold; font-style: italic;">Z</span>),
+                 <span style="font-weight: bold; font-style: italic;">S</span> is <span style="font-weight: bold; font-style: italic;">H</span> + <span style="font-weight: bold; font-style: italic;">Z</span>.
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga531d17" class="outline-3">
+<h3 id="orga531d17">Clase 14</h3>
+<div class="outline-text-3" id="text-orga531d17">
+</div>
+<div id="outline-container-org4319ee0" class="outline-4">
+<h4 id="org4319ee0">Prolog operadores</h4>
+<div class="outline-text-4" id="text-org4319ee0">
+<p>
+Para verificar el valor numérico de una variable se utiliza el
+operador <code>is</code>.
+</p>
+
+<p>
+<code>X is 1 + 7.</code>
+</p>
+
+<p>
+Tiene las operaciones aritméticas comunes, como
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Operaciones aritméticas</th>
+<th scope="col" class="org-left">Operadores</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Suma</td>
+<td class="org-left">+</td>
+</tr>
+
+<tr>
+<td class="org-left">Resta</td>
+<td class="org-left">-</td>
+</tr>
+
+<tr>
+<td class="org-left">Multiplicación</td>
+<td class="org-left">*</td>
+</tr>
+
+<tr>
+<td class="org-left">Division Real</td>
+<td class="org-left">/</td>
+</tr>
+
+<tr>
+<td class="org-left">División Entera</td>
+<td class="org-left">//</td>
+</tr>
+
+<tr>
+<td class="org-left">Potencia</td>
+<td class="org-left">**</td>
+</tr>
+
+<tr>
+<td class="org-left">máximo</td>
+<td class="org-left">max</td>
+</tr>
+
+<tr>
+<td class="org-left">mínimo</td>
+<td class="org-left">min</td>
+</tr>
+
+<tr>
+<td class="org-left">raíz cuadrada</td>
+<td class="org-left">sqrt</td>
+</tr>
+
+<tr>
+<td class="org-left">seno</td>
+<td class="org-left">sin</td>
+</tr>
+
+<tr>
+<td class="org-left">flotante</td>
+<td class="org-left">float</td>
+</tr>
+
+<tr>
+<td class="org-left">redondeo</td>
+<td class="org-left">round</td>
+</tr>
+
+<tr>
+<td class="org-left">menor que</td>
+<td class="org-left">&lt;</td>
+</tr>
+
+<tr>
+<td class="org-left">mayor que</td>
+<td class="org-left">&gt;</td>
+</tr>
+
+<tr>
+<td class="org-left">menor o igual</td>
+<td class="org-left">=&lt;</td>
+</tr>
+
+<tr>
+<td class="org-left">mayor o igual</td>
+<td class="org-left">&gt;=</td>
+</tr>
+
+<tr>
+<td class="org-left">distinto de</td>
+<td class="org-left">= \ = (junto)</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">= : =</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+Calcular el perímetro y área de un triángulo con lados a, b y c.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">lados</span>(<span style="font-weight: bold; font-style: italic;">X</span>,<span style="font-weight: bold; font-style: italic;">Y</span>,<span style="font-weight: bold; font-style: italic;">Z</span>).
+<span style="font-weight: bold;">triangulo</span>(<span style="font-weight: bold; font-style: italic;">W</span>,lados(<span style="font-weight: bold; font-style: italic;">X</span>,<span style="font-weight: bold; font-style: italic;">Y</span>,<span style="font-weight: bold; font-style: italic;">Z</span>)).
+
+<span style="font-weight: bold;">perimetro</span>(<span style="font-weight: bold; font-style: italic;">T</span>,<span style="font-weight: bold; font-style: italic;">P</span>) :- tri&#225;ngulo(<span style="font-weight: bold; font-style: italic;">T</span>,lados(<span style="font-weight: bold; font-style: italic;">A</span>,<span style="font-weight: bold; font-style: italic;">B</span>,<span style="font-weight: bold; font-style: italic;">C</span>)),
+                  <span style="font-weight: bold; font-style: italic;">P</span> is <span style="font-weight: bold; font-style: italic;">A</span> + <span style="font-weight: bold; font-style: italic;">B</span> + <span style="font-weight: bold; font-style: italic;">C</span>.
+
+<span style="font-weight: bold;">semiperimetro</span>(<span style="font-weight: bold; font-style: italic;">T</span>,<span style="font-weight: bold; font-style: italic;">S</span>) :- triangulo(<span style="font-weight: bold; font-style: italic;">T</span>,lados(<span style="font-weight: bold; font-style: italic;">A</span>,<span style="font-weight: bold; font-style: italic;">B</span>,<span style="font-weight: bold; font-style: italic;">C</span>)),
+                      perimetro(<span style="font-weight: bold; font-style: italic;">T</span>,<span style="font-weight: bold; font-style: italic;">P</span>),
+                      <span style="font-weight: bold; font-style: italic;">S</span> is <span style="font-weight: bold; font-style: italic;">P</span> / 2.
+
+<span style="font-weight: bold;">area</span>(<span style="font-weight: bold; font-style: italic;">T</span>,<span style="font-weight: bold; font-style: italic;">A</span>) :- triangulo(<span style="font-weight: bold; font-style: italic;">T</span>,lados(<span style="font-weight: bold; font-style: italic;">A</span>,<span style="font-weight: bold; font-style: italic;">B</span>,<span style="font-weight: bold; font-style: italic;">C</span>)),
+             semiperimetro(<span style="font-weight: bold; font-style: italic;">T</span>,<span style="font-weight: bold; font-style: italic;">S</span>),
+             <span style="font-weight: bold; font-style: italic;">A</span> is sqrt(<span style="font-weight: bold; font-style: italic;">S</span>*(<span style="font-weight: bold; font-style: italic;">S</span>-<span style="font-weight: bold; font-style: italic;">A</span>)*(<span style="font-weight: bold; font-style: italic;">S</span>-<span style="font-weight: bold; font-style: italic;">B</span>)*(<span style="font-weight: bold; font-style: italic;">S</span>-<span style="font-weight: bold; font-style: italic;">C</span>)).
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8b997f6" class="outline-4">
+<h4 id="org8b997f6">Precedencia</h4>
+<div class="outline-text-4" id="text-org8b997f6">
+<p>
+Es el orden en el que evaluamos las operaciones
+</p>
+
+<p>
+\(5\times 2+3=(5\times 2)+3\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5ce3ee5" class="outline-4">
+<h4 id="org5ce3ee5">Asociatividad</h4>
+<div class="outline-text-4" id="text-org5ce3ee5">
+<p>
+\(A+(B+C)=(A+B)+C\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge244605" class="outline-4">
+<h4 id="orge244605">Definir operadores en prolog</h4>
+<div class="outline-text-4" id="text-orge244605">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Patrón</th>
+<th scope="col" class="org-left">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">yfx</td>
+<td class="org-left">infijo, asoc. izq</td>
+</tr>
+
+<tr>
+<td class="org-left">xfy</td>
+<td class="org-left">infijo, asoc der</td>
+</tr>
+
+<tr>
+<td class="org-left">xfx</td>
+<td class="org-left">infijo, sin regla asoc.</td>
+</tr>
+
+<tr>
+<td class="org-left">fy</td>
+<td class="org-left">prefijo</td>
+</tr>
+
+<tr>
+<td class="org-left">fx</td>
+<td class="org-left">prefijo</td>
+</tr>
+
+<tr>
+<td class="org-left">yf</td>
+<td class="org-left">postfijo</td>
+</tr>
+
+<tr>
+<td class="org-left">xf</td>
+<td class="org-left">postfijo</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>f es la posición del operador</li>
+
+<li>x y es la asociatividad, la y es la dirección en donde se asocia</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org3bca380"></a>current<sub>op</sub><br />
+<div class="outline-text-5" id="text-org3bca380">
+<p>
+<code>?- current_op(Presedencia,Asociatividad,-)</code>.
+<code>@Presedencia = 200, Asociatividad = fy;</code>
+<code>@Precedencia = 500, Asociatividad = yfx.</code>
+</p>
+</div>
+</li>
+
+<li><a id="org281dd5d"></a>op<br />
+<div class="outline-text-5" id="text-org281dd5d">
+<p>
+<code>op(300,xfx,contiene).</code>
+<code>?- [1,2,3] contiene 1</code>.
+</p>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org6916d56" class="outline-4">
+<h4 id="org6916d56">No determinismo en prolog</h4>
+<div class="outline-text-4" id="text-org6916d56">
+<p>
+\(AFN=(Q,\Sigma,\delta,q_0,F)\)
+</p>
+
+<ul class="org-ul">
+<li>\(Q\) es el conjunto de estados</li>
+<li>\(\Sigma\) el alfabeto de entrada</li>
+<li>\(\delta\subseteq Q\times\Sigma\times Q\)</li>
+<li>\(q_0\) es el estado inicial</li>
+<li>\(F\) es un estado final</li>
+</ul>
+
+
+<p>
+Definimos un autómata como sigue
+</p>
+
+<p>
+\(Q=\{1,2,3\}\)
+\(\Sigma=\{a,b\}\)
+\(\delta=\{(1,b,2),(2,a,2),(2,a,3),(3,b,2)\}\)
+\(q_0=1\)
+\(F=\{3\}\)
+</p>
+
+<p>
+En prolog, lo podríamos definir como sigue:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">estado</span>(1).
+<span style="font-weight: bold;">estado</span>(2).
+<span style="font-weight: bold;">estado</span>(3).
+
+<span style="font-weight: bold;">inicial</span>(1).
+
+<span style="font-weight: bold;">final</span>(3).
+
+<span style="font-weight: bold;">transicion</span>(1,b,2).
+<span style="font-weight: bold;">transicion</span>(2,b,2).
+<span style="font-weight: bold;">transicion</span>(2,a,3).
+<span style="font-weight: bold;">transicion</span>(3,b,2).
+
+<span style="font-weight: bold;">aceptaAux</span>(<span style="font-weight: bold;">[]</span>,<span style="font-weight: bold; font-style: italic;">Q</span>) :- estado(<span style="font-weight: bold; font-style: italic;">Q</span>),
+                   final(<span style="font-weight: bold; font-style: italic;">Q</span>).
+<span style="font-weight: bold;">aceptaAux</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">XS</span><span style="font-weight: bold;">]</span>,<span style="font-weight: bold; font-style: italic;">Q</span>) :- estado(<span style="font-weight: bold; font-style: italic;">Q</span>),
+                       transicion(<span style="font-weight: bold; font-style: italic;">Q</span>,<span style="font-weight: bold; font-style: italic;">X</span>,<span style="font-weight: bold; font-style: italic;">Q2</span>),
+                       aceptaAux(<span style="font-weight: bold; font-style: italic;">XS</span>,<span style="font-weight: bold; font-style: italic;">Q2</span>).
+
+<span style="font-weight: bold;">acepta</span>(<span style="font-weight: bold; font-style: italic;">L</span>) :- estado(<span style="font-weight: bold; font-style: italic;">Q</span>),
+             inicial(<span style="font-weight: bold; font-style: italic;">Q</span>),
+             aceptaAux(<span style="font-weight: bold; font-style: italic;">L</span>,<span style="font-weight: bold; font-style: italic;">Q</span>).
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2f2cced" class="outline-3">
+<h3 id="org2f2cced">Clase 15</h3>
+<div class="outline-text-3" id="text-org2f2cced">
+</div>
+<div id="outline-container-org35895aa" class="outline-4">
+<h4 id="org35895aa">Fibonacci en prolog</h4>
+<div class="outline-text-4" id="text-org35895aa">
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">fibonacci</span>(0,0).
+<span style="font-weight: bold;">fibonacci</span>(0,1).
+<span style="font-weight: bold;">fibonacci</span>(<span style="font-weight: bold; font-style: italic;">N</span>,<span style="font-weight: bold; font-style: italic;">F</span>) :- <span style="font-weight: bold; font-style: italic;">X</span> is <span style="font-weight: bold; font-style: italic;">N</span> - 1,
+                  <span style="font-weight: bold; font-style: italic;">Y</span> is <span style="font-weight: bold; font-style: italic;">N</span> - 2,
+                  fibonacci(<span style="font-weight: bold; font-style: italic;">X</span>,<span style="font-weight: bold; font-style: italic;">F1</span>),
+                  fibonacci(<span style="font-weight: bold; font-style: italic;">Y</span>,<span style="font-weight: bold; font-style: italic;">F2</span>),
+                  <span style="font-weight: bold; font-style: italic;">F</span> is <span style="font-weight: bold; font-style: italic;">F1</span> + <span style="font-weight: bold; font-style: italic;">F2</span>.
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf4e1f4e" class="outline-4">
+<h4 id="orgf4e1f4e">Operador de corte en prolog</h4>
+<div class="outline-text-4" id="text-orgf4e1f4e">
+<p>
+Éste operador detiene el proceso de retroceso en un punto de
+elección dado.
+</p>
+
+<p>
+Éste corte se representa con el operador <code>!</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">fibonacci</span>(0,0) :- <span style="font-weight: bold;">!</span>.
+<span style="font-weight: bold;">fibonacci</span>(0,1) :- <span style="font-weight: bold;">!</span>.
+<span style="font-weight: bold;">fibonacci</span>(<span style="font-weight: bold; font-style: italic;">N</span>,<span style="font-weight: bold; font-style: italic;">F</span>) :- <span style="font-weight: bold; font-style: italic;">X</span> is <span style="font-weight: bold; font-style: italic;">N</span> - 1,
+                  <span style="font-weight: bold; font-style: italic;">Y</span> is <span style="font-weight: bold; font-style: italic;">N</span> - 2,
+                  fibonacci(<span style="font-weight: bold; font-style: italic;">X</span>,<span style="font-weight: bold; font-style: italic;">F1</span>),
+                  fibonacci(<span style="font-weight: bold; font-style: italic;">Y</span>,<span style="font-weight: bold; font-style: italic;">F2</span>),
+                  <span style="font-weight: bold; font-style: italic;">F</span> is <span style="font-weight: bold; font-style: italic;">F1</span> + <span style="font-weight: bold; font-style: italic;">F2</span>.
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0a4d13d" class="outline-4">
+<h4 id="org0a4d13d">Negación como falla</h4>
+<div class="outline-text-4" id="text-org0a4d13d">
+<p>
+Sirve en situaciones dónde se desea verificar que una propiedad no
+se satisface.
+</p>
+
+<p>
+<code>\+</code> Una expresión de la forma <code>\+G</code> tendrá éxito siempre que <code>G</code> falle.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">comida_favorita</span>(pedro,enchiladas).
+<span style="font-weight: bold;">comida_favorita</span>(diana,pozole).
+
+<span style="font-weight: bold; font-style: italic;">%</span><span style="font-weight: bold; font-style: italic;">?- comida_favorita(bety,X).</span>
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">false.</span>
+<span style="font-weight: bold; font-style: italic;">%</span><span style="font-weight: bold; font-style: italic;">?- \+ comida_favorita(bety, X).</span>
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">true.</span>
+</pre>
+</div>
+
+<p>
+Sin embargo esto no quiere decir que el predicado
+<code>comida_favorita(bety,X)</code> sea falso, sino que no hay información
+suficiente para probarlo.
+</p>
+
+<p>
+La negación como falla no va a unificar variables.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2e2829b" class="outline-4">
+<h4 id="org2e2829b">Programación funcional</h4>
+<div class="outline-text-4" id="text-org2e2829b">
+</div>
+<ul class="org-ul">
+<li><a id="org25dbe22"></a>Cálculo \(\lambda\)<br />
+<div class="outline-text-5" id="text-org25dbe22">
+<p>
+Éste consta de
+</p>
+
+<ul class="org-ul">
+<li>Funciones</li>
+<li>Aplicaciones</li>
+<li>Variables</li>
+</ul>
+
+
+<p>
+El cáulculo \(\lambda\) tiene sus significado a partir de las
+\(\beta\) reducciones.
+</p>
+
+<p>
+Ésta \(\beta\) reducción termina cuando se llega a una forma
+normal.
+</p>
+
+<p>
+\(\alpha\) equivalencia es cuando dos expresiones lambdas tienen la
+misma forma, pero difieren en sus variables.
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd99c26b" class="outline-3">
+<h3 id="orgd99c26b">Clase 16</h3>
+<div class="outline-text-3" id="text-orgd99c26b">
+</div>
+<div id="outline-container-org549c013" class="outline-4">
+<h4 id="org549c013">Recursión de cola</h4>
+<div class="outline-text-4" id="text-org549c013">
+<div class="org-src-container">
+<pre class="src src-haskell">fact :: Int -&gt; Int
+fact 0 = 1
+fact n = n * fact (n-1)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-haskell">fact :: Int -&gt; Int -&gt; Int
+fact 0 acc = acc
+fact n acc = fact (n - 1) (acc * n)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-haskell">aplana
+longitud
+concatena
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0483a56" class="outline-3">
+<h3 id="org0483a56">Clase 17</h3>
+<div class="outline-text-3" id="text-org0483a56">
+</div>
+<div id="outline-container-orgb4e3da0" class="outline-4">
+<h4 id="orgb4e3da0">Propiedad universal</h4>
+<div class="outline-text-4" id="text-orgb4e3da0">
+<div class="org-src-container">
+<pre class="src src-haskell">g [] = v
+g (x:xs) = f x (g xs)
+
+g = fold f v
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc6e40d9" class="outline-4">
+<h4 id="orgc6e40d9">Principio de fusión</h4>
+<div class="outline-text-4" id="text-orgc6e40d9">
+<div class="org-src-container">
+<pre class="src src-haskell">h w = v
+h (g x y) = f x (h y)
+
+h . fold g w = fold f v
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org43b4f97" class="outline-3">
+<h3 id="org43b4f97">Clase 18</h3>
+<div class="outline-text-3" id="text-org43b4f97">
+</div>
+<div id="outline-container-org04a8043" class="outline-4">
+<h4 id="org04a8043">Evaluación perezosa</h4>
+<div class="outline-text-4" id="text-org04a8043">
+<p>
+<b>Beneficios</b>:
+</p>
+
+<ul class="org-ul">
+<li>En ocasionas es rápida.</li>
+
+<li>Utiliza paso por necesidad.</li>
+
+<li>Se pueden manipular estructuras "infinitas".</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6ee04f5" class="outline-4">
+<h4 id="org6ee04f5">Sistemas de tipos</h4>
+<div class="outline-text-4" id="text-org6ee04f5">
+<ul class="org-ul">
+<li>Conjunto de reglas que indican cómo tipar una expresión
+sintácticamente válida.</li>
+
+<li>Verificación de tipos estáticos (o dinámicos respectivamente)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge1b4582" class="outline-4">
+<h4 id="orge1b4582">Definición de tipos en Haskell</h4>
+<div class="outline-text-4" id="text-orge1b4582">
+<p>
+<code>type</code> es para dar sinónimos de tipo.
+</p>
+
+<p>
+<code>data</code> Definición propia de tipo, al que se le pueden dar nombres,
+valores y operaciones.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org32cb370" class="outline-4">
+<h4 id="org32cb370">Inferencia de tipos</h4>
+<div class="outline-text-4" id="text-org32cb370">
+<p>
+Se definen restricciones a partir del conocimiento previo que se
+tienen de las variables o funciones.
+</p>
+
+<p>
+Utiliza unificación para encontrar el tipo más general.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfb541f2" class="outline-4">
+<h4 id="orgfb541f2">Clases de tipos</h4>
+<div class="outline-text-4" id="text-orgfb541f2">
+<p>
+<code>Eq</code> Son tipos cuyos valores tienen la operación de igualdad (<code>==</code>).
+</p>
+
+<p>
+<code>Ord</code> Son tipos cuyos valores pueden ser ordenados con operadores de
+desigualdad.
+</p>
+
+<p>
+<code>Show</code> Son tipos cuyos valores se pueden convertir a cadena.
+</p>
+
+<p>
+<code>Enum</code> Aquellos tipos que se pueden enumerar con su sucesor y
+predecesor.
+</p>
+
+<p>
+<code>Num</code> Aquellos tipos que tienen las operaciones para hacer
+operaciones numéricas.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge89dd38" class="outline-3">
+<h3 id="orge89dd38">Clase 19</h3>
+<div class="outline-text-3" id="text-orge89dd38">
+</div>
+<div id="outline-container-orgafa1097" class="outline-4">
+<h4 id="orgafa1097">Kinds</h4>
+<div class="outline-text-4" id="text-orgafa1097">
+<p>
+Son familias de tipos, de los cuales pueden haber <code>*</code> y <code>* -&gt; *</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">Bool :: *
+Int :: *
+Maybe :: * -&gt; *
+Either :: * -&gt; * -&gt; *
+
+newtype Coleccion t a = Coleccion (t a)
+Coleccion :: (* -&gt; *) -&gt; * -&gt; *
+
+Num :: * -&gt; Constraint
+Eq :: * -&gt; Constraint
+Ord :: * -&gt; Constraint
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4655047" class="outline-3">
+<h3 id="org4655047">Clase 20</h3>
+<div class="outline-text-3" id="text-org4655047">
+</div>
+<div id="outline-container-orgbb84f38" class="outline-4">
+<h4 id="orgbb84f38">Construcción del sistema</h4>
+<div class="outline-text-4" id="text-orgbb84f38">
+<div class="org-src-container">
+<pre class="src src-haskell">data Verdadero = Verdadero
+data Falso
+</pre>
+</div>
+
+<p>
+Decimos que el tipo de dato Verdadero representa el valor de
+verdad Verdadero, porque siempre que tenemos este tipo, tenemos
+presente su único constructor. Itra firma de representar el valor
+Verdadero usando únicamente cosas ya definidas en Haskell, es con
+el tipo ()
+</p>
+
+<p>
+Mientras que falso es un tipo de dato inalcanzable.
+</p>
+
+<p>
+Tenemos también operadores como el siguiente.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Y a b = Y a b
+data O a b = OIzq a | ODer b
+</pre>
+</div>
+
+<p>
+Y la negación la podemos escribir como lo siguiente;
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">type No a = a -&gt; Falso
+</pre>
+</div>
+
+<p>
+Las variables proposicionales serían las variables de tipos.
+</p>
+
+<p>
+La impricación sería sencillamente el tipo función <code>a-&gt;b</code>
+</p>
+</div>
+
+
+<ul class="org-ul">
+<li><a id="org4b64a8f"></a>Cuantificación<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1dc3e6a" class="outline-3">
+<h3 id="org1dc3e6a">Clase 21</h3>
+<div class="outline-text-3" id="text-org1dc3e6a">
+</div>
+<div id="outline-container-org0f294be" class="outline-4">
+<h4 id="org0f294be">Funtores, funtores aplicativos y mónadas</h4>
+<div class="outline-text-4" id="text-org0f294be">
+<ul class="org-ul">
+<li>Cálcula Lambda: CUrrigicación, beta reducciones, funciones de
+orden superior, lambdas, etc&#x2026;</li>
+
+<li>Teoría de Categorías: Categorías
+
+<ul class="org-ul">
+<li>Una categoría es una colección de objetos y morfismos entre
+ellos.</li>
+</ul></li>
+
+<li>Lógica y Teoría de Tipos - Categorías Cartesianamente Cerradas.</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org6f5fcfd"></a>Funtores<br />
+<div class="outline-text-5" id="text-org6f5fcfd">
+<div class="org-src-container">
+<pre class="src src-haskell">inc :: [Int] -&gt; [Int]
+inc [] = []
+inc (x:xs) = (x+1):inc xs
+
+sqr :: [Int] -&gt; [Int]
+sqr [] = []
+sqr (x:xs) = (n^2):sqr xs
+</pre>
+</div>
+
+<p>
+La idea del map es posible generalizarla para cualquier tipo de
+estructura de datos.
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-haskell">class Functor f where
+  fmap :: (a -&gt; b) -&gt; f a -&gt; f b
+</pre>
+</div>
+
+<p>
+Un ejemplo con las listas
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">instance Functor [] where
+  fmap = map
+</pre>
+</div>
+
+<p>
+Otro ejemplo con <code>Maybe</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">instance Functor Maybe where
+  fmap _ Nothing = Nothing
+  fmap f (Just x) = Just $ f x
+</pre>
+</div>
+
+<p>
+Si tenemos árboles definidos como sigue, la instancia de Funtores es la siguiente:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Tree a = Leaf a
+	    | Node (Tree a) (Tree a)
+
+instance Functor Tree where
+  fmap f (Leaf x) = Leaf $ f x
+  fmap d (Node l r) = Node (fmap f l) (fmap f r)
+</pre>
+</div>
+
+<p>
+La instancia de <code>IO</code> sería como sigue:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">instance Functor IO where
+  fmap f mx = do
+    x &lt;- mx
+    return $ f x
+</pre>
+</div>
+</div>
+
+<ul class="org-ul">
+<li><a id="orgaa3f984"></a>Propiedades de funtores<br />
+<div class="outline-text-6" id="text-orgaa3f984">
+<ul class="org-ul">
+<li><code>fmap id = id</code></li>
+
+<li><code>fmap (f.g) = fmap g . fmap h</code></li>
+</ul>
+
+
+<p>
+Por ejemplo, supongamos que se tiene la siguiente definición de
+<code>fmap</code> para listas.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">fmap g [] = []
+fmap f (x:xs) = fmap g xs ++ [g x]
+</pre>
+</div>
+
+<p>
+No cumple la propiedad pues después de la aplicación de la
+función a un elemento de la lista, entonces <code>g x</code> se manda al
+final, por lo que aplicar la identidad nos devuelve la reversa
+de la lista.
+</p>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="org213f0d6"></a>Aplicativos<br />
+<div class="outline-text-5" id="text-org213f0d6">
+<div class="org-src-container">
+<pre class="src src-haskell">pure :: a -&gt; f a -- construye contextos a partir de valores
+(&lt;*&gt;) :: f (a -&gt; b) -&gt; f a -&gt; f b -- generaliza la aplicación de
+				  -- función que mantiene todo dentro
+				  -- de contextos.
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgaba604c" class="outline-3">
+<h3 id="orgaba604c">Clase 22</h3>
+<div class="outline-text-3" id="text-orgaba604c">
+</div>
+<div id="outline-container-org8099b9e" class="outline-4">
+<h4 id="org8099b9e">Programación funcional</h4>
+<div class="outline-text-4" id="text-org8099b9e">
+<ul class="org-ul">
+<li>Elegante: Menos código, descriptivo (autodocumentable), legible.</li>
+
+<li>Seguridad del Sistema de Tipos: Cumple preservación y progreso.</li>
+
+<li>Inferencia de Tipos: Polimorfismo paramétrico.</li>
+
+<li><p>
+Funciones de orden superior: El que se puedan utilizar las
+mismas funciones como valores en el lenguaje es lo que se le
+conoce que las funciones sean de primera clase y así mismo
+permitan realizar funciones de orden superior.
+</p>
+
+<p>
+Permite abstraer esquemas recursivos y por tanto reducir código.
+</p></li>
+
+<li>Se dificulta operar con el estado</li>
+
+<li>Tienen una curva de aprendizaje alta.
+
+<ul class="org-ul">
+<li>Requieren un alto nivel de abstracción (nivel superior).</li>
+</ul></li>
+
+<li>Comunidad pequeña enfocada en la academia.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf9ca0ee" class="outline-4">
+<h4 id="orgf9ca0ee">Lenguajes multiparadigma</h4>
+<div class="outline-text-4" id="text-orgf9ca0ee">
+<ul class="org-ul">
+<li>Integran cosas de varios estilos de programación.</li>
+
+<li>Lo mejor de varios estilos.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org52441df" class="outline-2">
+<h2 id="org52441df">Tareas <code>[1/2]</code></h2>
+<div class="outline-text-2" id="text-org52441df">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> Investigar las características declarativas de <b>prolog</b>.</li>
+<li class="off"><code>[&#xa0;]</code> Tarea 1</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Erik Rangel Limón</p>
+<p class="date">Created: 2023-06-27 Tue 13:54</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.5.5)</p>
+</div>
+</body>
+</html>

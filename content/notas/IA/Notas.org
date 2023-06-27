@@ -1,0 +1,2008 @@
+#+title: Inteligencia Artificial
+#+author: Erik Rangel Limón
+#+startup: content
+#+startup: latexpreview
+
+* Bibliografía
+
+  - Russell y Morvig. Artificial Intelligence 4ta ed.
+
+  - Joshi. Artificial Intelligence with python.
+  
+* Evaluación
+
+  | Rubro       | Porcentaje |
+  |-------------+------------|
+  | 3 Exámenes  |         50 |
+  |-------------+------------|
+  | 3 Tareas y  |            |
+  | 3 Prácticas |         50 |
+
+  Hay una reposición. Se tomará la calificación más alta.
+
+  Cada día de entrega tardía será penalizado con 1 pt.
+
+* Notas de Clase
+
+** Clase 1
+
+*** Temario
+
+    1. Introducción
+
+       1.1 Definición de IA
+
+       1.2 Marco histórico
+
+       1.3 Aplicaciones
+
+       1.4 Consideraciones éticas
+
+    2. Agentes racionales
+
+       2.1 Definición
+
+       2.2 Entorno / Ambiente
+
+       2.3 Estructura de Agentes
+
+    3. Búsqueda
+
+       3.1 Búsqueda desinformada y heurística
+
+       3.2 Búsqueda por optimización
+
+       3.3 Algoritmos genéticos
+
+    4. Modelos probabilísticos
+
+       4.1 Modelos gráficos
+
+       4.2 Redes Bayesianas: Bayes naive, HMM
+
+       4.3 Procesos de decisión markoviana
+
+    5. Aprendizaje automático
+
+       5.1 Teoría del aprendizaje
+
+       5.2 Aprendizaje supervisado, no supervisado, por refuerzo
+
+       5.3 Modelos paramétricos y no-paramétricos
+
+       5.4 Aprendizaje profundo
+
+*** Inteligencia Artificial
+
+    La inteligencia es un atributo humano que consiste de un proceso
+    para resolver problemas de manera racional.
+    
+    La IA estudia y dearrolla entidades (artificiales) inteligentes.
+
+    Existen diferentes perspectivas de la inteligencia. Humano y
+    Racional.
+
+    Racional $\subset$ Humano
+
+    De manera interna podemos identificar un rubro interno, que
+    corresponde al pensamiento, mientras que el externo el
+    comportamiento.
+
+    |                     | Humano         | Racional  |
+    |---------------------+----------------+-----------|
+    | Int. Pensamiento    | Ciencias       | Lógica    |
+    |                     | cognitivas     |           |
+    |---------------------+----------------+-----------|
+    | Ext. Comportamiento | Test de Turing | Teoría de |
+    |                     |                | agente    |
+
+*** Test de Turing
+
+    Es una prueba en donde participan dos entidades, un humano y una
+    computadora. Estos se comunican con un juez, y éste juez debe
+    determinar quién de estas dos entidades es un humano.
+
+*** Teoría de agente
+
+    * Agente: Es una entidad que puede actuar de manera autónoma.
+
+      Éste agente comienza en un estado inicial y puede cambiar de
+      estado hasta llegar a un estado final por medio de las acciones
+      permitidas en un ambiente.
+
+      
+** Clase 2
+   
+*** Antecedentes generales
+
+    La inteligencia artificial nace como una herramienta para resolver
+    teoremas y problemas lógicos.
+
+    Uno de los primeros usos de la inteligencia artificial fue el
+    procesamiento natural del lenguaje, y en particular para la
+    traducción de frases de un idioma a otro.
+
+    Los avances de la inteligencia artificial, se han hecho con base a
+    hechos biológicos, como las redes neuronales y teorías evolutivas.
+
+    Posteriormente surgieron las redes lógicas con las ideas de Alan
+    Turing para calcular los pesesos entre neuronas. Con ello nacen lo
+    que hoy conocemos como redes neuronales.
+
+    Se desarrollaron múltiples redes con distintas bases científicas.
+
+    Posterior al desarrollo de las redes neuronales se realizan
+    avances en sistemas expertos.
+
+    Los científicos hallaron muchos fracasos en la cuestión de
+    inteligencia artificial, por lo que no se realizaron más
+    investigación y por tanto menos avances relacionadas a
+    inteligencia artificial.
+
+    La combinación con otras ciencias como la probabilidad,
+    estadística y procesos estocásticos, es lo que ha hecho a la
+    inteligencia artificial lo que es ahora.
+
+    En años recientes ya hay varias aplicaciones de la inteligencia
+    artificial, especialmente a las ciencias de datos, por lo que se
+    ha vuelto un campo importante dentro de las ciencias de la
+    computación.
+
+** Clase 3
+
+*** Inteligencia
+    
+    |                | Humano         | Racional   |
+    |----------------+----------------+------------|
+    | Penamiento     | Ciencias       | Lógica     |
+    |                | cognitivas     |            |
+    |----------------+----------------+------------|
+    | Comportamiento | Test de Turing | Teoría de  |
+    |                |                | agentes    |
+    |                |                | *racionales* |
+
+    
+**** Liebniz ~ Cálculo Ratiocinator
+
+     Fue pensada como una máquina que utilizara la razón para dar
+     resultados lógicos.
+
+     Fue una de las primeras intensiones para crear la inteligencia
+     artificial.
+
+**** Inteligencia Artificial Fuerte
+
+     Una IA es fuerte si es capaz de resolver cualquier problema
+     "inteligente". Se podría decir también que es fuerte si es capaz
+     de actuar como humano.
+
+**** Inteligencia Artificial Débil
+
+     Una IA es débil cuando se enfoca únicamente a resolver un
+     problema específico.
+
+***** Problemas
+
+      1. Como input se recibe la cuenta de un restaurante en
+         $\mathbb{R}$; regresa la propina del $20\%$
+
+	 ¿La solución requiere de una inteligencia artificial?
+
+	 No, pues existe un algoritmo para calcular esta propina.
+	 
+      2. Detectar spam en un correo
+
+	 ¿La solución requiere de una inteligencia artificial?
+
+	 Es posible, pues los algoritmos que podrían haber (sin
+         utilizar inteligencia artificial) para resolverlo no serían
+         capaces de adaptarse a todos los posibles correos ni a todas
+         las personas.
+
+*** Aplicaciones de la inteligencia artificial
+
+    1. Demostración automática
+
+    2. Procesamiento de imágenes
+
+       2.1 Clasificar
+
+       2.2 Reconocimiento de objetos
+
+       2.3 Generación de imágenes
+
+       - Dall-e
+
+       - Stable diffussion
+
+       2.4 Videos
+
+    3. Procesamiento del Lenguaje Natural
+
+       3.1 Traducción automática
+
+       3.2 Generación del lenguaje natural
+
+       - ChatGPT
+
+       3.3 Voz
+
+    4. Robótica
+
+       4.1 Vehículos autónomos
+
+    5. Juegos
+
+       5.1 Deep Blue
+
+       5.2 AlphaGo
+
+       5.3 AlphaZero
+
+*** Agente Racional
+
+    Es una agente que actúa para solucionar problemas de manera
+    eficiente. Busca una solución óptima.
+
+*** Modelo estándar de Inteligencia Artificial
+
+    Es el modelo que se enfoca en el estudio y desarrollo de Agentes
+    Racionales.
+
+**** Ventajas
+     
+     1. Nos permite solucionar problemas de manera óptima.
+     2. Contiene a la parte lógica.
+     3. Permite modelos matemáticos.
+
+*** Ética de la Inteligencia Artificial
+
+**** Usos desventajosos de la Inteligencia Artificial
+
+     1. Violación de la privacidad.
+     2. Uso de armas letales.
+     3. Robo de datos.
+     4. Aplicaciones con sesgos o datos sesgados.
+
+**** Problema de la Alineación de valores
+
+     Que los valores / objetivos de una Inteligencia Artificial deben
+     estar alineados con los valores humanos.
+
+** Clase 4
+
+*** Más aplicaciones de la Inteligencia Artificial
+
+**** Visión computacional
+
+     Es un campo de la inteligencia artificial que permite a los
+     sistemas obtener información de imágenes y representaciones
+     visuales.
+
+     Utiliza modelos para emular la visión que tienen los humanos para
+     la comprensión de éstas imágenes.
+
+     En la modernidad, ya una Inteligencia Artificial es capaz de
+     reconocer imágenes mejor que el humano en ciertos aspectos.
+
+     Tiene dos componentes principales; un componente de Aprendizaje
+     Automatizado, y un modelo de red neuronal.
+
+     Los componentes de Aprendizaje Automatizado (/Machine Learning/),
+     en donde una máquina tiene la capacidad de aprender por medio de
+     dos conjuntos, el conjunto de entrenamiento y el conjunto de
+     prueba. De esta manera una máquina se enseña a reconocer éstas
+     imágenes.
+
+     Por otra parte, el modelo de red neuronal convolucional recibe
+     cada píxel, lo procesa y posteriormente los convoluciona.
+
+     Existen varias aplicaciones de la *Visión Computacional*
+
+     - Clasificación de imágenes
+     - Detección de objetos
+     - Seguimiento
+     - Recuperación de imágenes basada en contenido.
+     
+**** Procesamiento de lenguaje natural
+
+     Es un campo de la Inteligencia artificial que investiga la manera
+     de comunicar a las máquinas con las personas mediante el uso de
+     lenguajes naturales.
+
+     En este campo de la investigación se encargan de preparar el
+     model lingüístico para que los ingenieros informáticos lo
+     implementen de manera eficiente y funcional.
+
+     Lo lingüistas clasifican reglas de reconocimiento de patrones
+     estructurales, empleando un formalismo gramatical concreto.
+
+     Estos modelos pretenden reflejar la lógica del lenguaje y surgen
+     a partir de las teorías de Noam Chomsky en los años 50.
+
+     También existen campos de investigación con el uso de modelos
+     probabilísticos, en donde los lingüistas recogen colecciones de
+     ejemplos y datos con los que se calculan frecuencias de
+     diferentes unidades ingüísticas y la probabilidad de aparecer en
+     un contexto determinado. De esta manera se puede predecir cuál
+     será la siguiente unidad en un contexto dado, sin necesidad de
+     recurrir a reglas gramaticales explícitas.
+
+** Clase 5
+
+*** Ética de la Inteligencia Artificial
+
+**** Problema de la alineación de valores.
+
+     Los objetivos de unas IA deben estar alineados a los valores de
+     los seres humanos
+
+     Algunos puntos que hay que considerar son:
+
+     1. Transparencia ~ Documentación
+     2. Predecibilidad ~ Anticipar comportamientos
+     3. No Manipulable
+     4. Responsabilidad
+
+**** Diseño ético
+
+     1. Orientada a las personas que lo van a usar.
+     2. Proveer la información suficiente para que los usuarios puedan
+        tomar decisiones informadas.
+     3. Respetar la decisión de las personas de cómo usar la
+        aplicación.
+     4. Balance entre seguridad y privacidad.
+     5. Aplicaciones sustentables.
+     6. Buscar sesgos de manera activa.
+     7. Inclusivas.
+
+*** Modelo estándar de la Inteligencia Artificial.
+
+    Es el estudio y la generación de agentes racionales.
+
+**** Agente Racional
+
+     Es una entidad que actúa de manera autónoma, buscando la mejor
+     solución a un problema.
+
+***** Agentes
+
+      Un agente tiene un *objetivo* para resolver un problema; éste se
+      encuentra dentro de un ambiente, y los estímulos de éste
+      ambiente hacia el agente lo conocemos como *percepciones*, y por
+      tanto el agente tenga una función de *receptor* para transformar
+      las percepciones transformándolas en información útil para el
+      agente, y así tomar una decición para realizar una *acción*.
+
+      + Entonces, un agente es una entidad que actúa de manera
+        autónoma a partir de actuadores, cuya acción depende de las
+        percepciones del ambiente recibidas por sus sensores.
+
+      + Un ambiente dota de percepciones a un agente.
+
+      + Un agente tiene sensores que reciben las percepciones del
+        ambiente. Estos sensores permiten al agente saber cómo está el
+        ambiente.
+
+      + El agente procesa la información recibida por los sensores y
+        elige una acción y así mismo realizar ésta por medio de sus
+        actuadores, las cuales los manifiesta en el ambiente.
+
+***** Mundo de la aspiradora
+
+      |-----+-----|
+      | A,1 | B,1 |
+      |-----+-----|
+      
+      - Actuadores: La aspiradora y elementos motrices.
+      - Sensores: Detector de suciedad y su posición en el ambiente.
+      - Ambiente: Un espacio formado de dos cuadros. (Un arreglo
+        unidimensional). Será 0 si está limpio, 1 en otro caso.
+      - Acciones: Izquierda, derecha, limpiar
+
+
+      |-----+-----|
+      | A,1 | B,1 |
+      |-----+-----|
+      | C,1 | D,0 |
+      |-----+-----|
+
+      En un ambiente como este, las acciones cambian
+
+      - Acciones: Izquierda, Derecha, Arriba, Abajo, Limpiar.
+      
+** Clase 6
+
+*** Ejemplos de agentes
+
+    - Humanos; pues cumplen la definición y por medio de los sentidos
+      percibimos el ambiente, por otra parte tenemos nuestras
+      habilidades motrices como las manos para actuar dentro de
+      nuestro ambiente.
+    - Robots; que de la misma manera perciben y reaccionan por medio
+      de sus elementos motrices.
+    - Software; aunque no es una entidad física de igual manera puede
+      percibir la entrada del usuario, los archivos en memoria, entre
+      otras cosas; mientras que sus actuadores serían las acciones que
+      puede tomar el software dentro de la computadora.
+    - entre otros...
+
+*** Repaso de los componentes de los agentes
+
+    Estos se componen de 4 cosas fundamentales:
+
+    - El ambiente en donde se encuentra el agente
+    - Los sensores
+    - Actuadores
+    - Percepción
+
+*** Secuencia de percepcion
+
+    Es un registo en el que se guarda todo lo que un agente ha
+    recibido hasta cierto momento.
+
+*** Función de agente
+
+    La función de agente tiene como dominio un conjunto de secuencias
+    de percepciones, y ésta nos devuelve una acción (o secuencia de
+    acciones).
+
+*** Medida de rendimiento
+
+    Es una medida que evalúa el éxito del comportamiento del agente al
+    resolver un problema.
+
+*** Racionalidad
+
+    Es la medida con la que se evalúa que un agente haga lo que se
+    supone que debe hacer según el criterio del agente.
+
+*** Agente racional
+
+    Es una agente que utiliza el estado del ambiente para tomar las
+    acciones precisas para realizar una tarea.
+
+** Clase 7   
+
+*** Mundo de la Aspiradora
+
+**** Creación del ambiente
+
+     El ambiente del mundo de la aspiradora consta de un conjunto de
+     cuadros estructurados en diferentes posiciones. Consideramos un
+     mundo que consta de 4 cuadros acomodados en una cuadrícula, en
+     donde a la derecha de A se encuentra B y abajo de A se encuentra
+     C, y así sucesivamente.
+
+     Éste ambiente lo acomodamos en una matriz, con un estado en donde
+     0 quiere decir que no hay suciedad y 1 que sí hay suciedad.
+
+**** Creación del agente
+
+     El agente debe saber dónde se encuentra y si el lugar donde se
+     encuentra está sucio.
+
+     También le agregamos su conjunto de acciones, en donde sabemos
+     que sus acciones posibles son limpiar, ir arriba, ir abajo, ir a
+     la izquierda e ir a la derecha.
+
+**** Comportamiento del agente
+
+***** Función del agente
+
+      Es una función $f:P^*\rightarrow A$ que toma una secuencia de
+      percepciones y ejecuta una acción.
+
+      \[f(p_1,p_2,\ldots,p_t)=\alpha\]
+
+***** Programa del agente
+
+      Es la implementación de la función del agente.
+
+      Por ejemplo:
+      
+      \[f((A,1))=Limpiar\]
+
+      /Esto tiene sentido pues el lugar donde se encuentra está sucio/
+
+      \[f((A,1),(A,0))=Derecha\]
+
+      /Esto pues la aspiradora debe conocer otra localización que no
+      haya explorado aún./
+
+*** Agente Racional
+
+    Es un agente que busca optimizar el rendimiento.
+
+    Éste selecciona con base a la información previa que tiene y a la
+    secuencia de percepciones las acciones que maximice el rendimiento
+    esperado.
+
+    \[\max(\mathbb{E}(R))\]
+
+**** Consecuencialismo
+
+     La idea de medir el rendimiento a partir de las consecuencias de
+     las acciones.
+
+     En este caso, las consecuencias las podemos ver como los cambios
+     de estado del ambiente.
+
+     *Principio*. Es preferible medir la utilidad de acuerdo a lo que se
+     quiere para el _entorno_, más que a _cómo el agente debe_
+     _comportarse_.
+
+     * En el mundo de la aspiradora el rendimiento lo podemos medir
+       con lo siguiente.
+
+       1. ¿Cuántos cuadros están limpios?
+
+       2. ¿Cuánto tiempo le toma el ejecutar las acciones?
+
+       3. Combinar 1 y 2
+
+**** Puntos en la racionalidad
+
+     1. Medida de rendimiento.
+
+     2. Información sobre el entorno.
+
+     3. Acciones.
+
+     4. Secuencia de percepciones.
+
+*** Agente Omnisciente
+
+    Es un agente que conoce el resultado de sus acciones y actúa de
+    acuerdo a esto.
+
+    El agente omnisciente maximiza el rendimiento real ~ *Perfección*.
+
+** Laboratorio 1
+*** Mundo de la aspiradora
+
+    Describiremos la forma en la que podremos representar este mundo,
+    para que un agente actúe en éste.
+    
+****  Definición de los cuartos
+
+     Construiremos los cuartos o cuadrados en los que va a interactuar
+     el agente aspiradora. El ambiente se conformará de un conjunto de
+     cuartos dispuestos en ciertas posiciones.
+
+     #+begin_src python
+class Square(object):
+
+    def __init__(self, name):
+        """
+        Crea un objeto square, que representa los cuadrados del ambiente.
+        
+        Argumentos
+        ----------
+        name : str
+        Nombre del cuadrado ('A', 'B', etc.)
+        """
+        self.name = name
+        self.dirt = 0
+        
+        # Hasta que no se coloque con cuadrados vecinos, los movimientos no llevan a ningún lado
+        self.left = self
+        self.right = self
+        self.up = self
+        self.down = self
+        
+    def __str__(self):
+        return self.name
+     #+end_src
+
+**** Creación del ambiente
+
+     El ambiente del mundo de la aspiradora consta de un conjunto de
+     cuadros estructurados en diferentes posiciones; estos cuadros
+     pueden estar al lado de otros, o bien abajo o arriba de estos.
+
+     Consideraremos un mundo con cuatro cuadros en lo que se puede
+     posicionar el agente. El agente puede moverse en 4 posiciones,
+     izquierda, dercha, arriba y abajap. La configuración en los
+     cuartos que exploramos está configurada de la siguiente forma:
+
+     \[\begin{matrix}[A] & [B]\\ [C] & [D]\end{matrix}\]
+
+     Los nombres de los cuartos son A, B, C y D. Los cuadros A y B
+     están en la parte superior y C y D en la parte inferior. A y C
+     están del lado izquierdo y B, D del lado derecho.
+
+     Así mismo, uno o ambos cuadrados pueden estar sucios (lo que se
+     indica con 1) o limpios (indicado con 0). El ambiente indicará de
+     manera aleatoria que el cuadrado está o no sucio.
+
+     #+begin_src python
+import random
+
+class VacuumWorld(object):
+
+    def __init__(self, dirt_init='random'):
+        """
+        Objeto que crea el ambiente para el mundo de la
+        aspiradora:
+        Se conforma de:
+        - Dos cuadrados: A y B (A la izquierda de B)
+        - Indicación de la limpieza (0) o suciedad (1) de los cuadrados
+
+        Argumentos
+        ----------
+        dirt_init : str
+          Forma en que se inicializará la suciedad de los cuadrados.
+        """
+        self.squares=[]
+        self.A,self.B,self.C,self.D = Square('A'), Square
+     #+end_src
+** Clase 8
+
+*** Agente Racional
+
+    Es un agente que dada una _secuencia de percepciones_ y la
+    _información previa_, forma la acción que maximiza la _medida de
+    rendimiento_.
+
+*** Recolección de información
+
+    Tomar información del entorno que complementa la información
+    previa del agente.
+
+**** Exploración
+
+     Ejecuta acciones que le permitan recolectar información del
+     entorno.
+
+**** Agente autónomo
+
+     Es un agente que es capaz de recolectar información (aprender)
+     para compensar las carencias de la información previa.
+
+     En otro caso, se trata de un agente que carece de autonomía.
+
+*** Ambientes
+
+**** Ambiente de trabajo
+
+     Éste se compone de cuatro elementos (REAS/PEAS):
+
+     1. Medida de rendimiento
+
+     2. Entorno
+
+     3. Actuadores
+
+     4. Sensores
+
+***** Ejemplos
+
+      |            | R            | E          | A             | S           |
+      |------------+--------------+------------+---------------+-------------|
+      | Mundo      | # Limpios    | Estructura | Aspiradora    | Cámara      |
+      | de la      | T            | de cuadros | llantas       |             |
+      | aspiradora |              |            |               |             |
+      |------------+--------------+------------+---------------+-------------|
+      | SPAM       | # Correos    | Bandeja de | Programa de   | Programa de |
+      |            | clasificados | entrada    | clasificación | lectura     |
+
+**** Tipos de ambientes
+
+***** Observables
+
+      1. Totalmente Observable:
+
+	 En todo momento el agente tiene info del entorno completo.
+	 
+      2. Parcialmente Observable:
+
+	 En el que no está disponible toda la información en cualquier
+         momento.
+
+      3. Totalmente efectivamente observable:
+
+	 Es parcialmente observable, pero el agente tiene acceso a la
+         información necesaria para actiar.
+
+      4. No Observables
+
+***** Número de Agentes
+
+      1. Agente individual:
+
+	 Sólo actúa el agente.
+
+      2. Multiagente:
+
+	 2.1. Competitivos: Maximizar el rendimiento de un agente
+         implica minimizar el de otro.
+
+	 2.2. Cooperativos: Maximizar el rendimiento de uno, también
+         maximiza el de otro.
+
+***** Determinismo
+
+      1. Determinista:
+
+	 En donde los estados del entorno está completamente
+         determinados por el estado anterior y la acción del agente.
+
+      2. Estocástico ~ No determinista.
+
+      3. Estratégico:
+
+	 Es un entorno determinista, pero puede ser afectado por las
+         acciones de otro agente.
+
+***** Secuencialidad
+
+      1. Episódicos:
+
+	 Están divididos en episodios, en donde un episodio no afecta
+         a futuros episódicos.
+
+      2. Secuenciales:
+
+	 Las decisiones actuales afectan a los estados futuros.
+
+***** Dinamicidad
+
+      1. Estáticos:
+
+	 En donde sólamente se modifican por acciones del agente.
+	 
+      2. Dinámicos:
+
+	 Se modifican sin necesidad de que el agente participe.
+** Clase 9
+*** Tipos de Ambientes
+    
+**** Continuidad
+
+     1. Entorno discreto:
+
+	Cuya estructura es discreta.
+
+     2. Entorno contínuo:
+
+	Cuya estructura es continuo.
+
+**** Información
+
+     1. Conocidos:
+
+	Son aquellos en donde el agente tiene toda la información de
+        manera previa.
+
+     2. Desconocidos:
+
+	Donde se tiene información parcial o ninguna sobre el
+        ambiente.
+
+*** Ejemplo
+    
+    |         | Obs     | Núm  | Determ | Sec       | Din      | Cont     | Info     |
+    |---------+---------+------+--------+-----------+----------+----------+----------|
+    | Mundo   | Total/  | Ind  | Determ | Episódico | Estático | Discreto | Conocido |
+    | Asp     | Parcial |      |        |           |          |          |          |
+    |---------+---------+------+--------+-----------+----------+----------+----------|
+    | Ajedrez | Total   | Comp | Estrat | Secuenc   | Estático | Discreto | Conocido |
+
+*** Estructura de Agentes
+
+**** Función del agente
+
+     Mapea un secuencia de percepciones a acciones.
+
+**** Programa del agente
+
+     La implementación de la función del agente.
+
+**** Arquitectura del agente
+
+     Es la parte física del agente, que cuenta con los sensores y los
+     actuadores.
+
+     Agente $=$ Programa $+$ Arquitectura
+
+     Entorno $\rightarrow$ Sensores $\rightarrow$ Percepciones $\rightarrow$ Programa $\rightarrow$ Acción $\rightarrow$ Actuadores $\rightarrow$ Entorno
+
+**** Tipos de Agentes
+
+     1. Agente dirigido mediante tabla.
+
+	Toma una tabla que asocia las percepciones a acciones
+        específicas y en base a las percepciones consulta a la tabla y
+        elige una ación.
+
+	| Percepciones | Acciones |
+	|--------------+----------|
+	| p1           | a1       |
+	| p2           | a2       |
+	| ...          | ...      |
+	| p1 ... pt    | at       |
+
+	#+begin_src prog
+funcion TABLE_DRIVEN_AGENT(p, table)
+	percepciones <- percepciones ++ {p}
+	accion <- CONSULTA(percepciones, tabla)
+	return accion
+	#+end_src
+
+	#+begin_src python
+class TableDrivenAgent(VacuumWorld):
+
+    def __init__(self, table, location=None):
+        self.location
+	#+end_src
+
+	etc...
+
+** Clase 10
+*** Agentes de Trabajo (PEAS)
+
+    Consta de el rendimiento, el ambiente, los actuadores y los
+    sensores del ambiente.
+
+    | Tipo Agente | Medida de         | Ambiente     | Actuadores | Sensores     |
+    |             | rendimiento       |              |            |              |
+    |-------------+-------------------+--------------+------------+--------------|
+    | Chofer      | Seguro            | Caminos      | Acelerador | Cámaras      |
+    | autónomo    | Viaje confortable | Avenidas     | Freno      | Radar        |
+    |             | Amabilidad        | Calles       | Luces      | Velocímetro  |
+    |             |                   | Clientes     |            |              |
+    |             |                   | Policías     |            |              |
+    |             |                   | Señales      |            |              |
+    |-------------+-------------------+--------------+------------+--------------|
+    | Brazo       | No maltratar las  | Bodega       | Brazos     | Proximidad   |
+    | autónomo    | cajas             | Trabajadores | Dedos      | Coordinación |
+    | acomodador  | Acomodar bien     |              |            |              |
+    | de cajas    |                   |              |            |              |
+
+**** Clasificación de ambientes de trabajo
+
+     - Ambiente de trabajo totalmente observable
+
+     - Parcialmente observable
+
+     - Agente único
+
+     - Multiagente
+
+       - Competitivo
+
+       - Cooperativo
+
+     - Determinista
+
+     - No determinista
+
+       - Estocástico
+
+     - Episódico
+
+     - Secuencial
+
+     - Estático
+
+     - Dinámico
+
+     - Conocido
+
+     - Desconocido
+
+** Clase 11
+*** Tipos de Agentes
+
+    1. Agente dirigido mediante tabla.
+
+       Selecciona una acción con base a una tabla de secuencia de
+       percepciones-acción.
+
+    2. Agente Reactivo Simple.
+
+       Decide una acción con base únicamente a la percepción
+       actual. Lo hace con base a reglas condición-acción.
+
+    3. Agentes basados en objetivo
+
+       Buscan la solución a un problema dado una meta.
+
+    4. Agente reactivo basado en modelos.
+
+       Toma decisiones con base a un modelo del mundo, que cuenta con:
+
+       - Modelo de transición
+
+	 Cómo cambia el mundo.
+
+       - Modelo sensor
+
+	 Interpreta las percepciones.
+
+    5. Agente basado en utilidad.
+
+       Toma en cuenta una función de utilidad.
+
+       Se utilizan procesos de decisión Markoviana y Q-Lerning.
+
+    6. Agentes que aprenden.
+
+       Son agentes que mejoran su desempeño con base a la experiencia.
+
+       También se le conoce como Aprendizaje de máquina.
+       
+*** Algoritmos de búsqueda
+
+    * Planeación:
+
+      Una secuencia de acciones que permiten llegar a una meta
+
+    * Agente se resolución de problemas:
+
+      Son agentes basados en objetivos que buscan una planeación
+      óptima para resolver el problema, mediante algoritmos de
+      búsqueda.
+
+**** Tipos de búsqueda
+
+     1. Desinformada.
+
+	No cuenta con información de qué tan cerca estamos de la meta.
+
+     2. Informada / Heurística
+
+	Cuenta con información sobre la meta.
+
+**** Problema de búsqueda
+
+     Lo podemos ver como una tupla $SP=(S,A,S_0,F,T,c)$, donde
+
+     1. $S=\{S_0,S_1,\ldots,S_m\}$ es un conjunto de estados.
+     2. $A=\{a_0,\ldots,a_n\}$ es el conjunto de acciones.
+     3. $S_0$ va a ser el estado inicial.
+     4. $F\subseteq S$ va a ser el conjunto de estados finales.
+     5. $T:S\times A\rightarrow S$ es una función de transición.
+     6. $c:S\times A\times S\rightarrow\mathbb{R}^{+}$ es una función de costo.
+
+** Clase 12
+*** Ejemplo problema de búsqeda
+
+    En el mundo de la aspiradora, tendríamos los siguientes estados.
+
+    \[S=\{(x,\ell),x_{\text{loc}},\ell_{\text{suc}}\}\]
+
+    como es un ambiente parcialmente observable, seguimos que el
+    problema de búsqueda no sería determinista.
+
+    Si suponemos que el mundo de la aspíradora es totalmente
+    observable, tendríamos entonces un problema determinista.
+    
+*** Camino
+
+    Dada la gráfica de un problema, un camino es una sucesión de
+    acciones $a_1,\ldots,a_n\in A^*$.
+
+**** Solución
+
+     Es un camino $a_1,\ldots,a_n\in A^*$ tal que partimos de $s_0$ y
+     llegamos a $s_f\in F$.
+
+**** Solución óptima
+
+     Es una solución tal que
+
+     \[\hat{a}_1,\ldots,\hat{a}_n=\arg\min_{a_1,\ldots,a_m}\sum_{a_i}c(s_q,a_i,s_p)\]
+
+*** Algoritmos de búsqueda
+
+    Un algoritmo de búsqueda toma como entrada un problema de búsqueda
+    y devuelve una solución.
+
+*** Árbol de búsqueda
+
+    Es un árbol ordenado con raíz, tal que esta raíz se asocia a su
+    estado inicial, y los hijos son los estados que derivan de
+    acciones.
+
+    $T=(V,\varepsilon)$ $V\equiv S$ $\varepsilon\equiv A$
+
+*** Estructuruda de nodos.
+
+    Un nodo va a contar con:
+
+    1. Elemento ~ Estado
+    2. Padre
+    3. Acción
+    4. Costo
+    5. Profundidad
+
+*** Función de expansión de nodos en el árbol de búsqueda.
+
+    #+begin_src prog
+func EXPAND(n, SP)
+     s <- n.estado
+     for a in A do
+     	 s' <- T(s,a)
+	 n' <- CREATENODE(s',n,a,SP)
+	 yield n'
+    #+end_src
+
+** Clase 13
+*** Algoritmos de búsqueda
+
+    - Árbol de búsqueda $T=(V,E)$
+
+      Los nodos serán estados empezando por $s_0$, que sería la raíz.
+
+    - Aristas ~ Acciones. El árbol se genera a partir de expandir los
+      nodos.
+      
+*** Frontera
+
+    Aquellos nodos que no han sido expandidos en el árbol de búsqueda
+    en un tiempo $t$.
+
+*** Tipos de pila
+
+    1. LIFO (/Last In First Out/).
+
+       Saca primero el último que entra.
+
+    2. FIFO (/First In First Out/).
+
+       Saca primero el primero que entra.
+
+    3. Prioridad.
+
+       Saca primero al elemento con mayor prioridad, según una función
+       $f$.
+
+*** Algoritmo Primero Mejor
+
+    #+begin_src prog
+function PM(problem)
+	 n <- CREATENODE(s0)
+	 frontier <- PRIORITYQUEUE(f).push(n)
+	 reached <- TABLE(s0:n)
+	 while (frontier != EMPTY) do
+	       n <- frontier.pop()
+	       if n in problem.F then
+	       	       return n
+	       fi
+	       for child in EXPAND(problem, n) do
+	       	   s <- child.STATE
+		   if s not in reached or child.cost < reached[s].cost do
+		      reached[s] <- child
+		      frontier.push(child)
+	       done
+	 done
+end
+    #+end_src
+
+*** Algoritmo Primero en Amplitud
+
+    \[f=\min(depth(n))\]
+
+    La solución implica el uso de una pila /FIFO/.
+
+** Clase 14
+*** Algoritmo A*
+
+    Vamos a tener una función para decidir a qué estado movernos
+
+    \[f(n)=g(n)+h(n)\]
+
+    donde $g(n)$ va a ser el costo acumulado y $h(n)$ es la heurística
+    del costo de la transición a otro estado.
+** Clase 15
+*** Algoritmos de búsqueda
+
+    1. Árbol de búsqueda
+
+      1.1. Nodos
+
+        a. Estado
+
+	b. Padre
+
+	c. Acción
+
+	d. Profundidad
+
+	e. Costo
+
+      1.2. Frontera
+
+        Éstos son los nodos no expandidos, para los cuales se utilizan
+       los siguientes tipos de pilas:
+
+       - FIFO
+
+       - LIFO
+
+       - Pila de Prioridad
+	 
+*** Estrategias para encontrar un final
+
+    1. Early-Goal Test
+
+       Revisa si el estado es final inmediatamente cuando el nodo es
+       expandido.
+
+    2. Late-Goal Test
+
+       Revisa si el estado es final cuando se retira de la pila.
+
+*** Algoritmo primero en amplitud
+
+    #+begin_src prog
+function BFS(problem)
+	 n <- CREATE-NODE(s0)
+	 frontier <- FIFOQUEUE().push(n)
+	 reached <- TABLE(s0:n)
+	 while frontier != EMPTY do
+	       n <- frontier.pop()
+	       if n in F then
+	       	  return n
+	       fi
+	       s <- child.STATE
+	       if s not in reached then
+	       	  frontier.push(child)
+		  reached[s] <- child
+	       fi
+	 done
+end
+    #+end_src
+
+*** Algoritmos de búsqueda desinformada
+
+    - Primero en amplitud. /FIFO/
+    - Dijkstra.
+    - Primero en profundidad. /LIFO/
+
+** Clase 16
+*** Algoritmos de búsqueda desinformaada
+
+    1. Dijkstra
+
+    2. Primero en Amplitud
+
+    3. Primero en profundidad
+
+       3.1 Profundidad Limitada
+       
+**** Profundidad Limitada
+
+     #+begin_src python
+def DepthLimitedSearch(problem,l):
+    """Algoritmo Depth-Limited Search"""
+    #Almacenamiento de nodos
+    nodes = []
+    #Nodo inicial
+    node = Node()
+    node.state = problem.initial    
+    #Frontera con cola de prioridad
+    frontier = LIFOQueue()
+    frontier.push(node)
+    #Nodos alcanzados
+    reached = {problem.initial:node}
+    #resultado
+    result = "failure"
+
+    #Mientras la frontera no esté vacía
+    while frontier.isEmpty() == False:
+        #Pop en frontera
+        node = frontier.pop()
+        #Guarda el nodo en la lista
+        nodes.append(node)
+        
+        if problem.is_goal(node.state):
+            print("Se encontró solución")
+            return nodes
+        if node.depth > l:
+            result = "cutoff"
+        else:
+            for child in expand(problem, node):
+                state = child.state
+                if state not in reached.keys():
+                    reached[state] = child
+                    frontier.push(child)
+    
+    return result
+     #+end_src
+
+**** Profundidad iterativa
+
+     #+begin_src python
+def IterativeDeepeningSearch(problem):
+    """Algoritmo de Iterative Deepening Search."""
+    #Inicializa la profundidad
+    l = 0
+    #Revisa si hay resultados
+    result = DepthLimitedSearch(problem,l)
+    #Itera hasta encontrar una solución
+    while result == "cutoff":
+        #Agrega una profundidad más
+        l += 1
+        #Revisa el resultado
+        result = DepthLimitedSearch(problem,l)
+    
+    print("Resuelto en {} iteraciones".format(l))
+    return result
+     #+end_src
+
+** Clase 17   
+*** Búsqueda heurística (informada)
+
+    En ésta, la estrategia es tomar información de la posición de las
+    metas.
+    
+**** Función heurística
+
+     Es una función $h:V\rightarrow\mathbb{R}$, no dará información
+     sobre la meta.
+
+***** Primero Mejor Ambicioso (/Greedy BFS/)
+
+      En un Primero Mejor, donde $f$ está dada como:
+
+      \[f(n)=h(n)\] ~~ Pila de prioridad
+
+***** Algoritmo A*
+
+      Toma como función $f$
+
+      \[f(n)=c(n)+h(n)\] ~~ Pila de prioridad
+
+**** Heurística admisible
+
+     Es aquella que siempre subestima el costo de llegar a una meta.
+
+     Supóngase que $h^*(n)$ representa el costo óptimo; si $h$ es
+     admisible, entonces:
+
+     \[\forall n\in V. h(n)\le h^*(n)\]
+
+** Clase 18
+*** Agentes que resuelven problemas
+
+    Fases para resolver un problema:
+
+    - Formulación de la meta
+    - Formulación del problema
+    - Búsqueda
+
+** Clase 19
+*** Búsqueda Heurística
+
+    Tiene como base una función que nos da información sobre la meta
+
+    $f:V\rightarrow\mathbb{R}$
+    
+*** Hint tarea
+
+    Si $h$ es admisible, entonces $A^*$ es óptimo.
+
+    Demostración
+
+    Por reducción al absurdo, Supongamos que $A^*$ no es óptimo, por
+    lo que $\exists n$ en la solución tal que $f(n)>C^*$
+
+    Sea $n_0$ el primer nodo tal que $f(n_0)>f^*(n_0)$, etc...
+
+*** Hint práctica
+
+    Distancia manhattan: $|x_1-x_2|+|y_1-y_2|$
+
+**** Definiciones
+
+     Una heurísitca $h_1$ domina sobre otra heurística $h_2$ si
+
+     $h_2\leq h_1$
+
+     Si $h_1$ y $h_2$ son admisibles y $h_1$ domina a $h_2$, entonces
+
+     $h_2\leq h_1\leq h^*$
+
+     Si una heurísitica admisible $h_1$ domina sobre $h_2$, entonces
+     $h_1$ expande menos nodeos que $h_2$.
+
+** Clase 20
+*** Factor de ramificación efectivo
+
+    Califica la calidad de una heurística.
+
+    $N=\#$ de nodos
+
+    $d=$ produndidad
+
+    $b^*=\#$ de sucesores generados por un nod "típico" para un
+    problema de búsqueda
+
+    \[N+1=1+b^*+(b^*)^2+\ldots+(b^*)^d\]
+
+    $b^*\approx N^{\frac{1}{d}}$
+
+    Entre más cerca sea $b^*$ de 1, indica que una heurística tiene
+    mayor calidad.
+
+    \[N=\frac{b^{*d+1}-1}{b^*-1}\]
+
+    \[53=\frac{b^{*d+1}-1}{b^*-1}\]
+
+    $\Rightarrow b^*=1.92$
+
+*** Profundidad efectiva
+
+    Califica una heurística según cómo se reduce la profundidad por
+    una constante $K_n$.
+
+*** Heurística compuesta
+
+    Dado un nodo $n$ (estado $n$ de mi árbol de búsqueda)
+
+    \[h(n)=\max\{h_1(n),\ldots,h_l(n)\}\]
+
+** Clase 21
+*** Búsqueda heurística
+
+    Recordemos que $A^*$ es óptimo si la heurística es admisible.
+
+    \[h(n)\leq h^*(n)\]
+
+    Dominancia heurística; $h_2$ domina a $h_1$ si
+
+    \[h_1(n)\leq h_2(n)\]
+
+    La complejidad de $A^*$ depende de la heurística, de esta manera
+    si una heurística $h_1$ domina a otra $h_2$, seguimos entonces que
+    usar $h_2$ tiene mayor complejidad.
+    
+**** Heurísitcas consistentes
+
+     Son aquellas heurísitcas que cumplen que
+
+     \[h(n)\leq c(n,a,n')+h(n')\]
+
+     Donde $n'$ es el nodo siguiente.
+
+***** Heurística monótona
+
+      Es el caso particular en donde
+      
+      \[h(n)\leq h(n')\]
+
+***** Teorema
+
+      Si $h$ es consistente, entonces $h$ es admisible.
+
+**** Estrategias para buscar heurísitcas
+
+     1. Disminución de Restricciones
+
+	Si tenemos un predicado de la forma \[\left(\bigwedge_{i=1}^n X_i\right)\rightarrow Y\]
+
+	Podemos omitir algunas $X_i$ para $i\in\{1,\ldots,n\}$ para
+        simplificar el problema.
+
+     2. Puntos de referencia
+
+	Sea $L=\{L_i\ |\ i\in\{1,\ldots,n\}\}$ el conjunto de puntos
+        de referencia, definimos la herística diferencial como:
+
+	\[h(n)=\max_{l\in L}\left\vert C^*(n,l)-C^*(meta,l)\right\vert\]
+
+     3. Heurística de experiencia
+
+	Éste toma en cuenta aprendizaje de experiencias.
+     
+	\[h(n)=\sum_{i=1}w_ix_i(n)+b\]
+
+	Donde
+
+	1. $x_i(n)\in\mathbb{R}^n$ que describa el estado.
+
+	2. $w_i$ es un valor que se modifica con la experiencia.
+
+**** A* pesado
+
+     \[f(n)=g(n)+\alpha h(n)\]
+
+     donde $\alpha\in\mathbb{R}$ es un factor que pondera la
+     influencia de $h$.
+
+     1. Si $\alpha=0$, entonces $f(n)=g(n)$, que sería el Algoritmo de
+        Dijkstra.
+     2. Si $\alpha\rightarrow\infty$, entonces sería más parecido a
+        BFS Greedy.
+
+** Clase 22
+*** A* pesado
+
+    \[f(n)=g(n)+\alpha h(n)\] con $\alpha\in\mathbb{R}$
+    
+*** Búsqueda bidireccional
+
+    Se crean dos árboles de búsqueda y se resuelven dos problemas
+    distitnos, el camino normal y el camino en retroceso.
+
+** Clase 23
+*** Búsqueda bidireccional
+
+    #+begin_src prog
+function Proceed(dir,problem,frontier,reached,reached2) where
+	 node <- frontier.pop()
+	 for child Expand(problem, node) do
+	 s <- child.STATE
+	 if s not in reached or child.cost < reached[s].cost then
+	    reached[s] <- child
+	    frontier.push(s)
+	    if s in reached2 then
+	       solution_2 <- Solution(dir, reached, reached2)
+	       if cost(solution_2) < cost(solution) then
+	       	  solution <- solution_2
+	       fi
+	    fi
+	 fi
+end
+    #+end_src
+    
+    #+begin_src prog
+function BiSearch(problem_f, problem_b) where
+	 node_i <- CREATENODE(problem_i, INITIAL) //i\in{f,b}
+	 frontier_i <- PriorityQueue(.push(node_i)) //i\in{f,b}
+	 reached_i < Table(node_i.STATE : node_i)
+	 solution <- failure
+	 while frontier_i != EMPTY do
+	       if frontier_f.Top.f < frontier_b.Top.f then
+	       	  solution <- Proceed ( F
+		  	      	      , problem_f
+				      , frontier_f
+				      , reached_f
+				      , reached_b )
+	       else
+		  solution <- Proceed ( B
+		  	      	      , problem_b
+				      , frontier_b
+				      , reached_b
+				      , reached_f )
+	       fi
+	       return solution
+	 done
+end
+    #+end_src
+    
+*** Beam Search (búsqueda por haz)
+
+    Toma en cada iteración sólamente los $k$ nodos más prioritarios.
+
+** Clase 24
+*** Búsquedas en problemas parcialmente observables
+
+    Se tiene que convertir en un problema de creencias.
+
+    1. Los estados van a ser $\hat{S}=\{\hat{S}\subseteq S\}$
+
+    2. Inicial
+
+       - $\hat{S}_0=\{q_0\}$ únicamente si conocemos todo el estado
+         inicial.
+
+       - $\hat{S}_0=S$ o bien, depende de lo que observa el agente.
+
+    3. Acciones: Función de acciones legales.
+
+       - $Action(\hat{S},a)=\bigcup_{s\in\hat{S}}Action(s,a)$
+
+       - $\bigcap$
+
+    4. Transiciones: $T:2^S\times A\rightarrow 2^S$
+
+       - $Result(\hat{S},a)=\bigcup_{s\in\hat{S}}Result(s,a)$
+
+    5. Meta:
+
+       - Necesaria $F=\{s_f:\text{final original}\}$
+
+       - Posible $F=\{\hat{S}:s_f\in\hat{S}\}$
+** Clase 25
+*** Búsqueda por optimización
+
+    *Búsqueda local*: Es realizar la búsqueda de la solución en los
+    estados vecinos al estado actual.
+
+    *Entornos*: Parcialmente observables
+
+    *Función objetivo*: Es una función $f:2^S\rightarrow\mathbb{R}$ que
+    determina la utilidad de la estrategia actual.
+    
+*** Ascenso de la colina
+
+    #+begin_src prog
+function HILL-CLIMBING(problem)
+	 current <- problem.INITIAL
+	 while True do
+	       neighbour <- argmax f(SUC(current))
+	       if f(neighbour) <= f(current) then
+	       	  return current
+	       else
+		  current <- neighbour
+	       fi
+	 done
+end
+    #+end_src
+
+*** Algoritmo genético
+
+    *Individuo*: Es un estado del problema codificado genéticamente
+
+    \[i_j=(x_1,x_2,\ldots,x_k)\]
+
+    *Población*: Es un conjunto de individuos; tenemos también:
+
+    - *Población inicial*: Población con la que inicia el alforitmo. Es
+      de tamaño $n$.
+
+      El tamaño de la población es el número de individuos que
+      conforman la población.
+
+
+    *Función fitness*: Es una función objetivo
+    $f:I\rightarrow\mathbb{R}$ que asigna a cada individuo un valor
+    (de fuerza).
+
+    #+begin_src prog
+function GENETIC(population, f)
+	 wight
+    #+end_src
+      
+** Clase 26
+*** Algoritmo genético
+
+    #+begin_src prog
+function Genetic(population, f)
+    do
+	weights <- Weights(population, f)
+        population2 <- {}
+	    for i = 1 to |population| do
+            	parents <- Selection(population, weights)
+	    	childs <- Reproduce(parents)
+	    	childs <- Mutate(childs)
+	    	population2 <- Replace(childs, parents)
+    	    done
+    	    population <- population2
+    while (criterio de paro)
+    return argmax_f{population}
+end  
+    #+end_src
+    
+**** Selección
+
+     1. Ruleta: Ruleta aleatoria basada en la probabilidad de los
+        individuos según su /fitness/.
+
+     2. Aleatoria: La probabilidad es uniforme. Todo individuo tienen
+        la misma probabilidad.
+
+     3. Torneo: Se pone a competir a los individuos. Es decir se
+        descartan paulatinamente a los individuos más débiles.
+
+**** Reproducción
+
+     1. En un punto: Dados dos padres, corta sus genes en un punto y
+        une las mitades.
+
+     2. En $n$ puntos: Similar al anterior, pero se toman varios
+        puntos.
+
+     3. Uniforme: Utiliza una máscara que selecciona qué genes
+        componen al hijo.
+
+     4. Aleatoria: Combina aleatoriamente los genes.
+
+**** Mutación
+
+     1. Flipping: Cambia el gen usando una máscara.
+
+     2. Intercambio: Intercambiar dos genes aleatoriamente.
+
+     3. Inverso: Se toma una sección de genes y se invierte el orden.
+
+**** Reemplazo
+
+     1. Generacional: Los descendientes reemplazan a los padres.
+
+     2. Fuerte: Se seleccionan aleatoriamente entre padres e hijos.
+
+     3. Débil: Selecciona entre padres e hijos a los más fuertes.
+
+*** ONE MAX
+
+    \[f(x)=\sum_{i=1}^n x_i\]
+
+    Elegimos una población inicial, supongamos:
+
+    \[x_1=(0\ 1\ 0\ 1)\] | 2
+    \[x_2=(0\ 0\ 0\ 0)\] | 0
+    \[x_3=(1\ 0\ 1\ 1)\] | 3
+    \[x_4=(1\ 0\ 1\ 0)\] | 2
+
+** Clase 27
+
+*** Agentes probabilísticos
+
+    Se encuentran en un entorno no determinista, o estocástico.
+
+**** Creencia
+
+     Es una concepción de cómo puede estar el ambiente; puede
+     modificarse con más información.
+
+**** Estado de creencia
+
+     Conjunto de creencias que tiene un agente sobre un estado.
+
+*** Teoría de utilidad
+
+    El agente prefiere las acciones que tengan mayor utilidad.
+
+*** Teoría de decisión
+
+    Incorpora la teoría de la utilidad junto con la probabilidad.
+
+    En ésta el agente va a buscar las soluciones que maximicen la
+    utilidad _esperada_.
+
+    \[MUE\]
+
+*** Probabilidad
+
+    *Espacio probabilístico:* Es una 3-tupla $(\Omega,\mathcal{F},p)$ tal que:
+
+    - $\Omega$ es el espacio muestral
+    - $\mathcal{F}\subseteq 2^{\Omega}$ el conjunto de eventos
+    - $p:\mathcal{F}\rightarrow [0,1]$ una función de probabilidad.
+
+
+    *Variable aleatoria:* Es una función tal que
+
+    \[X:\Omega\rightarrow\mathbb{R}\]
+
+**** Notación
+
+     \[p(X=x)\]
+
+     donde $X$ es la variable aleatorio y $x$ es el valor de $X$
+
+**** Propiedades de $\mathcal{F}$
+
+     1. $\emptyset,\Omega\in\mathcal{F}$
+     2. Si $E\in\mathcal{F}$ entonces $E^c\in\mathcal{F}$
+     3. $\sigma$ aditividad. Si $E_1,E_2,\ldots\subseteq\mathcal{F}$ entonces
+
+	\[\bigcup_{i=1}^nE_i\in\mathcal{F}\]
+
+**** Propiedades de $p$
+
+     1. $p(\emptyset)=0$
+     2. $p(\Omega)=1$
+     3. $p(E)\geq 0\ \forall E\in\mathcal{F}$
+     4. $\sigma$ - aditividad Si $E_1,E_2,\ldots\subseteq\mathcal{F}$ tales que $\forall i. i\neq j\rightarrow E_i\cap E_j=\emptyset$
+
+	Se tiene que
+
+	\[p\left(\bigcup_{i=1}^n E_i\right)=\sum_{i=1}^np(E_i)\]
+
+**** Probabilidad Conjunta
+
+     \[p(E_1,E_2)=p(E_1\cap E_2)\]
+
+     \[p(E_1,\ldots,E_n)=p\left(\bigcap_{i=1}^nE_i\right)\]
+
+     Diremos que $E_1\bot E_2$ son independientes si
+
+     \[p(E_1,E_2)=p(E_1)p(E_2)\]
+
+**** Probabilidad condicional
+
+     \[p(X_1=x_1|X_2=x_2)=\frac{p(X_1=x_1,X_2=x_2)}{p(X_2=x_2)}\]
+
+     \[p(X_1=x_1|X_2=x_2,X_3=x_3,\ldots,X_n=x_n)=\frac{p\left(\bigcap_{i=1}^nX_i=x_i\right)}{p\left(\bigcap_{i=2}^nX_i=x_i\right)}\]
+
+**** Esperanza
+
+     Es una estadística sobre una variable aleatorio $X$ con valores
+     $x_1,\ldots,x_n$ tales que.
+
+     \[\mathbb{E}(X)=\sum_{i=1}^np_X(x_i)x_i\]
+
+*** Teoría de decisión
+
+    \[\max\mathbb{E}[U(X)]\]
+
+**** Redes bayesianas
+     
+***** Teorema de probabilidad total
+
+      \[p(X_i=x)=\sum_{x_2}\cdots\sum_{x_n}p(X_1=x_1,X_2=x_2,\ldots,X_n=x_n)\]
+
+** Clase 28
+
+*** Redes Bayesianas
+
+    Es un modelo gráfico que asocia variables aleatorias a nodos de la
+    gráfica. Una arista implica una condición.
+
+*** Muestreo por rechazo
+
+    Es la inferencia sobre redes bayesianas.
+
+    *Consultas con evidencia*: Tenemos que calcular la probabilidad de
+    una variable dada una evidencia. Una evidencia es una asignación
+    de valores a ciertas variables aleatorias.
+
+** Clase 29
+
+*** Inferencia Redes Bayesianas
+
+    1. Muestreo por rechazo
+
+       #+begin_src prog
+function PRIOR-SAMPLE(bn)
+	 x <- (x_1 x_2 ... x_n) ~ Inic 0
+	 for x_1 in Order_top(bn.VARIABLES) do
+	     x[i] <- RandomSample (x_i, p(X_i|Pi(X_i)))
+	 done
+	 return x
+end
+       #+end_src
+
+       #+begin_src prog
+function REJECTION-SAMPLING(bn, e, X_i, N)
+	 C <- VETTOR(size=|X_i|) ~ Inic 0
+	 for j=1 to N do
+	     x <- PRIOR-SAMBLE(bn)
+	     if x consistente con e then
+	     	C[k] <- C[k] + 1 ~ i vlor de X_i en X
+	 done
+	 return Normalize(C)
+end
+       #+end_src
+
+*** Ley de los grandes números
+
+    Dadas las muestras $X_1,X_2,\ldots$ que convergen a $X$, entonces
+
+    \[N\to\infty:\frac{1}{N}\sum_{i=1}^N X_i\longrightarrow\mathbb{E}[X]\]
+
+*** Muestreo ponderado
+
+    #+begin_src prog
+function WEIGHTED-SAMPLE(bn, e)
+    w <- 1
+    x <- (x_1,...,x_n) ~ evento con elementos en e
+    for i = 1 to n do
+        if x in e then
+	    w <- w * p (X_i=e_i|Pi(X_i))
+	else
+	    x[i] <- RANDOM-SAMPLE(X_i, p(X_i|Pi(X_i)))
+	fi
+    done
+    return x, w
+end
+    #+end_src
+
+    #+begin_src prog
+function LIKELIHOOW-WEIGHTING(X, e, bn, N)
+    w <- ZEROVECTOR(size=|X|)
+    for j <- 1 to N do
+        x, w <- WEIGHTED-SAMPLE(bn, e)
+	W[k]<- W[k] + w
+    done
+    return NORMALIZE(W)
+end
+    #+end_src
+
+** Clase 30
+   
+
+*** Agentes de aprendizaje
+
+    - Aprendizaje: Un ajente se dice que aprende si su desempeño,
+      medido con métrica $P$, en una tarea $T$, mejora con experiencia
+      $E$.
+
+
+    Por ejemplo, un agente que detecte spam:
+
+    \[T=\] Clasificar correos en spam / ham
+
+    $E=$ Correos (ya clasificados)
+
+    $P=$ El número correcto de correos clasificados.
+
+**** Entrenamiento y evaluación
+
+     - Esquema 70 : 30
+
+       - Toma 70% de datos originales
+
+       - Toma 30% para evaluación
+
+	 - 10% para validación; es decir, que estima hiperparámetros.
+
+	 - 20% para evaluación
+
+**** Hiperparámetros
+
+     Son parámetros del modelo que no se aprenden, sino son determidaos
+     por el programador.
+
+**** Entrenamiento
+
+     Consiste en convertir el problema de aprendizaje en un problema
+     de optimización.
+
+***** Función objetivo
+
+      Sea $f$ un agente de aprendizaje
+
+      \[\hat{f}=\text{arg}\,\text{min}R(f)\]
+
+      donde
+
+      \[R(f)=\mathbb{E}_{x\sim p(x)}[L(f(x),y)]\]
+
+**** Evaluación
+
+     - Supervisado:
+
+       - Regresión
+
+       - Clasificación
+
+     - No supervisado
+
+**** Regresión
+
+     $f:X\rightarrow \mathbb{R}$
+
+     1. Error cuadrático medio
+
+       \[MSE=\frac{1}{N}\sum_{i=1}^N(y_i-f(x_i))^2\]
+
+     2. Score $R^2\in[0,1]$
+
+	\[R^2=1-\frac{\sum_x(y_x-f(x))^2}{\sum_x(f(x)-M_x)^2}\]
+
+	donde $M_x$ es la media de los valores de salida $y$
+
+** Clase 31
+
+*** Aprendizaje supervisado
+   
+**** Algoritmos
+
+     Regresión lineal: Encontrar una recta que mejor se ajuste a los
+     datos.
+
+     \[f(x,w,b)=w^T x + b\]
+
+     Se tienen que obtener los parámetros $x, w, b$ tales que minimicen
+     en el error.
+
+     \[\varepsilon=f(x_i)-y_i\longleftrightarrow y_i=f(x_i)+\varepsilon\]
+
+***** Funcion objetivo
+
+      1. VAE: \[\frac{1}{N}\sum_{i=1}^N|y_i-f(x_i)|\]
+
+      2. MSE: \[\frac{1}{N}\sum_{i=1}^N (f(x_i)-y)^2\]
+
+	 \[\Rightarrow f^*=\text{arg\,min}_{f}\frac{1}{N}\sum_{i=1}^N(f(x_i)-y)^2\]
+	 \[\Rightarrow w^*,b^* = \text{arg\,min}_{w,b}\frac{1}{N}\sum_{i=1}^N(w^Tx+b-y)^2\]
+
+	 Para ello, derivamos e igualamos a 0
+
+** Clase 32
+
+*** Evaluación de clasificación
+
+    - Matriz de confusión
+
+    - Exactitud, precisión, exhaustividad
+
+*** Clasificadores lineales
+
+    1. Regresión logística
+       
+    2. Perceptrón
+
+**** Regresión logistica
+
+     \[\sigma(x)=\frac{1}{1+\exp\{-(wx+b)\}}\in[0,1]\]
+
+     \[\sigma(x)=\mathbb{P}(y=1|x)\]
+
+     Para obtener una clase
+
+     \[\hat{y}=\text{arg\,max}_y\,\mathbb{P}(Y=y|x)\]
+
+     \[\hat{y}=\text{arg\,max}_y\,\{\mathbb{P}(y=1|x),1-\mathbb{P}(y=1|x)\}\]
+
+     Donde $x=(x_1,x_2,\ldots,x_n)$ es un vector de variables
+     aleatorias.
+
+     \[\hat{y}=\begin{cases}1 & \text{si }\sigma(x)>0.5\\ 0 & \text{En cualquier otro caso}\end{cases}\]
+
+     * Regresión lineal: Es un modelo gráfico no-dirigido.
+     
+***** Función objetivo
+
+      Siendo $x$ la entrada y $y$ su clase
+      
+      \[R(w,b)=-\sum_{(x,y)}y\ln(\sigma(x))+(1-y)\ln(1-\sigma(x))\]
+
+***** Descenso por Gradiente      
+
+** Clase 33
+
+*** Clasificacion
+
+    #+begin_src prog
+Predict(x):
+    f(x) <- 1 / 1 + exp(-wx+b)
+
+fit(X,Y,eta,T):
+    w, b <- RANDOM
+    for t = 1 to T do
+        for x, y in X, Y do
+	    f(x) <- 1 / 1 + exp(-wx+b)
+	    w_i <- w_i - eta(f(x)-y) x_i
+	    b <- b - eta(f(x)-y)
+    #+end_src
+
+*** Perceptrón
+
+    #+begin_src prog
+Predict(x):
+    f(x) = wx + b > 0 ? 1 : 0;
+
+Fit(X,Y,eta,T):
+    w, b <- RANDOM(w,b)
+    for t = 1 to T do
+        for x, y in X, Y do
+	    f(x) = wx + b > 0 ? 1 : 0;
+	    w_i <- w_i - eta(f(x)-y) x_i
+	    b <- b - eta(f(x) - y)
+    if sum ((f(x)-y)^2) = 0 then
+        return f(w,b)
+    #+end_src
+
+*** Aprendizaje no supervisado
+
+    - Agrupamiento
+
+    - Reducción de dimensionalidad
+
+*** Agrupamiento por k-medias
+
+    #+begin_src prog
+Fit(X, k):
+    M_i <- Random(M_i), i = [1..k]
+    C = {C_1 .. C_k}
+    for i, x in pairs (X) do
+        delta_i(x) <- ||X-Mi||_p
+	C_i <- argmin_i delta_i(x)
+    M_i <- (1 / |C_i|) sum(x in C_i, x)
+    Repetir hasta que ya no se hagan más asignaciones.
+	
+    #+end_src
+
+*** Evaluación
+
+    - /Gold standard/: Un agrupamiento ideal (dado por un humano)
+
+* Tareas

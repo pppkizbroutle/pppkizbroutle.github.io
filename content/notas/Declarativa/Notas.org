@@ -1,0 +1,1069 @@
+#+title: Programación Declarativa
+#+author: Erik Rangel Limón
+#+startup: content
+#+startup: latexpreview
+
+Cambio en el horario
+
+lunes y miércoles de 17 a 16:30
+
+No habrá laboratorio
+
+* Evaluación
+
+  | Rubro          | Porcentaje |
+  |----------------+------------|
+  | Tareas         |        60% |
+  | Proyecto final |        40% |
+  
+* Notas de Clase
+
+** Clase 1
+
+*** Temario
+
+    1. Programación lógica (Prolog)
+
+    2. Programación funcional (Haskell)
+
+    3. Programación declarativa con otros estilos
+
+    4. Programación declarativa en el mundo
+  
+** Clase 2
+
+*** Prolog (Tarea)
+
+    * Es un lenguaje muy ligado con la inteligencia artificial y con
+      la lingüística computacional.
+      
+    * Tiene sus raíces en la lógica de primer orden y la lógica
+      formal.
+      
+    * Es un lenguaje principalmente declarativo.
+
+    * Tiene extensiones y versiones con características imperativas,
+      concurrentes.
+
+    * El funcionamiento del lenguaje es mediante relaciones, las
+      cuales pueden representar hechos o reglas, con las que una
+      computación se puede realizar mediante una búsqueda sobre éstas
+      relaciones.
+
+    * Conclusiones lógicas (relaciones).
+
+    * Tiene wildcards.
+
+    * Tiene listas.
+
+    * Fue uno de los primeros lenguajes lógicos, y sigue siendo el
+      lenguaje más popular de ellos, de la cual se distribuyen varias
+      versiones de ellos.
+
+    * Es mayormente utilizado para demostraciones de teoremas,
+      sistemas expertos, reescripción de términos, así como también
+      para el procesamiento de lenguaje natural, el cual fue su
+      intensión de uso original.
+   
+*** Lenguaje Funcional
+
+    - Funcional:
+
+      Tiene efectos secundarios, como entradas aleatorias, escritura y
+      lectura del disco, hora y tiempo, entre otras cosas.
+      
+    - Puramente funcional:
+
+      Evita en la mayoría de lo posible los efectos secundarios de una
+      computadora.
+
+** Clase 3
+   
+*** Haskell
+
+    - Es un lenguaje puramente funcional
+
+    - Currificación; lo que quiere decir es que una función con varios
+      parámetros la convierte a varias funciones de un sólo parámetro.
+
+    - Philip Wadler introdujo la teoría de categorías a la
+      programación funcional, lo que permitió el uso de efectos
+      secundarios en lenguajes puramente funcionales.
+
+** Clase 4
+
+*** Paradigma / Estilo de Programación
+
+    Existen dos principales
+    
+**** Imperativo (Cómo)
+
+     Éste se enfoca más en explicar un programa como un conjunto de
+     instrucciones.
+
+***** ¿Por qué son Turing Completos?
+
+      Se ha demostrado que si un lenguaje imperativo tiene:
+
+      - Secuencia
+      - Decisión
+      - Repetición
+
+
+      Entonces el lenguaje es turing completo.
+     
+**** Declarativo (Qué)
+
+     Estos nacen a partir de conceptos de las matemáticas
+
+     Uno de los primeros lenguajes declarativos fue lisp como una
+     nueva manera de programar, el cual intentó utilizar el cálculo
+     lambda para su sintaxis.
+
+     A partir de *Lisp* surgen algunas vertientes que implementan de
+     manera correcta el cálculo lambda, como /Haskell/, /Ocaml/, /Scheme/,
+     /Racket/.
+
+     Una de las características de los lenguajes declarativos son las
+     siguientes:
+
+     - Utilizan la recursión como método de iteración.
+
+     - Es más fácil demostrar que un algoritmo es correcto.
+
+     - Las funciones actúan como miembros de primera clase.
+
+     - Sistemas de tipos "elegantes".
+
+     - No tienen efectos secundarios, si el lenguaje no los tiene en
+       su totalidad se dice entonces que es un leguaje puro.
+
+     - Tienen fuertes bases matemáticas como la lógica, el cálculo
+       $\lambda$, y la teoría de categorías.
+
+     - Evaluación perezosa (/Lazy evaluation/).
+
+     - Por lo general existen listas en los lenguajes declarativos.
+    
+***** ¿Por qué es Turing Completo?
+
+      Sabemos que el Cálculo $\lambda$ es equivalente a una Máquina de
+      Turing, por lo que un lenguaje declarativo será Turing Completo
+      si tiene:
+
+      - Funciones
+      - Aplicaciones
+      - Variables
+      
+*** Lenguajes lógicos
+
+    - Usa hechos y reglas de inferencia
+    - Tiene como base la lógica de la primer orden
+    - Usa cláusulas de Horn
+    - Unificación (Resolución binaria)
+    - Retroceso
+      
+*** Lenguajes funcionales
+
+    - Utiliza funciones para representar programas.
+    - Usa $\beta$-reducciones para evaluar funciones.
+    - Se llega cuando llega a una forma normal.
+    - Usa teoría de categorías.
+
+      + Patrones recursivos
+      + Functores
+      + Mónadas
+      + Monoides
+      + Aplicativos
+      + Entre otros ...
+      
+*** Lógica de predicados
+
+    La lógica proposicional tiene varias similitudes con la lógica de
+    predicados, entre ellos sabemos que algunos son:
+
+    - Sintaxis
+    - Semántica
+    - Deducción / Inferencia / Teoría de la prueba
+    
+    Sabemos que éste tiene:
+
+    - Valores*
+    - Constantes*
+    - Predicados
+    - Funciones*
+    - Opoeradores
+    - Cuantificadores
+
+
+    * Estos son términos
+    
+** Clase 5
+
+*** Lógica de predicados (Primer orden)
+
+    Hereda las características de la lógica proposicional, agregángole
+    los cuantificadores universales y existenciales.
+
+    $U$ será nuestro universo de discurso, y a partir de ellos podemos
+    determinar cuántos elementos de un universo cuentan con una
+    propiedad.
+
+    Vamos a tener variables, funciones y cuantificadores.
+
+**** Equivalencias lógicas     
+
+     1. \[\forall x.\forall x.\varphi\equiv\forall x. \varphi\]
+
+     2. \[\exists x.\exists x.\varphi\equiv\exists x.\varphi\]
+
+     3. \[\exists x.\forall x.\varphi\equiv\forall x.\varphi\]
+
+     4. \[\forall x.\exists x.\varphi\equiv\exists x.\varphi\]
+
+     5. \[\forall x.\varphi\equiv\forall y. (\varphi[x:=y])\]   \[y\notin FV(\varphi)\]
+
+     6. \[\exists x.\varphi\equiv\exists y. (\varphi[x:=y])\]   \[y\notin FV(\varphi)\]
+
+     7. \[\forall x.\varphi\equiv\varphi\]   \[x\notin FV(\varphi)\]
+
+     8. \[\exists x.\varphi\equiv\varphi\]   \[x\notin FV(\varphi)\]
+     
+**** Formas normales
+
+     1. Rectificación
+
+	- Cuantificadores con variables ajenas
+
+	  \[\forall x.\exists y.\neg\forall w.\exists z. (P(x,y)\vee\neg Q(x)\rightarrow \exists w. \neg T(a,w))\]
+
+	  \[\Rightarrow \forall x.\exists y.\neg(P(x,y)\vee\neg Q(x)\rightarrow \exists u. \neg T(a,u))\]
+
+     2. Forma Normal Negativa
+
+	- Introduce negaciones a fórmulas atómicas
+
+	- Quita $\Rightarrow$ y $\Leftrightarrow$
+
+	  \[\forall x.\exists y.\neg(P(x,y)\vee\neg Q(x)\rightarrow \exists u. \neg T(a,u))\]
+
+	  \[\Rightarrow \forall x.\exists y.\neg(\neg(P(x,y)\vee\neg Q(x))\vee\exists u.\neg T(a,u))\]
+
+	  \[\Rightarrow \forall x.\exists y.\neg\neg(P(x,y)\vee\neg Q(x))\wedge\neg\exists u.\neg T(a,u)\]
+
+	  \[\Rightarrow \forall x.\exists y.(P(x,y\vee\neg Q(x))\wegde\forall u.T(a,u))\]
+
+     3. Forma Normal Pronex
+
+	- Factoriza cuantificadores
+
+	  \[\forall x.(\ldots\exists y.(\ldots))\Rightarrow \forall x.\exist y.(\ldots)\]
+
+	  Si $x\in FV(\varphi)$ y $\star\in\{\wedge,\vee,\rightarrow\}$:
+
+	  1. \[\varphi\star\forall x.\psi\equiv\forall x.(\varphi\star\psi)\]
+
+	  2. \[\varphi\star\exists x.\psi\equiv\exists x.(\varphi\star\psi)\]
+
+
+     \[\forall x.\exists y.(P(x,y\vee\neg Q(x))\wegde\forall u.T(a,u))\]
+
+     \[\Rightarrow\forall x.\exists y.\forall u. (P(x,y)\vee\neg Q(x))\wedge T(a,u)\]
+
+     1. Forma Normal de Skolen
+
+	- Elimina cuantificadores existenciales
+
+	  1. $\exists x.\varphi\cong \varphi[x:=c]$
+
+	  2. $\forall x_1\ldots\forall x_n.\exists y.\varphi\cong \forall x_1\ldots\forall x_n. \varphi[y:=g(x_1,\ldots,x_n)]$
+
+
+     \[\forall x.\exists y.\forall u. (P(x,y)\vee\neg Q(x))\wedge T(a,u)\]
+
+     \[\Rightarrow\forall x.\forall u. (P(x,f(x))\vee\neg Q(x))\wedge T(a,u)\]
+
+     2. Forma Clausular
+
+	- Representación sin $\forall$.
+
+     \[\forall x.\forall u. (P(x,f(x))\vee\neg Q(x))\wedge T(a,u)\]
+
+     \[\Rightarrow \{P(x,f(x))\vee\neg Q(x), T(a,u)\}\]
+
+     /Nota adicional A/
+     
+** Clase 6
+
+*** Fundamentos teóricos de la programación lógica
+
+**** Lógica de primer orden
+
+     - Fórmulas atómicas:
+
+       + Constantes lógicas $\top$, $\bot$
+
+       + Predicados aplicados a términos.
+
+     - Términos:
+
+       + Constantes: $(c_1,\ldots,c_n)$
+
+       + Variables $(x_1,\ldots,x_n)$
+
+       + Funciones aplicadas a términos $f(t_1,\ldots,t_n)$
+
+     - Fórmulas compuestas:
+
+       + Conectivos $(\neg,\wedge,\vee,\rightarrow,\leftrightarrow)$
+
+       + Cuantificadores $(\exists x.\varphi,\exists x.\varphi)$
+
+
+     "Hay dos pizzas, la primera es de pepperoni, la segunda de
+     hawaiana.
+
+     Sólo como pizza si hay hawaiana
+
+     ¿Puedo comer pizza?"
+
+     En la programación lógica vamos a tener:
+     
+     - Cláusulas que representan lo que sabemos del problema, llamadas
+       base de conocimiento.
+       
+     - Una cláusula llamada cuestión, llamada consulta.
+
+     - Para saber si la consulta es verdadera o falsa, aplicaremos
+       resolución binaria con unificación. Si podemos llegar a la
+       cláusula vacía decimos que la consulta es verdadera.
+
+*** Cláusula
+
+    Una cláusula es una disyunción de fórmulas atómicas o su negación
+    (literales).
+
+    $C=\ell_1\vee\ell_2\vee\cdots\ell_n$
+
+    * Notación conjuntista
+
+      \[C=\{\ell_1,\ldots,\ell_n\}\]
+
+
+    1. Conmutatividad
+
+       $P_i$ positivas
+
+       $Q_i$ negativas
+
+       \[\neg P_1\vee\neg P_2\vee\ldots\vee\neg P_n\vee Q_1\vee Q_2\vee\cdots\vee Q_n\]
+
+    2. De Morgan
+
+       \[\]\[\neg(P_1\wedge\cdots\wedge P_j)\vee(Q_1\vee Q_2\vee\cdots\vee Q_n)\]
+
+    3. Definición de implicación
+
+       \[(P_1\wedge\cdots\wedge P_j)\rightarrow(Q_1\vee Q_2\vee\cdots\vee Q_n)\]
+
+    4. Quitando operadores
+
+       $P_1,P_2,\ldots,P_n\rightarrow Q_1,Q_2,\ldots,Q_n$
+
+    5. Volteamos la implicación
+
+       \[P_1,P_2,\ldots,P_n\rightarrow Q_1,Q_2,\ldots,Q_n\]
+
+
+    * *Cláusula de Horn*.
+
+      Es una cláusula con a lo más una literal positiva. Las cláusulas
+      de Horn son a lo más alguna de las siguientes.
+
+      - Hechos: Una literal positiva y ninguna negativa.
+
+      - Reglas: Una literal positiva y al menos una negativa.
+
+      - Metas: Ninugna positiva y al menos una negativa.
+
+      - Vacía: Sin literales
+
+
+    Un programa lógico P es un conjunto de hechos y reglas (base de
+    conocimientos). Las consultas se representan con metas.
+
+    Dado un programa $\mathbb{P}$ y una consulta $C$ queremos verificar
+
+    \[\mathbb{P}\models C\]
+
+    \[\exists x. P(x),\exists y. H(y),\forall z.(H(z)\rightarrow C(z)),C(x)\]
+
+    \[\{P(a),P(b),\neg H(z)\vee C(z),\neg C(x)\}\]
+
+    El programa lógico entonces se vería como sigue:
+
+    \[P(a)\leftarrow\]
+
+    \[H(b)\leftarrow\]
+
+    \[C(z)\leftarrow H(z)\]
+
+    Consulta: $\leftarrow C(x)$
+    
+*** Resolución binaria
+
+    Es un método que permite decidir la consecuencia lógia
+    $\Gamma\models\varphi$, al llegar a la cláusula vacía a partir del
+    conjunto \[\Gamma\cup\{\neg\ell\}\]
+
+    $\infer{(C_1\vee D_1)\sigma}{C=_{\text{def}}C_1\vee\ell & D=_{\text{def}}D_1\vee\ell' & Var(C)\cap Var(D)=\emptyset & \sigma=umg\ de\ \{\ell^c,\ell'\}}$
+
+
+    
+    
+** Clase 7
+*** Resolución binaria
+
+    - Forma clausular
+    - Algoritmo de unificación
+** Clase 8
+*** Programación lógica
+
+    $P(a)\leftarrow$
+    $H(b)\leftarrow$
+    $C(z)\leftarrow H(z)$
+
+    $\leftarrow C(x)$ Meta
+    $\mathbb{P}\models C$
+
+    1. $\leftarrow H(z)$ Res$(4,3)$ $[x:=z]$
+    2. $\leftarrow$ Res(5,2) $[z:=b]$
+
+
+    Hay dos procesos de búsqueda de pruebas en la programación lógica,
+    en la cual tenemos la búsqueda hacia atrás, y la búsqueda hacia
+    adelante.
+
+    En prolog, tenemos lo que se conoce como backtracking (o
+    retroceso)
+    
+*** Árbol SLD
+
+    Tenemos el siguiente programa
+
+    1. $p(a)\leftarrow$
+    2. $p(b)\leftarrow$
+    3. $q(a)\leftarrow$
+    4. $r(f(y))\leftarrow p(y), q(y)$
+    5. $\leftarrow r(x)$
+    6. $\leftarrow p(y),q(y)$
+    7. $\leftarrow q(a)$
+    
+*** Prolog
+
+    #+begin_src prolog
+% Tipos básicos
+% Átomos (términos más pequeños)
+juanito
+m
+esto_es_un_atomo
+x1
+,***
+'esto es un átomo'
+
+% Variables
+X
+EstoEsUnaVariable
+_var
+_
+
+% Números
+12313
+1.92
+-502
+
+% Términos compuestos
+% 1. Funtor (átomo)
+% 2. Lista de argumentos
+funtor(a,b)
+'funtorcito'(termino)
+g(f(a,b),h(c,d))
+    #+end_src
+
+    Primero en prolog se definen hechos y reglas, si queremos un
+    programa para saber quién es más alto que alguien, tenemos lo
+    siguiente.
+
+    #+begin_src prolog
+% Base de conocimientos
+alto(juan,adriana).
+alto(ricardo,juan).
+alto(javier,ricardo).
+alto(alejandro,adriana).
+alto(javier,alejandro).
+
+mas_alto(X,Y) :- alto(X,Y).
+mas_alto(X,Y) :- alto(X,Z), mas_alto(Z,Y).
+    #+end_src
+    
+** Clase 9
+*** Prolog
+
+    Éste utiliza el principio del universo cerrado, en donde si
+    nuestro sistema no puede demostrar alguna propiedad, éste dirá que
+    es falso.
+    
+** Clase 12
+*** Listas en prolog
+
+    - La lista vacía es una lista, y en prolog se denota como =[]=.
+
+    - Si $x$ es un elemento de un conjunto cualquiera, y $xs$ es una
+      lista con elementos de cualquier conjunto, entonces =[x|xs]= es
+      una lista.
+
+    - Son todas.
+
+
+    Vamos a implementar la propiedad =contiene(x,L)=, que nos dirá si =x=
+    está contenido en =L=.
+
+    #+begin_src prolog
+contiene(E,[E|XS]).
+contiene(E,[_|XS]) :- contiene(E,XS).
+    #+end_src
+
+    Si queremos un predicado que calcula la suma de los elementos de
+    una lista.
+%@ 
+
+    #+begin_src prolog
+suma([],0).
+suma([X],X).
+suma([X|XS],Y) :-
+    suma(XS,Z),
+    Y is X + Z
+    #+end_src
+
+    Si queremos un predicado que calcule la concatenación de dos
+    listas.
+
+    #+begin_src prolog
+concat(L1,[],L1).
+concat([X|XS],L2,[X|ZS]) :- concat(XS,L2,ZS).
+    #+end_src
+
+    Si queremos un predicado que calcule la concatenación de dos
+    listas.
+
+    #+begin_src prolog
+concat([],L2,L2)
+concat([X|XS],L2,[X|ZS]) :- concat(XS,L2,ZS)
+
+reversa([],[]).
+reversa([X|XS],YS) :- reversa(XS,ZS), concat(ZS,[X],YS) 
+    #+end_src    
+** Clase 13
+*** Ejercicios prolog
+    
+**** Contención
+
+     #+begin_src prolog
+contiene([H|_],H).
+contiene([_|T],X) :- contiene(T,X).
+     #+end_src
+
+**** Suma de elementos de una lista (recursiva)
+
+     #+begin_src prolog
+suma([],0).
+suma([H|T],S) :- suma(T,Z),
+		 S is H + Z.
+     #+end_src
+
+** Clase 14
+*** Prolog operadores
+
+    Para verificar el valor numérico de una variable se utiliza el
+    operador =is=.
+
+    =X is 1 + 7.=
+
+    Tiene las operaciones aritméticas comunes, como
+
+    | Operaciones aritméticas | Operadores    |
+    |-------------------------+---------------|
+    | Suma                    | +             |
+    | Resta                   | -             |
+    | Multiplicación          | *             |
+    | Division Real           | /             |
+    | División Entera         | //            |
+    | Potencia                | **            |
+    | máximo                  | max           |
+    | mínimo                  | min           |
+    | raíz cuadrada           | sqrt          |
+    | seno                    | sin           |
+    | flotante                | float         |
+    | redondeo                | round         |
+    | menor que               | <             |
+    | mayor que               | >             |
+    | menor o igual           | =<            |
+    | mayor o igual           | >=            |
+    | distinto de             | = \ = (junto) |
+    |                         | = : =         |
+
+
+    Calcular el perímetro y área de un triángulo con lados a, b y c.
+
+    #+begin_src prolog
+lados(X,Y,Z).
+triangulo(W,lados(X,Y,Z)).
+
+perimetro(T,P) :- triángulo(T,lados(A,B,C)),
+		  P is A + B + C.
+
+semiperimetro(T,S) :- triangulo(T,lados(A,B,C)),
+		      perimetro(T,P),
+		      S is P / 2.
+
+area(T,A) :- triangulo(T,lados(A,B,C)),
+	     semiperimetro(T,S),
+	     A is sqrt(S*(S-A)*(S-B)*(S-C)).
+    #+end_src
+    
+*** Precedencia
+
+    Es el orden en el que evaluamos las operaciones
+
+    $5\times 2+3=(5\times 2)+3$
+
+*** Asociatividad
+
+    $A+(B+C)=(A+B)+C$
+
+*** Definir operadores en prolog
+
+    | Patrón | Significado             |
+    |--------+-------------------------|
+    | yfx    | infijo, asoc. izq       |
+    | xfy    | infijo, asoc der        |
+    | xfx    | infijo, sin regla asoc. |
+    | fy     | prefijo                 |
+    | fx     | prefijo                 |
+    | yf     | postfijo                |
+    | xf     | postfijo                |
+
+    - f es la posición del operador
+
+    - x y es la asociatividad, la y es la dirección en donde se asocia
+
+**** current_op
+
+     =?- current_op(Presedencia,Asociatividad,-)=.
+     =@Presedencia = 200, Asociatividad = fy;=
+     =@Precedencia = 500, Asociatividad = yfx.=
+     
+**** op
+
+     =op(300,xfx,contiene).=
+     =?- [1,2,3] contiene 1=.
+     
+*** No determinismo en prolog
+
+    $AFN=(Q,\Sigma,\delta,q_0,F)$
+
+    - $Q$ es el conjunto de estados
+    - $\Sigma$ el alfabeto de entrada
+    - $\delta\subseteq Q\times\Sigma\times Q$
+    - $q_0$ es el estado inicial
+    - $F$ es un estado final
+
+
+    Definimos un autómata como sigue
+
+    $Q=\{1,2,3\}$
+    $\Sigma=\{a,b\}$
+    $\delta=\{(1,b,2),(2,a,2),(2,a,3),(3,b,2)\}$
+    $q_0=1$
+    $F=\{3\}$
+
+    En prolog, lo podríamos definir como sigue:
+
+    #+begin_src prolog
+estado(1).
+estado(2).
+estado(3).
+
+inicial(1).
+
+final(3).
+
+transicion(1,b,2).
+transicion(2,b,2).
+transicion(2,a,3).
+transicion(3,b,2).
+
+aceptaAux([],Q) :- estado(Q),
+		   final(Q).
+aceptaAux([X|XS],Q) :- estado(Q),
+		       transicion(Q,X,Q2),
+		       aceptaAux(XS,Q2).
+
+acepta(L) :- estado(Q),
+	     inicial(Q),
+	     aceptaAux(L,Q).
+    #+end_src
+    
+** Clase 15
+*** Fibonacci en prolog
+
+    #+begin_src prolog
+fibonacci(0,0).
+fibonacci(0,1).
+fibonacci(N,F) :- X is N - 1,
+		  Y is N - 2,
+		  fibonacci(X,F1),
+		  fibonacci(Y,F2),
+		  F is F1 + F2.
+    #+end_src
+    
+*** Operador de corte en prolog
+
+    Éste operador detiene el proceso de retroceso en un punto de
+    elección dado.
+
+    Éste corte se representa con el operador =!=
+
+        #+begin_src prolog
+fibonacci(0,0) :- !.
+fibonacci(0,1) :- !.
+fibonacci(N,F) :- X is N - 1,
+		  Y is N - 2,
+		  fibonacci(X,F1),
+		  fibonacci(Y,F2),
+		  F is F1 + F2.
+    #+end_src
+    
+*** Negación como falla
+
+    Sirve en situaciones dónde se desea verificar que una propiedad no
+    se satisface.
+
+    =\+= Una expresión de la forma =\+G= tendrá éxito siempre que =G= falle.
+
+    #+begin_src prolog
+comida_favorita(pedro,enchiladas).
+comida_favorita(diana,pozole).
+
+%?- comida_favorita(bety,X).
+%% false.
+%?- \+ comida_favorita(bety, X).
+%% true.
+    #+end_src
+
+    Sin embargo esto no quiere decir que el predicado
+    =comida_favorita(bety,X)= sea falso, sino que no hay información
+    suficiente para probarlo.
+
+    La negación como falla no va a unificar variables.
+
+*** Programación funcional
+
+**** Cálculo $\lambda$
+
+     Éste consta de
+
+     - Funciones
+     - Aplicaciones
+     - Variables
+
+
+     El cáulculo $\lambda$ tiene sus significado a partir de las
+     $\beta$ reducciones.
+
+     Ésta $\beta$ reducción termina cuando se llega a una forma
+     normal.
+
+     $\alpha$ equivalencia es cuando dos expresiones lambdas tienen la
+     misma forma, pero difieren en sus variables.
+
+** Clase 16
+*** Recursión de cola
+
+    #+begin_src haskell
+fact :: Int -> Int
+fact 0 = 1
+fact n = n * fact (n-1)
+    #+end_src
+
+    #+begin_src haskell
+fact :: Int -> Int -> Int
+fact 0 acc = acc
+fact n acc = fact (n - 1) (acc * n)
+    #+end_src
+
+    #+begin_src haskell
+aplana
+longitud
+concatena
+    #+end_src
+    
+** Clase 17
+
+*** Propiedad universal
+
+    #+begin_src haskell
+g [] = v
+g (x:xs) = f x (g xs)
+
+g = fold f v
+    #+end_src
+
+*** Principio de fusión
+
+    #+begin_src haskell
+h w = v
+h (g x y) = f x (h y)
+
+h . fold g w = fold f v
+    #+end_src
+
+** Clase 18
+
+*** Evaluación perezosa
+
+    *Beneficios*:
+
+    - En ocasionas es rápida.
+      
+    - Utiliza paso por necesidad.
+
+    - Se pueden manipular estructuras "infinitas".
+
+*** Sistemas de tipos
+
+    - Conjunto de reglas que indican cómo tipar una expresión
+      sintácticamente válida.
+
+    - Verificación de tipos estáticos (o dinámicos respectivamente)
+
+*** Definición de tipos en Haskell
+
+    =type= es para dar sinónimos de tipo.
+
+    =data= Definición propia de tipo, al que se le pueden dar nombres,
+    valores y operaciones.
+
+*** Inferencia de tipos
+
+    Se definen restricciones a partir del conocimiento previo que se
+    tienen de las variables o funciones.
+
+    Utiliza unificación para encontrar el tipo más general.
+
+*** Clases de tipos
+
+    =Eq= Son tipos cuyos valores tienen la operación de igualdad (====).
+
+    =Ord= Son tipos cuyos valores pueden ser ordenados con operadores de
+    desigualdad.
+
+    =Show= Son tipos cuyos valores se pueden convertir a cadena.
+
+    =Enum= Aquellos tipos que se pueden enumerar con su sucesor y
+    predecesor.
+
+    =Num= Aquellos tipos que tienen las operaciones para hacer
+    operaciones numéricas.
+
+** Clase 19
+
+*** Kinds
+
+    Son familias de tipos, de los cuales pueden haber =*= y =* -> *=
+
+    #+begin_src haskell
+Bool :: *
+Int :: *
+Maybe :: * -> *
+Either :: * -> * -> *
+
+newtype Coleccion t a = Coleccion (t a)
+Coleccion :: (* -> *) -> * -> *
+
+Num :: * -> Constraint
+Eq :: * -> Constraint
+Ord :: * -> Constraint
+    #+end_src
+
+** Clase 20
+
+*** Construcción del sistema
+
+    #+begin_src haskell
+data Verdadero = Verdadero
+data Falso
+    #+end_src
+
+    Decimos que el tipo de dato Verdadero representa el valor de
+    verdad Verdadero, porque siempre que tenemos este tipo, tenemos
+    presente su único constructor. Itra firma de representar el valor
+    Verdadero usando únicamente cosas ya definidas en Haskell, es con
+    el tipo ()
+
+    Mientras que falso es un tipo de dato inalcanzable.
+
+    Tenemos también operadores como el siguiente.
+
+    #+begin_src haskell
+data Y a b = Y a b
+data O a b = OIzq a | ODer b
+    #+end_src
+
+    Y la negación la podemos escribir como lo siguiente;
+
+    #+begin_src haskell
+type No a = a -> Falso
+    #+end_src
+
+    Las variables proposicionales serían las variables de tipos.
+
+    La impricación sería sencillamente el tipo función =a->b=
+
+    
+**** Cuantificación
+
+** Clase 21
+
+*** Funtores, funtores aplicativos y mónadas
+
+    - Cálcula Lambda: CUrrigicación, beta reducciones, funciones de
+      orden superior, lambdas, etc...
+
+    - Teoría de Categorías: Categorías
+
+      * Una categoría es una colección de objetos y morfismos entre
+        ellos.
+
+    - Lógica y Teoría de Tipos - Categorías Cartesianamente Cerradas.
+  
+**** Funtores
+
+     #+begin_src haskell
+inc :: [Int] -> [Int]
+inc [] = []
+inc (x:xs) = (x+1):inc xs
+
+sqr :: [Int] -> [Int]
+sqr [] = []
+sqr (x:xs) = (n^2):sqr xs
+     #+end_src
+
+     La idea del map es posible generalizarla para cualquier tipo de
+     estructura de datos.
+
+
+     #+begin_src haskell
+class Functor f where
+  fmap :: (a -> b) -> f a -> f b
+     #+end_src
+
+     Un ejemplo con las listas
+
+     #+begin_src haskell
+instance Functor [] where
+  fmap = map
+     #+end_src
+
+     Otro ejemplo con =Maybe=
+     
+     #+begin_src haskell
+instance Functor Maybe where
+  fmap _ Nothing = Nothing
+  fmap f (Just x) = Just $ f x
+     #+end_src
+
+     Si tenemos árboles definidos como sigue, la instancia de Funtores es la siguiente:
+
+     #+begin_src haskell
+data Tree a = Leaf a
+            | Node (Tree a) (Tree a)
+
+instance Functor Tree where
+  fmap f (Leaf x) = Leaf $ f x
+  fmap d (Node l r) = Node (fmap f l) (fmap f r)
+     #+end_src
+
+     La instancia de =IO= sería como sigue:
+
+     #+begin_src haskell
+instance Functor IO where
+  fmap f mx = do
+    x <- mx
+    return $ f x
+     #+end_src
+
+***** Propiedades de funtores
+
+      - =fmap id = id=
+	
+      - =fmap (f.g) = fmap g . fmap h=
+
+
+      Por ejemplo, supongamos que se tiene la siguiente definición de
+      =fmap= para listas.
+
+      #+begin_src haskell
+fmap g [] = []
+fmap f (x:xs) = fmap g xs ++ [g x]
+      #+end_src
+
+      No cumple la propiedad pues después de la aplicación de la
+      función a un elemento de la lista, entonces =g x= se manda al
+      final, por lo que aplicar la identidad nos devuelve la reversa
+      de la lista.
+	
+**** Aplicativos
+
+     #+begin_src haskell
+pure :: a -> f a -- construye contextos a partir de valores
+(<*>) :: f (a -> b) -> f a -> f b -- generaliza la aplicación de
+                                  -- función que mantiene todo dentro
+                                  -- de contextos.
+     #+end_src
+     
+** Clase 22
+
+*** Programación funcional
+
+    - Elegante: Menos código, descriptivo (autodocumentable), legible.
+
+    - Seguridad del Sistema de Tipos: Cumple preservación y progreso.
+
+    - Inferencia de Tipos: Polimorfismo paramétrico.
+
+    - Funciones de orden superior: El que se puedan utilizar las
+      mismas funciones como valores en el lenguaje es lo que se le
+      conoce que las funciones sean de primera clase y así mismo
+      permitan realizar funciones de orden superior.
+
+      Permite abstraer esquemas recursivos y por tanto reducir código.
+
+    - Se dificulta operar con el estado
+
+    - Tienen una curva de aprendizaje alta.
+
+      - Requieren un alto nivel de abstracción (nivel superior).
+
+    - Comunidad pequeña enfocada en la academia.
+
+*** Lenguajes multiparadigma
+
+    - Integran cosas de varios estilos de programación.
+
+    - Lo mejor de varios estilos.
+
+* Tareas [1/2]
+
+  - [X] Investigar las características declarativas de *prolog*.
+  - [ ] Tarea 1

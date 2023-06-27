@@ -1,0 +1,4149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-06-27 Tue 13:54 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sistemas Operativos</title>
+<meta name="author" content="Erik Rangel Limón" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">/* Base */html,body {    background-color: #222;    min-height: 100%;    line-height: 1.5;}body {    color: #fafafa;    font-family: "Courier New";}::selection {    background-color:  #2ecc40;    color: white;}/* Responsive content positioning */@media only screen and (min-width: 1020px) /* Large screens */{    body{        padding: 10vh 25vw;    }}@media only screen and (max-width: 1020px) and (min-width: 750px) /* Small screens */{    body{        padding: 5vh 10vw;    }}@media only screen and (max-width: 750px) /* Small screens */{    body{        padding: 2vh 5vw;    }}/* Headers */h1{font-size: 2.5rem;}h2{font-size: 1.7rem;}h1 > .subtitle, h3, h4, h5, h6{font-size: 1.3rem;}.title{    margin-bottom: 2.5rem;}/* Padding & Margin */* {margin: 0; padding: 0;}pre, blockquote, ul, ol, p, table{    margin: 1rem 0;}h1, h2{margin-top: 2rem; line-height: 2rem;}h3, h4, h5, h6{margin-top: 1rem;}/* Links  */a, a:visited {    color: #01ff70;    text-decoration: underline;}a:hover, a:focus, a:active {    color: #2ecc40;}/* Code */pre {    font-family: "Courier New";    padding: .5rem;    background-color: #333;    padding: 0.5rem;    border-radius: 0.2rem;    font-size: 0.9rem;    color: #EEE;    overflow-x: auto;}.org-keyword{    color: #01ff70;}.org-rainbow-delimiters-depth-1{    color: #2ecc40;}.org-rainbow-delimiters-depth-2{    color: #01ff70;}/* Blockquotes */blockquote {    border-left: 3px solid #01ff70;    padding-left: 1rem;}li{    list-style-position: inside;}/* Tags */.tag{    margin-top: 0.5rem;    display: block;    color: white;    font-size: var(--font-size-xsmall);}.tag > span{		font-weight: 400;    font-size: 0.8rem;    background-color: #444;    text-transform: uppercase;    border-radius: 2px;    width: fit-content;    height: auto;    padding: 1px 5px;}/* Keywords */.todo{    color: #2ecc40;}.done{    color: #444;}/* Overflows */.outline-text-2, .outline-text-3, .outline-text-4{	  max-width: 100%;	  overflow-x: auto;}/* Table */tr:nth-child(even) {    background-color: #333;}th, td{    padding: 0.5rem;    text-align: center;}.underline{    text-decoration: underline;}img{    max-width: 100%;    height: auto;}</style>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Sistemas Operativos</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orga1d0838">Bibliografía</a></li>
+<li><a href="#org223e0d2">Contacto</a></li>
+<li><a href="#orgc9432dc">Evaluación</a></li>
+<li><a href="#orgb017759">Notas de Clase</a>
+<ul>
+<li><a href="#org9a907d4">Clase 1</a>
+<ul>
+<li><a href="#org55bff22">Temario</a></li>
+<li><a href="#org7a1127d">Pintos.</a></li>
+</ul>
+</li>
+<li><a href="#orga303ab2">Laboratorio 1</a>
+<ul>
+<li><a href="#org13a5a42">Kérnel</a></li>
+<li><a href="#orgd0dd43b">Arranque de una computadora.</a></li>
+</ul>
+</li>
+<li><a href="#orga4b65cb">Laboratorio 2</a>
+<ul>
+<li><a href="#orga970e8f">PCB en Pintos</a></li>
+</ul>
+</li>
+<li><a href="#org458212b">Clase 2</a>
+<ul>
+<li><a href="#orgf43b37a">Pefacio: Diferencias entre programas comunes y un Sistema Operativo</a></li>
+<li><a href="#orgc1b0785">Introducción</a></li>
+</ul>
+</li>
+<li><a href="#orgfd01e38">Laboratorio 3</a>
+<ul>
+<li><a href="#org783ab95">Bootstraping en Pintos</a></li>
+<li><a href="#org4103ce3">Manejo de threads en Pintos</a></li>
+</ul>
+</li>
+<li><a href="#org24641b9">Clase 3</a>
+<ul>
+<li><a href="#org1b8d626">Historia de los sistemas operativos</a></li>
+</ul>
+</li>
+<li><a href="#org09e1ec8">Clase 4</a>
+<ul>
+<li><a href="#orga7eddd1">Hoy en día los Sistemas Operativos</a></li>
+<li><a href="#org48dd5a2">Objetivos</a></li>
+<li><a href="#orgabf8e51">Estructura de computadoras</a></li>
+<li><a href="#org50976ac">Definición de Sistema operativo</a></li>
+</ul>
+</li>
+<li><a href="#org4987cdc">Clase 5</a>
+<ul>
+<li><a href="#orgef08445">Definición de Sistemas Operativos</a></li>
+<li><a href="#org58ef7e2">Organización de computadoras</a></li>
+</ul>
+</li>
+<li><a href="#org95e1b2d">Clase 6</a>
+<ul>
+<li><a href="#org922f6eb">¿Qué es un sistema operativo?</a></li>
+<li><a href="#orga627dca">POSIX</a></li>
+</ul>
+</li>
+<li><a href="#org21bfdcf">Clase 7</a>
+<ul>
+<li><a href="#org86ff915">Operación de Sistemas de Cómputo</a></li>
+<li><a href="#orgd55bac7">Funciones comunes de las interrupciones</a></li>
+</ul>
+</li>
+<li><a href="#org1db00e3">Clase 8</a>
+<ul>
+<li><a href="#orgd350f11">¿Cómo trabaja una computadora moderna?</a></li>
+</ul>
+</li>
+<li><a href="#orgd1c95b3">Laboratorio 4</a>
+<ul>
+<li><a href="#org7b38a16">thread.c</a></li>
+<li><a href="#org4f2d122">timer.c</a></li>
+<li><a href="#org9752fe7">punto extra</a></li>
+</ul>
+</li>
+<li><a href="#org1ab1887">Clase 9</a>
+<ul>
+<li><a href="#orgb5dc0f0">Proceso</a></li>
+<li><a href="#org7b1475c">Memoria en el sistema.</a></li>
+</ul>
+</li>
+<li><a href="#orga2be4b5">Clase 10</a>
+<ul>
+<li><a href="#org6e5a636">Ciclo de instrucciones del CPU</a></li>
+<li><a href="#org6bbcd26">Interrupciones</a></li>
+</ul>
+</li>
+<li><a href="#org4b13016">Clase 11</a>
+<ul>
+<li><a href="#org224075b">Capas del kérnel</a></li>
+<li><a href="#orgc188592">Jerarquía de los dispositivos de alacenamiento</a></li>
+<li><a href="#org3133432">Sistemas Operativos de fuente abierta</a></li>
+</ul>
+</li>
+<li><a href="#orgd08727c">Clase 12</a>
+<ul>
+<li><a href="#org390c6f3">Proceso</a></li>
+</ul>
+</li>
+<li><a href="#org2740206">Clase 13</a>
+<ul>
+<li><a href="#orgf3c2441">Glosario</a></li>
+</ul>
+</li>
+<li><a href="#orgaf1aa32">Clase 14</a>
+<ul>
+<li><a href="#orga288caf">Programa / rutina</a></li>
+<li><a href="#org7af5bc3">Procesador</a></li>
+<li><a href="#org691e895">Aplicación</a></li>
+<li><a href="#orgd265449">Concurrencia y no-determinismo</a></li>
+<li><a href="#org0bf8777">No determinismo</a></li>
+</ul>
+</li>
+<li><a href="#orgf1dc3ab">Clase 15</a>
+<ul>
+<li><a href="#org794d490">Los procesos</a></li>
+<li><a href="#orga8ea3d4">Semáforos</a></li>
+</ul>
+</li>
+<li><a href="#orgf2f77f3">Clase 16</a>
+<ul>
+<li><a href="#org747f184">wait(sem)</a></li>
+<li><a href="#orga980b08">Invariante</a></li>
+<li><a href="#org1fb3a7e">Exclusión mutua</a></li>
+</ul>
+</li>
+<li><a href="#org35fefb9">Laboratorio 5</a>
+<ul>
+<li><a href="#org983ee7b">thread.c</a></li>
+<li><a href="#orgbf3d0ff">synch.c</a></li>
+</ul>
+</li>
+<li><a href="#org8edd3b5">Clase 17</a>
+<ul>
+<li><a href="#orgf8709a1">Sincronización</a></li>
+<li><a href="#org2e95728">Productores/Consumidor</a></li>
+</ul>
+</li>
+<li><a href="#org56dc5e4">Clase 18</a>
+<ul>
+<li><a href="#org9594ce0">Solución Productores/consumidores</a></li>
+</ul>
+</li>
+<li><a href="#org21f63d8">Laboratorio 6</a>
+<ul>
+<li><a href="#orgeba919f">thread.c</a></li>
+</ul>
+</li>
+<li><a href="#orgd1127ea">Clase 19</a>
+<ul>
+<li><a href="#org0d8f544">Servicios del sistema</a></li>
+</ul>
+</li>
+<li><a href="#org48aeca6">Clase 20</a>
+<ul>
+<li><a href="#orga8e2ed3">MLFQ</a></li>
+</ul>
+</li>
+<li><a href="#org1eb3ef0">Laboratiorio 7</a>
+<ul>
+<li><a href="#org07147e3">¿Por qué no podemos usar floats?</a></li>
+</ul>
+</li>
+<li><a href="#orgd003e49">Clase 21</a>
+<ul>
+<li><a href="#orgaec9ca0">Manejador de interrupciones de primer nivel</a></li>
+</ul>
+</li>
+<li><a href="#org6d52377">Laboratiorio 8</a>
+<ul>
+<li><a href="#orgc2b9334">Práctica 4: Sincronización</a></li>
+</ul>
+</li>
+<li><a href="#org4540dcd">Clase 22</a>
+<ul>
+<li><a href="#org24ecf02">Sistemas operativos (repaso)</a></li>
+</ul>
+</li>
+<li><a href="#org585ad79">Clase 23</a>
+<ul>
+<li><a href="#org88f2a53">Page Replacement</a></li>
+</ul>
+</li>
+<li><a href="#orgce234c3">Clase 24</a>
+<ul>
+<li><a href="#org474d8d3">Administración de memoria</a></li>
+<li><a href="#org9f7585f">Implementación de memoria virtual</a></li>
+</ul>
+</li>
+<li><a href="#org5705f8d">Clase 25</a>
+<ul>
+<li><a href="#org7150aff">Implementación de memoria virtual</a></li>
+</ul>
+</li>
+<li><a href="#org1440be2">Clase 26</a>
+<ul>
+<li><a href="#orgf6a6014">Memoria virtual</a></li>
+</ul>
+</li>
+<li><a href="#org510ecaf">Clase 27</a>
+<ul>
+<li><a href="#org344de3b">Memoria Virtual</a></li>
+</ul>
+</li>
+<li><a href="#orgcdba719">Clase 28</a>
+<ul>
+<li><a href="#org38cf6da">Múltiples niveles de tablas</a></li>
+</ul>
+</li>
+<li><a href="#org3150ac2">Clase 29</a>
+<ul>
+<li><a href="#org549b461">Paginación</a></li>
+<li><a href="#org6b7acce">Ejemplos de aplicaciones de paginación:</a></li>
+<li><a href="#org2e6d9b3">Estrategias de reemplazo de página</a></li>
+</ul>
+</li>
+<li><a href="#orgcb6ee71">Clase 30</a>
+<ul>
+<li><a href="#org19b9f8b">Estrategias que no usan estadísticas de uso</a></li>
+<li><a href="#orgf80c298">Anomalía de Belady.</a></li>
+<li><a href="#org5a7a99a">Estrategias que sí usan estadísticas de uso</a></li>
+</ul>
+</li>
+<li><a href="#org1d0bafa">Clase 31</a>
+<ul>
+<li><a href="#org52d2c7a">Descriptor de dispositivo</a></li>
+</ul>
+</li>
+<li><a href="#org28a4d26">Clase 32</a>
+<ul>
+<li><a href="#org11e23c6">Examen Silver Chat</a></li>
+<li><a href="#orgbd2d3fc">Sobre la administración de memoria</a></li>
+</ul>
+</li>
+<li><a href="#orgc240310">Clase 33</a>
+<ul>
+<li><a href="#orgd98615c">El panorama de Entrada / Salida</a></li>
+</ul>
+</li>
+<li><a href="#orgba182bf">Clase 34</a>
+<ul>
+<li><a href="#orgccd5e67">Dispositivos de Entrada y Salida</a></li>
+<li><a href="#org3de6f98">Unidad de transferencia</a></li>
+<li><a href="#org278f7a6">DOIO</a></li>
+<li><a href="#org30c8276">Procedimiento re-entrante</a></li>
+<li><a href="#org8d30cb0">Descriptor de dispositivo</a></li>
+<li><a href="#org5a7c9cd">Pasos del DOIO</a></li>
+<li><a href="#org0cd5654">alanmart12</a></li>
+</ul>
+</li>
+<li><a href="#org123deba">Clase 35</a>
+<ul>
+<li><a href="#org5438853">Preguntas</a></li>
+</ul>
+</li>
+<li><a href="#org6bcddf6">Clase 36</a>
+<ul>
+<li><a href="#org77bcb9a">Sistema de archivos</a></li>
+<li><a href="#orga1cb3ec">Bloques secuenciales</a></li>
+<li><a href="#org708e7f2">Bloques enlazados</a></li>
+<li><a href="#orge53ad6e">Tabla de asignación de archivo (FAT)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org363511f">Tareas <code>[4/5]</code></a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga1d0838" class="outline-2">
+<h2 id="orga1d0838">Bibliografía</h2>
+<div class="outline-text-2" id="text-orga1d0838">
+<ul class="org-ul">
+<li>Fundamentals of operating systems. Andrew Lister, R Eager. 5ta edición.</li>
+<li>Operating System Concepts. Silberschatz el al. 8va edición.</li>
+<li>Schaum's Outline of Operating Systems. J. Archer HArris. 1ra edición.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org223e0d2" class="outline-2">
+<h2 id="org223e0d2">Contacto</h2>
+<div class="outline-text-2" id="text-org223e0d2">
+<ul class="org-ul">
+<li>alanmartinez<sub>012</sub>@ciencias.unam.mx</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc9432dc" class="outline-2">
+<h2 id="orgc9432dc">Evaluación</h2>
+<div class="outline-text-2" id="text-orgc9432dc">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Rubros</th>
+<th scope="col" class="org-right">Porcentaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Exámenes</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">parciales</td>
+<td class="org-right">30</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Tareas</td>
+<td class="org-right">35</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Prácticas</td>
+<td class="org-right">35</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Hay cuatro exámenes durante el curso.
+</p>
+
+<p>
+Hay una tarea cada dos semanas, una práctica cada dos semanas.
+</p>
+
+<p>
+Una vez se entregue alguna tarea, práctica o examen, ya no se tiene
+derecho a NP.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb017759" class="outline-2">
+<h2 id="orgb017759">Notas de Clase</h2>
+<div class="outline-text-2" id="text-orgb017759">
+</div>
+<div id="outline-container-org9a907d4" class="outline-3">
+<h3 id="org9a907d4">Clase 1</h3>
+<div class="outline-text-3" id="text-org9a907d4">
+</div>
+<div id="outline-container-org55bff22" class="outline-4">
+<h4 id="org55bff22">Temario</h4>
+<div class="outline-text-4" id="text-org55bff22">
+<ol class="org-ol">
+<li><p>
+Introducción
+</p>
+
+<p>
+1.1 Historia
+</p>
+
+<p>
+1.2 Procesos
+</p></li>
+
+<li>Núcleo</li>
+
+<li>Manejo de memoria</li>
+
+<li>Entrada - Salida</li>
+
+<li>Sistemas de archivos</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org7a1127d" class="outline-4">
+<h4 id="org7a1127d">Pintos.</h4>
+<div class="outline-text-4" id="text-org7a1127d">
+<p>
+Desarrollado por la universidad de Stanford.
+</p>
+
+<p>
+Un kérnel semi-completo especializado para dar el curso de Sistemas
+Operativos.
+</p>
+
+<p>
+Tiene funciones incompletas o que funcionan mal para resolverlas a
+manera de práctica.
+</p>
+
+<p>
+Será utilizado para la parte práctica del curso.
+</p>
+
+<p>
+Está desarrollado en C y ensamblador, contiene mucho código.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga303ab2" class="outline-3">
+<h3 id="orga303ab2">Laboratorio 1</h3>
+<div class="outline-text-3" id="text-orga303ab2">
+</div>
+<div id="outline-container-org13a5a42" class="outline-4">
+<h4 id="org13a5a42">Kérnel</h4>
+<div class="outline-text-4" id="text-org13a5a42">
+<p>
+Es un programa que se encarga de administrar el hardware de una
+computadora.
+</p>
+
+<ul class="org-ul">
+<li>CPU</li>
+
+<li>Memoria principal
+
+<ul class="org-ul">
+<li>ROM</li>
+
+<li>RAM</li>
+</ul></li>
+
+<li>Entrada / Salida</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd0dd43b" class="outline-4">
+<h4 id="orgd0dd43b">Arranque de una computadora.</h4>
+<div class="outline-text-4" id="text-orgd0dd43b">
+<p>
+El CPU en su registo <code>PC-IP</code> contiene la dirección hacia la ROM
+(memoria principal) la cual guarda la BIOS.
+</p>
+
+<p>
+La BIOS contiene órdenes para verificar el hardware que contiene
+una computadora y puede variar.
+</p>
+
+<p>
+Al final de este proceso, puede cargar el MBR del sistema
+operativo que esté guardado en una unidad de la meoria secundaria.
+</p>
+
+<p>
+El MBR se carga de cargar el Sistema Operativo (Kernel).
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="org36edb8a"></a>PCB<br />
+<div class="outline-text-5" id="text-org36edb8a">
+<p>
+<i><b>Process Control Block</b></i>
+</p>
+
+<p>
+De manera general es la siguiente.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">proceso</span>{
+  <span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">ID</span>;
+  <span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">prioridad</span>;
+  <span style="font-weight: bold; text-decoration: underline;">void</span>* <span style="font-weight: bold; font-style: italic;">instruccion</span>; <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">Es un apuntador que se entiende como una</span>
+                     <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">direcci&#243;n de memoria</span>
+}
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga4b65cb" class="outline-3">
+<h3 id="orga4b65cb">Laboratorio 2</h3>
+<div class="outline-text-3" id="text-orga4b65cb">
+</div>
+<div id="outline-container-orga970e8f" class="outline-4">
+<h4 id="orga970e8f">PCB en Pintos</h4>
+<div class="outline-text-4" id="text-orga970e8f">
+<p>
+Es algo así:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">thread</span>{
+  <span style="font-weight: bold; text-decoration: underline;">tid_t</span> <span style="font-weight: bold; font-style: italic;">tid</span>;
+  <span style="font-weight: bold;">enum</span> <span style="font-weight: bold; text-decoration: underline;">thread</span> <span style="font-weight: bold; text-decoration: underline;">status</span> <span style="font-weight: bold; font-style: italic;">status</span>;
+  <span style="font-weight: bold; text-decoration: underline;">char</span> <span style="font-weight: bold; font-style: italic;">name</span>[16];
+  <span style="font-weight: bold; text-decoration: underline;">uint8_t</span> *<span style="font-weight: bold; font-style: italic;">stack</span>;
+  <span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">priority</span>;
+  <span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">list_elem</span> <span style="font-weight: bold; font-style: italic;">allelem</span>;
+  <span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">list_elem</span> <span style="font-weight: bold; font-style: italic;">elem</span>;
+
+<span style="font-weight: bold;">#ifdef</span> USERPROG
+  <span style="font-weight: bold; text-decoration: underline;">uint32_t</span> *<span style="font-weight: bold; font-style: italic;">pagedir</span>;
+<span style="font-weight: bold;">#endif</span>
+
+  <span style="font-weight: bold; text-decoration: underline;">unsigned</span> <span style="font-weight: bold; font-style: italic;">magic</span>;
+}
+</pre>
+</div>
+
+<p>
+Los procesos en pintos se inicializan de la siguiente manera:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">4 kB</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">kernel stack</td>
+<td class="org-left">&lt;- en este bloque se guardará la pila de ejecución</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">!</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">!</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">V</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">grows downward</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">magic</td>
+<td class="org-left">&lt;- en este bloque almacenaremos el PCB</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">!</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">!</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">name</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">status</td>
+</tr>
+
+<tr>
+<td class="org-left">0 kB</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Nuestro sistema operativa funciona a partir de procesos que sería
+nuestro <code>struct thread</code> el cual se guardará como en el diagrama, en
+un bloque de <code>4 kB</code>.
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="org30c23b5"></a>Pila de ejecución<br />
+<div class="outline-text-5" id="text-org30c23b5">
+<p>
+En ella se guardaran variables locales e identificadores de
+función.
+</p>
+</div>
+</li>
+
+<li><a id="org8289c64"></a>Listas para usar en Pintos<br />
+<div class="outline-text-5" id="text-org8289c64">
+<p>
+<code>all_list</code> contiene a todos los procesos.
+</p>
+
+<p>
+<code>ready_list</code> sólo vamos a tener todos los procesos que están listos
+para ejecutarse.
+</p>
+</div>
+</li>
+
+<li><a id="orgfe1be37"></a>Thread unblock<br />
+<div class="outline-text-5" id="text-orgfe1be37">
+<p>
+Lo que hace esta función es agregar nuestro <i>thread</i> a la
+<code>ready_list</code>.
+</p>
+
+<p>
+En nuestro proceso de inicialización
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org458212b" class="outline-3">
+<h3 id="org458212b">Clase 2</h3>
+<div class="outline-text-3" id="text-org458212b">
+</div>
+<div id="outline-container-orgf43b37a" class="outline-4">
+<h4 id="orgf43b37a">Pefacio: Diferencias entre programas comunes y un Sistema Operativo</h4>
+<div class="outline-text-4" id="text-orgf43b37a">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Programa Usual</th>
+<th scope="col" class="org-left">Sistema Operativo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Todo es programado en lenguajes</td>
+<td class="org-left">Mezcla de lenguajes de programación</td>
+</tr>
+
+<tr>
+<td class="org-left">de alto nivel</td>
+<td class="org-left">"sin runtime" combinado con uso</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">obligatorio de ensamblador</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Tiene recursos lógicos de alto</td>
+<td class="org-left">Tiene recursos de HW de bajo nivel</td>
+</tr>
+
+<tr>
+<td class="org-left">nivel como memoria dinámica,</td>
+<td class="org-left">como administrador de</td>
+</tr>
+
+<tr>
+<td class="org-left">archivos y directorios, sockets</td>
+<td class="org-left">interrupciones, controlador de</td>
+</tr>
+
+<tr>
+<td class="org-left">, ventanas, canales de audio,</td>
+<td class="org-left">memoria, controladores de</td>
+</tr>
+
+<tr>
+<td class="org-left">etc&#x2026;</td>
+<td class="org-left">dispositivos.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Modelo de programa de uno o</td>
+<td class="org-left">Un único proceso con miles de tareas</td>
+</tr>
+
+<tr>
+<td class="org-left">varios hilos que apila sus</td>
+<td class="org-left">(hilos) que se transfieren el control</td>
+</tr>
+
+<tr>
+<td class="org-left">llamadas subrutinas</td>
+<td class="org-left">en puntos casi arbitrarios. Sus</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">subrutinas no se apilan necesariamente</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">, sino que brinca de una a otra</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">(goto's/código espagheti).</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Concurrencia inexistente, o</td>
+<td class="org-left">Concurrencia explícita, sin mecanismos</td>
+</tr>
+
+<tr>
+<td class="org-left">colaborativa con mecanismos de</td>
+<td class="org-left">de sincronización existentes: tiene</td>
+</tr>
+
+<tr>
+<td class="org-left">sincronización de alto nivel</td>
+<td class="org-left">que crearlos.</td>
+</tr>
+
+<tr>
+<td class="org-left">(semáforos, candados, monitores)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Algoritmos offline de tiempo de</td>
+<td class="org-left">Algoritmo online de larga vida</td>
+</tr>
+
+<tr>
+<td class="org-left">vida preciso (Conocen toda su</td>
+<td class="org-left">(Conocen su entrada por pedacitos y</td>
+</tr>
+
+<tr>
+<td class="org-left">entrada desde el inicio, la</td>
+<td class="org-left">cada cierto tiempo deben dar</td>
+</tr>
+
+<tr>
+<td class="org-left">procesan y devuelven su salida)</td>
+<td class="org-left">respuestas intentando predecir las</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">siguiente entradas. Terminan al apagar</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">el sistema).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgc1b0785" class="outline-4">
+<h4 id="orgc1b0785">Introducción</h4>
+<div class="outline-text-4" id="text-orgc1b0785">
+</div>
+<ul class="org-ul">
+<li><a id="org5ff1095"></a>Historia de los sistemas operativos<br />
+<div class="outline-text-5" id="text-org5ff1095">
+<ul class="org-ul">
+<li>Comenzó con el surgimiento de las computadoras en hardware
+en 1940.</li>
+<li>ENIAC fue contruida en 1940, pesaba 30 toneladas, tenía 2
+metros de alto, 1 metro de profundidad y 33 mentro de longitud.</li>
+<li>Contaba con más de 18,000 bublos que los enfriaban 80
+ventiladores.</li>
+<li>Las computadoras inicialmente comenzaron usando bulbos.</li>
+<li>Eventualmente cambió la forma de hacer programas, de hacer un
+recableado de la computadora a cargar datos por medio de
+tarjetas perforadas, para posteriormente pasar a cintas
+perforadas.</li>
+<li>Posteriormente ya se utilizaron lectores de tarjetas,
+impresoras y nuidades de cinta magnética como elementos
+adicionales del hardware.</li>
+<li>Finalmente, los ensambladares, cargadores y librerías de
+utilidades simples se desarrollaron como las primeras
+herramientas de software.</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfd01e38" class="outline-3">
+<h3 id="orgfd01e38">Laboratorio 3</h3>
+<div class="outline-text-3" id="text-orgfd01e38">
+</div>
+<div id="outline-container-org783ab95" class="outline-4">
+<h4 id="org783ab95">Bootstraping en Pintos</h4>
+<div class="outline-text-4" id="text-org783ab95">
+<p>
+Después de haber creado el thread idle, aloja la memoria
+necesaria, y finalmente <i>desbloquea</i> el thread.
+</p>
+
+<p>
+La función thread espera al thread principal, y posteriormente lo
+bloquea y se invoca un "<i>halt</i>" desde el ensamblador.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4103ce3" class="outline-4">
+<h4 id="org4103ce3">Manejo de threads en Pintos</h4>
+<div class="outline-text-4" id="text-org4103ce3">
+<p>
+Para que el sistema operativo evite que un proceso utilice más cpu
+de lo esperado se utiliza un Timer, el cual mandará una
+<i>interrupción</i> para determinar que el proceso debe hace ahora otra
+cosa.
+</p>
+
+<p>
+Pintos cuenta con un manejador de interrupciones, el cual tiene un
+contador de ticks y por defecto a cada proceso le da un total de
+un 4 ticks, para después mandar llamar al respectivo manejador y
+manda a llamar a la función <code>thread yield</code>.
+</p>
+
+<p>
+Si el thread actual no es el "idle", entonces se agrega a la ready
+list. Lo que permite que el Kernel le ayude a asignar su
+respectivo thread.
+</p>
+
+<p>
+El timer<sub>sleep</sub> funciona de tal manera que, recibe una cantidad de
+ticks; inicia un timer, y posteriormente el proceso se agrega a la
+ready<sub>list</sub>, si todavía no a pasado el tiempo necesario, entonces
+de vuelve a agregar a la ready<sub>list</sub>, y así sucesivamente hasta que
+ha pasado el tiempo suficiente.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org24641b9" class="outline-3">
+<h3 id="org24641b9">Clase 3</h3>
+<div class="outline-text-3" id="text-org24641b9">
+</div>
+<div id="outline-container-org1b8d626" class="outline-4">
+<h4 id="org1b8d626">Historia de los sistemas operativos</h4>
+<div class="outline-text-4" id="text-org1b8d626">
+<ul class="org-ul">
+<li>Finalmente, surgió la idea de la multiprogramación.</li>
+
+<li>En lugar de tener un sólo proceso ahora se cargaban varios
+procesos de manera simultánea, dividiendo los recursos de la
+computadora.</li>
+
+<li>Mientras un proceso está haciendo un trabajo de I/O, el sistema
+operativo elige a tro proceso para ejecutarse hasta que el
+proceso actual a otra operación I/O.</li>
+
+<li>Con el desarrollo de computación interactiva en 1970, emergieron
+los sistemas de tiempo compartido.</li>
+
+<li>En estos sistemas, había múltiples usuarios con acceso a una
+terminal (que no es una computadora) conectada a una computadora
+principal.</li>
+
+<li>Otro tipo de computadora son los sistemas multiprocesador, que
+como su nombre o dice, tiene múltiples procesadores que
+comparten memoria y dispositivos periféricos.</li>
+
+<li>Con esta configuración, éstas computadoras tuvieron mejor poder
+de computación.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org09e1ec8" class="outline-3">
+<h3 id="org09e1ec8">Clase 4</h3>
+<div class="outline-text-3" id="text-org09e1ec8">
+</div>
+<div id="outline-container-orga7eddd1" class="outline-4">
+<h4 id="orga7eddd1">Hoy en día los Sistemas Operativos</h4>
+<div class="outline-text-4" id="text-orga7eddd1">
+<ul class="org-ul">
+<li>Carga programas y los ejecuta</li>
+<li>Les da memoria</li>
+<li>Les asigna tiempo de procesador</li>
+<li>Les permite comunicarse</li>
+<li>Los elimina</li>
+<li>Controla los dispositivos</li>
+<li>Provee E/S de alto nivel (archivos, sockets)</li>
+<li>Ofrece recursos gráfica (ventanas)</li>
+<li>Administra energía</li>
+<li>Tareas administrativas, cuyo propósito final es permitir que
+haya aplicaciones.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org48dd5a2" class="outline-4">
+<h4 id="org48dd5a2">Objetivos</h4>
+<div class="outline-text-4" id="text-org48dd5a2">
+<ul class="org-ul">
+<li>Mostrar el panorama de los componentes más importantes de los
+sitemas operativos.</li>
+<li>Dar principios elementales de organización.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgabf8e51" class="outline-4">
+<h4 id="orgabf8e51">Estructura de computadoras</h4>
+<div class="outline-text-4" id="text-orgabf8e51">
+<ul class="org-ul">
+<li>Un sistema de cómputo se puede dividir en cuatro componentes:
+
+<ul class="org-ul">
+<li><p>
+Hardware - ofrece recursos de cómputo elementales
+</p>
+
+<p>
+CPU, memorio, Dispositivos E/S
+</p></li>
+
+<li><p>
+Sistema Operativo
+</p>
+
+<p>
+Controla y coordina el uso de hardware entre varias
+aplicaciones y usuarios
+</p></li>
+
+<li><p>
+Programas de aplicación - Definen la manera en que los
+recursos de cómputo son usados para resolver los problemas de
+los usuarios.
+</p>
+
+<p>
+Procesadores de texto, compiladores, navegadores web, videojuegos
+</p></li>
+
+<li><p>
+Usuarios
+</p>
+
+<p>
+Gente, máquinas, otras computadoras.
+</p></li>
+</ul></li>
+</ul>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Software</th>
+<th scope="col" class="org-left">Kernel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Hardware</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Modo usuario</td>
+<td class="org-left">Modo supervisor</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org50976ac" class="outline-4">
+<h4 id="org50976ac">Definición de Sistema operativo</h4>
+<div class="outline-text-4" id="text-org50976ac">
+<ul class="org-ul">
+<li>Es un asignador de recursos
+
+<ul class="org-ul">
+<li>Administra todos los recursos</li>
+
+<li>Decide entre solicituden en conflicto para un uso justo y
+eficiente de los recursos.</li>
+</ul></li>
+
+<li>Es un programa de control
+
+<ul class="org-ul">
+<li>Controla la ejecución de programas para prevenir errores y un
+uso impropio de la computadora.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4987cdc" class="outline-3">
+<h3 id="org4987cdc">Clase 5</h3>
+<div class="outline-text-3" id="text-org4987cdc">
+</div>
+<div id="outline-container-orgef08445" class="outline-4">
+<h4 id="orgef08445">Definición de Sistemas Operativos</h4>
+<div class="outline-text-4" id="text-orgef08445">
+<ul class="org-ul">
+<li>No hay una definición aceptada universalmente.</li>
+
+<li>"Todo lo que un vendedor incluye cuando ordenas un sistema
+operativo" es una primera aproximación
+
+<ul class="org-ul">
+<li>Pero cada vez se incluyen más extras</li>
+</ul></li>
+
+<li>"El programa que corre todo el tiempo" es el kernel. Todo lo
+demás (ejecutable) es un programa del sistema (viene con el
+sistema operativo) o un programa de aplicación.</li>
+
+<li>"Un sistema operativo es como un gobierno".</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org58ef7e2" class="outline-4">
+<h4 id="org58ef7e2">Organización de computadoras</h4>
+<div class="outline-text-4" id="text-org58ef7e2">
+<ul class="org-ul">
+<li>Operación de un sistema de cómputo
+
+<ul class="org-ul">
+<li>Uno o más CPUs y controladores de dispositivos se conectan a
+un bus común brindando acceso a una memoria compartida,</li>
+
+<li>Ejecución concurrente de CPUs y dispositivos compitiendo por
+ciclos de la memoria.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org95e1b2d" class="outline-3">
+<h3 id="org95e1b2d">Clase 6</h3>
+<div class="outline-text-3" id="text-org95e1b2d">
+</div>
+<div id="outline-container-org922f6eb" class="outline-4">
+<h4 id="org922f6eb">¿Qué es un sistema operativo?</h4>
+<div class="outline-text-4" id="text-org922f6eb">
+<ul class="org-ul">
+<li><p>
+Un programa que administra y gestiona los recursos.
+</p>
+
+<p>
+Éstos recursos son requeridos por los procesos.
+</p>
+
+<p>
+Un proceso tiene varias definiciones también.
+</p>
+
+<ul class="org-ul">
+<li><span class="underline">Programa en ejecución</span></li>
+
+<li>Cambio en el estado de la memoria por acción del procesador.</li>
+</ul>
+
+<p>
+Un recurso va a ser el tiempo de uso del procesador.
+</p>
+
+<p>
+Los procesos por lo generalmente son extremadamente rápidos, pero
+éstos pueden usar muchos recursos.
+</p></li>
+
+<li>La gestión de recursos de hacen mediante algoritmos de
+calendarización.</li>
+
+<li>También un sistema operativo es encargado de la seguridad de un
+sistema.</li>
+
+<li>Empareja el terreno entre le usuario, los programas de aplicación
+y el hardware.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga627dca" class="outline-4">
+<h4 id="orga627dca">POSIX</h4>
+<div class="outline-text-4" id="text-orga627dca">
+<p>
+<i>Portable Operating System Interface</i>
+</p>
+
+<p>
+Antes los Sistemas Operativos eran específicos del Harware, y la
+llegada de éste se hizo para el uso general en cualquier
+computadora de su tiempo.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org21bfdcf" class="outline-3">
+<h3 id="org21bfdcf">Clase 7</h3>
+<div class="outline-text-3" id="text-org21bfdcf">
+</div>
+<div id="outline-container-org86ff915" class="outline-4">
+<h4 id="org86ff915">Operación de Sistemas de Cómputo</h4>
+<div class="outline-text-4" id="text-org86ff915">
+<ul class="org-ul">
+<li>Los dispositivos de E/S y los CPUs se puede ejecutar
+simutáneamente.</li>
+
+<li>Cada controlador de dispositivo está a cargo de un tipo de
+dispositivo particular.</li>
+
+<li>Cada controlador de dispositivo tiene un buffer local.</li>
+
+<li>El CPU mueve datos desde/hacia memoria principal hacia/desde
+buffers locales.</li>
+
+<li>La E/S es del dispositivo al buffer local del controlador.</li>
+
+<li>El controlador de dispositivo informa al CPU que ha terminado su
+operación causando una <i>interrupción</i>.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd55bac7" class="outline-4">
+<h4 id="orgd55bac7">Funciones comunes de las interrupciones</h4>
+<div class="outline-text-4" id="text-orgd55bac7">
+<ul class="org-ul">
+<li>Generalmente transfieren el control a la rutina de servicio de
+interrupción.</li>
+
+<li>El sistema de interrupciones debe guardar la dirección de la
+intrucción interrumpida.</li>
+
+<li>Las demás interrupciones son deshabilitadas mientras otra
+interrupción está siendo procesada para prevenir una pérdida de
+información.</li>
+
+<li>Una trampa es una interrupción generada por software causada por
+un error o una solicitud.</li>
+
+<li>Una llamada al sistema es una <i>trampa</i> que es activada por un
+proceso para solicitar un servicio al Sistema Operativo.</li>
+
+<li><b>Un sistema de cómputo es dirigido por interrupciones.</b></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1db00e3" class="outline-3">
+<h3 id="org1db00e3">Clase 8</h3>
+<div class="outline-text-3" id="text-org1db00e3">
+</div>
+<div id="outline-container-orgd350f11" class="outline-4">
+<h4 id="orgd350f11">¿Cómo trabaja una computadora moderna?</h4>
+<div class="outline-text-4" id="text-orgd350f11">
+<p>
+Cada procesador tiene una forma distinta de comunicarse con los
+dispositivos, pero todos acceden a la misma memoria.
+</p>
+
+<p>
+un núcleo puede estar desocupado, ejecutando una rutina de
+servicio de interrupción o ejecutando un proceso de usuario o de
+kérnel.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd1c95b3" class="outline-3">
+<h3 id="orgd1c95b3">Laboratorio 4</h3>
+<div class="outline-text-3" id="text-orgd1c95b3">
+</div>
+<div id="outline-container-org7b38a16" class="outline-4">
+<h4 id="org7b38a16">thread.c</h4>
+<div class="outline-text-4" id="text-org7b38a16">
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">timer_interrupt</span>(<span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">init_frame</span> *<span style="font-weight: bold; font-style: italic;">args</span> UNUSED){
+  ticks++;
+  thread_tick();
+  <span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">list_elem</span>* <span style="font-weight: bold; font-style: italic;">nodo</span> = list_begin(&amp;dormidos);
+  <span style="font-weight: bold;">while</span>(nodo != list_end(&amp;dormidos)){
+    <span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">thread</span>* <span style="font-weight: bold; font-style: italic;">t</span> = list_entry(nodo, <span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">thread</span>, elem);
+    t-&gt;por dormir --;
+    <span style="font-weight: bold;">if</span> (t-&gt;por_dormir &lt;= 0){
+      nodo = list_remove(nodo);
+      thread_unblock(t);
+    }<span style="font-weight: bold;">else</span>{
+      nodo = list_next(nodo);
+    }
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4f2d122" class="outline-4">
+<h4 id="org4f2d122">timer.c</h4>
+<div class="outline-text-4" id="text-org4f2d122">
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">timer_sleep</span> (<span style="font-weight: bold; text-decoration: underline;">int64_t</span> <span style="font-weight: bold; font-style: italic;">ticks</span>){
+  <span style="font-weight: bold; text-decoration: underline;">int64_t</span> <span style="font-weight: bold; font-style: italic;">start</span> = timer_ticks();
+  ASSERT (intr_get_level() == INTR_ON);
+  <span style="font-weight: bold;">enum</span> <span style="font-weight: bold; text-decoration: underline;">intr_level</span> <span style="font-weight: bold; font-style: italic;">old</span> = intr_set_level(INTR_OFF);
+  <span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">thread</span>* <span style="font-weight: bold; font-style: italic;">t</span> = thread_current();
+  t-&gt;por_dormir = ticks;
+  list_push_back(&amp;dormidos, &amp;thread_current()-&gt;elem);
+  thread_block();
+  intr_set_level(old);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9752fe7" class="outline-4">
+<h4 id="org9752fe7">punto extra</h4>
+<div class="outline-text-4" id="text-org9752fe7">
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">dormido</span>{
+  <span style="font-weight: bold; text-decoration: underline;">int64_t</span> <span style="font-weight: bold; font-style: italic;">ticks</span>;
+  <span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">thread</span>* <span style="font-weight: bold; font-style: italic;">t</span>;
+  <span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">list_elem</span> <span style="font-weight: bold; font-style: italic;">elem</span>;
+}
+
+<span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">dormido</span> <span style="font-weight: bold; font-style: italic;">d</span>;
+d-&gt;ticks = ticks;
+d-&gt;t = thread_current();
+list_push_back(&amp;dormidos, &amp;thread_current()-&gt;elem);
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1ab1887" class="outline-3">
+<h3 id="org1ab1887">Clase 9</h3>
+<div class="outline-text-3" id="text-org1ab1887">
+</div>
+<div id="outline-container-orgb5dc0f0" class="outline-4">
+<h4 id="orgb5dc0f0">Proceso</h4>
+<div class="outline-text-4" id="text-orgb5dc0f0">
+<ul class="org-ul">
+<li>Un proceso va a ser un programa en ejecución.
+
+<ul class="org-ul">
+<li>El kérnel es un programa que siempre se está ejecutando en una
+computadora.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7b1475c" class="outline-4">
+<h4 id="org7b1475c">Memoria en el sistema.</h4>
+<div class="outline-text-4" id="text-org7b1475c">
+<ul class="org-ul">
+<li><p>
+Primaria:
+</p>
+
+<p>
+Suelen no se suficientemente amplios para alamacenar los datos
+de los programas necesarios.
+</p>
+
+<p>
+Suelen ser memorias volátiles; la cual no conserva lo almacenado
+si no hay flujo de energía.
+</p>
+
+<p>
+Por lo general utilizan una dinámica de acceoso aleatorio, pero
+no necesariamente.
+</p>
+
+<p>
+Ésta memoria se encuentra más cerca del procesador.
+</p>
+
+<p>
+Algunos ejemplos pueden ser la RAM, la memoria Caché y los
+Registros.
+</p></li>
+
+<li><p>
+Secundaria:
+</p>
+
+<p>
+Por lo general tiene mayor capacidad de almacenamiento que la
+memoria primaria, esto pues su principal función es la de
+resguardar la información.
+</p>
+
+<p>
+Éstas unidades no son volátiles.
+</p>
+
+<p>
+Las operaciones más costosas en recursos del Sistema Operativo
+son las de accesso y escritura directos al disco duro.
+</p></li>
+</ul>
+
+
+<p>
+Los procesos necesitan tiempo de uso de procesador, y todo proceso
+pasa por el porcesador.
+</p>
+
+<p>
+Sin embargo no todo proceso pasa por la RAM, sino puede utilizar
+alguna otra de las memorias principales.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga2be4b5" class="outline-3">
+<h3 id="orga2be4b5">Clase 10</h3>
+<div class="outline-text-3" id="text-orga2be4b5">
+</div>
+<div id="outline-container-org6e5a636" class="outline-4">
+<h4 id="org6e5a636">Ciclo de instrucciones del CPU</h4>
+<div class="outline-text-4" id="text-org6e5a636">
+</div>
+<ul class="org-ul">
+<li><a id="org2cb0e75"></a>Fetch<br />
+<div class="outline-text-5" id="text-org2cb0e75">
+<p>
+Éste consiste en obtener o buscar las instrucciones.
+</p>
+</div>
+</li>
+
+<li><a id="orgb8ef5f9"></a>Decode<br />
+<div class="outline-text-5" id="text-orgb8ef5f9">
+<p>
+Ver de qué trata la instrucción.
+</p>
+</div>
+</li>
+
+<li><a id="org669d6d2"></a>Execute<br />
+<div class="outline-text-5" id="text-org669d6d2">
+<p>
+Ejecutar la instrucción.
+</p>
+</div>
+</li>
+
+<li><a id="org0224f1a"></a>Write<br />
+<div class="outline-text-5" id="text-org0224f1a">
+<p>
+En caso de ser necesario para el proceso.
+</p>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org6bbcd26" class="outline-4">
+<h4 id="org6bbcd26">Interrupciones</h4>
+<div class="outline-text-4" id="text-org6bbcd26">
+<p>
+El proceso de interrupciones del sistema consiste en detener una
+tarea para realizar otra con mayor importancia o interrumpir por
+conveniencia del sistema.
+</p>
+
+<p>
+Por lo general son impulsos/señales eléctricas.
+</p>
+
+<p>
+El proceso de interrupciones consta de los siguientes pasos:
+</p>
+
+<ol class="org-ol">
+<li>El hardware/software tiene un proceso llamado "solicitud de
+interrupción" en el que la CPU detecta después de ejecutar una
+instrucción.</li>
+
+<li><p>
+Sí hay una interrupción, la CPU detecta que un "controlador de
+dispositivo" a firmado una solicitud de interrupción lee el
+número de interrupción, "salta" a la interrupción misma y traza
+un "vector de interrupción".
+</p>
+
+<p>
+El vector de interrupción consta de información importante;
+hacia dónde va la interrupción, de dónde viene y una copia del
+estado del proceso.
+</p></li>
+</ol>
+
+
+<p>
+En Sistemas Operativos modernos se necesitan añadir las siguientes
+características para un manejo más sofisticado de las
+interrupciones:
+</p>
+
+<ol class="org-ol">
+<li>Tener la capacidad de diferir el manejo de la interrupción
+durante el proceso crítico.</li>
+
+<li>Tener interrupciones <span class="underline">multinivel</span> para que el Sistema Operativo
+pueda distinguir entre interrupciones de <span class="underline">alta</span> y <span class="underline">baja</span> prioridad.</li>
+
+<li>Tener una forma eficiente de enviar una interrupción adecuada
+para cada dispositivo.</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4b13016" class="outline-3">
+<h3 id="org4b13016">Clase 11</h3>
+<div class="outline-text-3" id="text-org4b13016">
+</div>
+<div id="outline-container-org224075b" class="outline-4">
+<h4 id="org224075b">Capas del kérnel</h4>
+<div class="outline-text-4" id="text-org224075b">
+</div>
+<ul class="org-ul">
+<li><a id="org716bbb1"></a>Núcleo<br />
+<div class="outline-text-5" id="text-org716bbb1">
+<p>
+Permite que los procesos existan como entidades calendarizables.
+</p>
+
+<p>
+En éste núcleo se pueden ejecutar instrucciones privilegiadas.
+</p>
+</div>
+</li>
+
+<li><a id="orgbff56b1"></a>Memoria<br />
+<div class="outline-text-5" id="text-orgbff56b1">
+<p>
+Permite asignar memoria dinámica a los procesos.
+</p>
+</div>
+</li>
+
+<li><a id="org5244a31"></a>Entrada / Salida<br />
+<div class="outline-text-5" id="text-org5244a31">
+<p>
+Da una arquitectura coherente para hacer operaciones de Entrada /
+Salida.
+</p>
+</div>
+</li>
+
+<li><a id="orgd45ccbf"></a>Archivos<br />
+<div class="outline-text-5" id="text-orgd45ccbf">
+<p>
+Almacenamiento persistente y administración del almacenamiento
+secundario.
+</p>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orgc188592" class="outline-4">
+<h4 id="orgc188592">Jerarquía de los dispositivos de alacenamiento</h4>
+<div class="outline-text-4" id="text-orgc188592">
+<ol class="org-ol">
+<li>Registros</li>
+<li>Caché</li>
+<li>Memoria principal</li>
+<li>Discos electrónico</li>
+<li>Discos magnéticos</li>
+<li>Discos ópticas</li>
+<li>Cintas magnéticas</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org3133432" class="outline-4">
+<h4 id="org3133432">Sistemas Operativos de fuente abierta</h4>
+<div class="outline-text-4" id="text-org3133432">
+<ul class="org-ul">
+<li>Los sistemas operativos que se ofrecen en forma de código fuente
+en lugar de simplemente código binario de <b>fuente cerrada</b>.</li>
+
+<li>Para contrarrestas el movimiento de protección de copia y la
+administración de derechos digital.</li>
+
+<li>Comenzando por la Free Software Foundation, la cual tiene
+izquierdos de copia.</li>
+
+<li>Ejemplos incluyen GNU/Linux, Solaris, BSD, entre otros.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd08727c" class="outline-3">
+<h3 id="orgd08727c">Clase 12</h3>
+<div class="outline-text-3" id="text-orgd08727c">
+</div>
+<div id="outline-container-org390c6f3" class="outline-4">
+<h4 id="org390c6f3">Proceso</h4>
+<div class="outline-text-4" id="text-org390c6f3">
+<ul class="org-ul">
+<li>Unidad de trabajo del sistema
+
+<ul class="org-ul">
+<li>Un proceso por actividad
+
+<ul class="org-ul">
+<li>Ejms:
+
+<ul class="org-ul">
+<li>Procesos de sistema:
+
+<ul class="org-ul">
+<li>Calentarización</li>
+
+<li>E/S</li>
+
+<li>Sistema de archivos</li>
+</ul></li>
+
+<li>Procesos de usuario
+
+<ul class="org-ul">
+<li>Navegador web</li>
+
+<li>Editor de textos</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Dinámico
+
+<ul class="org-ul">
+<li>Su estado va cambiando</li>
+</ul></li>
+
+<li>Corresponde a la ejecución de uno o más programas/rutinas</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Dinámico
+
+<ul class="org-ul">
+<li>Recursos asociados
+
+<ul class="org-ul">
+<li>Identificador de procesaso (PID)</li>
+
+<li>Memoria</li>
+
+<li>Archivos</li>
+
+<li>Sockets: Son el mecanismo con el que se puede tener
+comunicación en red.</li>
+
+<li>Apuntador de instrucción actual</li>
+</ul></li>
+
+<li>Administrados por el Sistema Operativo
+
+<ul class="org-ul">
+<li>En tiempo de creación</li>
+
+<li>En tiempo de ejecución</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org2740206" class="outline-3">
+<h3 id="org2740206">Clase 13</h3>
+<div class="outline-text-3" id="text-org2740206">
+</div>
+<div id="outline-container-orgf3c2441" class="outline-4">
+<h4 id="orgf3c2441">Glosario</h4>
+<div class="outline-text-4" id="text-orgf3c2441">
+<ul class="org-ul">
+<li>Procesador: Un chip físico que ejecuta las funciones de un CPU</li>
+<li>Core: La unidad de cálculo básico del CPU.</li>
+<li>Multicore: Incluye múltiples núcleos de computación en la misma CPU.</li>
+<li>Multiprocesador: Que incluye múltiples procesadores en la CPU.</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org3183351"></a>CPU con procesador único<br />
+<div class="outline-text-5" id="text-org3183351">
+<p>
+CPU la cual contiene un sólo procesador; un sólo core que ejecuta
+todas las funciones.
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="org795ff84"></a>Programación Secuencial<br />
+<div class="outline-text-6" id="text-org795ff84">
+<p>
+Se puede hacer computación Paralela/Concurrente/Distribuida,
+pero no es lo idóneo
+</p>
+
+<p>
+Sus ventajas es que es más simple de programar y fiable, pero
+los procesos se ejecutan más lentos.
+</p>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="org4ca6cfa"></a>CPU con multiprocesadores<br />
+<div class="outline-text-5" id="text-org4ca6cfa">
+<p>
+El incremento de la velocidad de un programa utilizando mútiples
+procesadores. En computación concurrente está limitado por la
+fracción secuencial del programa.
+</p>
+
+<p>
+En un sistema distribuido (clusters), la memoria no es compartida
+y no están físicamente en el mismo lugar.
+</p>
+
+<p>
+En el cómputo concurrente, la memoria es compartida pues se
+utiliza la misma computadora.
+</p>
+
+<p>
+En el cómputo paralelo, de igual maner se comparte memoria pues
+utilizan el mismo CPU
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgaf1aa32" class="outline-3">
+<h3 id="orgaf1aa32">Clase 14</h3>
+<div class="outline-text-3" id="text-orgaf1aa32">
+</div>
+<div id="outline-container-orga288caf" class="outline-4">
+<h4 id="orga288caf">Programa / rutina</h4>
+<div class="outline-text-4" id="text-orga288caf">
+<ul class="org-ul">
+<li>Conjunto de instrucciones y datos que desciben los pasos de una
+tarea
+
+<ul class="org-ul">
+<li>Ordenar arreglos: <code>qsort(libc)</code></li>
+
+<li>Limpiar pantalla: <code>/bin/clear</code></li>
+
+<li>Editor: <code>C:\\Windows\Noteád.exe</code></li>
+</ul></li>
+
+<li>Estático</li>
+
+<li>En lenguaje de máquina</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7af5bc3" class="outline-4">
+<h4 id="org7af5bc3">Procesador</h4>
+<div class="outline-text-4" id="text-org7af5bc3">
+<ul class="org-ul">
+<li>Agente que ejecuta las instrucciones de un programa, para poder
+llevar a cabo un proceso
+
+<ul class="org-ul">
+<li>El proceso "corre" en el procesador</li>
+
+<li>El procesador "corre" el proceso</li>
+</ul></li>
+
+<li>El programa asociado a un proceso no necesarimente enstá en el
+Software
+
+<ul class="org-ul">
+<li>Ejemplo: Rutinas de un controlador USB (firmware)
+
+<ul class="org-ul">
+<li>Un procesador capaz de ejecutar un sólo tipo de proceso</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org691e895" class="outline-4">
+<h4 id="org691e895">Aplicación</h4>
+<div class="outline-text-4" id="text-org691e895">
+<ul class="org-ul">
+<li>Una aplicación sofisticada consiste de varios procesos.
+
+<ul class="org-ul">
+<li>Una hoja de cálculo.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd265449" class="outline-4">
+<h4 id="orgd265449">Concurrencia y no-determinismo</h4>
+<div class="outline-text-4" id="text-orgd265449">
+<ul class="org-ul">
+<li>Activación de varios procesos al mismo tiempo</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org577fe46"></a>Concurrencia aparente<br />
+<div class="outline-text-5" id="text-org577fe46">
+<ul class="org-ul">
+<li>#procesos &gt; #procesadores
+
+<ul class="org-ul">
+<li>Los procesos alternan entre procesos</li>
+
+<li>Ilusión de concurrencia real</li>
+</ul></li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="orge1d479b"></a>Analogía<br />
+<div class="outline-text-6" id="text-orge1d479b">
+<ul class="org-ul">
+<li>Un secretario realiza múltiples tareas
+
+<ul class="org-ul">
+<li>Escribir documentos</li>
+
+<li>Capturar dictado</li>
+
+<li>Preparar café</li>
+
+<li>Contestar teléfonos</li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org0bf8777" class="outline-4">
+<h4 id="org0bf8777">No determinismo</h4>
+<div class="outline-text-4" id="text-org0bf8777">
+<ul class="org-ul">
+<li>Impredicibilidad de:
+
+<ul class="org-ul">
+<li>Instrucción en la que se interrumpe un proceso.
+
+<ul class="org-ul">
+<li>Orden relativo de ejecución de instrucciones de procesos
+diferentes.</li>
+</ul></li>
+
+<li>Tiempo que tomará una operaciónde Entrada / Salida
+
+<ul class="org-ul">
+<li>Orden / Tiempo de interrupciones</li>
+</ul></li>
+
+<li>Solicitud de recursos de un proceso
+
+<ul class="org-ul">
+<li>Archivos / Sockets / Memoria / &#x2026;</li>
+</ul></li>
+
+<li>Interrupción / intercambio de procesos
+
+<ul class="org-ul">
+<li>Debemos recordar el punto y el estado en el que está para
+poder regresar después a su ejecución.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf1dc3ab" class="outline-3">
+<h3 id="orgf1dc3ab">Clase 15</h3>
+<div class="outline-text-3" id="text-orgf1dc3ab">
+</div>
+<div id="outline-container-org794d490" class="outline-4">
+<h4 id="org794d490">Los procesos</h4>
+<div class="outline-text-4" id="text-org794d490">
+<ul class="org-ul">
+<li>Cooperan, compiten por recursos</li>
+
+<li>Áreas en la que la sincronización/CIP es esencial:
+
+<ul class="org-ul">
+<li>Exclusión mutua</li>
+
+<li>Sincronización</li>
+
+<li>Prevención de Deadlocks</li>
+</ul></li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org616bbb0"></a>Exclusión mutua<br />
+<div class="outline-text-5" id="text-org616bbb0">
+<ul class="org-ul">
+<li>Hay recursos que no pueden usarse por dos procesos al mismo tiempo
+
+<ul class="org-ul">
+<li>Impresora</li>
+
+<li>Localidades de memoria</li>
+</ul></li>
+</ul>
+
+
+<p>
+El problema es asegurar que un sólo procesos tiene acceso a
+cierto recurso en un momento dado.
+</p>
+</div>
+</li>
+
+<li><a id="org5f16f38"></a>Agentes de reseva de boleto<br />
+<div class="outline-text-5" id="text-org5f16f38">
+<ul class="org-ul">
+<li>Agente A observa si el asiento 5 está disponible, y pregunta a
+su cliente.</li>
+
+<li>Agente B observa si el asiento 5 está disponible, y pregunta a
+su cliente.</li>
+
+<li>Agente A reserva el asiento 5.</li>
+
+<li>Agente B reserva el asiento 5.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org98de56c"></a>Sincronización<br />
+<div class="outline-text-5" id="text-org98de56c">
+<ul class="org-ul">
+<li>La velocidad relatica de procesos es impredecible
+
+<ul class="org-ul">
+<li>Depende de la frecuencia con que son interrumpidos.
+
+<ul class="org-ul">
+<li>\(\Rightarrow\) Los procesos son <span class="underline">asíncronos</span>.</li>
+</ul></li>
+</ul></li>
+
+<li>Algunos prosesos se deben <span class="underline">sincronizar</span></li>
+
+<li>Productores / Consumidores</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org458b35c"></a>Deadlock<br />
+<div class="outline-text-5" id="text-org458b35c">
+<ul class="org-ul">
+<li>Situación en que un grupo de procesos se bloquea
+
+<ul class="org-ul">
+<li>Un proceso ocupa un recurso que el otro necesita para
+continuar.</li>
+</ul></li>
+
+<li>(<i>Filósofos cenando</i>)</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orga8ea3d4" class="outline-4">
+<h4 id="orga8ea3d4">Semáforos</h4>
+<div class="outline-text-4" id="text-orga8ea3d4">
+<p>
+Fueron inventados por Dijkstra en 1965
+</p>
+
+<ul class="org-ul">
+<li>Un semáforo es una variable enteera que se manipula con sólo dos
+operaciones <b>indivisibles</b>.
+
+<ul class="org-ul">
+<li>wait(sem) (<i>down</i>)</li>
+
+<li>signal(sem) (<i>up</i>)</li>
+</ul></li>
+
+<li>Tan pronto puede, decrementa el semáforo en exactamente una
+unidad.</li>
+
+<li>Incrementa el semáforo en exáctamente un unidad.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf2f77f3" class="outline-3">
+<h3 id="orgf2f77f3">Clase 16</h3>
+<div class="outline-text-3" id="text-orgf2f77f3">
+</div>
+<div id="outline-container-org747f184" class="outline-4">
+<h4 id="org747f184">wait(sem)</h4>
+<div class="outline-text-4" id="text-org747f184">
+<p>
+Existe un retraso potencial cuando <code>sem</code> es 0.
+</p>
+
+<p>
+No hay retraso si <code>sem</code> es mayor a 0.
+</p>
+
+<p>
+Potencial costo: cambio de contexto.
+</p>
+
+<p>
+Sólo se puede contirunar cuando algún <code>signal()</code> hace que <code>sem</code> sea
+disnto a 0.
+</p>
+
+<p>
+Un sólo proceso podrá continuar, pero no sabemos cual.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga980b08" class="outline-4">
+<h4 id="orga980b08">Invariante</h4>
+<div class="outline-text-4" id="text-orga980b08">
+<p>
+Cada <code>signal()</code> incrementa el semáforo.
+</p>
+
+<p>
+Cada <code>wait()</code> completada, decrementa el semáforo.
+</p>
+
+<p>
+<code>val(sem)==inicial(sem)+signals(sem)-waits(sem)</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1fb3a7e" class="outline-4">
+<h4 id="org1fb3a7e">Exclusión mutua</h4>
+<div class="outline-text-4" id="text-org1fb3a7e">
+<ul class="org-ul">
+<li>El problema es asegurar que un solo proceso tiene acceso a
+cierto recurso en un momento dado.
+
+<ul class="org-ul">
+<li>una solución sería utilizar un semáforo por recurso.
+
+<ul class="org-ul">
+<li>El valor inicial del semáforo es 1.</li>
+
+<li><code>wait(sem_recurso)</code></li>
+
+<li>uso de recurso</li>
+
+<li><code>signal(sem_recurso)</code></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org35fefb9" class="outline-3">
+<h3 id="org35fefb9">Laboratorio 5</h3>
+<div class="outline-text-3" id="text-org35fefb9">
+</div>
+<div id="outline-container-org983ee7b" class="outline-4">
+<h4 id="org983ee7b">thread.c</h4>
+<div class="outline-text-4" id="text-org983ee7b">
+<p>
+Insertar de manera ordenada por medio de una función compare.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">thread_create</span>(args){
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">...</span>
+  thread_unblock(t);
+
+  <span style="font-weight: bold;">if</span> (thread_current()-&gt;priority &lt; t-&gt;priority){
+    thread_yield();
+  }
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">...</span>
+}
+
+
+<span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">thread_set_priority</span>(<span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">new_priority</span>){
+  <span style="font-weight: bold;">if</span> (new_priority &lt; thread_current()){
+    <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">...</span>
+  }
+}
+
+<span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">o</span>
+
+<span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">thread_unblock</span>(<span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">thread</span>* <span style="font-weight: bold; font-style: italic;">t</span>){
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">list_push_back(...)</span>
+  list_insert_ordered(...,compare,...);
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">...</span>
+  <span style="font-weight: bold;">if</span>(thread_current()-&gt;priority &lt; t-&gt;priority){
+    <span style="font-weight: bold;">if</span> (!intr_context()){
+      thread_yield();
+    }<span style="font-weight: bold;">else</span>{
+      intr_yield_on_return();
+    }
+  }
+}
+
+<span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">extra</span>
+
+<span style="font-weight: bold;">next_thread_to_run</span>(){
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">Modificar para acceder a la posici&#243;n en el arreglo con la</span>
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">prioridad m&#225;s alta.</span>
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbf3d0ff" class="outline-4">
+<h4 id="orgbf3d0ff">synch.c</h4>
+<div class="outline-text-4" id="text-orgbf3d0ff">
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">sema_up</span>(<span style="font-weight: bold;">struct</span>*){
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">...</span>
+  sema-&gt;value++;
+  <span style="font-weight: bold;">if</span> (!list_empty(...)){
+    ...
+  }
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">...</span>
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8edd3b5" class="outline-3">
+<h3 id="org8edd3b5">Clase 17</h3>
+<div class="outline-text-3" id="text-org8edd3b5">
+</div>
+<div id="outline-container-orgf8709a1" class="outline-4">
+<h4 id="orgf8709a1">Sincronización</h4>
+<div class="outline-text-4" id="text-orgf8709a1">
+<p>
+EL proceso B puede pasar por L2 sólo si A ya pasó por L1.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2e95728" class="outline-4">
+<h4 id="org2e95728">Productores/Consumidor</h4>
+<div class="outline-text-4" id="text-org2e95728">
+<ul class="org-ul">
+<li>Los productores producen elementos indefinidamente.</li>
+
+<li>Los consumidores los utilizan
+
+<ul class="org-ul">
+<li>Se usa un buffer con capacidad finita para depositar/extraer los elementos</li>
+
+<li>Regulación bidireccional</li>
+</ul></li>
+
+<li>Ejemplos:
+
+<ul class="org-ul">
+<li>Serivdor de impresión</li>
+
+<li>Transferencias por red (ssh/ youtube)</li>
+
+<li>Servidor de ventanas/aplicación gráficas (eventos GUI)</li>
+
+<li>Tuberías de Unix</li>
+
+<li>Drivers (Entrada: productores / Salida: consumidores)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org56dc5e4" class="outline-3">
+<h3 id="org56dc5e4">Clase 18</h3>
+<div class="outline-text-3" id="text-org56dc5e4">
+</div>
+<div id="outline-container-org9594ce0" class="outline-4">
+<h4 id="org9594ce0">Solución Productores/consumidores</h4>
+<div class="outline-text-4" id="text-org9594ce0">
+<p>
+Productores
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prog">while true do
+      produce item;
+      wait(espacio_discponible);
+      wait(buffer_manipulable);
+      insert item into buffer;
+      signal(buffer_manipulable);
+      signal(elemento_disponible);
+done
+</pre>
+</div>
+
+<p>
+Consumidores
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prog">while true do
+      wait(elemento_disponible);
+      wait(buffer_manipulable);
+      item &lt;- pop buffer;
+      signal(buffer_manipulable);
+      signal(espacio_disponible);
+      consume item;
+done
+</pre>
+</div>
+
+<p>
+Los valores iniciales serían <code>espacio_disponible:=N</code> y
+<code>elemento_disponible:=0</code>.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org21f63d8" class="outline-3">
+<h3 id="org21f63d8">Laboratorio 6</h3>
+<div class="outline-text-3" id="text-org21f63d8">
+</div>
+<div id="outline-container-orgeba919f" class="outline-4">
+<h4 id="orgeba919f">thread.c</h4>
+<div class="outline-text-4" id="text-orgeba919f">
+<p>
+Añadir variable <code>load_avg=0;</code>
+</p>
+
+<p>
+Todas las operaciones van en la función <code>thread_tick</code>
+</p>
+
+<p>
+Incluir <code>devices/timer.h</code> (<code>#include</code>)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">thread</span>* <span style="font-weight: bold; font-style: italic;">t</span> = thread_current();
+<span style="font-weight: bold;">if</span> (timer_ticks() % TIMER_FREQ == 0){
+  <span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">c59_60</span> = fixpoint(59, 60);
+  <span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">c1_60</span> = fixpoint(1, 60);
+  load_avg = c59_60 * load_avg + c1_60 * list_size(&amp;ready_list);
+ }
+<span style="font-weight: bold;">thread_current</span>()-&gt;recent_cpu++;
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">thread_get_nice</span>(<span style="font-weight: bold; text-decoration: underline;">void</span>){
+  <span style="font-weight: bold;">return</span> thread_current()-&gt;nice;
+}
+</pre>
+</div>
+
+<p>
+<code>thread_get_load_avg</code> y <code>thread_get_recent_cpu</code> deben ser editadas.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd1127ea" class="outline-3">
+<h3 id="orgd1127ea">Clase 19</h3>
+<div class="outline-text-3" id="text-orgd1127ea">
+</div>
+<div id="outline-container-org0d8f544" class="outline-4">
+<h4 id="org0d8f544">Servicios del sistema</h4>
+<div class="outline-text-4" id="text-org0d8f544">
+<ul class="org-ul">
+<li>Manejador de archivos: Son los programas que crean, borran,
+renombran e imprimen; en general manipulan archivos y
+directorios.
+
+<ul class="org-ul">
+<li><code>touch [ruta del archivo]</code></li>
+
+<li><code>mkdir [nombre / ruta del archivo]</code></li>
+
+<li><code>ls [ruta del archivo o directorio]</code></li>
+
+<li><code>rm [ruta de origen] [ruta de destino]</code></li>
+
+<li><code>cp [ruta de origen] [ruta de destino]</code></li>
+
+<li><code>rsync</code> copia con permiso</li>
+</ul></li>
+
+<li>Información o Estatus: Programas que preguntan al sistema acerca
+del estado mismo.
+
+<ul class="org-ul">
+<li><code>top</code></li>
+
+<li><code>chmod</code></li>
+
+<li><code>date</code></li>
+
+<li><code>uname</code></li>
+
+<li><code>date</code></li>
+
+<li><code>uptime</code></li>
+</ul></li>
+
+<li>Comunicación: Permiten crear comunicación entre procesos.
+
+<ul class="org-ul">
+<li><code>ssh</code></li>
+
+<li><code>wget</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org48aeca6" class="outline-3">
+<h3 id="org48aeca6">Clase 20</h3>
+<div class="outline-text-3" id="text-org48aeca6">
+</div>
+<div id="outline-container-orga8e2ed3" class="outline-4">
+<h4 id="orga8e2ed3">MLFQ</h4>
+<div class="outline-text-4" id="text-orga8e2ed3">
+<ul class="org-ul">
+<li>Conceptos básicos
+
+<ul class="org-ul">
+<li>Ráfagas de CPU en procesos interactivos</li>
+
+<li>Calendarizador
+
+<ul class="org-ul">
+<li>Non-preemptive</li>
+
+<li>Preemptive</li>
+
+<li>Parámetros a optimizar</li>
+</ul></li>
+
+<li>Despachador</li>
+
+<li>Ejemplos de:
+
+<ul class="org-ul">
+<li>First Come, First Served</li>
+
+<li>Shorted Job first
+
+<ul class="org-ul">
+<li>Estimación de longitud de ráfagas de CPU</li>
+</ul></li>
+
+<li>Prioridades; con colas multinivel
+
+<ul class="org-ul">
+<li>Hambruna</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org1eb3ef0" class="outline-3">
+<h3 id="org1eb3ef0">Laboratiorio 7</h3>
+<div class="outline-text-3" id="text-org1eb3ef0">
+</div>
+<div id="outline-container-org07147e3" class="outline-4">
+<h4 id="org07147e3">¿Por qué no podemos usar floats?</h4>
+<div class="outline-text-4" id="text-org07147e3">
+<p>
+Es posible usarlos en un entorno de kérnel, sin embargo es más
+costoso usarlos pues hay que estar pendiente también del uso de
+los registros que se utilizan al operar con numeros con punto
+flotante.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd003e49" class="outline-3">
+<h3 id="orgd003e49">Clase 21</h3>
+<div class="outline-text-3" id="text-orgd003e49">
+</div>
+<div id="outline-container-orgaec9ca0" class="outline-4">
+<h4 id="orgaec9ca0">Manejador de interrupciones de primer nivel</h4>
+<div class="outline-text-4" id="text-orgaec9ca0">
+<p>
+Su labor es responder a las interrucpciones, con mayor o menor ayda del HW
+</p>
+
+<p>
+Se ejecuta con interrupciones deshabilitadas.
+</p>
+
+<ul class="org-ul">
+<li>Determina la fuente</li>
+
+<li>Procesa la interrupción: ejcuta una rutina de servicio de
+interrupción asociada.</li>
+</ul>
+
+
+<p>
+Puede hacer parcialmente el trabajo para el manejador de
+interrupciones de segundo nivel.
+</p>
+
+<p>
+Puede alterar el estado de los procesos.
+</p>
+
+<p>
+La parte del núcleo encargado de responder a las señales.
+</p>
+
+<ul class="org-ul">
+<li>Externas</li>
+
+<li>Internas: Llamadas al sistema por medio de software.</li>
+</ul>
+
+
+<p>
+Realiza dos principales tareas
+</p>
+
+<ul class="org-ul">
+<li>Determinar la fuente</li>
+
+<li>Inicial el servicio de interrupción</li>
+</ul>
+
+
+<p>
+Se ejecuta en modo supervisor
+</p>
+
+<p>
+Se asegura que los datos que podría reescribir del procesos
+interrumpido sean guardados.
+</p>
+
+<ul class="org-ul">
+<li>El <i>FLIH</i> debe ser muy simple: tal vez no haya que guardar todo el
+contexto.</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org59581a6"></a>Determinar la fuente de la interrupción<br />
+<div class="outline-text-5" id="text-org59581a6">
+<p>
+Puede ser más o menos fácil, dependiendo del soporte del HW.
+</p>
+
+<ul class="org-ul">
+<li><p>
+Sin soporte: cadena de omisiones (<i>skip chain</i>), la rutina de
+servicio de interrupción encuesta a los dispositivos asociados
+a un mismo canal de interrupción revisando su estado antes de
+ejecutar su respectiva rutina de servicio de interrupción.
+</p>
+
+<p>
+Hay que probar las potenciales fuentes de la ibterrupción,
+hasta enconstrarla.
+</p></li>
+
+<li>Con soporte: Dependiendo de la fuente, el rpcesador brinca a
+una dirección de memoria diferente.
+
+<ul class="org-ul">
+<li>Una combinación de ambas (por ejemplo, en Linux)</li>
+</ul></li>
+</ul>
+
+
+<p>
+La interrupciones se deshabilitan cuando se transfiere control al
+<i>FLIH</i>.
+</p>
+
+<ul class="org-ul">
+<li>Totalmente: Se deshabilitan todas las interrupciones.</li>
+
+<li>Parcialmente: Se enmascaran las de prioridades menores o igual.</li>
+</ul>
+
+
+<p>
+Se rehabilitan al salir del <i>FLIH</i>
+</p>
+</div>
+</li>
+
+<li><a id="orge3f4966"></a>Iniciar el servicio de la interrupción<br />
+<div class="outline-text-5" id="text-orge3f4966">
+<p>
+Se llama a la rutina adecuada.
+</p>
+
+<ul class="org-ul">
+<li>Como se ejecuta en modo supervisor, y con interrupciones
+enmascaradas, la rutina debe ser lo más pequeña posible.</li>
+
+<li>Se debe hacer lo mínimo posible y después se puede acabar de
+procesar la interrupción.</li>
+
+<li>Ejemplo: <i>FLIH</i> de teclado:
+
+<ul class="org-ul">
+<li>Copia el dato de entrada a un buffer.</li>
+
+<li>Un proceso normal se encarga de transferirlo al proceso
+indicado, después.</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgc54021d"></a>Interrupciones y cambio de estado de procesos<br />
+<div class="outline-text-5" id="text-orgc54021d">
+<p>
+Generalmente una interrupción altera el estado de algunos procesos.
+</p>
+
+<ul class="org-ul">
+<li>La conlcusión de una transferencia puede hacer ejecutable al
+proceso que habí sido supendido al solicitarla.</li>
+
+<li>Una llamada al sistema wait() sobre un semáforo nulo, cambia el
+estado del proceso que se está ejecuntando a no-ejecutable.</li>
+</ul>
+
+
+<p>
+Como consecuencia, tal vez sea mejor cambiar de proceso
+actual. Cede el control al despachador.
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6d52377" class="outline-3">
+<h3 id="org6d52377">Laboratiorio 8</h3>
+<div class="outline-text-3" id="text-org6d52377">
+</div>
+<div id="outline-container-orgc2b9334" class="outline-4">
+<h4 id="orgc2b9334">Práctica 4: Sincronización</h4>
+<div class="outline-text-4" id="text-orgc2b9334">
+<p>
+Utilizar como base la práctica 2.
+</p>
+
+<p>
+Si queremos usar un dispositivo externo, un ejemplo (mal hecho)
+sería el siguiente:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">device_init</span> = 0;
+
+<span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">do_something</span>(){
+  <span style="font-weight: bold;">if</span> (device_init == 0){
+    device_init = 1;
+    init_device();
+  }
+  use_device();
+}
+</pre>
+</div>
+
+<p>
+Es incorrecto pues con procesos concurrente puede ocurrir que dos
+o procesos entren al mimso tiempo en la comparación y ambos sea
+correcto pues su valor está en 0 y por tanto el dispositivo se
+inicializaría más de una vez.
+</p>
+
+<p>
+Una solución correcta sería utilizar semáforos
+</p>
+
+<p>
+El semáforo utiliza un while, pues otro hilo al hacer sema<sub>up</sub>,
+puede cambiar el valor del semáforo y el primer thread no volvería
+a revisar su valor, y por tanto dos hilos podrían entrar a la
+sección crítica.
+</p>
+
+<p>
+En multinúcleo apagar las interrupciones usando semáforos no
+funciona pues se desactivarían sólo las interrupciones de un sólo
+núcleo.
+</p>
+
+<p>
+<code>thread.h</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">thread</span>{
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">...</span>
+  <span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">priority_old</span>;
+  <span style="font-weight: bold; font-style: italic;">//</span>
+}
+</pre>
+</div>
+
+<p>
+<code>synch.c</code>
+</p>
+
+<p>
+inicializar old<sub>priority</sub> en -1.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">lock_acquire</span>(<span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">lock</span> *<span style="font-weight: bold; font-style: italic;">lock</span>){
+  <span style="font-weight: bold; font-style: italic;">///</span><span style="font-weight: bold; font-style: italic;">...</span>
+  <span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">thread</span> *<span style="font-weight: bold; font-style: italic;">t</span> = thread_current();
+  <span style="font-weight: bold;">if</span> (lock-&gt;holder != <span style="font-weight: bold; text-decoration: underline;">NULL</span> &amp;&amp; lock-&gt;holder-&gt;priority &lt; t-&gt;priority){
+    lock-&gt;old_priority = t-&gt;holder-&gt;priority;
+    lock-&gt;holder-&gt;priority = t-&gt;priority;
+    <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">t-&gt;donation = lock</span>
+    lock-&gt;holder-&gt;donation = lock
+  }
+  sema_down(&amp;lock-&gt;semaphore);
+  lock-&gt;holder = thread_current();
+}
+</pre>
+</div>
+
+<p>
+devolver la prioridad en <code>lock_release</code>.
+</p>
+
+<p>
+Sin emabrgo en <code>lock_release</code> ésto puede ser incorrecto dado que un
+thread puede tener varios locks;
+</p>
+
+<p>
+en lugar de eso es conveniente guardar la variable <code>old_priority</code> en
+el <code>struct lock</code>.
+</p>
+
+<p>
+Para la segunda prueba, no hay que dejar que se bajen la prioridad
+aquellos threads a los que se donó prioridad.
+</p>
+
+<p>
+Para ello en el <code>struct thread</code> guardamos el lock que nos está donando.
+</p>
+
+<p>
+Y en <code>lock_aquire</code> Cambiamos <code>lock-&gt;holder-&gt;donation = lock</code> ; por lo
+que ya en <code>thread_set_priority</code> cambiamos directo la prioridad
+anterior accediendo al lock que guardamos.
+</p>
+
+<p>
+Si recibimos múltiples donaciones hay que guardar la prioridad
+original antes de haber entrado en contexto de donación.
+</p>
+
+<ul class="org-ul">
+<li><p>
+<code>priority_donate_one</code>
+</p>
+
+<p>
+Se tiene un lock y el proceso main recibe dos donaciones, al
+hacer lock release se deshace de las prioridades donadas.
+</p></li>
+
+<li><p>
+<code>priority_donate_lower</code>
+</p>
+
+<p>
+La prueba lo que hace es verificar que cuando un proceso con
+prioridad donada, se baja la prioridad, ésta sólo se cambia
+cuando termina el contexto de donación.
+</p>
+
+<p>
+Cuando se hace release, debe ver si el lock pertenece al mismo
+contexto de donación.
+</p></li>
+
+<li><p>
+<code>priority_donate_multiple</code>
+</p>
+
+<p>
+Hace dos donaciones con dos locks distintos; cada proceso que
+dona una prioridado lo hace por medio de un lock distinto.
+</p>
+
+<p>
+se obtienen dos locks a y b; primero se libera b y luego a.
+</p></li>
+
+<li><p>
+<code>priority_donate_multiple2</code>
+</p>
+
+<p>
+Lo mismo que el anterior, pero primero se libera a y luego b.
+</p>
+
+<p>
+Si todavía se encuentra en contexto de donación, no cambiamos la
+prioridad.
+</p>
+
+<p>
+Para ésto hay que regresar a la prioridad original, prioridad
+original guardada en el thread.
+</p></li>
+
+<li><p>
+<code>priority_nest</code>
+</p>
+
+<p>
+Si un proceso hace una donación a alguien que donó tiene que
+esparcir esas donaciones.
+</p>
+
+<p>
+Hay que guardar un apuntador al thread al que donaron; verificar
+si dicha variable no es nulo; y mientras sea así, actualizamos
+la variable.
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4540dcd" class="outline-3">
+<h3 id="org4540dcd">Clase 22</h3>
+<div class="outline-text-3" id="text-org4540dcd">
+</div>
+<div id="outline-container-org24ecf02" class="outline-4">
+<h4 id="org24ecf02">Sistemas operativos (repaso)</h4>
+<div class="outline-text-4" id="text-org24ecf02">
+<p>
+<b>Sistema Operativo</b>
+</p>
+
+<p>
+Es un administrador de recursos que actúa como el intermediario
+entre el hardware y el usuario final.
+</p>
+
+<p>
+<b>Tareas de un Sistema Operativo</b>
+</p>
+
+<p>
+Realiza la gestión de procesos, recursos, archivos, dispositivos
+de entrada-salida, protección y seguridad.
+</p>
+
+<p>
+<b>Pasos que realiza un procesador</b>
+</p>
+
+<p>
+Fetch, Decode, Execute, (Write), Check Interruption.
+</p>
+
+<ul class="org-ul">
+<li>Fetch: Obtener la instrucción</li>
+
+<li>Decode: Ver en qué consiste la instrucción</li>
+
+<li>Execute: Ejecuta la instrucción</li>
+
+<li>Write: De ser necesario almacena valores en registros</li>
+
+<li>Check interruption: Revisa si hay interrupciones.</li>
+</ul>
+
+
+<p>
+<b>Llamadas al sistema</b>
+</p>
+
+<p>
+Una llamada al sistema es una petición por software similar a una
+interrupción por software.
+</p>
+
+<p>
+<b>¿Por qué el cambio de sistemas monoprocesador a multiprocesador?</b>
+</p>
+
+<p>
+Se cambió a sistemas multiprocesador por el rendimiento y por el
+surgimiento de sistemas multiusuario que aumentaban la carga de
+los sistemas.
+</p>
+
+<p>
+<b>¿Qué son las trampas?</b>
+</p>
+
+<p>
+Una trampa puede ser una señal (o en algunos casos una
+interrupción) que generalmente informa de un error a otra entidad
+del sistema, como al mismo sistema o a otro proceso.
+</p>
+
+<p>
+<b>Características de los sistemas multiprocesador</b>
+</p>
+
+<ul class="org-ul">
+<li>Tienen por lo general un mejor rendimiento dado que puede
+realizar múltiples tareas simultáneamente.</li>
+
+<li>Tiene uno o más hilos por cada núcleo.</li>
+
+<li>Tienen uno o más niveles de caché por núcleo.</li>
+
+<li>Todos los procesadores tienen el mismo rendimiento para acceder
+a memoria.</li>
+</ul>
+
+
+<p>
+<b>Calendarización</b>
+</p>
+
+<p>
+La calendarización es una parte del Sistema Operativo por medio
+del cual se decide el orden y tiempo de uso de procesador que se
+le van a dar a los procesos.
+</p>
+
+<p>
+<b>Niveles de protección en un sistema operativo</b>
+</p>
+
+<p>
+Los niveles de protección que tienen los procesadores son:
+</p>
+
+<ul class="org-ul">
+<li>Modo usuario</li>
+
+<li>Modo kernel, modo supervisor, o modo privilegiado</li>
+</ul>
+
+
+<p>
+<b>¿Cómo ocurren las transiciones de modo usuario a modo kernel?</b>
+</p>
+
+<ul class="org-ul">
+<li>Al cargar el kernel; que generalmente se hace mediante el
+bootloader, se inicializa en modo kernel, y al terminar se pasa
+a modo usuario.</li>
+
+<li>Cuando ocurre una interrupción por hardware o software, o al
+ocurrir un error, se cambia de modo usuario a modo kernel.</li>
+
+<li>Cuando ocurren llamadas al sistema.</li>
+</ul>
+
+
+<p>
+<b>Proceso</b>
+</p>
+
+<p>
+Un proceso es una tarea en ejecución o que se va a ejecutar
+</p>
+
+<p>
+<b>Tipos de memoria en un sistema</b>
+</p>
+
+<p>
+Los 4 tipos de memoria en un sistema son:
+</p>
+
+<ul class="org-ul">
+<li>RAM (Memoria Principal)</li>
+
+<li>Discos duros (Memoria Secundaria)</li>
+
+<li>Caché</li>
+
+<li>Registros del CPU</li>
+</ul>
+
+
+<p>
+<b>¿Qué es una máquina virtual?</b>
+</p>
+
+<p>
+Software que emula un sistema de cómputo.
+</p>
+
+<p>
+<b>Proceso actual</b>
+</p>
+
+<p>
+El proceso actual es el proceso que se encuentra en ejecución en
+un instante.
+</p>
+
+<p>
+<b>Descriptor de hardware</b>
+</p>
+
+<p>
+Un descriptor de hardware de proceso almacena la información del
+estado de un proceso.
+</p>
+
+<p>
+<b>Idea de la demostración del protocolo "Productores-Consumidores"</b>
+</p>
+
+<p>
+En caso de no ser correcto, entonces deben existir dos o más
+procesos que se encuentran en la sección crítica (la manipulación
+de la colección finita).
+</p>
+
+<p>
+Según la especificación, entonces ésto quiere decir decir que al
+menos dos procesos en su función <code>wait</code> vieron que había lugares
+disponibles (o había elementos, según sea el caso) en la
+colección, y que ambos vieron que el búfer era manipulable, sin
+embargo el primero de ellos debió haber hecho que el estado del
+semáforo cambiará por la función <code>wait</code> y como ambos se encuentran
+en la sección crítica, éste primer proceso aún no utiliza la
+función <code>signal</code> para éste semáforo, por tanto no debió haber pasado
+el segundo.
+</p>
+
+<p>
+Esto último es una contradicción, y como vino de suponer que el
+protocolo no funcionaba correctamente, seguimos entonces que el
+protocolo de Productores-Consumidores es correcto.
+</p>
+
+<p>
+<b>Embriones/Precursores de los sistemas operativos</b>
+</p>
+
+<ul class="org-ul">
+<li><p>
+Sistemas de procesamiento de Lote (Batch-Processing Systems):
+</p>
+
+<p>
+En estos sistemas los usuarios enviaban trabajos en lotes, y la
+computadora los procesaba secuencialmente.
+</p></li>
+
+<li><p>
+Programas Monitores:
+</p>
+
+<p>
+Eran sistemas de Software que proporcionaban funcionalidad
+básica de gestión de recursos y programación.
+</p></li>
+
+<li><p>
+Sistemas de Tiempo Compartido:
+</p>
+
+<p>
+Permitían a varios usuarios compartir el mismo sistema
+informático simultáneamente, y cada uno de ellos podía acceder a
+una "máquina virtual" o una porción de tiempo de los recursos
+del sistema.
+</p></li>
+
+<li><p>
+Sistemas de multiprogramación:
+</p>
+
+<p>
+Fueron diseñados para aumentar la utilización de los recusrsos
+informáticos permitiendo que varios programas se cargaran en
+memoria simultáneamente. Utilizaban técnicas como el
+intercambio, paginación y segmentación para asignar la gestión
+de memoria a diferentes programas.
+</p></li>
+
+<li><p>
+Programas de Control:
+</p>
+
+<p>
+Proporcionaban un control básico y coordinación de los
+dispositivos de entrada/salida y recursos del sistema.
+</p></li>
+
+<li><p>
+Sistemas de Archivos:
+</p>
+
+<p>
+Gestionan el almacenamiento y recuperación de archivos en
+dispositivos de alamacenamiento.
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org585ad79" class="outline-3">
+<h3 id="org585ad79">Clase 23</h3>
+<div class="outline-text-3" id="text-org585ad79">
+</div>
+<div id="outline-container-org88f2a53" class="outline-4">
+<h4 id="org88f2a53">Page Replacement</h4>
+<div class="outline-text-4" id="text-org88f2a53">
+<ul class="org-ul">
+<li>Cadena de referencia: Al evaluar un algoritmo se toma una cadena
+de memoria en particular, denominada como "cadena de
+referencia".</li>
+
+<li><p>
+Page Frames: Páginas en dodnde se pueden asignar una parte de la
+Cadena de Referencia.
+</p>
+
+<p>
+<b>Optimal Page Replacement</b> guarda en frames de tamaño finito
+partes de la cadena de referencia, de tal manera que se guardan
+todas los datos que se van a usar eventualmente revisando el
+resto de la cadena en cada iteración.
+</p>
+
+<p>
+<b>LRU Page Replacement</b> 
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgce234c3" class="outline-3">
+<h3 id="orgce234c3">Clase 24</h3>
+<div class="outline-text-3" id="text-orgce234c3">
+</div>
+<div id="outline-container-org474d8d3" class="outline-4">
+<h4 id="org474d8d3">Administración de memoria</h4>
+<div class="outline-text-4" id="text-org474d8d3">
+</div>
+<ul class="org-ul">
+<li><a id="org0ccbbac"></a>Motivación<br />
+<div class="outline-text-5" id="text-org0ccbbac">
+<ol class="org-ol">
+<li>Realojamiento
+
+<ul class="org-ul">
+<li>Es imposible saber de antemano qué otros procesos se
+ejcutarán al mismo tiempo.</li>
+
+<li>El programador no puede hacer referencias a posiciones de
+memoria absolutas.</li>
+</ul></li>
+
+<li>Protección
+
+<ul class="org-ul">
+<li>Un proceso no debe tener acceso a la memoria de otro
+
+<ul class="org-ul">
+<li>Todos los accesos a memoria se deben checar en tiempo de
+ejecución para asegurarse de que se refieren al espacio de
+momria del proceso actual.</li>
+</ul></li>
+</ul></li>
+
+<li>Compartición
+
+<ul class="org-ul">
+<li>A veces hace falta compartir memoria entre procesos.
+
+<ul class="org-ul">
+<li>Instancias del mismo programa pueden convenientemente
+compartir una sola copia del programa.</li>
+
+<li>Consumidores/Productores deben compartir un buffer.</li>
+</ul></li>
+</ul></li>
+
+<li>Intercambio de memoria: Swapping
+
+<ul class="org-ul">
+<li>La RAM es típicamente pequeña: conviene usar discos para
+"extender" la memoria.</li>
+
+<li>Se puede hacer a mano (overlay programming)
+
+<ul class="org-ul">
+<li>Complicado, propenso a errores</li>
+</ul></li>
+
+<li>O con ayuda de la computadora (Memoria de intercambio)</li>
+</ul></li>
+</ol>
+</div>
+</li>
+
+<li><a id="org64ee3ab"></a>Memoria Virtual<br />
+<div class="outline-text-5" id="text-org64ee3ab">
+<ul class="org-ul">
+<li>Mecanismo de traducción de direcciones en tiempo de ejecución
+(mapeo de direcciones)</li>
+
+<li>Distinción entre
+
+<ul class="org-ul">
+<li>Direcciones de programa (programador, procesador)</li>
+
+<li>Direcciones de memoria (hardware)</li>
+</ul></li>
+
+<li>Espacio de direcciones <i>virtuales</i>, Espacio de memoria <i>física</i>.
+
+<ul class="org-ul">
+<li>\(f:D\rightarrow M\)</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org1c26bcb"></a>Espacio de direcciones virtual<br />
+<div class="outline-text-5" id="text-org1c26bcb">
+<ul class="org-ul">
+<li>No necesariamente es lineal</li>
+
+<li>Puede ser mayor, menor o igual que el espacio de memoria.</li>
+
+<li>El programador "ve" y "usa" una <i>memoria virtual</i>, diferente a la
+memoria <i>física</i>.</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org9f7585f" class="outline-4">
+<h4 id="org9f7585f">Implementación de memoria virtual</h4>
+<div class="outline-text-4" id="text-org9f7585f">
+</div>
+<ul class="org-ul">
+<li><a id="org0ee1b1b"></a>Registros base y límite<br />
+<div class="outline-text-5" id="text-org0ee1b1b">
+<ul class="org-ul">
+<li>El registro base contiene la menor dirección accedida por el
+proceso.
+
+<ul class="org-ul">
+<li>Todo acceso a la memori de este proceso es relativo a esa
+dirección base.
+
+<ul class="org-ul">
+<li>\(f(a)=B+a\)</li>
+</ul></li>
+</ul></li>
+
+<li>La <i>relocalización</i> es trivial</li>
+
+<li>La <i>protección</i> se lleva a cabo <i>limitando</i> la <i>máxima</i> dirección
+referenciable: <i>registro límite</i>.</li>
+
+<li>Ayuda a cubrir los requisitos de <i>relocalización</i> y <i>protección</i>.</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5705f8d" class="outline-3">
+<h3 id="org5705f8d">Clase 25</h3>
+<div class="outline-text-3" id="text-org5705f8d">
+</div>
+<div id="outline-container-org7150aff" class="outline-4">
+<h4 id="org7150aff">Implementación de memoria virtual</h4>
+<div class="outline-text-4" id="text-org7150aff">
+</div>
+<ul class="org-ul">
+<li><a id="orgbf77af7"></a>Registros base y límite<br />
+<div class="outline-text-5" id="text-orgbf77af7">
+<ol class="org-ol">
+<li>Si \(a<0\); violación de memoria.</li>
+
+<li>\(a'=B+a\)</li>
+
+<li>Si \(a'>limite\): violación de memoria.</li>
+
+<li>\(a'\) es la dirección física solicitada.</li>
+</ol>
+
+
+<p>
+Notemos que:
+</p>
+
+<ul class="org-ul">
+<li>El espacio de direcciones es lineal.</li>
+<li>El espacio de direcciones es menor o igual que el espacio de
+memoria.</li>
+<li>No hay compartición.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org167af6e"></a>Paginación<br />
+<div class="outline-text-5" id="text-org167af6e">
+<ul class="org-ul">
+<li>Se inventó en los 60s</li>
+
+<li>El espacio de direcciones virtual se divide en páginas
+
+<ul class="org-ul">
+<li>Bloque de direcciones de memoria de tamño fijo</li>
+</ul></li>
+
+<li>La memoria RAM de sivide en marcos de página.
+
+<ul class="org-ul">
+<li>Bloque de direcciones de memoria de tamaño fijo</li>
+</ul></li>
+
+<li>Los marcos de página se reparten entre los procesos.
+
+<ul class="org-ul">
+<li>En un momento dado, un proceso tiene páginas.</li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1440be2" class="outline-3">
+<h3 id="org1440be2">Clase 26</h3>
+<div class="outline-text-3" id="text-org1440be2">
+</div>
+<div id="outline-container-orgf6a6014" class="outline-4">
+<h4 id="orgf6a6014">Memoria virtual</h4>
+<div class="outline-text-4" id="text-orgf6a6014">
+<p>
+Idealmente quisieramos que todo nuestro programa estuviera
+completo en la meoria principal.
+</p>
+
+<ul class="org-ul">
+<li>Memoria lógica: Memoria "intangible" creada por el sistema
+operativo manejado con direcciones lógicas.</li>
+
+<li>Memoria virtual: incluye la separación de</li>
+
+<li>MMU (Memory Management Unit)</li>
+
+<li>Paginación por demanda:</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org510ecaf" class="outline-3">
+<h3 id="org510ecaf">Clase 27</h3>
+<div class="outline-text-3" id="text-org510ecaf">
+</div>
+<div id="outline-container-org344de3b" class="outline-4">
+<h4 id="org344de3b">Memoria Virtual</h4>
+<div class="outline-text-4" id="text-org344de3b">
+</div>
+<ul class="org-ul">
+<li><a id="org82fbfc7"></a>Paginación<br />
+<div class="outline-text-5" id="text-org82fbfc7">
+<p>
+Lo que hace la MMU en tiempo de ejecución es recibir una
+dirección de memoria virtual y ésta lo mapea a una direción de
+memoria física.
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="org4df4ae5"></a>¿A qué página física corresponde la página virtual p?<br />
+<div class="outline-text-6" id="text-org4df4ae5">
+<ul class="org-ul">
+<li>Tabla de páginas (esquema simple):
+
+<ul class="org-ul">
+<li>Una tabla por proceso: un apuntador a la tabla del proceso
+actual ser carga en un registro del procesador.</li>
+
+<li>La entrada \(p\) - ésima indica el marco de página que le
+corresponde a la página \(p\), y un poco de información
+administrativa:
+
+<ul class="org-ul">
+<li>Cuántas veces la página se ha referenciado.</li>
+
+<li>Tiempo de última referencia.</li>
+
+<li>Si se ha escrito a esa dirección.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcdba719" class="outline-3">
+<h3 id="orgcdba719">Clase 28</h3>
+<div class="outline-text-3" id="text-orgcdba719">
+</div>
+<div id="outline-container-org38cf6da" class="outline-4">
+<h4 id="org38cf6da">Múltiples niveles de tablas</h4>
+<div class="outline-text-4" id="text-org38cf6da">
+<ul class="org-ul">
+<li>Se divide el total de p´aginas en directorios de tamaño fijo.
+
+<ul class="org-ul">
+<li>Pentium y posteirores: dos niveles.</li>
+
+<li>Sparc (32 bits): 3 niveles.</li>
+
+<li>Motorola 68030 (32 bits): 4 niveles.</li>
+</ul></li>
+
+<li>Se realiza un acceso a RAM por cada nivel de "página".</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3150ac2" class="outline-3">
+<h3 id="org3150ac2">Clase 29</h3>
+<div class="outline-text-3" id="text-org3150ac2">
+</div>
+<div id="outline-container-org549b461" class="outline-4">
+<h4 id="org549b461">Paginación</h4>
+<div class="outline-text-4" id="text-org549b461">
+<p>
+Hay una tabla de paginación por proceso en el sistema.
+</p>
+
+<p>
+Debe haber un apuntador a la tabla del proceso actual en un
+registro del procesador.
+</p>
+
+<p>
+Para cambiar de proceso acutal, recuperamos la dirección de la TAP
+del nuevo proceso a partir de su descriptor de HW, y la escribimos
+en el registro adecuado de la MMU.
+</p>
+
+<p>
+Invalidamos las entradas del TLB.
+</p>
+
+<p>
+Restauramos el resto del entorno volátil del proceso a ejecutar.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6b7acce" class="outline-4">
+<h4 id="org6b7acce">Ejemplos de aplicaciones de paginación:</h4>
+<div class="outline-text-4" id="text-org6b7acce">
+<ul class="org-ul">
+<li>Comparir memoria:
+
+<ul class="org-ul">
+<li>Páginas virtuales de diferentes procesos se asocian a la misma
+página física.</li>
+
+<li>Si la memoria no es totalmente compartida: copy-on-write
+
+<ul class="org-ul">
+<li>Es un mecanismo que permite posponer la copia de bloques de memoria hasta que uno de los procesos hace una modificación sobre ese bloque.</li>
+</ul></li>
+
+<li>Archivos mapeados a memoria:
+
+<ul class="org-ul">
+<li>Es una técnica para facilitar el acceso a archivos: el
+archivo se ve cocmo un "arreglo" en memoria.</li>
+</ul></li>
+</ul></li>
+</ul>
+
+
+<p>
+ZSWAP: Compresión de memoria en lugar de mandarla a almacenamiento
+secundario (en la práctica ocurre una combinación de ZSWAP e
+intercambio).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2e6d9b3" class="outline-4">
+<h4 id="org2e6d9b3">Estrategias de reemplazo de página</h4>
+<div class="outline-text-4" id="text-org2e6d9b3">
+<p>
+Cuando una falla de página ocurre, pude ser necesario traer la página referenciada de memoria secunda a RAM.
+</p>
+
+<ul class="org-ul">
+<li>Es posible que no haya una página física libre para poder copiar
+esta página en ella.</li>
+
+<li>Debemos entonces "hacer espacio" en la RAM.</li>
+
+<li>¿De qué manera podemos hacer espacio?
+
+<ul class="org-ul">
+<li>Mandar todo un procesos a disco.</li>
+
+<li>Estrategias de reemplazo de páginas.</li>
+</ul></li>
+
+<li>Las que no usan estadísticas de uso.</li>
+
+<li>Las que sí usan estadísticas de uso.
+
+<ul class="org-ul">
+<li>Referenced bit</li>
+
+<li>Dirty bit.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcb6ee71" class="outline-3">
+<h3 id="orgcb6ee71">Clase 30</h3>
+<div class="outline-text-3" id="text-orgcb6ee71">
+</div>
+<div id="outline-container-org19b9f8b" class="outline-4">
+<h4 id="org19b9f8b">Estrategias que no usan estadísticas de uso</h4>
+<div class="outline-text-4" id="text-org19b9f8b">
+<ul class="org-ul">
+<li>FIFO: El primero en entrar es el pimero en salir.
+
+<ul class="org-ul">
+<li>Fácil de implementar. Sólo hace galta implementar una cola
+(lista doblemente ligada por ejemplo).</li>
+
+<li>Sin embargo tiene un desempeño pobre:
+
+<ul class="org-ul">
+<li>Ignora que la página más vieja puede ser la más
+referenciada</li>
+
+<li>Sucede el fenómeno "anomalía de Belady":
+
+<ul class="org-ul">
+<li>Incrementar la memoria baja el desempeño.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf80c298" class="outline-4">
+<h4 id="orgf80c298">Anomalía de Belady.</h4>
+<div class="outline-text-4" id="text-orgf80c298">
+<p>
+Existen dos tamaños de memoria uno menor que el otro, tal que el
+número de fallos en la secuencia de referencias del primer tamaño
+de memoria es menor que el segundo tamaño de memoria.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5a7a99a" class="outline-4">
+<h4 id="org5a7a99a">Estrategias que sí usan estadísticas de uso</h4>
+<div class="outline-text-4" id="text-org5a7a99a">
+<ul class="org-ul">
+<li>Intentan predecir el uso futuro a partir del historial de uso
+anterior.
+
+<ul class="org-ul">
+<li>Esto se justifica mediante el principio de localidad de regerencias.
+
+<ul class="org-ul">
+<li>Reloj: Modificación simple de FIFO (Esquema más simple usado
+en la práctica).</li>
+
+<li>LRU: La del último acceso más viejo. (Usada en la práctica)</li>
+
+<li>LFU: Menos usadas frecuentemente.</li>
+</ul></li>
+
+<li>La implementación es un poco más complicada y requiere ayuda
+de HW.</li>
+
+<li>Se puede demostrar que LRU (y cualquier otra técnica con la stack propoerty)</li>
+</ul></li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org9c482c0"></a>Second Chance<br />
+<div class="outline-text-5" id="text-org9c482c0">
+<p>
+El candidato a página víctima es toavía la que entró primero,
+pero si esa página fue referenciada, gana otra oportunidad de
+mantenerse presente, perdiendo su estatus de "referenciada".
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1d0bafa" class="outline-3">
+<h3 id="org1d0bafa">Clase 31</h3>
+<div class="outline-text-3" id="text-org1d0bafa">
+</div>
+<div id="outline-container-org52d2c7a" class="outline-4">
+<h4 id="org52d2c7a">Descriptor de dispositivo</h4>
+<div class="outline-text-4" id="text-org52d2c7a">
+<ul class="org-ul">
+<li>Es una estructura de datos. Cada dispositivo tiene su propio
+descriptor. Algunos campos son:
+
+<ul class="org-ul">
+<li>identificador del dispositivo</li>
+
+<li>Apuntadores a funciones para manipular el dispositivo.</li>
+
+<li>Estado: Si el dispositivo está ocupado, libre o roto.</li>
+
+<li>El proceso que lo está usando</li>
+
+<li>Dos monitores para sincronización</li>
+</ul></li>
+
+<li>El núcleo accede a los dispositivos mediante la lista
+"estructura de dispositivos".</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org28a4d26" class="outline-3">
+<h3 id="org28a4d26">Clase 32</h3>
+<div class="outline-text-3" id="text-org28a4d26">
+</div>
+<div id="outline-container-org11e23c6" class="outline-4">
+<h4 id="org11e23c6">Examen Silver Chat</h4>
+<div class="outline-text-4" id="text-org11e23c6">
+<ul class="org-ul">
+<li>9.3 Paging 60</li>
+
+<li>9.4 Structure of the Page table 371</li>
+
+<li>10.5 Allocation of framse 413</li>
+
+<li>10.8 Kernel Memory 467</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbd2d3fc" class="outline-4">
+<h4 id="orgbd2d3fc">Sobre la administración de memoria</h4>
+<div class="outline-text-4" id="text-orgbd2d3fc">
+<ul class="org-ul">
+<li>Realojamieno</li>
+
+<li>Compartición: Exclusión en la memoria</li>
+
+<li>Protección: Durante un proceso no se puede ocupar la memoria de
+otro proceso.</li>
+
+<li><p>
+Swapping: Si la memoria está llena, intercambia datos entre la
+memoria principal y secundaria.
+</p>
+
+<p>
+Se utiliza en caso de fallos de página
+</p>
+
+<ul class="org-ul">
+<li>FIFO</li>
+
+<li>LRU</li>
+
+<li>OPT</li>
+</ul></li>
+
+<li>Memoria Virtual: Mapeo de direcciones virtuales a físicas.</li>
+
+<li><p>
+MMU: Memory Management Unit
+</p>
+
+<p>
+Comunicación entre
+</p>
+
+<ul class="org-ul">
+<li>Función mapea direcciones de memoria.</li>
+
+<li>Alcance de un proceso en la memoria.</li>
+</ul></li>
+
+<li>Base Register: Indica la dirección en memoria más pequeña a la
+cual puede acceder el proceso, es decir, en donde empieza su
+espacio de dirección.</li>
+
+<li>Limit Register: Indica el tamaño de este rango de Direcciones,
+es decir, si se le suma el "base register" y obtemnemos la
+direción en memoria más grande.</li>
+
+<li>Demostrar por qué LRU no presenta la anomalía de Belady.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc240310" class="outline-3">
+<h3 id="orgc240310">Clase 33</h3>
+<div class="outline-text-3" id="text-orgc240310">
+</div>
+<div id="outline-container-orgd98615c" class="outline-4">
+<h4 id="orgd98615c">El panorama de Entrada / Salida</h4>
+<div class="outline-text-4" id="text-orgd98615c">
+<p>
+Un proceso manda a inicializar una llamada a sistema de entrada /
+salida, para posteriorimente mandar a llamar un wait para
+verificar si ya se completó la operación solicitada.
+</p>
+
+<p>
+Por otra parte en la llamada a sistema se identifica el
+dispositivo por su device descriptor, encola el nuevo trabajo y
+hace un signal de que hay un trabajo pendiente para el
+dispositivo.
+</p>
+</div>
+
+
+<ul class="org-ul">
+<li><a id="orgf2be4e9"></a>Descriptor de dispositivo<br />
+<div class="outline-text-5" id="text-orgf2be4e9">
+<p>
+Cada dispositivo tiene su propio descriptor:
+</p>
+
+<ul class="org-ul">
+<li>Identificador del dispositivo</li>
+
+<li>Apuntadores a funciones para manipular el dispositivo.</li>
+
+<li>Estado del dispositivo; Si está ocupado, libre, o roto</li>
+
+<li>El proceso que lo está usando</li>
+
+<li>Dos monitores para sincronización</li>
+
+<li>Dos monitores para sincronización: <i>request pending,</i> <i>operation
+complete</i></li>
+
+<li>Cola de trabajos</li>
+</ul>
+
+
+<p>
+El kernel por lo general tiene instalado un driver para controlar
+el dispositivo.
+</p>
+</div>
+</li>
+
+<li><a id="org4bb21ed"></a>Driver de dispositivo<br />
+<div class="outline-text-5" id="text-org4bb21ed">
+<ul class="org-ul">
+<li>Hay un dispositivo "driver"por cada dispositivo
+
+<ul class="org-ul">
+<li>Su trabajo es esperar a que haya peticiones y procesarlas.</li>
+
+<li>En un "consumidor" de IORB's</li>
+</ul></li>
+</ul>
+
+
+<div class="org-src-container">
+<pre class="src src-prog">repite indefinidamente:
+    begin
+        wait(request_pending);
+        toma un IORB de la cola;
+        extrae los detalles de la solicitud;
+        inicia operaci&#243;n de E/S;
+        wait(operation_complete);
+        if error then plant_error_info; exit # notifica al proceso que hubo un error
+        traduce caracteres si es necesario;
+        transfiere datos al destino;
+        signal(reques_services);
+        delete IORB;
+     end;
+</pre>
+</div>
+
+<p>
+Escribe de acuerdo a las especificaciones del dispositivo en sus
+registros de control.     
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgba182bf" class="outline-3">
+<h3 id="orgba182bf">Clase 34</h3>
+<div class="outline-text-3" id="text-orgba182bf">
+</div>
+<div id="outline-container-orgccd5e67" class="outline-4">
+<h4 id="orgccd5e67">Dispositivos de Entrada y Salida</h4>
+<div class="outline-text-4" id="text-orgccd5e67">
+<ul class="org-ul">
+<li>Diferencias:
+
+<ul class="org-ul">
+<li>Velocidad: Los dispositivos transmiten a distintas
+velocidades.</li>
+
+<li>Representación de Datos:
+
+<ul class="org-ul">
+<li>La forma en que codifican los datos que transmite cada
+dispositivo de E / S es distinta.</li>
+</ul></li>
+
+<li>Operaciones permitidas:
+
+<ul class="org-ul">
+<li><p>
+El tipo de operación que piede realizar el dispositivo E/S.
+</p>
+
+<p>
+Telcado: Entrada
+</p>
+
+<p>
+Bocina: Salida
+</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3de6f98" class="outline-4">
+<h4 id="org3de6f98">Unidad de transferencia</h4>
+<div class="outline-text-4" id="text-org3de6f98">
+<p>
+Los datos de un dispositivo de Entrada / Salida son diferentes,
+por ejemplo un disco duro transmite por bloques, mientras que un
+teclado envía un sólo caracter.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org278f7a6" class="outline-4">
+<h4 id="org278f7a6">DOIO</h4>
+<div class="outline-text-4" id="text-org278f7a6">
+<p>
+<code>DOIO(stream, amount, mode, destination, semaphore)</code>
+</p>
+
+<p>
+Es el nombre del procedimiento para un dispositivo E/S
+</p>
+
+<ul class="org-ul">
+<li>stream: Localiza el dispositivo por medio de señales eléctricas.</li>
+
+<li>amount: (La cantidad / El tamaño) de los datos a transmitir.</li>
+
+<li>mode: La operación a realizar por el dispositivo E/S.</li>
+
+<li>destination: Destino de la información</li>
+
+<li>semaphore: Almacena el estado del proceso.</li>
+</ul>
+
+
+<p>
+Su función principal es asignar el flujo (el trabajo) al
+dispositivo E/S (añadirlo al IORB), comprobar la consistencia de
+los parámetros, e iniciar el servicio de petición.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org30c8276" class="outline-4">
+<h4 id="org30c8276">Procedimiento re-entrante</h4>
+<div class="outline-text-4" id="text-org30c8276">
+<p>
+Puede ser utilizado por varios dispositivos a la vez.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8d30cb0" class="outline-4">
+<h4 id="org8d30cb0">Descriptor de dispositivo</h4>
+<div class="outline-text-4" id="text-org8d30cb0">
+<ul class="org-ul">
+<li>Id</li>
+
+<li>Estatus</li>
+
+<li>Características</li>
+
+<li><p>
+Current IORB <i>Input-Output Request Block</i>
+</p>
+
+<ul class="org-ul">
+<li>Destino</li>
+
+<li>Cantidad</li>
+
+<li>Mode</li>
+
+<li>Next</li>
+</ul>
+
+<p>
+Es una cola de procedimientos que requiere hacer el dispositivo
+</p></li>
+
+<li>Semáforo pendientes</li>
+
+<li>Semáforo completados</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5a7c9cd" class="outline-4">
+<h4 id="org5a7c9cd">Pasos del DOIO</h4>
+<div class="outline-text-4" id="text-org5a7c9cd">
+<ol class="org-ol">
+<li>Se identifica el dispositivo E/S.</li>
+
+<li>Una vez identificado, se ven los parámetros de entrada y salida
+del dispositivo; si se detecta un error se puede mandar una
+salida para verificar.</li>
+
+<li>Se mete en la cola IORB.</li>
+
+<li>Se hace o no el procedimiento que tniene que hacer el
+dispositivo E/S.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org0cd5654" class="outline-4">
+<h4 id="org0cd5654">alanmart12</h4>
+</div>
+</div>
+
+<div id="outline-container-org123deba" class="outline-3">
+<h3 id="org123deba">Clase 35</h3>
+<div class="outline-text-3" id="text-org123deba">
+</div>
+<div id="outline-container-org5438853" class="outline-4">
+<h4 id="org5438853">Preguntas</h4>
+<div class="outline-text-4" id="text-org5438853">
+<p>
+¿Cuáles son los componentes activos en una operacion de E/S?
+</p>
+
+<p>
+¿Quién se comunica con quién?
+</p>
+
+<p>
+Cada dirección de comunicación, ¿de qué componente compartido se apoya?
+</p>
+
+<p>
+¿Cúáles son los parámetros de DOIO y qué significan?
+</p>
+
+<p>
+Hay tres semáforos, ¿quién inicializa cada uno de ellos?
+</p>
+
+<ul class="org-ul">
+<li>El proceso inicializador de dispositivos</li>
+</ul>
+
+
+<p>
+¿Quién ejecuta al proceso driver?
+</p>
+
+<ul class="org-ul">
+<li>El proceso que pide la solicitud de E/S</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6bcddf6" class="outline-3">
+<h3 id="org6bcddf6">Clase 36</h3>
+<div class="outline-text-3" id="text-org6bcddf6">
+</div>
+<div id="outline-container-org77bcb9a" class="outline-4">
+<h4 id="org77bcb9a">Sistema de archivos</h4>
+<div class="outline-text-4" id="text-org77bcb9a">
+<ul class="org-ul">
+<li><p>
+Archivo: Unidad de almacenamiento de archivos}
+</p>
+
+<p>
+Se utiliza un modelo de archivo como modelos de coleccion lineal
+de bytes (bloques).
+</p></li>
+
+<li>Directorio: Estructura para mapear nombres a archivos</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga1cb3ec" class="outline-4">
+<h4 id="orga1cb3ec">Bloques secuenciales</h4>
+<div class="outline-text-4" id="text-orga1cb3ec">
+<ul class="org-ul">
+<li>Pros:
+
+<ul class="org-ul">
+<li>Acceso aleatorio.</li>
+
+<li>Un bloque dañado sólo saña un archivo</li>
+</ul></li>
+
+<li>Contras: Fragmentación -&gt; Compactación
+
+<ul class="org-ul">
+<li>Difícil añadir o eliminar bloques al interior del archivo.</li>
+
+<li>Hay que saber de antemano la cnatidad de bloques que hay que
+asignar.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org708e7f2" class="outline-4">
+<h4 id="org708e7f2">Bloques enlazados</h4>
+<div class="outline-text-4" id="text-org708e7f2">
+<ul class="org-ul">
+<li>Los bloques de un archivo se estructuran en una lista ligada
+contenida en él mismo.</li>
+
+<li>En el directorio se guarda un apuntador al primer y último
+bloque.</li>
+
+<li>Cada bloque tien un apuntador al siguiente.</li>
+</ul>
+
+
+<p>
+Pros:
+</p>
+
+<ul class="org-ul">
+<li>No hay fragemntación interna.</li>
+
+<li>No hace falta realizar compactación (aunque ayuda defrag)</li>
+</ul>
+
+
+<p>
+Cons:
+</p>
+
+<ul class="org-ul">
+<li>Acceso secuencial únicamente, Avanzar al bloque siguiente
+implica una lectora de disco.</li>
+
+<li>Sobrecarga de espacio por los apuntadores.</li>
+</ul>
+
+
+<p>
+Para minimizar las desventajas, en lugar de bloques: conjuntos de
+tamaño fijo de bloques consecutivos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge53ad6e" class="outline-4">
+<h4 id="orge53ad6e">Tabla de asignación de archivo (FAT)</h4>
+<div class="outline-text-4" id="text-orge53ad6e">
+<p>
+En lugar de tener una cadena de bloques distribuida en distintas
+localizaciones, los consolidamos en una tabla de asignación
+almacenados en una región compacta del disco.
+</p>
+
+<ul class="org-ul">
+<li>Variación del esquema enlazado.</li>
+
+<li>El disco se divide en clusters.</li>
+
+<li>Se hace una tabla que contiene una entrada por cluster.</li>
+
+<li>Si el cluster c es el i-ésimo del archivo f, la entrada c-+esima
+de la tabla contiene el número del cluste i+1-eśimo de f.</li>
+
+<li>Una entrada de directorio contiene un apuntador al prmer y
+útlimo cluster del archivo.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org363511f" class="outline-2">
+<h2 id="org363511f">Tareas <code>[4/5]</code></h2>
+<div class="outline-text-2" id="text-org363511f">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> Práctica 1: Reimplementar la función timer<sub>sleep</sub> para que no
+utilice espera ocupada.</li>
+<li class="on"><code>[X]</code> Tarea 1:
+Enviar a: alanmartinez-012@ciencias.unam.mx
+Asunto: Tarea1SO 2023-2
+Cuerpo: - Nombre Completo
+<ul class="org-ul">
+<li>No Cuenta</li>
+</ul></li>
+<li class="on"><code>[X]</code> Práctica 2</li>
+<li class="on"><code>[X]</code> Tarea 2</li>
+<li class="off"><code>[&#xa0;]</code> Primer Parcial: Miércoles 29 de marzo
+<ul class="org-ul">
+<li><i>Embriones</i> de los Sistemas Operativos</li>
+<li>Ogranización de Computadoras</li>
+<li>Interrupciones</li>
+<li>Llamadas al sistema y señales</li>
+<li>Procesos: Protocolos y semáforos</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Erik Rangel Limón</p>
+<p class="date">Created: 2023-06-27 Tue 13:54</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.5.5)</p>
+</div>
+</body>
+</html>
