@@ -5228,7 +5228,10 @@ var $author$project$DrawCircleHull$initial = function (_v0) {
 		{
 			circleState: $author$project$DrawCircleHull$initCircles,
 			mouse: $author$project$DrawCircleHull$initMouse,
-			screen: A2($author$project$DrawCircleHull$toScreen, 600, 600)
+			play: false,
+			screen: A2($author$project$DrawCircleHull$toScreen, 600, 600),
+			slider: 0,
+			tick: 0
 		},
 		A2($elm$core$Task$perform, $author$project$DrawCircleHull$NewViewport, $elm$browser$Browser$Dom$getViewport));
 };
@@ -5243,9 +5246,146 @@ var $author$project$DrawCircleHull$Resize = F2(
 	function (a, b) {
 		return {$: 'Resize', a: a, b: b};
 	});
+var $author$project$DrawCircleHull$Tick = function (a) {
+	return {$: 'Tick', a: a};
+};
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$json$Json$Decode$field = _Json_decodeField;
 var $elm$json$Json$Decode$float = _Json_decodeFloat;
+var $elm$browser$Browser$AnimationManager$Time = function (a) {
+	return {$: 'Time', a: a};
+};
+var $elm$browser$Browser$AnimationManager$State = F3(
+	function (subs, request, oldTime) {
+		return {oldTime: oldTime, request: request, subs: subs};
+	});
+var $elm$browser$Browser$AnimationManager$init = $elm$core$Task$succeed(
+	A3($elm$browser$Browser$AnimationManager$State, _List_Nil, $elm$core$Maybe$Nothing, 0));
+var $elm$core$Process$kill = _Scheduler_kill;
+var $elm$browser$Browser$AnimationManager$now = _Browser_now(_Utils_Tuple0);
+var $elm$browser$Browser$AnimationManager$rAF = _Browser_rAF(_Utils_Tuple0);
+var $elm$core$Platform$sendToSelf = _Platform_sendToSelf;
+var $elm$core$Process$spawn = _Scheduler_spawn;
+var $elm$browser$Browser$AnimationManager$onEffects = F3(
+	function (router, subs, _v0) {
+		var request = _v0.request;
+		var oldTime = _v0.oldTime;
+		var _v1 = _Utils_Tuple2(request, subs);
+		if (_v1.a.$ === 'Nothing') {
+			if (!_v1.b.b) {
+				var _v2 = _v1.a;
+				return $elm$browser$Browser$AnimationManager$init;
+			} else {
+				var _v4 = _v1.a;
+				return A2(
+					$elm$core$Task$andThen,
+					function (pid) {
+						return A2(
+							$elm$core$Task$andThen,
+							function (time) {
+								return $elm$core$Task$succeed(
+									A3(
+										$elm$browser$Browser$AnimationManager$State,
+										subs,
+										$elm$core$Maybe$Just(pid),
+										time));
+							},
+							$elm$browser$Browser$AnimationManager$now);
+					},
+					$elm$core$Process$spawn(
+						A2(
+							$elm$core$Task$andThen,
+							$elm$core$Platform$sendToSelf(router),
+							$elm$browser$Browser$AnimationManager$rAF)));
+			}
+		} else {
+			if (!_v1.b.b) {
+				var pid = _v1.a.a;
+				return A2(
+					$elm$core$Task$andThen,
+					function (_v3) {
+						return $elm$browser$Browser$AnimationManager$init;
+					},
+					$elm$core$Process$kill(pid));
+			} else {
+				return $elm$core$Task$succeed(
+					A3($elm$browser$Browser$AnimationManager$State, subs, request, oldTime));
+			}
+		}
+	});
+var $elm$time$Time$Posix = function (a) {
+	return {$: 'Posix', a: a};
+};
+var $elm$time$Time$millisToPosix = $elm$time$Time$Posix;
+var $elm$browser$Browser$AnimationManager$onSelfMsg = F3(
+	function (router, newTime, _v0) {
+		var subs = _v0.subs;
+		var oldTime = _v0.oldTime;
+		var send = function (sub) {
+			if (sub.$ === 'Time') {
+				var tagger = sub.a;
+				return A2(
+					$elm$core$Platform$sendToApp,
+					router,
+					tagger(
+						$elm$time$Time$millisToPosix(newTime)));
+			} else {
+				var tagger = sub.a;
+				return A2(
+					$elm$core$Platform$sendToApp,
+					router,
+					tagger(newTime - oldTime));
+			}
+		};
+		return A2(
+			$elm$core$Task$andThen,
+			function (pid) {
+				return A2(
+					$elm$core$Task$andThen,
+					function (_v1) {
+						return $elm$core$Task$succeed(
+							A3(
+								$elm$browser$Browser$AnimationManager$State,
+								subs,
+								$elm$core$Maybe$Just(pid),
+								newTime));
+					},
+					$elm$core$Task$sequence(
+						A2($elm$core$List$map, send, subs)));
+			},
+			$elm$core$Process$spawn(
+				A2(
+					$elm$core$Task$andThen,
+					$elm$core$Platform$sendToSelf(router),
+					$elm$browser$Browser$AnimationManager$rAF)));
+	});
+var $elm$browser$Browser$AnimationManager$Delta = function (a) {
+	return {$: 'Delta', a: a};
+};
+var $elm$core$Basics$composeL = F3(
+	function (g, f, x) {
+		return g(
+			f(x));
+	});
+var $elm$browser$Browser$AnimationManager$subMap = F2(
+	function (func, sub) {
+		if (sub.$ === 'Time') {
+			var tagger = sub.a;
+			return $elm$browser$Browser$AnimationManager$Time(
+				A2($elm$core$Basics$composeL, func, tagger));
+		} else {
+			var tagger = sub.a;
+			return $elm$browser$Browser$AnimationManager$Delta(
+				A2($elm$core$Basics$composeL, func, tagger));
+		}
+	});
+_Platform_effectManagers['Browser.AnimationManager'] = _Platform_createManager($elm$browser$Browser$AnimationManager$init, $elm$browser$Browser$AnimationManager$onEffects, $elm$browser$Browser$AnimationManager$onSelfMsg, 0, $elm$browser$Browser$AnimationManager$subMap);
+var $elm$browser$Browser$AnimationManager$subscription = _Platform_leaf('Browser.AnimationManager');
+var $elm$browser$Browser$AnimationManager$onAnimationFrame = function (tagger) {
+	return $elm$browser$Browser$AnimationManager$subscription(
+		$elm$browser$Browser$AnimationManager$Time(tagger));
+};
+var $elm$browser$Browser$Events$onAnimationFrame = $elm$browser$Browser$AnimationManager$onAnimationFrame;
 var $elm$browser$Browser$Events$Document = {$: 'Document'};
 var $elm$browser$Browser$Events$MySub = F3(
 	function (a, b, c) {
@@ -5396,7 +5536,6 @@ var $elm$core$Dict$fromList = function (assocs) {
 		$elm$core$Dict$empty,
 		assocs);
 };
-var $elm$core$Process$kill = _Scheduler_kill;
 var $elm$core$Dict$foldl = F3(
 	function (func, acc, dict) {
 		foldl:
@@ -5487,7 +5626,6 @@ var $elm$browser$Browser$Events$Event = F2(
 	function (key, event) {
 		return {event: event, key: key};
 	});
-var $elm$core$Platform$sendToSelf = _Platform_sendToSelf;
 var $elm$browser$Browser$Events$spawn = F3(
 	function (router, key, _v0) {
 		var node = _v0.a;
@@ -5681,7 +5819,8 @@ var $author$project$DrawCircleHull$subscriptions = function (_v0) {
 					$author$project$DrawCircleHull$MouseButton(true))),
 				$elm$browser$Browser$Events$onMouseUp(
 				$elm$json$Json$Decode$succeed(
-					$author$project$DrawCircleHull$MouseButton(false)))
+					$author$project$DrawCircleHull$MouseButton(false))),
+				$elm$browser$Browser$Events$onAnimationFrame($author$project$DrawCircleHull$Tick)
 			]));
 };
 var $author$project$DrawCircleHull$assignId = function (xs) {
@@ -6785,77 +6924,250 @@ var $author$project$DrawCircleHull$act = function (model) {
 	var left = model.screen.left;
 	var currentS = model.circleState.current;
 	var circles = model.circleState.circles;
-	if (currentS.$ === 'Nothing') {
-		return mouseDown ? _Utils_update(
-			model,
-			{
-				circleState: {
-					circles: circles,
-					current: $elm$core$Maybe$Just(
-						{
-							center: {x: x, y: y},
-							did: $author$project$DrawCircleHull$assignId(circles),
-							radius: 0
-						}),
-					hull: $author$project$DrawCircleHull$drawHull(circles)
-				}
-			}) : model;
+	if ((_Utils_cmp(x, left + 175) < 0) && (_Utils_cmp(y, top - 100) > 0)) {
+		return model;
 	} else {
-		var disc = currentS.a;
-		if (mouseDown) {
-			var c = _Utils_update(
-				disc,
-				{
-					radius: A2(
-						$author$project$DrawCircleHull$distance,
-						disc.center,
-						{x: x, y: y})
-				});
-			return _Utils_update(
+		if (currentS.$ === 'Nothing') {
+			return mouseDown ? _Utils_update(
 				model,
 				{
 					circleState: {
 						circles: circles,
-						current: $elm$core$Maybe$Just(c),
-						hull: $author$project$DrawCircleHull$drawHull(
-							(c.radius > 0) ? A2($elm$core$List$cons, c, circles) : circles)
+						current: $elm$core$Maybe$Just(
+							{
+								center: {x: x, y: y},
+								dest: $elm$core$Maybe$Nothing,
+								did: $author$project$DrawCircleHull$assignId(circles),
+								orig: {x: x, y: y},
+								radius: 0
+							}),
+						hull: $author$project$DrawCircleHull$drawHull(circles)
 					}
-				});
+				}) : model;
 		} else {
-			if (disc.radius > 0) {
-				return _Utils_update(
-					model,
+			var disc = currentS.a;
+			if (mouseDown) {
+				var c = _Utils_update(
+					disc,
 					{
-						circleState: {
-							circles: A2($elm$core$List$cons, disc, circles),
-							current: $elm$core$Maybe$Nothing,
-							hull: $author$project$DrawCircleHull$drawHull(
-								A2($elm$core$List$cons, disc, circles))
-						}
+						radius: A2(
+							$author$project$DrawCircleHull$distance,
+							disc.center,
+							{x: x, y: y})
 					});
-			} else {
 				return _Utils_update(
 					model,
 					{
 						circleState: {
 							circles: circles,
-							current: $elm$core$Maybe$Nothing,
-							hull: $author$project$DrawCircleHull$drawHull(circles)
+							current: $elm$core$Maybe$Just(c),
+							hull: $author$project$DrawCircleHull$drawHull(
+								(c.radius > 0) ? A2($elm$core$List$cons, c, circles) : circles)
 						}
 					});
+			} else {
+				if (disc.radius > 0) {
+					return _Utils_update(
+						model,
+						{
+							circleState: {
+								circles: A2($elm$core$List$cons, disc, circles),
+								current: $elm$core$Maybe$Nothing,
+								hull: $author$project$DrawCircleHull$drawHull(
+									A2($elm$core$List$cons, disc, circles))
+							}
+						});
+				} else {
+					return _Utils_update(
+						model,
+						{
+							circleState: {
+								circles: circles,
+								current: $elm$core$Maybe$Nothing,
+								hull: $author$project$DrawCircleHull$drawHull(circles)
+							}
+						});
+				}
 			}
 		}
 	}
 };
+var $elm$random$Random$Seed = F2(
+	function (a, b) {
+		return {$: 'Seed', a: a, b: b};
+	});
+var $elm$random$Random$next = function (_v0) {
+	var state0 = _v0.a;
+	var incr = _v0.b;
+	return A2($elm$random$Random$Seed, ((state0 * 1664525) + incr) >>> 0, incr);
+};
+var $elm$random$Random$initialSeed = function (x) {
+	var _v0 = $elm$random$Random$next(
+		A2($elm$random$Random$Seed, 0, 1013904223));
+	var state1 = _v0.a;
+	var incr = _v0.b;
+	var state2 = (state1 + x) >>> 0;
+	return $elm$random$Random$next(
+		A2($elm$random$Random$Seed, state2, incr));
+};
+var $elm$random$Random$Generator = function (a) {
+	return {$: 'Generator', a: a};
+};
+var $elm$core$Bitwise$xor = _Bitwise_xor;
+var $elm$random$Random$peel = function (_v0) {
+	var state = _v0.a;
+	var word = (state ^ (state >>> ((state >>> 28) + 4))) * 277803737;
+	return ((word >>> 22) ^ word) >>> 0;
+};
+var $elm$random$Random$float = F2(
+	function (a, b) {
+		return $elm$random$Random$Generator(
+			function (seed0) {
+				var seed1 = $elm$random$Random$next(seed0);
+				var range = $elm$core$Basics$abs(b - a);
+				var n1 = $elm$random$Random$peel(seed1);
+				var n0 = $elm$random$Random$peel(seed0);
+				var lo = (134217727 & n1) * 1.0;
+				var hi = (67108863 & n0) * 1.0;
+				var val = ((hi * 134217728.0) + lo) / 9007199254740992.0;
+				var scaled = (val * range) + a;
+				return _Utils_Tuple2(
+					scaled,
+					$elm$random$Random$next(seed1));
+			});
+	});
+var $elm$random$Random$step = F2(
+	function (_v0, seed) {
+		var generator = _v0.a;
+		return generator(seed);
+	});
+var $author$project$DrawCircleHull$single = F3(
+	function (model, circle, seed) {
+		var _v0 = circle.dest;
+		if (_v0.$ === 'Nothing') {
+			var _v1 = (_Utils_cmp(model.screen.left + circle.radius, model.screen.right) > 0) ? A2(
+				$elm$random$Random$step,
+				A2($elm$random$Random$float, model.screen.left, model.screen.right),
+				seed) : A2(
+				$elm$random$Random$step,
+				A2($elm$random$Random$float, model.screen.left + circle.radius, model.screen.right - circle.radius),
+				seed);
+			var x = _v1.a;
+			var seed1 = _v1.b;
+			var _v2 = (_Utils_cmp(model.screen.bottom + circle.radius, model.screen.top) > 0) ? A2(
+				$elm$random$Random$step,
+				A2($elm$random$Random$float, model.screen.bottom, model.screen.top),
+				seed1) : A2(
+				$elm$random$Random$step,
+				A2($elm$random$Random$float, model.screen.bottom + circle.radius, model.screen.top - circle.radius),
+				seed1);
+			var y = _v2.a;
+			var seed2 = _v2.b;
+			return _Utils_Tuple2(
+				_Utils_update(
+					circle,
+					{
+						dest: $elm$core$Maybe$Just(
+							{x: x, y: y}),
+						orig: circle.center
+					}),
+				seed2);
+		} else {
+			var point = _v0.a;
+			return _Utils_Tuple2(
+				(((_Utils_cmp(point.x, circle.orig.x) < 0) && (_Utils_cmp(circle.center.x, point.x) < 0)) || ((_Utils_cmp(point.y, circle.orig.y) < 0) && (_Utils_cmp(circle.center.y, point.y) < 0))) ? _Utils_update(
+					circle,
+					{dest: $elm$core$Maybe$Nothing}) : ((((_Utils_cmp(circle.orig.x, point.x) < 0) && (_Utils_cmp(point.x, circle.center.x) < 0)) || ((_Utils_cmp(circle.orig.y, point.y) < 0) && (_Utils_cmp(point.y, circle.center.y) < 0))) ? _Utils_update(
+					circle,
+					{dest: $elm$core$Maybe$Nothing}) : _Utils_update(
+					circle,
+					{
+						center: {x: circle.center.x + ((point.x - circle.orig.x) * ((model.slider * (17 / 360000)) + (1 / 1200))), y: circle.center.y + ((point.y - circle.orig.y) * ((model.slider * (17 / 360000)) + (1 / 1200)))}
+					})),
+				seed);
+		}
+	});
+var $author$project$DrawCircleHull$move = F3(
+	function (model, circles, seed) {
+		if (!circles.b) {
+			return _List_Nil;
+		} else {
+			var c = circles.a;
+			var cs = circles.b;
+			var _v1 = A3($author$project$DrawCircleHull$single, model, c, seed);
+			var newCircle = _v1.a;
+			var newSeed = _v1.b;
+			return A2(
+				$elm$core$List$cons,
+				newCircle,
+				A3($author$project$DrawCircleHull$move, model, cs, newSeed));
+		}
+	});
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
+var $elm$core$Basics$not = _Basics_not;
+var $elm$core$Maybe$withDefault = F2(
+	function (_default, maybe) {
+		if (maybe.$ === 'Just') {
+			var value = maybe.a;
+			return value;
+		} else {
+			return _default;
+		}
+	});
 var $author$project$DrawCircleHull$update = F2(
 	function (msg, model) {
 		switch (msg.$) {
+			case 'Tick':
+				return _Utils_Tuple2(
+					function () {
+						if (model.play) {
+							var newcircles = A3(
+								$author$project$DrawCircleHull$move,
+								model,
+								model.circleState.circles,
+								$elm$random$Random$initialSeed(model.tick + 1));
+							return _Utils_update(
+								model,
+								{
+									circleState: {
+										circles: newcircles,
+										current: model.circleState.current,
+										hull: $author$project$DrawCircleHull$drawHull(newcircles)
+									},
+									tick: model.tick + 1
+								});
+						} else {
+							return _Utils_update(
+								model,
+								{tick: model.tick + 1});
+						}
+					}(),
+					$elm$core$Platform$Cmd$none);
+			case 'Play':
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{play: !model.play}),
+					$elm$core$Platform$Cmd$none);
+			case 'Slide':
+				var v = msg.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{
+							slider: A2(
+								$elm$core$Maybe$withDefault,
+								0,
+								$elm$core$String$toInt(v))
+						}),
+					$elm$core$Platform$Cmd$none);
 			case 'NewViewport':
 				var viewport = msg.a.viewport;
 				return _Utils_Tuple2(
-					$author$project$DrawCircleHull$act(
+					(model.play ? function (x) {
+						return x;
+					} : $author$project$DrawCircleHull$act)(
 						_Utils_update(
 							model,
 							{
@@ -6866,7 +7178,9 @@ var $author$project$DrawCircleHull$update = F2(
 				var width = msg.a;
 				var height = msg.b;
 				return _Utils_Tuple2(
-					$author$project$DrawCircleHull$act(
+					(model.play ? function (x) {
+						return x;
+					} : $author$project$DrawCircleHull$act)(
 						_Utils_update(
 							model,
 							{
@@ -6877,7 +7191,9 @@ var $author$project$DrawCircleHull$update = F2(
 				var x = msg.a;
 				var y = msg.b;
 				return _Utils_Tuple2(
-					$author$project$DrawCircleHull$act(
+					(model.play ? function (z) {
+						return z;
+					} : $author$project$DrawCircleHull$act)(
 						_Utils_update(
 							model,
 							{
@@ -6887,7 +7203,9 @@ var $author$project$DrawCircleHull$update = F2(
 			default:
 				var val = msg.a;
 				return _Utils_Tuple2(
-					$author$project$DrawCircleHull$act(
+					(model.play ? function (x) {
+						return x;
+					} : $author$project$DrawCircleHull$act)(
 						_Utils_update(
 							model,
 							{
@@ -6896,13 +7214,103 @@ var $author$project$DrawCircleHull$update = F2(
 					$elm$core$Platform$Cmd$none);
 		}
 	});
+var $author$project$DrawCircleHull$Play = {$: 'Play'};
+var $author$project$DrawCircleHull$Slide = function (a) {
+	return {$: 'Slide', a: a};
+};
+var $elm$html$Html$button = _VirtualDom_node('button');
+var $elm$json$Json$Encode$string = _Json_wrap;
+var $elm$html$Html$Attributes$stringProperty = F2(
+	function (key, string) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			$elm$json$Json$Encode$string(string));
+	});
+var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
+var $elm$html$Html$div = _VirtualDom_node('div');
+var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
+var $elm$html$Html$input = _VirtualDom_node('input');
+var $elm$html$Html$Attributes$max = $elm$html$Html$Attributes$stringProperty('max');
+var $elm$html$Html$Attributes$min = $elm$html$Html$Attributes$stringProperty('min');
+var $elm$virtual_dom$VirtualDom$Normal = function (a) {
+	return {$: 'Normal', a: a};
+};
+var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var $elm$html$Html$Events$on = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$Normal(decoder));
+	});
+var $elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'click',
+		$elm$json$Json$Decode$succeed(msg));
+};
+var $elm$html$Html$Events$alwaysStop = function (x) {
+	return _Utils_Tuple2(x, true);
+};
+var $elm$virtual_dom$VirtualDom$MayStopPropagation = function (a) {
+	return {$: 'MayStopPropagation', a: a};
+};
+var $elm$html$Html$Events$stopPropagationOn = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$MayStopPropagation(decoder));
+	});
+var $elm$json$Json$Decode$at = F2(
+	function (fields, decoder) {
+		return A3($elm$core$List$foldr, $elm$json$Json$Decode$field, decoder, fields);
+	});
+var $elm$json$Json$Decode$string = _Json_decodeString;
+var $elm$html$Html$Events$targetValue = A2(
+	$elm$json$Json$Decode$at,
+	_List_fromArray(
+		['target', 'value']),
+	$elm$json$Json$Decode$string);
+var $elm$html$Html$Events$onInput = function (tagger) {
+	return A2(
+		$elm$html$Html$Events$stopPropagationOn,
+		'input',
+		A2(
+			$elm$json$Json$Decode$map,
+			$elm$html$Html$Events$alwaysStop,
+			A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue)));
+};
+var $elm$svg$Svg$Attributes$fill = _VirtualDom_attribute('fill');
+var $elm$core$String$fromFloat = _String_fromNumber;
+var $elm$svg$Svg$Attributes$height = _VirtualDom_attribute('height');
 var $elm$svg$Svg$trustedNode = _VirtualDom_nodeNS('http://www.w3.org/2000/svg');
+var $elm$svg$Svg$rect = $elm$svg$Svg$trustedNode('rect');
+var $elm$svg$Svg$Attributes$width = _VirtualDom_attribute('width');
+var $elm$svg$Svg$Attributes$x = _VirtualDom_attribute('x');
+var $elm$svg$Svg$Attributes$y = _VirtualDom_attribute('y');
+var $author$project$DrawCircleHull$drawBackground = function (model) {
+	return A2(
+		$elm$svg$Svg$rect,
+		_List_fromArray(
+			[
+				$elm$svg$Svg$Attributes$x(
+				$elm$core$String$fromFloat(model.screen.left)),
+				$elm$svg$Svg$Attributes$y(
+				$elm$core$String$fromFloat(model.screen.bottom)),
+				$elm$svg$Svg$Attributes$width(
+				$elm$core$String$fromFloat(model.screen.width)),
+				$elm$svg$Svg$Attributes$height(
+				$elm$core$String$fromFloat(model.screen.height)),
+				$elm$svg$Svg$Attributes$fill('rgb(66, 66, 105 )')
+			]),
+		_List_Nil);
+};
 var $elm$svg$Svg$circle = $elm$svg$Svg$trustedNode('circle');
 var $elm$svg$Svg$Attributes$cx = _VirtualDom_attribute('cx');
 var $elm$svg$Svg$Attributes$cy = _VirtualDom_attribute('cy');
-var $elm$svg$Svg$Attributes$fill = _VirtualDom_attribute('fill');
 var $elm$svg$Svg$Attributes$fillOpacity = _VirtualDom_attribute('fill-opacity');
-var $elm$core$String$fromFloat = _String_fromNumber;
 var $elm$svg$Svg$Attributes$r = _VirtualDom_attribute('r');
 var $elm$svg$Svg$Attributes$stroke = _VirtualDom_attribute('stroke');
 var $elm$svg$Svg$Attributes$strokeWidth = _VirtualDom_attribute('stroke-width');
@@ -6917,9 +7325,9 @@ var $author$project$DrawCircleHull$drawCircle = function (disc) {
 				$elm$core$String$fromFloat(-disc.center.y)),
 				$elm$svg$Svg$Attributes$r(
 				$elm$core$String$fromFloat(disc.radius)),
-				$elm$svg$Svg$Attributes$stroke('Purple'),
+				$elm$svg$Svg$Attributes$stroke('rgb(87, 130, 255)'),
 				$elm$svg$Svg$Attributes$strokeWidth('2'),
-				$elm$svg$Svg$Attributes$fill('Purple'),
+				$elm$svg$Svg$Attributes$fill('rgb(87, 130, 255)'),
 				$elm$svg$Svg$Attributes$fillOpacity('0.6')
 			]),
 		_List_Nil);
@@ -6940,9 +7348,9 @@ var $author$project$DrawCircleHull$drawCurrent = function (maybeCircle) {
 						$elm$core$String$fromFloat(-disc.center.y)),
 						$elm$svg$Svg$Attributes$r(
 						$elm$core$String$fromFloat(disc.radius)),
-						$elm$svg$Svg$Attributes$stroke('Purple'),
+						$elm$svg$Svg$Attributes$stroke('rgb(87, 130, 255)'),
 						$elm$svg$Svg$Attributes$strokeWidth('2'),
-						$elm$svg$Svg$Attributes$fill('Purple'),
+						$elm$svg$Svg$Attributes$fill('rgb(87, 130, 255)'),
 						$elm$svg$Svg$Attributes$fillOpacity('0.2')
 					]),
 				_List_Nil));
@@ -6967,7 +7375,7 @@ var $author$project$DrawCircleHull$drawLine = function (l) {
 				$elm$core$String$fromFloat(l.p2.x)),
 				$elm$svg$Svg$Attributes$y2(
 				$elm$core$String$fromFloat(-l.p2.y)),
-				$elm$svg$Svg$Attributes$stroke('Purple'),
+				$elm$svg$Svg$Attributes$stroke('rgb(87, 130, 255)'),
 				$elm$svg$Svg$Attributes$strokeWidth('2'),
 				$elm$svg$Svg$Attributes$opacity('0.7')
 			]),
@@ -6983,7 +7391,7 @@ var $author$project$DrawCircleHull$drawPointer = function (model) {
 				$elm$svg$Svg$Attributes$cy(
 				$elm$core$String$fromFloat(-model.mouse.y)),
 				$elm$svg$Svg$Attributes$r('5'),
-				$elm$svg$Svg$Attributes$fill('Purple')
+				$elm$svg$Svg$Attributes$fill('rgb(87, 130, 255)')
 			]),
 		_List_Nil);
 };
@@ -6993,28 +7401,32 @@ var $author$project$DrawCircleHull$drawModel = function (model) {
 		return _Utils_ap(
 			A2(
 				$elm$core$List$cons,
-				$author$project$DrawCircleHull$drawPointer(model),
-				A2($elm$core$List$map, $author$project$DrawCircleHull$drawCircle, model.circleState.circles)),
+				$author$project$DrawCircleHull$drawBackground(model),
+				A2(
+					$elm$core$List$cons,
+					$author$project$DrawCircleHull$drawPointer(model),
+					A2($elm$core$List$map, $author$project$DrawCircleHull$drawCircle, model.circleState.circles))),
 			A2($elm$core$List$map, $author$project$DrawCircleHull$drawLine, model.circleState.hull));
 	} else {
 		var svg = _v0.a;
 		return _Utils_ap(
 			A2(
 				$elm$core$List$cons,
-				$author$project$DrawCircleHull$drawPointer(model),
+				$author$project$DrawCircleHull$drawBackground(model),
 				A2(
 					$elm$core$List$cons,
-					svg,
-					A2($elm$core$List$map, $author$project$DrawCircleHull$drawCircle, model.circleState.circles))),
+					$author$project$DrawCircleHull$drawPointer(model),
+					A2(
+						$elm$core$List$cons,
+						svg,
+						A2($elm$core$List$map, $author$project$DrawCircleHull$drawCircle, model.circleState.circles)))),
 			A2($elm$core$List$map, $author$project$DrawCircleHull$drawLine, model.circleState.hull));
 	}
 };
-var $elm$svg$Svg$Attributes$height = _VirtualDom_attribute('height');
 var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
 var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
 var $elm$svg$Svg$svg = $elm$svg$Svg$trustedNode('svg');
 var $elm$svg$Svg$Attributes$viewBox = _VirtualDom_attribute('viewBox');
-var $elm$svg$Svg$Attributes$width = _VirtualDom_attribute('width');
 var $author$project$DrawCircleHull$render = function (model) {
 	var y = $elm$core$String$fromFloat(model.screen.bottom);
 	var x = $elm$core$String$fromFloat(model.screen.left);
@@ -7033,12 +7445,58 @@ var $author$project$DrawCircleHull$render = function (model) {
 			]),
 		$author$project$DrawCircleHull$drawModel(model));
 };
+var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var $elm$svg$Svg$text = $elm$virtual_dom$VirtualDom$text;
+var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
+var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');
 var $author$project$DrawCircleHull$view = function (model) {
 	return {
-		body: _List_fromArray(
-			[
-				$author$project$DrawCircleHull$render(model)
-			]),
+		body: A2(
+			$elm$core$List$cons,
+			$author$project$DrawCircleHull$render(model),
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$div,
+					_List_fromArray(
+						[
+							A2($elm$html$Html$Attributes$style, 'position', 'fixed')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$button,
+							_List_fromArray(
+								[
+									$elm$html$Html$Events$onClick($author$project$DrawCircleHull$Play)
+								]),
+							_List_fromArray(
+								[
+									$elm$svg$Svg$text(
+									model.play ? 'Pause' : 'Play')
+								])),
+							A2(
+							$elm$html$Html$div,
+							_List_Nil,
+							_List_fromArray(
+								[
+									A2(
+									$elm$html$Html$input,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$type_('range'),
+											$elm$html$Html$Attributes$min('0'),
+											$elm$html$Html$Attributes$max('100'),
+											$elm$html$Html$Attributes$value(
+											$elm$core$String$fromInt(model.slider)),
+											$elm$html$Html$Attributes$class('slider'),
+											$elm$html$Html$Attributes$id('myRange'),
+											$elm$html$Html$Events$onInput($author$project$DrawCircleHull$Slide)
+										]),
+									_List_Nil)
+								]))
+						]))
+				])),
 		title: 'Convex Hull'
 	};
 };
