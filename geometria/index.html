@@ -5230,7 +5230,7 @@ var $author$project$DrawCircleHull$initial = function (_v0) {
 			mouse: $author$project$DrawCircleHull$initMouse,
 			play: false,
 			screen: A2($author$project$DrawCircleHull$toScreen, 600, 600),
-			slider: 0,
+			slider: 1,
 			tick: 0
 		},
 		A2($elm$core$Task$perform, $author$project$DrawCircleHull$NewViewport, $elm$browser$Browser$Dom$getViewport));
@@ -6916,6 +6916,10 @@ var $author$project$DrawCircleHull$drawHull = function (l) {
 		}
 	}
 };
+var $elm$core$Basics$min = F2(
+	function (x, y) {
+		return (_Utils_cmp(x, y) < 0) ? x : y;
+	});
 var $author$project$DrawCircleHull$act = function (model) {
 	var y = model.mouse.y;
 	var x = model.mouse.x;
@@ -6938,7 +6942,6 @@ var $author$project$DrawCircleHull$act = function (model) {
 								center: {x: x, y: y},
 								dest: $elm$core$Maybe$Nothing,
 								did: $author$project$DrawCircleHull$assignId(circles),
-								orig: {x: x, y: y},
 								radius: 0
 							}),
 						hull: $author$project$DrawCircleHull$drawHull(circles)
@@ -6966,7 +6969,9 @@ var $author$project$DrawCircleHull$act = function (model) {
 						}
 					});
 			} else {
-				if (disc.radius > 0) {
+				if ((disc.radius > 0) && (_Utils_cmp(
+					disc.radius,
+					A2($elm$core$Basics$min, model.screen.right, model.screen.top)) < 0)) {
 					return _Utils_update(
 						model,
 						{
@@ -7036,6 +7041,9 @@ var $elm$random$Random$float = F2(
 					$elm$random$Random$next(seed1));
 			});
 	});
+var $author$project$DrawCircleHull$speed = function (slider) {
+	return ((slider / 110) + (1 / 11)) / 60;
+};
 var $elm$random$Random$step = F2(
 	function (_v0, seed) {
 		var generator = _v0.a;
@@ -7045,62 +7053,115 @@ var $author$project$DrawCircleHull$single = F3(
 	function (model, circle, seed) {
 		var _v0 = circle.dest;
 		if (_v0.$ === 'Nothing') {
-			var _v1 = (_Utils_cmp(model.screen.left + circle.radius, model.screen.right) > 0) ? A2(
-				$elm$random$Random$step,
-				A2($elm$random$Random$float, model.screen.left, model.screen.right),
-				seed) : A2(
-				$elm$random$Random$step,
-				A2($elm$random$Random$float, model.screen.left + circle.radius, model.screen.right - circle.radius),
-				seed);
-			var x = _v1.a;
-			var seed1 = _v1.b;
-			var _v2 = (_Utils_cmp(model.screen.bottom + circle.radius, model.screen.top) > 0) ? A2(
-				$elm$random$Random$step,
-				A2($elm$random$Random$float, model.screen.bottom, model.screen.top),
-				seed1) : A2(
-				$elm$random$Random$step,
-				A2($elm$random$Random$float, model.screen.bottom + circle.radius, model.screen.top - circle.radius),
-				seed1);
-			var y = _v2.a;
-			var seed2 = _v2.b;
-			return _Utils_Tuple2(
+			if ((_Utils_cmp(circle.center.x - circle.radius, model.screen.left) < 1) || ((_Utils_cmp(circle.center.x + circle.radius, model.screen.right) > -1) || ((_Utils_cmp(circle.center.y - circle.radius, model.screen.bottom) < 1) || (_Utils_cmp(circle.center.y + circle.radius, model.screen.top) > -1)))) {
+				return _Utils_Tuple2(
+					_Utils_update(
+						circle,
+						{
+							center: {
+								x: circle.center.x - (circle.center.x * $author$project$DrawCircleHull$speed(model.slider)),
+								y: circle.center.y - (circle.center.y * $author$project$DrawCircleHull$speed(model.slider))
+							}
+						}),
+					seed);
+			} else {
+				var _v1 = A2(
+					$elm$random$Random$step,
+					A2($elm$random$Random$float, 0, 2 * $elm$core$Basics$pi),
+					seed);
+				var angle = _v1.a;
+				var seedi = _v1.b;
+				var x = $elm$core$Basics$cos(angle) * 100;
+				var y = $elm$core$Basics$sin(angle) * 100;
+				return _Utils_Tuple2(
+					_Utils_update(
+						circle,
+						{
+							center: {
+								x: circle.center.x + (x * $author$project$DrawCircleHull$speed(model.slider)),
+								y: circle.center.y + (y * $author$project$DrawCircleHull$speed(model.slider))
+							},
+							dest: $elm$core$Maybe$Just(
+								{dx: x, dy: y, p: circle.center})
+						}),
+					seedi);
+			}
+		} else {
+			var vect = _v0.a;
+			return (((_Utils_cmp(circle.center.x - circle.radius, model.screen.left) < 0) || (_Utils_cmp(circle.center.x + circle.radius, model.screen.right) > 0)) && ((_Utils_cmp(circle.center.y - circle.radius, model.screen.bottom) < 0) || (_Utils_cmp(circle.center.y + circle.radius, model.screen.top) > 0))) ? _Utils_Tuple2(
 				_Utils_update(
 					circle,
 					{
+						center: {
+							x: circle.center.x + ((-vect.dx) * $author$project$DrawCircleHull$speed(model.slider)),
+							y: circle.center.y + ((-vect.dy) * $author$project$DrawCircleHull$speed(model.slider))
+						},
 						dest: $elm$core$Maybe$Just(
-							{x: x, y: y}),
-						orig: circle.center
+							{dx: -vect.dx, dy: -vect.dy, p: circle.center})
 					}),
-				seed2);
-		} else {
-			var point = _v0.a;
-			return _Utils_Tuple2(
-				(((_Utils_cmp(point.x, circle.orig.x) < 0) && (_Utils_cmp(circle.center.x, point.x) < 0)) || ((_Utils_cmp(point.y, circle.orig.y) < 0) && (_Utils_cmp(circle.center.y, point.y) < 0))) ? _Utils_update(
-					circle,
-					{dest: $elm$core$Maybe$Nothing}) : ((((_Utils_cmp(circle.orig.x, point.x) < 0) && (_Utils_cmp(point.x, circle.center.x) < 0)) || ((_Utils_cmp(circle.orig.y, point.y) < 0) && (_Utils_cmp(point.y, circle.center.y) < 0))) ? _Utils_update(
-					circle,
-					{dest: $elm$core$Maybe$Nothing}) : _Utils_update(
+				seed) : (((_Utils_cmp(circle.center.x - circle.radius, model.screen.left) < 0) || (_Utils_cmp(circle.center.x + circle.radius, model.screen.right) > 0)) ? _Utils_Tuple2(
+				_Utils_update(
 					circle,
 					{
-						center: {x: circle.center.x + ((point.x - circle.orig.x) * ((model.slider * (17 / 360000)) + (1 / 1200))), y: circle.center.y + ((point.y - circle.orig.y) * ((model.slider * (17 / 360000)) + (1 / 1200)))}
-					})),
-				seed);
+						center: {
+							x: circle.center.x + ((-vect.dx) * $author$project$DrawCircleHull$speed(model.slider)),
+							y: circle.center.y + (vect.dy * $author$project$DrawCircleHull$speed(model.slider))
+						},
+						dest: $elm$core$Maybe$Just(
+							{dx: -vect.dx, dy: vect.dy, p: circle.center})
+					}),
+				seed) : (((_Utils_cmp(circle.center.y - circle.radius, model.screen.bottom) < 0) || (_Utils_cmp(circle.center.y + circle.radius, model.screen.top) > 0)) ? _Utils_Tuple2(
+				_Utils_update(
+					circle,
+					{
+						center: {
+							x: circle.center.x + (vect.dx * $author$project$DrawCircleHull$speed(model.slider)),
+							y: circle.center.y + ((-vect.dy) * $author$project$DrawCircleHull$speed(model.slider))
+						},
+						dest: $elm$core$Maybe$Just(
+							{dx: vect.dx, dy: -vect.dy, p: circle.center})
+					}),
+				seed) : _Utils_Tuple2(
+				_Utils_update(
+					circle,
+					{
+						center: {
+							x: circle.center.x + (vect.dx * $author$project$DrawCircleHull$speed(model.slider)),
+							y: circle.center.y + (vect.dy * $author$project$DrawCircleHull$speed(model.slider))
+						}
+					}),
+				seed)));
 		}
 	});
 var $author$project$DrawCircleHull$move = F3(
 	function (model, circles, seed) {
-		if (!circles.b) {
-			return _List_Nil;
-		} else {
-			var c = circles.a;
-			var cs = circles.b;
-			var _v1 = A3($author$project$DrawCircleHull$single, model, c, seed);
-			var newCircle = _v1.a;
-			var newSeed = _v1.b;
-			return A2(
-				$elm$core$List$cons,
-				newCircle,
-				A3($author$project$DrawCircleHull$move, model, cs, newSeed));
+		move:
+		while (true) {
+			if (!circles.b) {
+				return _List_Nil;
+			} else {
+				var c = circles.a;
+				var cs = circles.b;
+				var _v1 = A3($author$project$DrawCircleHull$single, model, c, seed);
+				var newCircle = _v1.a;
+				var newSeed = _v1.b;
+				if (_Utils_cmp(
+					newCircle.radius,
+					A2($elm$core$Basics$min, model.screen.right, model.screen.top)) < 0) {
+					return A2(
+						$elm$core$List$cons,
+						newCircle,
+						A3($author$project$DrawCircleHull$move, model, cs, newSeed));
+				} else {
+					var $temp$model = model,
+						$temp$circles = cs,
+						$temp$seed = newSeed;
+					model = $temp$model;
+					circles = $temp$circles;
+					seed = $temp$seed;
+					continue move;
+				}
+			}
 		}
 	});
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
@@ -7127,16 +7188,17 @@ var $author$project$DrawCircleHull$update = F2(
 								model,
 								model.circleState.circles,
 								$elm$random$Random$initialSeed(model.tick + 1));
-							return _Utils_update(
-								model,
-								{
-									circleState: {
-										circles: newcircles,
-										current: model.circleState.current,
-										hull: $author$project$DrawCircleHull$drawHull(newcircles)
-									},
-									tick: model.tick + 1
-								});
+							return $author$project$DrawCircleHull$act(
+								_Utils_update(
+									model,
+									{
+										circleState: {
+											circles: newcircles,
+											current: model.circleState.current,
+											hull: $author$project$DrawCircleHull$drawHull(newcircles)
+										},
+										tick: model.tick + 1
+									}));
 						} else {
 							return _Utils_update(
 								model,
@@ -7144,11 +7206,31 @@ var $author$project$DrawCircleHull$update = F2(
 						}
 					}(),
 					$elm$core$Platform$Cmd$none);
+			case 'Clear':
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{circleState: $author$project$DrawCircleHull$initCircles, tick: 0}),
+					$elm$core$Platform$Cmd$none);
 			case 'Play':
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{play: !model.play}),
+						{
+							circleState: {
+								circles: A2(
+									$elm$core$List$map,
+									function (c) {
+										return _Utils_update(
+											c,
+											{dest: $elm$core$Maybe$Nothing});
+									},
+									model.circleState.circles),
+								current: model.circleState.current,
+								hull: model.circleState.hull
+							},
+							play: !model.play
+						}),
 					$elm$core$Platform$Cmd$none);
 			case 'Slide':
 				var v = msg.a;
@@ -7165,8 +7247,23 @@ var $author$project$DrawCircleHull$update = F2(
 			case 'NewViewport':
 				var viewport = msg.a.viewport;
 				return _Utils_Tuple2(
-					(model.play ? function (x) {
-						return x;
+					(model.play ? function (m) {
+						return _Utils_update(
+							m,
+							{
+								circleState: {
+									circles: A2(
+										$elm$core$List$map,
+										function (c) {
+											return ((_Utils_cmp(c.center.x - c.radius, m.screen.left) < 1) || ((_Utils_cmp(c.center.x + c.radius, m.screen.right) > -1) || ((_Utils_cmp(c.center.y - c.radius, m.screen.bottom) < 1) || (_Utils_cmp(c.center.y + c.radius, m.screen.top) > -1)))) ? _Utils_update(
+												c,
+												{dest: $elm$core$Maybe$Nothing}) : c;
+										},
+										m.circleState.circles),
+									current: m.circleState.current,
+									hull: m.circleState.hull
+								}
+							});
 					} : $author$project$DrawCircleHull$act)(
 						_Utils_update(
 							model,
@@ -7178,8 +7275,23 @@ var $author$project$DrawCircleHull$update = F2(
 				var width = msg.a;
 				var height = msg.b;
 				return _Utils_Tuple2(
-					(model.play ? function (x) {
-						return x;
+					(model.play ? function (m) {
+						return _Utils_update(
+							m,
+							{
+								circleState: {
+									circles: A2(
+										$elm$core$List$map,
+										function (c) {
+											return ((_Utils_cmp(c.center.x - c.radius, m.screen.left) < 1) || ((_Utils_cmp(c.center.x + c.radius, m.screen.right) > -1) || ((_Utils_cmp(c.center.y - c.radius, m.screen.bottom) < 1) || (_Utils_cmp(c.center.y + c.radius, m.screen.top) > -1)))) ? _Utils_update(
+												c,
+												{dest: $elm$core$Maybe$Nothing}) : c;
+										},
+										m.circleState.circles),
+									current: m.circleState.current,
+									hull: m.circleState.hull
+								}
+							});
 					} : $author$project$DrawCircleHull$act)(
 						_Utils_update(
 							model,
@@ -7214,6 +7326,7 @@ var $author$project$DrawCircleHull$update = F2(
 					$elm$core$Platform$Cmd$none);
 		}
 	});
+var $author$project$DrawCircleHull$Clear = {$: 'Clear'};
 var $author$project$DrawCircleHull$Play = {$: 'Play'};
 var $author$project$DrawCircleHull$Slide = function (a) {
 	return {$: 'Slide', a: a};
@@ -7415,10 +7528,10 @@ var $author$project$DrawCircleHull$drawModel = function (model) {
 				$author$project$DrawCircleHull$drawBackground(model),
 				A2(
 					$elm$core$List$cons,
-					$author$project$DrawCircleHull$drawPointer(model),
+					svg,
 					A2(
 						$elm$core$List$cons,
-						svg,
+						$author$project$DrawCircleHull$drawPointer(model),
 						A2($elm$core$List$map, $author$project$DrawCircleHull$drawCircle, model.circleState.circles)))),
 			A2($elm$core$List$map, $author$project$DrawCircleHull$drawLine, model.circleState.hull));
 	}
@@ -7468,6 +7581,16 @@ var $author$project$DrawCircleHull$view = function (model) {
 							$elm$html$Html$button,
 							_List_fromArray(
 								[
+									$elm$html$Html$Events$onClick($author$project$DrawCircleHull$Clear)
+								]),
+							_List_fromArray(
+								[
+									$elm$svg$Svg$text('Clear')
+								])),
+							A2(
+							$elm$html$Html$button,
+							_List_fromArray(
+								[
 									$elm$html$Html$Events$onClick($author$project$DrawCircleHull$Play)
 								]),
 							_List_fromArray(
@@ -7480,12 +7603,19 @@ var $author$project$DrawCircleHull$view = function (model) {
 							_List_Nil,
 							_List_fromArray(
 								[
+									$elm$svg$Svg$text('Speed')
+								])),
+							A2(
+							$elm$html$Html$div,
+							_List_Nil,
+							_List_fromArray(
+								[
 									A2(
 									$elm$html$Html$input,
 									_List_fromArray(
 										[
 											$elm$html$Html$Attributes$type_('range'),
-											$elm$html$Html$Attributes$min('0'),
+											$elm$html$Html$Attributes$min('1'),
 											$elm$html$Html$Attributes$max('100'),
 											$elm$html$Html$Attributes$value(
 											$elm$core$String$fromInt(model.slider)),
