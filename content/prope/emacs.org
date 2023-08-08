@@ -51,21 +51,21 @@
 
     - Lo cual quiere decir:
 
-    - Mantener pulsada la tecla =Control= y sin soltarla pulsar y soltar
+    - /Mantener pulsada la tecla =Control= y sin soltarla pulsar y soltar
       la tecla =a=; luego soltar =Control=./
 
   - =C-x C-f=
 
     - Lo cual quiere decir:
 
-    - Deja pulsada la tecla =Control=, pulsa y suelta la tecla =x= (sin
+    - /Deja pulsada la tecla =Control=, pulsa y suelta la tecla =x= (sin
       soltar =Control=), pulsa y suelta la tecla =f=, suelta =Control=./
 
   - =C-x h=
 
     - Lo cual quiere decir:
 
-    - Deja pulsada la tecla =Control=, pulsa y suelta la tecla =x=, suelta
+    - /Deja pulsada la tecla =Control=, pulsa y suelta la tecla =x=, suelta
       =Control=, y luego pulsa y suelta la tecla =h=./
 
 * Glosario de comandos
