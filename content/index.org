@@ -13,7 +13,7 @@
     - Un pequeño resumen sobre los recursos en línea que hay sobre la
       materia de Análisis de Algoritmos y Estructuras de Datos.
 
-  - [[./geometria/index.html][Cierre Convexo de Círculos]
+  - [[./geometria/index.html][Cierre Convexo de Círculos]]
 
     - Es un /"canvas"/ en blanco para dibujar círculos y mostrar en tiempo
       real cómo se comporta el cierre convexo.
