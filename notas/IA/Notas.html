@@ -3,34 +3,45 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-07-06 Thu 22:45 -->
+<!-- 2023-08-08 Tue 02:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Inteligencia Artificial</title>
 <meta name="author" content="Erik Rangel Limón" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">/* Base */html,body {    background-color: #222;    min-height: 100%;    line-height: 1.5;}body {    color: #fafafa;    font-family: "Courier New";}::selection {    background-color:  #2ecc40;    color: white;}/* Responsive content positioning */@media only screen and (min-width: 1020px) /* Large screens */{    body{        padding: 10vh 25vw;    }}@media only screen and (max-width: 1020px) and (min-width: 750px) /* Small screens */{    body{        padding: 5vh 10vw;    }}@media only screen and (max-width: 750px) /* Small screens */{    body{        padding: 2vh 5vw;    }}/* Headers */h1{font-size: 2.5rem;}h2{font-size: 1.7rem;}h1 > .subtitle, h3, h4, h5, h6{font-size: 1.3rem;}.title{    margin-bottom: 2.5rem;}/* Padding & Margin */* {margin: 0; padding: 0;}pre, blockquote, ul, ol, p, table{    margin: 1rem 0;}h1, h2{margin-top: 2rem; line-height: 2rem;}h3, h4, h5, h6{margin-top: 1rem;}/* Links  */a, a:visited {    color: #01ff70;    text-decoration: underline;}a:hover, a:focus, a:active {    color: #2ecc40;}/* Code */pre {    font-family: "Courier New";    padding: .5rem;    background-color: #333;    padding: 0.5rem;    border-radius: 0.2rem;    font-size: 0.9rem;    color: #EEE;    overflow-x: auto;}.org-keyword{    color: #01ff70;}.org-rainbow-delimiters-depth-1{    color: #2ecc40;}.org-rainbow-delimiters-depth-2{    color: #01ff70;}/* Blockquotes */blockquote {    border-left: 3px solid #01ff70;    padding-left: 1rem;}li{    list-style-position: inside;}/* Tags */.tag{    margin-top: 0.5rem;    display: block;    color: white;    font-size: var(--font-size-xsmall);}.tag > span{		font-weight: 400;    font-size: 0.8rem;    background-color: #444;    text-transform: uppercase;    border-radius: 2px;    width: fit-content;    height: auto;    padding: 1px 5px;}/* Keywords */.todo{    color: #2ecc40;}.done{    color: #444;}/* Overflows */.outline-text-2, .outline-text-3, .outline-text-4{	  max-width: 100%;	  overflow-x: auto;}/* Table */tr:nth-child(even) {    background-color: #333;}th, td{    padding: 0.5rem;    text-align: center;}.underline{    text-decoration: underline;}img{    max-width: 100%;    height: auto;}</style>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
@@ -39,244 +50,244 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org17a60f5">Bibliografía</a></li>
-<li><a href="#org660d989">Evaluación</a></li>
-<li><a href="#org97a3367">Notas de Clase</a>
+<li><a href="#org1406c73">Bibliografía</a></li>
+<li><a href="#org44a6fa4">Evaluación</a></li>
+<li><a href="#orgd3fd489">Notas de Clase</a>
 <ul>
-<li><a href="#orge6cf534">Clase 1</a>
+<li><a href="#orgcce11a5">Clase 1</a>
 <ul>
-<li><a href="#org4f39586">Temario</a></li>
-<li><a href="#org8104aa2">Inteligencia Artificial</a></li>
-<li><a href="#org97f8776">Test de Turing</a></li>
-<li><a href="#org9aa8c1b">Teoría de agente</a></li>
+<li><a href="#org7e521c5">Temario</a></li>
+<li><a href="#org957e492">Inteligencia Artificial</a></li>
+<li><a href="#org6df1f7e">Test de Turing</a></li>
+<li><a href="#orged66832">Teoría de agente</a></li>
 </ul>
 </li>
-<li><a href="#org0de5567">Clase 2</a>
+<li><a href="#org2d9e12b">Clase 2</a>
 <ul>
-<li><a href="#orgbf096f6">Antecedentes generales</a></li>
+<li><a href="#org6428b90">Antecedentes generales</a></li>
 </ul>
 </li>
-<li><a href="#org0cdea5a">Clase 3</a>
+<li><a href="#orgeb3e416">Clase 3</a>
 <ul>
-<li><a href="#org23f2a05">Inteligencia</a></li>
-<li><a href="#orgfb376e9">Aplicaciones de la inteligencia artificial</a></li>
-<li><a href="#org9f2f9fa">Agente Racional</a></li>
-<li><a href="#org851199a">Modelo estándar de Inteligencia Artificial</a></li>
-<li><a href="#org681a3cd">Ética de la Inteligencia Artificial</a></li>
+<li><a href="#org180352a">Inteligencia</a></li>
+<li><a href="#orgdb2b7ac">Aplicaciones de la inteligencia artificial</a></li>
+<li><a href="#org4ac0015">Agente Racional</a></li>
+<li><a href="#org6506f18">Modelo estándar de Inteligencia Artificial</a></li>
+<li><a href="#org8f9bd47">Ética de la Inteligencia Artificial</a></li>
 </ul>
 </li>
-<li><a href="#org5830b6d">Clase 4</a>
+<li><a href="#orgb5f1266">Clase 4</a>
 <ul>
-<li><a href="#orgac6911c">Más aplicaciones de la Inteligencia Artificial</a></li>
+<li><a href="#org8695961">Más aplicaciones de la Inteligencia Artificial</a></li>
 </ul>
 </li>
-<li><a href="#org1fd6f4a">Clase 5</a>
+<li><a href="#org00292a5">Clase 5</a>
 <ul>
-<li><a href="#org7a554a8">Ética de la Inteligencia Artificial</a></li>
-<li><a href="#org6b90267">Modelo estándar de la Inteligencia Artificial.</a></li>
+<li><a href="#org371f78e">Ética de la Inteligencia Artificial</a></li>
+<li><a href="#orge164627">Modelo estándar de la Inteligencia Artificial.</a></li>
 </ul>
 </li>
-<li><a href="#orgab335b1">Clase 6</a>
+<li><a href="#orge96db11">Clase 6</a>
 <ul>
-<li><a href="#orgcf81199">Ejemplos de agentes</a></li>
-<li><a href="#orgf513346">Repaso de los componentes de los agentes</a></li>
-<li><a href="#org7839e19">Secuencia de percepcion</a></li>
-<li><a href="#orgd7e6736">Función de agente</a></li>
-<li><a href="#orge7a72b7">Medida de rendimiento</a></li>
-<li><a href="#org8ed7791">Racionalidad</a></li>
-<li><a href="#org69feec9">Agente racional</a></li>
+<li><a href="#org9c23908">Ejemplos de agentes</a></li>
+<li><a href="#org40af56f">Repaso de los componentes de los agentes</a></li>
+<li><a href="#org913a494">Secuencia de percepcion</a></li>
+<li><a href="#orge2fa1f7">Función de agente</a></li>
+<li><a href="#orgf759eb1">Medida de rendimiento</a></li>
+<li><a href="#org8b25719">Racionalidad</a></li>
+<li><a href="#org7c45403">Agente racional</a></li>
 </ul>
 </li>
-<li><a href="#org5ec95b9">Clase 7</a>
+<li><a href="#org918aca9">Clase 7</a>
 <ul>
-<li><a href="#orgc7d15a5">Mundo de la Aspiradora</a></li>
-<li><a href="#org0a59ccd">Agente Racional</a></li>
-<li><a href="#org6b4369e">Agente Omnisciente</a></li>
+<li><a href="#org178d59e">Mundo de la Aspiradora</a></li>
+<li><a href="#orgc3684b8">Agente Racional</a></li>
+<li><a href="#org760b95f">Agente Omnisciente</a></li>
 </ul>
 </li>
-<li><a href="#orgd7b0976">Laboratorio 1</a>
+<li><a href="#org17a427a">Laboratorio 1</a>
 <ul>
-<li><a href="#org5b45d8f">Mundo de la aspiradora</a></li>
+<li><a href="#orgbdcea69">Mundo de la aspiradora</a></li>
 </ul>
 </li>
-<li><a href="#orgc4a585c">Clase 8</a>
+<li><a href="#orgf50d0c0">Clase 8</a>
 <ul>
-<li><a href="#org88e815e">Agente Racional</a></li>
-<li><a href="#org6b3ef28">Recolección de información</a></li>
-<li><a href="#org591e6de">Ambientes</a></li>
+<li><a href="#org70bf4ef">Agente Racional</a></li>
+<li><a href="#org4e35846">Recolección de información</a></li>
+<li><a href="#org50b7cef">Ambientes</a></li>
 </ul>
 </li>
-<li><a href="#orgbe950c2">Clase 9</a>
+<li><a href="#orga892d4e">Clase 9</a>
 <ul>
-<li><a href="#org7f5e37c">Tipos de Ambientes</a></li>
-<li><a href="#org3a7e826">Ejemplo</a></li>
-<li><a href="#orgc036302">Estructura de Agentes</a></li>
+<li><a href="#org0cccf8c">Tipos de Ambientes</a></li>
+<li><a href="#org7685356">Ejemplo</a></li>
+<li><a href="#org0152208">Estructura de Agentes</a></li>
 </ul>
 </li>
-<li><a href="#org082207e">Clase 10</a>
+<li><a href="#org48f0d00">Clase 10</a>
 <ul>
-<li><a href="#org0cf042d">Agentes de Trabajo (PEAS)</a></li>
+<li><a href="#org72461c8">Agentes de Trabajo (PEAS)</a></li>
 </ul>
 </li>
-<li><a href="#org269d3b3">Clase 11</a>
+<li><a href="#orgcc8e0ee">Clase 11</a>
 <ul>
-<li><a href="#org5878576">Tipos de Agentes</a></li>
-<li><a href="#org5906de6">Algoritmos de búsqueda</a></li>
+<li><a href="#orgdfec0ee">Tipos de Agentes</a></li>
+<li><a href="#org242fa9c">Algoritmos de búsqueda</a></li>
 </ul>
 </li>
-<li><a href="#org73ce0da">Clase 12</a>
+<li><a href="#org459e02b">Clase 12</a>
 <ul>
-<li><a href="#orgd343647">Ejemplo problema de búsqeda</a></li>
-<li><a href="#orgcf43715">Camino</a></li>
-<li><a href="#orge2e0427">Algoritmos de búsqueda</a></li>
-<li><a href="#orgfdc22d6">Árbol de búsqueda</a></li>
-<li><a href="#orgbd5e1a2">Estructuruda de nodos.</a></li>
-<li><a href="#orgc0f619d">Función de expansión de nodos en el árbol de búsqueda.</a></li>
+<li><a href="#org90285c8">Ejemplo problema de búsqeda</a></li>
+<li><a href="#orgb3d6843">Camino</a></li>
+<li><a href="#org6115e26">Algoritmos de búsqueda</a></li>
+<li><a href="#orgc8779ba">Árbol de búsqueda</a></li>
+<li><a href="#org5419fd6">Estructuruda de nodos.</a></li>
+<li><a href="#org6fe1b8e">Función de expansión de nodos en el árbol de búsqueda.</a></li>
 </ul>
 </li>
-<li><a href="#org7acc9c3">Clase 13</a>
+<li><a href="#orgdaf4951">Clase 13</a>
 <ul>
-<li><a href="#orgec159f8">Algoritmos de búsqueda</a></li>
-<li><a href="#orge70ff60">Frontera</a></li>
-<li><a href="#org3447a89">Tipos de pila</a></li>
-<li><a href="#orgfa60a3a">Algoritmo Primero Mejor</a></li>
-<li><a href="#org65ceb01">Algoritmo Primero en Amplitud</a></li>
+<li><a href="#org0c5c89d">Algoritmos de búsqueda</a></li>
+<li><a href="#orga345f55">Frontera</a></li>
+<li><a href="#org72236d9">Tipos de pila</a></li>
+<li><a href="#org1864be3">Algoritmo Primero Mejor</a></li>
+<li><a href="#org36abe76">Algoritmo Primero en Amplitud</a></li>
 </ul>
 </li>
-<li><a href="#org518bca6">Clase 14</a>
+<li><a href="#orgf1d4e1a">Clase 14</a>
 <ul>
-<li><a href="#org41489ed">Algoritmo A*</a></li>
+<li><a href="#orgc76d630">Algoritmo A*</a></li>
 </ul>
 </li>
-<li><a href="#org7bc9f2e">Clase 15</a>
+<li><a href="#orge1296d7">Clase 15</a>
 <ul>
-<li><a href="#org8a44b69">Algoritmos de búsqueda</a></li>
-<li><a href="#orgc5b53ff">Estrategias para encontrar un final</a></li>
-<li><a href="#org78c7e8f">Algoritmo primero en amplitud</a></li>
-<li><a href="#org59e92e6">Algoritmos de búsqueda desinformada</a></li>
+<li><a href="#org5debe48">Algoritmos de búsqueda</a></li>
+<li><a href="#orgdc4721e">Estrategias para encontrar un final</a></li>
+<li><a href="#orgddef753">Algoritmo primero en amplitud</a></li>
+<li><a href="#orgfe594db">Algoritmos de búsqueda desinformada</a></li>
 </ul>
 </li>
-<li><a href="#org0b4b581">Clase 16</a>
+<li><a href="#org0673010">Clase 16</a>
 <ul>
-<li><a href="#org41fb568">Algoritmos de búsqueda desinformaada</a></li>
+<li><a href="#orgf0f4d23">Algoritmos de búsqueda desinformaada</a></li>
 </ul>
 </li>
-<li><a href="#orgafd46d2">Clase 17</a>
+<li><a href="#orgd168259">Clase 17</a>
 <ul>
-<li><a href="#org1672b77">Búsqueda heurística (informada)</a></li>
+<li><a href="#org01c5995">Búsqueda heurística (informada)</a></li>
 </ul>
 </li>
-<li><a href="#org463af32">Clase 18</a>
+<li><a href="#org189dd04">Clase 18</a>
 <ul>
-<li><a href="#org992187a">Agentes que resuelven problemas</a></li>
+<li><a href="#org17ba7d1">Agentes que resuelven problemas</a></li>
 </ul>
 </li>
-<li><a href="#org84926bf">Clase 19</a>
+<li><a href="#orgdffe9bb">Clase 19</a>
 <ul>
-<li><a href="#orgaa4c0c2">Búsqueda Heurística</a></li>
-<li><a href="#org3188dc6">Hint tarea</a></li>
-<li><a href="#org216b8ee">Hint práctica</a></li>
+<li><a href="#org82ad26d">Búsqueda Heurística</a></li>
+<li><a href="#org55702c2">Hint tarea</a></li>
+<li><a href="#orgeef102b">Hint práctica</a></li>
 </ul>
 </li>
-<li><a href="#org7a57764">Clase 20</a>
+<li><a href="#org80d7fdc">Clase 20</a>
 <ul>
-<li><a href="#org86c1879">Factor de ramificación efectivo</a></li>
-<li><a href="#org52cf316">Profundidad efectiva</a></li>
-<li><a href="#org7980642">Heurística compuesta</a></li>
+<li><a href="#org1fa789a">Factor de ramificación efectivo</a></li>
+<li><a href="#orgd1c837f">Profundidad efectiva</a></li>
+<li><a href="#orga8fd80f">Heurística compuesta</a></li>
 </ul>
 </li>
-<li><a href="#org4596709">Clase 21</a>
+<li><a href="#orga73581f">Clase 21</a>
 <ul>
-<li><a href="#orgc3adf9a">Búsqueda heurística</a></li>
+<li><a href="#org9e7fe52">Búsqueda heurística</a></li>
 </ul>
 </li>
-<li><a href="#orgfd0e959">Clase 22</a>
+<li><a href="#orgf590ccf">Clase 22</a>
 <ul>
-<li><a href="#orgcfdfe1e">A* pesado</a></li>
-<li><a href="#orgd9e1aa7">Búsqueda bidireccional</a></li>
+<li><a href="#org7a683ad">A* pesado</a></li>
+<li><a href="#org7f31872">Búsqueda bidireccional</a></li>
 </ul>
 </li>
-<li><a href="#orgfea0b6b">Clase 23</a>
+<li><a href="#orgf8244a8">Clase 23</a>
 <ul>
-<li><a href="#orgaf5a0aa">Búsqueda bidireccional</a></li>
-<li><a href="#org0347d2f">Beam Search (búsqueda por haz)</a></li>
+<li><a href="#orgfecf0d9">Búsqueda bidireccional</a></li>
+<li><a href="#orge349d63">Beam Search (búsqueda por haz)</a></li>
 </ul>
 </li>
-<li><a href="#orgbdba9ce">Clase 24</a>
+<li><a href="#org2d41bab">Clase 24</a>
 <ul>
-<li><a href="#org00e962e">Búsquedas en problemas parcialmente observables</a></li>
+<li><a href="#org60667fd">Búsquedas en problemas parcialmente observables</a></li>
 </ul>
 </li>
-<li><a href="#orge4f85dc">Clase 25</a>
+<li><a href="#org63213c8">Clase 25</a>
 <ul>
-<li><a href="#orgd1bdd4a">Búsqueda por optimización</a></li>
-<li><a href="#org4f188da">Ascenso de la colina</a></li>
-<li><a href="#orgfa796c7">Algoritmo genético</a></li>
+<li><a href="#orgedfff4b">Búsqueda por optimización</a></li>
+<li><a href="#org1890797">Ascenso de la colina</a></li>
+<li><a href="#org191d710">Algoritmo genético</a></li>
 </ul>
 </li>
-<li><a href="#org2e378e0">Clase 26</a>
+<li><a href="#org5220ed7">Clase 26</a>
 <ul>
-<li><a href="#orgb62df7a">Algoritmo genético</a></li>
-<li><a href="#org0fe4880">ONE MAX</a></li>
+<li><a href="#orgd8446a1">Algoritmo genético</a></li>
+<li><a href="#org75b1871">ONE MAX</a></li>
 </ul>
 </li>
-<li><a href="#org1c82b9d">Clase 27</a>
+<li><a href="#org499db6d">Clase 27</a>
 <ul>
-<li><a href="#orge3f3cbc">Agentes probabilísticos</a></li>
-<li><a href="#orgf217c47">Teoría de utilidad</a></li>
-<li><a href="#org866198d">Teoría de decisión</a></li>
-<li><a href="#org4cab163">Probabilidad</a></li>
-<li><a href="#org0392ab6">Teoría de decisión</a></li>
+<li><a href="#org06bc7a0">Agentes probabilísticos</a></li>
+<li><a href="#orga8629bd">Teoría de utilidad</a></li>
+<li><a href="#org7c03e98">Teoría de decisión</a></li>
+<li><a href="#org0cd1642">Probabilidad</a></li>
+<li><a href="#orgc0989aa">Teoría de decisión</a></li>
 </ul>
 </li>
-<li><a href="#orgaa82eac">Clase 28</a>
+<li><a href="#org0ef8552">Clase 28</a>
 <ul>
-<li><a href="#org5816ffc">Redes Bayesianas</a></li>
-<li><a href="#org4b6799d">Muestreo por rechazo</a></li>
+<li><a href="#org0fc58f5">Redes Bayesianas</a></li>
+<li><a href="#org43f66cb">Muestreo por rechazo</a></li>
 </ul>
 </li>
-<li><a href="#org685a874">Clase 29</a>
+<li><a href="#org037ca77">Clase 29</a>
 <ul>
-<li><a href="#org936fef3">Inferencia Redes Bayesianas</a></li>
-<li><a href="#org25c4ec1">Ley de los grandes números</a></li>
-<li><a href="#org73de61d">Muestreo ponderado</a></li>
+<li><a href="#orgd2a8930">Inferencia Redes Bayesianas</a></li>
+<li><a href="#orgcadd392">Ley de los grandes números</a></li>
+<li><a href="#org055f12c">Muestreo ponderado</a></li>
 </ul>
 </li>
-<li><a href="#orgc748043">Clase 30</a>
+<li><a href="#org642df16">Clase 30</a>
 <ul>
-<li><a href="#org22f4392">Agentes de aprendizaje</a></li>
+<li><a href="#org11c8097">Agentes de aprendizaje</a></li>
 </ul>
 </li>
-<li><a href="#org1ccddb9">Clase 31</a>
+<li><a href="#orgf661523">Clase 31</a>
 <ul>
-<li><a href="#org1df3fab">Aprendizaje supervisado</a></li>
+<li><a href="#orga5a08c8">Aprendizaje supervisado</a></li>
 </ul>
 </li>
-<li><a href="#org8bcbef1">Clase 32</a>
+<li><a href="#orgf37682c">Clase 32</a>
 <ul>
-<li><a href="#orged64487">Evaluación de clasificación</a></li>
-<li><a href="#org2ccb19d">Clasificadores lineales</a></li>
+<li><a href="#org6a3d242">Evaluación de clasificación</a></li>
+<li><a href="#org91655c3">Clasificadores lineales</a></li>
 </ul>
 </li>
-<li><a href="#org701c4b7">Clase 33</a>
+<li><a href="#org2bc7435">Clase 33</a>
 <ul>
-<li><a href="#orgd3f2ac6">Clasificacion</a></li>
-<li><a href="#orgbb03b3f">Perceptrón</a></li>
-<li><a href="#org15830c6">Aprendizaje no supervisado</a></li>
-<li><a href="#org319530c">Agrupamiento por k-medias</a></li>
-<li><a href="#orge2280ea">Evaluación</a></li>
+<li><a href="#org4fd9432">Clasificacion</a></li>
+<li><a href="#org94f7536">Perceptrón</a></li>
+<li><a href="#org8c1dcf1">Aprendizaje no supervisado</a></li>
+<li><a href="#org2d4ad1a">Agrupamiento por k-medias</a></li>
+<li><a href="#orgc55e6e7">Evaluación</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org24aca40">Tareas</a></li>
+<li><a href="#orgb13695f">Tareas</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org17a60f5" class="outline-2">
-<h2 id="org17a60f5">Bibliografía</h2>
-<div class="outline-text-2" id="text-org17a60f5">
+<div id="outline-container-org1406c73" class="outline-2">
+<h2 id="org1406c73">Bibliografía</h2>
+<div class="outline-text-2" id="text-org1406c73">
 <ul class="org-ul">
 <li>Russell y Morvig. Artificial Intelligence 4ta ed.</li>
 
@@ -285,9 +296,9 @@
 </div>
 </div>
 
-<div id="outline-container-org660d989" class="outline-2">
-<h2 id="org660d989">Evaluación</h2>
-<div class="outline-text-2" id="text-org660d989">
+<div id="outline-container-org44a6fa4" class="outline-2">
+<h2 id="org44a6fa4">Evaluación</h2>
+<div class="outline-text-2" id="text-org44a6fa4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -331,17 +342,17 @@ Cada día de entrega tardía será penalizado con 1 pt.
 </div>
 </div>
 
-<div id="outline-container-org97a3367" class="outline-2">
-<h2 id="org97a3367">Notas de Clase</h2>
-<div class="outline-text-2" id="text-org97a3367">
+<div id="outline-container-orgd3fd489" class="outline-2">
+<h2 id="orgd3fd489">Notas de Clase</h2>
+<div class="outline-text-2" id="text-orgd3fd489">
 </div>
-<div id="outline-container-orge6cf534" class="outline-3">
-<h3 id="orge6cf534">Clase 1</h3>
-<div class="outline-text-3" id="text-orge6cf534">
+<div id="outline-container-orgcce11a5" class="outline-3">
+<h3 id="orgcce11a5">Clase 1</h3>
+<div class="outline-text-3" id="text-orgcce11a5">
 </div>
-<div id="outline-container-org4f39586" class="outline-4">
-<h4 id="org4f39586">Temario</h4>
-<div class="outline-text-4" id="text-org4f39586">
+<div id="outline-container-org7e521c5" class="outline-4">
+<h4 id="org7e521c5">Temario</h4>
+<div class="outline-text-4" id="text-org7e521c5">
 <ol class="org-ol">
 <li><p>
 Introducción
@@ -434,9 +445,9 @@ Aprendizaje automático
 </div>
 </div>
 
-<div id="outline-container-org8104aa2" class="outline-4">
-<h4 id="org8104aa2">Inteligencia Artificial</h4>
-<div class="outline-text-4" id="text-org8104aa2">
+<div id="outline-container-org957e492" class="outline-4">
+<h4 id="org957e492">Inteligencia Artificial</h4>
+<div class="outline-text-4" id="text-org957e492">
 <p>
 La inteligencia es un atributo humano que consiste de un proceso
 para resolver problemas de manera racional.
@@ -508,9 +519,9 @@ comportamiento.
 </div>
 </div>
 
-<div id="outline-container-org97f8776" class="outline-4">
-<h4 id="org97f8776">Test de Turing</h4>
-<div class="outline-text-4" id="text-org97f8776">
+<div id="outline-container-org6df1f7e" class="outline-4">
+<h4 id="org6df1f7e">Test de Turing</h4>
+<div class="outline-text-4" id="text-org6df1f7e">
 <p>
 Es una prueba en donde participan dos entidades, un humano y una
 computadora. Estos se comunican con un juez, y éste juez debe
@@ -519,9 +530,9 @@ determinar quién de estas dos entidades es un humano.
 </div>
 </div>
 
-<div id="outline-container-org9aa8c1b" class="outline-4">
-<h4 id="org9aa8c1b">Teoría de agente</h4>
-<div class="outline-text-4" id="text-org9aa8c1b">
+<div id="outline-container-orged66832" class="outline-4">
+<h4 id="orged66832">Teoría de agente</h4>
+<div class="outline-text-4" id="text-orged66832">
 <ul class="org-ul">
 <li><p>
 Agente: Es una entidad que puede actuar de manera autónoma.
@@ -538,13 +549,13 @@ permitidas en un ambiente.
 </div>
 
 
-<div id="outline-container-org0de5567" class="outline-3">
-<h3 id="org0de5567">Clase 2</h3>
-<div class="outline-text-3" id="text-org0de5567">
+<div id="outline-container-org2d9e12b" class="outline-3">
+<h3 id="org2d9e12b">Clase 2</h3>
+<div class="outline-text-3" id="text-org2d9e12b">
 </div>
-<div id="outline-container-orgbf096f6" class="outline-4">
-<h4 id="orgbf096f6">Antecedentes generales</h4>
-<div class="outline-text-4" id="text-orgbf096f6">
+<div id="outline-container-org6428b90" class="outline-4">
+<h4 id="org6428b90">Antecedentes generales</h4>
+<div class="outline-text-4" id="text-org6428b90">
 <p>
 La inteligencia artificial nace como una herramienta para resolver
 teoremas y problemas lógicos.
@@ -599,13 +610,13 @@ computación.
 </div>
 </div>
 
-<div id="outline-container-org0cdea5a" class="outline-3">
-<h3 id="org0cdea5a">Clase 3</h3>
-<div class="outline-text-3" id="text-org0cdea5a">
+<div id="outline-container-orgeb3e416" class="outline-3">
+<h3 id="orgeb3e416">Clase 3</h3>
+<div class="outline-text-3" id="text-orgeb3e416">
 </div>
-<div id="outline-container-org23f2a05" class="outline-4">
-<h4 id="org23f2a05">Inteligencia</h4>
-<div class="outline-text-4" id="text-org23f2a05">
+<div id="outline-container-org180352a" class="outline-4">
+<h4 id="org180352a">Inteligencia</h4>
+<div class="outline-text-4" id="text-org180352a">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -660,8 +671,8 @@ computación.
 
 
 <ul class="org-ul">
-<li><a id="org8846035"></a>Liebniz ~ Cálculo Ratiocinator<br />
-<div class="outline-text-5" id="text-org8846035">
+<li><a id="org8fc4000"></a>Liebniz ~ Cálculo Ratiocinator<br />
+<div class="outline-text-5" id="text-org8fc4000">
 <p>
 Fue pensada como una máquina que utilizara la razón para dar
 resultados lógicos.
@@ -674,8 +685,8 @@ artificial.
 </div>
 </li>
 
-<li><a id="org14469fd"></a>Inteligencia Artificial Fuerte<br />
-<div class="outline-text-5" id="text-org14469fd">
+<li><a id="orgd42846e"></a>Inteligencia Artificial Fuerte<br />
+<div class="outline-text-5" id="text-orgd42846e">
 <p>
 Una IA es fuerte si es capaz de resolver cualquier problema
 "inteligente". Se podría decir también que es fuerte si es capaz
@@ -684,8 +695,8 @@ de actuar como humano.
 </div>
 </li>
 
-<li><a id="org49abf3e"></a>Inteligencia Artificial Débil<br />
-<div class="outline-text-5" id="text-org49abf3e">
+<li><a id="orge175de9"></a>Inteligencia Artificial Débil<br />
+<div class="outline-text-5" id="text-orge175de9">
 <p>
 Una IA es débil cuando se enfoca únicamente a resolver un
 problema específico.
@@ -693,8 +704,8 @@ problema específico.
 </div>
 
 <ul class="org-ul">
-<li><a id="org076f2d7"></a>Problemas<br />
-<div class="outline-text-6" id="text-org076f2d7">
+<li><a id="orge266c94"></a>Problemas<br />
+<div class="outline-text-6" id="text-orge266c94">
 <ol class="org-ol">
 <li><p>
 Como input se recibe la cuenta de un restaurante en
@@ -731,9 +742,9 @@ las personas.
 </ul>
 </div>
 
-<div id="outline-container-orgfb376e9" class="outline-4">
-<h4 id="orgfb376e9">Aplicaciones de la inteligencia artificial</h4>
-<div class="outline-text-4" id="text-orgfb376e9">
+<div id="outline-container-orgdb2b7ac" class="outline-4">
+<h4 id="orgdb2b7ac">Aplicaciones de la inteligencia artificial</h4>
+<div class="outline-text-4" id="text-orgdb2b7ac">
 <ol class="org-ol">
 <li>Demostración automática</li>
 
@@ -810,9 +821,9 @@ Juegos
 </div>
 </div>
 
-<div id="outline-container-org9f2f9fa" class="outline-4">
-<h4 id="org9f2f9fa">Agente Racional</h4>
-<div class="outline-text-4" id="text-org9f2f9fa">
+<div id="outline-container-org4ac0015" class="outline-4">
+<h4 id="org4ac0015">Agente Racional</h4>
+<div class="outline-text-4" id="text-org4ac0015">
 <p>
 Es una agente que actúa para solucionar problemas de manera
 eficiente. Busca una solución óptima.
@@ -820,9 +831,9 @@ eficiente. Busca una solución óptima.
 </div>
 </div>
 
-<div id="outline-container-org851199a" class="outline-4">
-<h4 id="org851199a">Modelo estándar de Inteligencia Artificial</h4>
-<div class="outline-text-4" id="text-org851199a">
+<div id="outline-container-org6506f18" class="outline-4">
+<h4 id="org6506f18">Modelo estándar de Inteligencia Artificial</h4>
+<div class="outline-text-4" id="text-org6506f18">
 <p>
 Es el modelo que se enfoca en el estudio y desarrollo de Agentes
 Racionales.
@@ -830,8 +841,8 @@ Racionales.
 </div>
 
 <ul class="org-ul">
-<li><a id="orgce4e737"></a>Ventajas<br />
-<div class="outline-text-5" id="text-orgce4e737">
+<li><a id="orgbd211cc"></a>Ventajas<br />
+<div class="outline-text-5" id="text-orgbd211cc">
 <ol class="org-ol">
 <li>Nos permite solucionar problemas de manera óptima.</li>
 <li>Contiene a la parte lógica.</li>
@@ -842,13 +853,13 @@ Racionales.
 </ul>
 </div>
 
-<div id="outline-container-org681a3cd" class="outline-4">
-<h4 id="org681a3cd">Ética de la Inteligencia Artificial</h4>
-<div class="outline-text-4" id="text-org681a3cd">
+<div id="outline-container-org8f9bd47" class="outline-4">
+<h4 id="org8f9bd47">Ética de la Inteligencia Artificial</h4>
+<div class="outline-text-4" id="text-org8f9bd47">
 </div>
 <ul class="org-ul">
-<li><a id="org2821f73"></a>Usos desventajosos de la Inteligencia Artificial<br />
-<div class="outline-text-5" id="text-org2821f73">
+<li><a id="orgd376d80"></a>Usos desventajosos de la Inteligencia Artificial<br />
+<div class="outline-text-5" id="text-orgd376d80">
 <ol class="org-ol">
 <li>Violación de la privacidad.</li>
 <li>Uso de armas letales.</li>
@@ -858,8 +869,8 @@ Racionales.
 </div>
 </li>
 
-<li><a id="orgbe9dcbc"></a>Problema de la Alineación de valores<br />
-<div class="outline-text-5" id="text-orgbe9dcbc">
+<li><a id="orgbb55d10"></a>Problema de la Alineación de valores<br />
+<div class="outline-text-5" id="text-orgbb55d10">
 <p>
 Que los valores / objetivos de una Inteligencia Artificial deben
 estar alineados con los valores humanos.
@@ -870,17 +881,17 @@ estar alineados con los valores humanos.
 </div>
 </div>
 
-<div id="outline-container-org5830b6d" class="outline-3">
-<h3 id="org5830b6d">Clase 4</h3>
-<div class="outline-text-3" id="text-org5830b6d">
+<div id="outline-container-orgb5f1266" class="outline-3">
+<h3 id="orgb5f1266">Clase 4</h3>
+<div class="outline-text-3" id="text-orgb5f1266">
 </div>
-<div id="outline-container-orgac6911c" class="outline-4">
-<h4 id="orgac6911c">Más aplicaciones de la Inteligencia Artificial</h4>
-<div class="outline-text-4" id="text-orgac6911c">
+<div id="outline-container-org8695961" class="outline-4">
+<h4 id="org8695961">Más aplicaciones de la Inteligencia Artificial</h4>
+<div class="outline-text-4" id="text-org8695961">
 </div>
 <ul class="org-ul">
-<li><a id="orge457622"></a>Visión computacional<br />
-<div class="outline-text-5" id="text-orge457622">
+<li><a id="org1a4055a"></a>Visión computacional<br />
+<div class="outline-text-5" id="text-org1a4055a">
 <p>
 Es un campo de la inteligencia artificial que permite a los
 sistemas obtener información de imágenes y representaciones
@@ -928,8 +939,8 @@ Existen varias aplicaciones de la <b>Visión Computacional</b>
 </div>
 </li>
 
-<li><a id="orga4e579d"></a>Procesamiento de lenguaje natural<br />
-<div class="outline-text-5" id="text-orga4e579d">
+<li><a id="orgc9f41e5"></a>Procesamiento de lenguaje natural<br />
+<div class="outline-text-5" id="text-orgc9f41e5">
 <p>
 Es un campo de la Inteligencia artificial que investiga la manera
 de comunicar a las máquinas con las personas mediante el uso de
@@ -967,17 +978,17 @@ recurrir a reglas gramaticales explícitas.
 </div>
 </div>
 
-<div id="outline-container-org1fd6f4a" class="outline-3">
-<h3 id="org1fd6f4a">Clase 5</h3>
-<div class="outline-text-3" id="text-org1fd6f4a">
+<div id="outline-container-org00292a5" class="outline-3">
+<h3 id="org00292a5">Clase 5</h3>
+<div class="outline-text-3" id="text-org00292a5">
 </div>
-<div id="outline-container-org7a554a8" class="outline-4">
-<h4 id="org7a554a8">Ética de la Inteligencia Artificial</h4>
-<div class="outline-text-4" id="text-org7a554a8">
+<div id="outline-container-org371f78e" class="outline-4">
+<h4 id="org371f78e">Ética de la Inteligencia Artificial</h4>
+<div class="outline-text-4" id="text-org371f78e">
 </div>
 <ul class="org-ul">
-<li><a id="org0b9ac7c"></a>Problema de la alineación de valores.<br />
-<div class="outline-text-5" id="text-org0b9ac7c">
+<li><a id="org881ddf6"></a>Problema de la alineación de valores.<br />
+<div class="outline-text-5" id="text-org881ddf6">
 <p>
 Los objetivos de unas IA deben estar alineados a los valores de
 los seres humanos
@@ -996,8 +1007,8 @@ Algunos puntos que hay que considerar son:
 </div>
 </li>
 
-<li><a id="org46e3519"></a>Diseño ético<br />
-<div class="outline-text-5" id="text-org46e3519">
+<li><a id="org027c928"></a>Diseño ético<br />
+<div class="outline-text-5" id="text-org027c928">
 <ol class="org-ol">
 <li>Orientada a las personas que lo van a usar.</li>
 <li>Proveer la información suficiente para que los usuarios puedan
@@ -1014,17 +1025,17 @@ aplicación.</li>
 </ul>
 </div>
 
-<div id="outline-container-org6b90267" class="outline-4">
-<h4 id="org6b90267">Modelo estándar de la Inteligencia Artificial.</h4>
-<div class="outline-text-4" id="text-org6b90267">
+<div id="outline-container-orge164627" class="outline-4">
+<h4 id="orge164627">Modelo estándar de la Inteligencia Artificial.</h4>
+<div class="outline-text-4" id="text-orge164627">
 <p>
 Es el estudio y la generación de agentes racionales.
 </p>
 </div>
 
 <ul class="org-ul">
-<li><a id="orgd0c69d0"></a>Agente Racional<br />
-<div class="outline-text-5" id="text-orgd0c69d0">
+<li><a id="org8823db0"></a>Agente Racional<br />
+<div class="outline-text-5" id="text-org8823db0">
 <p>
 Es una entidad que actúa de manera autónoma, buscando la mejor
 solución a un problema.
@@ -1032,8 +1043,8 @@ solución a un problema.
 </div>
 
 <ul class="org-ul">
-<li><a id="orgc9183d8"></a>Agentes<br />
-<div class="outline-text-6" id="text-orgc9183d8">
+<li><a id="orgf9efb0f"></a>Agentes<br />
+<div class="outline-text-6" id="text-orgf9efb0f">
 <p>
 Un agente tiene un <b>objetivo</b> para resolver un problema; éste se
 encuentra dentro de un ambiente, y los estímulos de éste
@@ -1061,8 +1072,8 @@ actuadores, las cuales los manifiesta en el ambiente.</li>
 </div>
 </li>
 
-<li><a id="org2ca8a30"></a>Mundo de la aspiradora<br />
-<div class="outline-text-6" id="text-org2ca8a30">
+<li><a id="org505b13a"></a>Mundo de la aspiradora<br />
+<div class="outline-text-6" id="text-org505b13a">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1125,13 +1136,13 @@ En un ambiente como este, las acciones cambian
 </div>
 </div>
 
-<div id="outline-container-orgab335b1" class="outline-3">
-<h3 id="orgab335b1">Clase 6</h3>
-<div class="outline-text-3" id="text-orgab335b1">
+<div id="outline-container-orge96db11" class="outline-3">
+<h3 id="orge96db11">Clase 6</h3>
+<div class="outline-text-3" id="text-orge96db11">
 </div>
-<div id="outline-container-orgcf81199" class="outline-4">
-<h4 id="orgcf81199">Ejemplos de agentes</h4>
-<div class="outline-text-4" id="text-orgcf81199">
+<div id="outline-container-org9c23908" class="outline-4">
+<h4 id="org9c23908">Ejemplos de agentes</h4>
+<div class="outline-text-4" id="text-org9c23908">
 <ul class="org-ul">
 <li>Humanos; pues cumplen la definición y por medio de los sentidos
 percibimos el ambiente, por otra parte tenemos nuestras
@@ -1148,9 +1159,9 @@ puede tomar el software dentro de la computadora.</li>
 </div>
 </div>
 
-<div id="outline-container-orgf513346" class="outline-4">
-<h4 id="orgf513346">Repaso de los componentes de los agentes</h4>
-<div class="outline-text-4" id="text-orgf513346">
+<div id="outline-container-org40af56f" class="outline-4">
+<h4 id="org40af56f">Repaso de los componentes de los agentes</h4>
+<div class="outline-text-4" id="text-org40af56f">
 <p>
 Estos se componen de 4 cosas fundamentales:
 </p>
@@ -1164,9 +1175,9 @@ Estos se componen de 4 cosas fundamentales:
 </div>
 </div>
 
-<div id="outline-container-org7839e19" class="outline-4">
-<h4 id="org7839e19">Secuencia de percepcion</h4>
-<div class="outline-text-4" id="text-org7839e19">
+<div id="outline-container-org913a494" class="outline-4">
+<h4 id="org913a494">Secuencia de percepcion</h4>
+<div class="outline-text-4" id="text-org913a494">
 <p>
 Es un registo en el que se guarda todo lo que un agente ha
 recibido hasta cierto momento.
@@ -1174,9 +1185,9 @@ recibido hasta cierto momento.
 </div>
 </div>
 
-<div id="outline-container-orgd7e6736" class="outline-4">
-<h4 id="orgd7e6736">Función de agente</h4>
-<div class="outline-text-4" id="text-orgd7e6736">
+<div id="outline-container-orge2fa1f7" class="outline-4">
+<h4 id="orge2fa1f7">Función de agente</h4>
+<div class="outline-text-4" id="text-orge2fa1f7">
 <p>
 La función de agente tiene como dominio un conjunto de secuencias
 de percepciones, y ésta nos devuelve una acción (o secuencia de
@@ -1185,9 +1196,9 @@ acciones).
 </div>
 </div>
 
-<div id="outline-container-orge7a72b7" class="outline-4">
-<h4 id="orge7a72b7">Medida de rendimiento</h4>
-<div class="outline-text-4" id="text-orge7a72b7">
+<div id="outline-container-orgf759eb1" class="outline-4">
+<h4 id="orgf759eb1">Medida de rendimiento</h4>
+<div class="outline-text-4" id="text-orgf759eb1">
 <p>
 Es una medida que evalúa el éxito del comportamiento del agente al
 resolver un problema.
@@ -1195,9 +1206,9 @@ resolver un problema.
 </div>
 </div>
 
-<div id="outline-container-org8ed7791" class="outline-4">
-<h4 id="org8ed7791">Racionalidad</h4>
-<div class="outline-text-4" id="text-org8ed7791">
+<div id="outline-container-org8b25719" class="outline-4">
+<h4 id="org8b25719">Racionalidad</h4>
+<div class="outline-text-4" id="text-org8b25719">
 <p>
 Es la medida con la que se evalúa que un agente haga lo que se
 supone que debe hacer según el criterio del agente.
@@ -1205,9 +1216,9 @@ supone que debe hacer según el criterio del agente.
 </div>
 </div>
 
-<div id="outline-container-org69feec9" class="outline-4">
-<h4 id="org69feec9">Agente racional</h4>
-<div class="outline-text-4" id="text-org69feec9">
+<div id="outline-container-org7c45403" class="outline-4">
+<h4 id="org7c45403">Agente racional</h4>
+<div class="outline-text-4" id="text-org7c45403">
 <p>
 Es una agente que utiliza el estado del ambiente para tomar las
 acciones precisas para realizar una tarea.
@@ -1216,17 +1227,17 @@ acciones precisas para realizar una tarea.
 </div>
 </div>
 
-<div id="outline-container-org5ec95b9" class="outline-3">
-<h3 id="org5ec95b9">Clase 7</h3>
-<div class="outline-text-3" id="text-org5ec95b9">
+<div id="outline-container-org918aca9" class="outline-3">
+<h3 id="org918aca9">Clase 7</h3>
+<div class="outline-text-3" id="text-org918aca9">
 </div>
-<div id="outline-container-orgc7d15a5" class="outline-4">
-<h4 id="orgc7d15a5">Mundo de la Aspiradora</h4>
-<div class="outline-text-4" id="text-orgc7d15a5">
+<div id="outline-container-org178d59e" class="outline-4">
+<h4 id="org178d59e">Mundo de la Aspiradora</h4>
+<div class="outline-text-4" id="text-org178d59e">
 </div>
 <ul class="org-ul">
-<li><a id="org32356f3"></a>Creación del ambiente<br />
-<div class="outline-text-5" id="text-org32356f3">
+<li><a id="org08e9bf9"></a>Creación del ambiente<br />
+<div class="outline-text-5" id="text-org08e9bf9">
 <p>
 El ambiente del mundo de la aspiradora consta de un conjunto de
 cuadros estructurados en diferentes posiciones. Consideramos un
@@ -1242,8 +1253,8 @@ C, y así sucesivamente.
 </div>
 </li>
 
-<li><a id="orgf76093c"></a>Creación del agente<br />
-<div class="outline-text-5" id="text-orgf76093c">
+<li><a id="orgd49f1f9"></a>Creación del agente<br />
+<div class="outline-text-5" id="text-orgd49f1f9">
 <p>
 El agente debe saber dónde se encuentra y si el lugar donde se
 encuentra está sucio.
@@ -1257,10 +1268,10 @@ la izquierda e ir a la derecha.
 </div>
 </li>
 
-<li><a id="org70fb5ef"></a>Comportamiento del agente<br />
+<li><a id="org4896578"></a>Comportamiento del agente<br />
 <ul class="org-ul">
-<li><a id="orge4cd8d2"></a>Función del agente<br />
-<div class="outline-text-6" id="text-orge4cd8d2">
+<li><a id="org01d8ab2"></a>Función del agente<br />
+<div class="outline-text-6" id="text-org01d8ab2">
 <p>
 Es una función \(f:P^*\rightarrow A\) que toma una secuencia de
 percepciones y ejecuta una acción.
@@ -1272,8 +1283,8 @@ percepciones y ejecuta una acción.
 </div>
 </li>
 
-<li><a id="org32bc94c"></a>Programa del agente<br />
-<div class="outline-text-6" id="text-org32bc94c">
+<li><a id="orga47c363"></a>Programa del agente<br />
+<div class="outline-text-6" id="text-orga47c363">
 <p>
 Es la implementación de la función del agente.
 </p>
@@ -1305,9 +1316,9 @@ haya explorado aún.</i>
 </ul>
 </div>
 
-<div id="outline-container-org0a59ccd" class="outline-4">
-<h4 id="org0a59ccd">Agente Racional</h4>
-<div class="outline-text-4" id="text-org0a59ccd">
+<div id="outline-container-orgc3684b8" class="outline-4">
+<h4 id="orgc3684b8">Agente Racional</h4>
+<div class="outline-text-4" id="text-orgc3684b8">
 <p>
 Es un agente que busca optimizar el rendimiento.
 </p>
@@ -1324,8 +1335,8 @@ esperado.
 </div>
 
 <ul class="org-ul">
-<li><a id="orgf0bbcf9"></a>Consecuencialismo<br />
-<div class="outline-text-5" id="text-orgf0bbcf9">
+<li><a id="orgd4959c4"></a>Consecuencialismo<br />
+<div class="outline-text-5" id="text-orgd4959c4">
 <p>
 La idea de medir el rendimiento a partir de las consecuencias de
 las acciones.
@@ -1357,8 +1368,8 @@ con lo siguiente.
 </div>
 </li>
 
-<li><a id="org1641486"></a>Puntos en la racionalidad<br />
-<div class="outline-text-5" id="text-org1641486">
+<li><a id="org85964dd"></a>Puntos en la racionalidad<br />
+<div class="outline-text-5" id="text-org85964dd">
 <ol class="org-ol">
 <li>Medida de rendimiento.</li>
 
@@ -1373,9 +1384,9 @@ con lo siguiente.
 </ul>
 </div>
 
-<div id="outline-container-org6b4369e" class="outline-4">
-<h4 id="org6b4369e">Agente Omnisciente</h4>
-<div class="outline-text-4" id="text-org6b4369e">
+<div id="outline-container-org760b95f" class="outline-4">
+<h4 id="org760b95f">Agente Omnisciente</h4>
+<div class="outline-text-4" id="text-org760b95f">
 <p>
 Es un agente que conoce el resultado de sus acciones y actúa de
 acuerdo a esto.
@@ -1388,13 +1399,13 @@ El agente omnisciente maximiza el rendimiento real ~ <b>Perfección</b>.
 </div>
 </div>
 
-<div id="outline-container-orgd7b0976" class="outline-3">
-<h3 id="orgd7b0976">Laboratorio 1</h3>
-<div class="outline-text-3" id="text-orgd7b0976">
+<div id="outline-container-org17a427a" class="outline-3">
+<h3 id="org17a427a">Laboratorio 1</h3>
+<div class="outline-text-3" id="text-org17a427a">
 </div>
-<div id="outline-container-org5b45d8f" class="outline-4">
-<h4 id="org5b45d8f">Mundo de la aspiradora</h4>
-<div class="outline-text-4" id="text-org5b45d8f">
+<div id="outline-container-orgbdcea69" class="outline-4">
+<h4 id="orgbdcea69">Mundo de la aspiradora</h4>
+<div class="outline-text-4" id="text-orgbdcea69">
 <p>
 Describiremos la forma en la que podremos representar este mundo,
 para que un agente actúe en éste.
@@ -1402,8 +1413,8 @@ para que un agente actúe en éste.
 </div>
 
 <ul class="org-ul">
-<li><a id="org89e82b3"></a>Definición de los cuartos<br />
-<div class="outline-text-5" id="text-org89e82b3">
+<li><a id="org1b6cfdc"></a>Definición de los cuartos<br />
+<div class="outline-text-5" id="text-org1b6cfdc">
 <p>
 Construiremos los cuartos o cuadrados en los que va a interactuar
 el agente aspiradora. El ambiente se conformará de un conjunto de
@@ -1422,7 +1433,7 @@ cuartos dispuestos en ciertas posiciones.
 <span style="font-style: italic;">        name : str</span>
 <span style="font-style: italic;">        Nombre del cuadrado ('A', 'B', etc.)</span>
 <span style="font-style: italic;">        """</span>
-        <span style="font-weight: bold;">self</span>.name = name
+        <span style="font-weight: bold;">self</span>.<span style="font-weight: bold; font-style: italic;">name</span> = name
         <span style="font-weight: bold;">self</span>.<span style="font-weight: bold; font-style: italic;">dirt</span> = 0
 
         <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Hasta que no se coloque con cuadrados vecinos, los movimientos no llevan a ning&#250;n lado</span>
@@ -1438,8 +1449,8 @@ cuartos dispuestos en ciertas posiciones.
 </div>
 </li>
 
-<li><a id="org10a2cab"></a>Creación del ambiente<br />
-<div class="outline-text-5" id="text-org10a2cab">
+<li><a id="orgf2a7f0d"></a>Creación del ambiente<br />
+<div class="outline-text-5" id="text-orgf2a7f0d">
 <p>
 El ambiente del mundo de la aspiradora consta de un conjunto de
 cuadros estructurados en diferentes posiciones; estos cuadros
@@ -1487,8 +1498,8 @@ manera aleatoria que el cuadrado está o no sucio.
 <span style="font-style: italic;">        dirt_init : str</span>
 <span style="font-style: italic;">          Forma en que se inicializar&#225; la suciedad de los cuadrados.</span>
 <span style="font-style: italic;">        """</span>
-        <span style="font-weight: bold;">self</span>.squares=[]
-        <span style="font-weight: bold;">self</span>.A,<span style="font-weight: bold;">self</span>.B,<span style="font-weight: bold;">self</span>.C,<span style="font-weight: bold;">self</span>.D = Square(<span style="font-style: italic;">'A'</span>), Square
+        <span style="font-weight: bold;">self</span>.<span style="font-weight: bold; font-style: italic;">squares</span>=[]
+        <span style="font-weight: bold;">self</span>.<span style="font-weight: bold; font-style: italic;">A</span>,<span style="font-weight: bold;">self</span>.<span style="font-weight: bold; font-style: italic;">B</span>,<span style="font-weight: bold;">self</span>.<span style="font-weight: bold; font-style: italic;">C</span>,<span style="font-weight: bold;">self</span>.<span style="font-weight: bold; font-style: italic;">D</span> = Square(<span style="font-style: italic;">'A'</span>), Square
 </pre>
 </div>
 </div>
@@ -1496,13 +1507,13 @@ manera aleatoria que el cuadrado está o no sucio.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc4a585c" class="outline-3">
-<h3 id="orgc4a585c">Clase 8</h3>
-<div class="outline-text-3" id="text-orgc4a585c">
+<div id="outline-container-orgf50d0c0" class="outline-3">
+<h3 id="orgf50d0c0">Clase 8</h3>
+<div class="outline-text-3" id="text-orgf50d0c0">
 </div>
-<div id="outline-container-org88e815e" class="outline-4">
-<h4 id="org88e815e">Agente Racional</h4>
-<div class="outline-text-4" id="text-org88e815e">
+<div id="outline-container-org70bf4ef" class="outline-4">
+<h4 id="org70bf4ef">Agente Racional</h4>
+<div class="outline-text-4" id="text-org70bf4ef">
 <p>
 Es un agente que dada una <span class="underline">secuencia de percepciones</span> y la
 <span class="underline">información previa</span>, forma la acción que maximiza la <span class="underline">medida de
@@ -1511,9 +1522,9 @@ rendimiento</span>.
 </div>
 </div>
 
-<div id="outline-container-org6b3ef28" class="outline-4">
-<h4 id="org6b3ef28">Recolección de información</h4>
-<div class="outline-text-4" id="text-org6b3ef28">
+<div id="outline-container-org4e35846" class="outline-4">
+<h4 id="org4e35846">Recolección de información</h4>
+<div class="outline-text-4" id="text-org4e35846">
 <p>
 Tomar información del entorno que complementa la información
 previa del agente.
@@ -1521,8 +1532,8 @@ previa del agente.
 </div>
 
 <ul class="org-ul">
-<li><a id="org0fe2171"></a>Exploración<br />
-<div class="outline-text-5" id="text-org0fe2171">
+<li><a id="orgaec7f2d"></a>Exploración<br />
+<div class="outline-text-5" id="text-orgaec7f2d">
 <p>
 Ejecuta acciones que le permitan recolectar información del
 entorno.
@@ -1530,8 +1541,8 @@ entorno.
 </div>
 </li>
 
-<li><a id="orgc7347ea"></a>Agente autónomo<br />
-<div class="outline-text-5" id="text-orgc7347ea">
+<li><a id="orgf5ab416"></a>Agente autónomo<br />
+<div class="outline-text-5" id="text-orgf5ab416">
 <p>
 Es un agente que es capaz de recolectar información (aprender)
 para compensar las carencias de la información previa.
@@ -1545,13 +1556,13 @@ En otro caso, se trata de un agente que carece de autonomía.
 </ul>
 </div>
 
-<div id="outline-container-org591e6de" class="outline-4">
-<h4 id="org591e6de">Ambientes</h4>
-<div class="outline-text-4" id="text-org591e6de">
+<div id="outline-container-org50b7cef" class="outline-4">
+<h4 id="org50b7cef">Ambientes</h4>
+<div class="outline-text-4" id="text-org50b7cef">
 </div>
 <ul class="org-ul">
-<li><a id="orgd6abc0b"></a>Ambiente de trabajo<br />
-<div class="outline-text-5" id="text-orgd6abc0b">
+<li><a id="org51aa83e"></a>Ambiente de trabajo<br />
+<div class="outline-text-5" id="text-org51aa83e">
 <p>
 Éste se compone de cuatro elementos (REAS/PEAS):
 </p>
@@ -1568,8 +1579,8 @@ En otro caso, se trata de un agente que carece de autonomía.
 </div>
 
 <ul class="org-ul">
-<li><a id="org0c02e8b"></a>Ejemplos<br />
-<div class="outline-text-6" id="text-org0c02e8b">
+<li><a id="orgf3441cd"></a>Ejemplos<br />
+<div class="outline-text-6" id="text-orgf3441cd">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1641,10 +1652,10 @@ En otro caso, se trata de un agente que carece de autonomía.
 </ul>
 </li>
 
-<li><a id="org350635a"></a>Tipos de ambientes<br />
+<li><a id="orgcac7240"></a>Tipos de ambientes<br />
 <ul class="org-ul">
-<li><a id="org9de55c2"></a>Observables<br />
-<div class="outline-text-6" id="text-org9de55c2">
+<li><a id="orgcf9093f"></a>Observables<br />
+<div class="outline-text-6" id="text-orgcf9093f">
 <ol class="org-ol">
 <li><p>
 Totalmente Observable:
@@ -1677,8 +1688,8 @@ información necesaria para actiar.
 </div>
 </li>
 
-<li><a id="orgf9375be"></a>Número de Agentes<br />
-<div class="outline-text-6" id="text-orgf9375be">
+<li><a id="org063db84"></a>Número de Agentes<br />
+<div class="outline-text-6" id="text-org063db84">
 <ol class="org-ol">
 <li><p>
 Agente individual:
@@ -1705,8 +1716,8 @@ maximiza el de otro.
 </div>
 </li>
 
-<li><a id="org5038580"></a>Determinismo<br />
-<div class="outline-text-6" id="text-org5038580">
+<li><a id="org870fc63"></a>Determinismo<br />
+<div class="outline-text-6" id="text-org870fc63">
 <ol class="org-ol">
 <li><p>
 Determinista:
@@ -1731,8 +1742,8 @@ acciones de otro agente.
 </div>
 </li>
 
-<li><a id="org2d92fa5"></a>Secuencialidad<br />
-<div class="outline-text-6" id="text-org2d92fa5">
+<li><a id="orgdcc66ae"></a>Secuencialidad<br />
+<div class="outline-text-6" id="text-orgdcc66ae">
 <ol class="org-ol">
 <li><p>
 Episódicos:
@@ -1754,8 +1765,8 @@ Las decisiones actuales afectan a los estados futuros.
 </div>
 </li>
 
-<li><a id="org472d23d"></a>Dinamicidad<br />
-<div class="outline-text-6" id="text-org472d23d">
+<li><a id="org46bbdd1"></a>Dinamicidad<br />
+<div class="outline-text-6" id="text-org46bbdd1">
 <ol class="org-ol">
 <li><p>
 Estáticos:
@@ -1780,17 +1791,17 @@ Se modifican sin necesidad de que el agente participe.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbe950c2" class="outline-3">
-<h3 id="orgbe950c2">Clase 9</h3>
-<div class="outline-text-3" id="text-orgbe950c2">
+<div id="outline-container-orga892d4e" class="outline-3">
+<h3 id="orga892d4e">Clase 9</h3>
+<div class="outline-text-3" id="text-orga892d4e">
 </div>
-<div id="outline-container-org7f5e37c" class="outline-4">
-<h4 id="org7f5e37c">Tipos de Ambientes</h4>
-<div class="outline-text-4" id="text-org7f5e37c">
+<div id="outline-container-org0cccf8c" class="outline-4">
+<h4 id="org0cccf8c">Tipos de Ambientes</h4>
+<div class="outline-text-4" id="text-org0cccf8c">
 </div>
 <ul class="org-ul">
-<li><a id="org1b6d688"></a>Continuidad<br />
-<div class="outline-text-5" id="text-org1b6d688">
+<li><a id="org7e73791"></a>Continuidad<br />
+<div class="outline-text-5" id="text-org7e73791">
 <ol class="org-ol">
 <li><p>
 Entorno discreto:
@@ -1811,8 +1822,8 @@ Cuya estructura es continuo.
 </div>
 </li>
 
-<li><a id="org979f56b"></a>Información<br />
-<div class="outline-text-5" id="text-org979f56b">
+<li><a id="org5a841c4"></a>Información<br />
+<div class="outline-text-5" id="text-org5a841c4">
 <ol class="org-ol">
 <li><p>
 Conocidos:
@@ -1837,9 +1848,9 @@ ambiente.
 </ul>
 </div>
 
-<div id="outline-container-org3a7e826" class="outline-4">
-<h4 id="org3a7e826">Ejemplo</h4>
-<div class="outline-text-4" id="text-org3a7e826">
+<div id="outline-container-org7685356" class="outline-4">
+<h4 id="org7685356">Ejemplo</h4>
+<div class="outline-text-4" id="text-org7685356">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1911,29 +1922,29 @@ ambiente.
 </div>
 </div>
 
-<div id="outline-container-orgc036302" class="outline-4">
-<h4 id="orgc036302">Estructura de Agentes</h4>
-<div class="outline-text-4" id="text-orgc036302">
+<div id="outline-container-org0152208" class="outline-4">
+<h4 id="org0152208">Estructura de Agentes</h4>
+<div class="outline-text-4" id="text-org0152208">
 </div>
 <ul class="org-ul">
-<li><a id="org517948b"></a>Función del agente<br />
-<div class="outline-text-5" id="text-org517948b">
+<li><a id="org2c04c9b"></a>Función del agente<br />
+<div class="outline-text-5" id="text-org2c04c9b">
 <p>
 Mapea un secuencia de percepciones a acciones.
 </p>
 </div>
 </li>
 
-<li><a id="org74d3c6d"></a>Programa del agente<br />
-<div class="outline-text-5" id="text-org74d3c6d">
+<li><a id="orgac43605"></a>Programa del agente<br />
+<div class="outline-text-5" id="text-orgac43605">
 <p>
 La implementación de la función del agente.
 </p>
 </div>
 </li>
 
-<li><a id="org93b72b8"></a>Arquitectura del agente<br />
-<div class="outline-text-5" id="text-org93b72b8">
+<li><a id="org1432ee4"></a>Arquitectura del agente<br />
+<div class="outline-text-5" id="text-org1432ee4">
 <p>
 Es la parte física del agente, que cuenta con los sensores y los
 actuadores.
@@ -1949,8 +1960,8 @@ Entorno \(\rightarrow\) Sensores \(\rightarrow\) Percepciones \(\rightarrow\) Pr
 </div>
 </li>
 
-<li><a id="orga797260"></a>Tipos de Agentes<br />
-<div class="outline-text-5" id="text-orga797260">
+<li><a id="orge13af04"></a>Tipos de Agentes<br />
+<div class="outline-text-5" id="text-orge13af04">
 <ol class="org-ol">
 <li><p>
 Agente dirigido mediante tabla.
@@ -2025,13 +2036,13 @@ etc&#x2026;
 </div>
 </div>
 
-<div id="outline-container-org082207e" class="outline-3">
-<h3 id="org082207e">Clase 10</h3>
-<div class="outline-text-3" id="text-org082207e">
+<div id="outline-container-org48f0d00" class="outline-3">
+<h3 id="org48f0d00">Clase 10</h3>
+<div class="outline-text-3" id="text-org48f0d00">
 </div>
-<div id="outline-container-org0cf042d" class="outline-4">
-<h4 id="org0cf042d">Agentes de Trabajo (PEAS)</h4>
-<div class="outline-text-4" id="text-org0cf042d">
+<div id="outline-container-org72461c8" class="outline-4">
+<h4 id="org72461c8">Agentes de Trabajo (PEAS)</h4>
+<div class="outline-text-4" id="text-org72461c8">
 <p>
 Consta de el rendimiento, el ambiente, los actuadores y los
 sensores del ambiente.
@@ -2154,8 +2165,8 @@ sensores del ambiente.
 </div>
 
 <ul class="org-ul">
-<li><a id="org86741a0"></a>Clasificación de ambientes de trabajo<br />
-<div class="outline-text-5" id="text-org86741a0">
+<li><a id="org0887e39"></a>Clasificación de ambientes de trabajo<br />
+<div class="outline-text-5" id="text-org0887e39">
 <ul class="org-ul">
 <li>Ambiente de trabajo totalmente observable</li>
 
@@ -2197,13 +2208,13 @@ sensores del ambiente.
 </div>
 </div>
 
-<div id="outline-container-org269d3b3" class="outline-3">
-<h3 id="org269d3b3">Clase 11</h3>
-<div class="outline-text-3" id="text-org269d3b3">
+<div id="outline-container-orgcc8e0ee" class="outline-3">
+<h3 id="orgcc8e0ee">Clase 11</h3>
+<div class="outline-text-3" id="text-orgcc8e0ee">
 </div>
-<div id="outline-container-org5878576" class="outline-4">
-<h4 id="org5878576">Tipos de Agentes</h4>
-<div class="outline-text-4" id="text-org5878576">
+<div id="outline-container-orgdfec0ee" class="outline-4">
+<h4 id="orgdfec0ee">Tipos de Agentes</h4>
+<div class="outline-text-4" id="text-orgdfec0ee">
 <ol class="org-ol">
 <li><p>
 Agente dirigido mediante tabla.
@@ -2284,9 +2295,9 @@ También se le conoce como Aprendizaje de máquina.
 </div>
 </div>
 
-<div id="outline-container-org5906de6" class="outline-4">
-<h4 id="org5906de6">Algoritmos de búsqueda</h4>
-<div class="outline-text-4" id="text-org5906de6">
+<div id="outline-container-org242fa9c" class="outline-4">
+<h4 id="org242fa9c">Algoritmos de búsqueda</h4>
+<div class="outline-text-4" id="text-org242fa9c">
 <ul class="org-ul">
 <li><p>
 Planeación:
@@ -2309,8 +2320,8 @@ búsqueda.
 </div>
 
 <ul class="org-ul">
-<li><a id="org465a37e"></a>Tipos de búsqueda<br />
-<div class="outline-text-5" id="text-org465a37e">
+<li><a id="orgebb7ed5"></a>Tipos de búsqueda<br />
+<div class="outline-text-5" id="text-orgebb7ed5">
 <ol class="org-ol">
 <li><p>
 Desinformada.
@@ -2331,8 +2342,8 @@ Cuenta con información sobre la meta.
 </div>
 </li>
 
-<li><a id="orgaba68f2"></a>Problema de búsqueda<br />
-<div class="outline-text-5" id="text-orgaba68f2">
+<li><a id="org340dd80"></a>Problema de búsqueda<br />
+<div class="outline-text-5" id="text-org340dd80">
 <p>
 Lo podemos ver como una tupla \(SP=(S,A,S_0,F,T,c)\), donde
 </p>
@@ -2351,13 +2362,13 @@ Lo podemos ver como una tupla \(SP=(S,A,S_0,F,T,c)\), donde
 </div>
 </div>
 
-<div id="outline-container-org73ce0da" class="outline-3">
-<h3 id="org73ce0da">Clase 12</h3>
-<div class="outline-text-3" id="text-org73ce0da">
+<div id="outline-container-org459e02b" class="outline-3">
+<h3 id="org459e02b">Clase 12</h3>
+<div class="outline-text-3" id="text-org459e02b">
 </div>
-<div id="outline-container-orgd343647" class="outline-4">
-<h4 id="orgd343647">Ejemplo problema de búsqeda</h4>
-<div class="outline-text-4" id="text-orgd343647">
+<div id="outline-container-org90285c8" class="outline-4">
+<h4 id="org90285c8">Ejemplo problema de búsqeda</h4>
+<div class="outline-text-4" id="text-org90285c8">
 <p>
 En el mundo de la aspiradora, tendríamos los siguientes estados.
 </p>
@@ -2378,9 +2389,9 @@ observable, tendríamos entonces un problema determinista.
 </div>
 </div>
 
-<div id="outline-container-orgcf43715" class="outline-4">
-<h4 id="orgcf43715">Camino</h4>
-<div class="outline-text-4" id="text-orgcf43715">
+<div id="outline-container-orgb3d6843" class="outline-4">
+<h4 id="orgb3d6843">Camino</h4>
+<div class="outline-text-4" id="text-orgb3d6843">
 <p>
 Dada la gráfica de un problema, un camino es una sucesión de
 acciones \(a_1,\ldots,a_n\in A^*\).
@@ -2388,8 +2399,8 @@ acciones \(a_1,\ldots,a_n\in A^*\).
 </div>
 
 <ul class="org-ul">
-<li><a id="orgd041fe0"></a>Solución<br />
-<div class="outline-text-5" id="text-orgd041fe0">
+<li><a id="org28b9cb6"></a>Solución<br />
+<div class="outline-text-5" id="text-org28b9cb6">
 <p>
 Es un camino \(a_1,\ldots,a_n\in A^*\) tal que partimos de \(s_0\) y
 llegamos a \(s_f\in F\).
@@ -2397,8 +2408,8 @@ llegamos a \(s_f\in F\).
 </div>
 </li>
 
-<li><a id="orgb39d798"></a>Solución óptima<br />
-<div class="outline-text-5" id="text-orgb39d798">
+<li><a id="org7c5feb4"></a>Solución óptima<br />
+<div class="outline-text-5" id="text-org7c5feb4">
 <p>
 Es una solución tal que
 </p>
@@ -2411,9 +2422,9 @@ Es una solución tal que
 </ul>
 </div>
 
-<div id="outline-container-orge2e0427" class="outline-4">
-<h4 id="orge2e0427">Algoritmos de búsqueda</h4>
-<div class="outline-text-4" id="text-orge2e0427">
+<div id="outline-container-org6115e26" class="outline-4">
+<h4 id="org6115e26">Algoritmos de búsqueda</h4>
+<div class="outline-text-4" id="text-org6115e26">
 <p>
 Un algoritmo de búsqueda toma como entrada un problema de búsqueda
 y devuelve una solución.
@@ -2421,9 +2432,9 @@ y devuelve una solución.
 </div>
 </div>
 
-<div id="outline-container-orgfdc22d6" class="outline-4">
-<h4 id="orgfdc22d6">Árbol de búsqueda</h4>
-<div class="outline-text-4" id="text-orgfdc22d6">
+<div id="outline-container-orgc8779ba" class="outline-4">
+<h4 id="orgc8779ba">Árbol de búsqueda</h4>
+<div class="outline-text-4" id="text-orgc8779ba">
 <p>
 Es un árbol ordenado con raíz, tal que esta raíz se asocia a su
 estado inicial, y los hijos son los estados que derivan de
@@ -2436,9 +2447,9 @@ acciones.
 </div>
 </div>
 
-<div id="outline-container-orgbd5e1a2" class="outline-4">
-<h4 id="orgbd5e1a2">Estructuruda de nodos.</h4>
-<div class="outline-text-4" id="text-orgbd5e1a2">
+<div id="outline-container-org5419fd6" class="outline-4">
+<h4 id="org5419fd6">Estructuruda de nodos.</h4>
+<div class="outline-text-4" id="text-org5419fd6">
 <p>
 Un nodo va a contar con:
 </p>
@@ -2453,9 +2464,9 @@ Un nodo va a contar con:
 </div>
 </div>
 
-<div id="outline-container-orgc0f619d" class="outline-4">
-<h4 id="orgc0f619d">Función de expansión de nodos en el árbol de búsqueda.</h4>
-<div class="outline-text-4" id="text-orgc0f619d">
+<div id="outline-container-org6fe1b8e" class="outline-4">
+<h4 id="org6fe1b8e">Función de expansión de nodos en el árbol de búsqueda.</h4>
+<div class="outline-text-4" id="text-org6fe1b8e">
 <div class="org-src-container">
 <pre class="src src-prog">func EXPAND(n, SP)
      s &lt;- n.estado
@@ -2469,13 +2480,13 @@ Un nodo va a contar con:
 </div>
 </div>
 
-<div id="outline-container-org7acc9c3" class="outline-3">
-<h3 id="org7acc9c3">Clase 13</h3>
-<div class="outline-text-3" id="text-org7acc9c3">
+<div id="outline-container-orgdaf4951" class="outline-3">
+<h3 id="orgdaf4951">Clase 13</h3>
+<div class="outline-text-3" id="text-orgdaf4951">
 </div>
-<div id="outline-container-orgec159f8" class="outline-4">
-<h4 id="orgec159f8">Algoritmos de búsqueda</h4>
-<div class="outline-text-4" id="text-orgec159f8">
+<div id="outline-container-org0c5c89d" class="outline-4">
+<h4 id="org0c5c89d">Algoritmos de búsqueda</h4>
+<div class="outline-text-4" id="text-org0c5c89d">
 <ul class="org-ul">
 <li><p>
 Árbol de búsqueda \(T=(V,E)\)
@@ -2491,9 +2502,9 @@ nodos.</li>
 </div>
 </div>
 
-<div id="outline-container-orge70ff60" class="outline-4">
-<h4 id="orge70ff60">Frontera</h4>
-<div class="outline-text-4" id="text-orge70ff60">
+<div id="outline-container-orga345f55" class="outline-4">
+<h4 id="orga345f55">Frontera</h4>
+<div class="outline-text-4" id="text-orga345f55">
 <p>
 Aquellos nodos que no han sido expandidos en el árbol de búsqueda
 en un tiempo \(t\).
@@ -2501,9 +2512,9 @@ en un tiempo \(t\).
 </div>
 </div>
 
-<div id="outline-container-org3447a89" class="outline-4">
-<h4 id="org3447a89">Tipos de pila</h4>
-<div class="outline-text-4" id="text-org3447a89">
+<div id="outline-container-org72236d9" class="outline-4">
+<h4 id="org72236d9">Tipos de pila</h4>
+<div class="outline-text-4" id="text-org72236d9">
 <ol class="org-ol">
 <li><p>
 LIFO (<i>Last In First Out</i>).
@@ -2533,9 +2544,9 @@ Saca primero al elemento con mayor prioridad, según una función
 </div>
 </div>
 
-<div id="outline-container-orgfa60a3a" class="outline-4">
-<h4 id="orgfa60a3a">Algoritmo Primero Mejor</h4>
-<div class="outline-text-4" id="text-orgfa60a3a">
+<div id="outline-container-org1864be3" class="outline-4">
+<h4 id="org1864be3">Algoritmo Primero Mejor</h4>
+<div class="outline-text-4" id="text-org1864be3">
 <div class="org-src-container">
 <pre class="src src-prog">function PM(problem)
          n &lt;- CREATENODE(s0)
@@ -2559,9 +2570,9 @@ end
 </div>
 </div>
 
-<div id="outline-container-org65ceb01" class="outline-4">
-<h4 id="org65ceb01">Algoritmo Primero en Amplitud</h4>
-<div class="outline-text-4" id="text-org65ceb01">
+<div id="outline-container-org36abe76" class="outline-4">
+<h4 id="org36abe76">Algoritmo Primero en Amplitud</h4>
+<div class="outline-text-4" id="text-org36abe76">
 <p>
 \[f=\min(depth(n))\]
 </p>
@@ -2573,13 +2584,13 @@ La solución implica el uso de una pila <i>FIFO</i>.
 </div>
 </div>
 
-<div id="outline-container-org518bca6" class="outline-3">
-<h3 id="org518bca6">Clase 14</h3>
-<div class="outline-text-3" id="text-org518bca6">
+<div id="outline-container-orgf1d4e1a" class="outline-3">
+<h3 id="orgf1d4e1a">Clase 14</h3>
+<div class="outline-text-3" id="text-orgf1d4e1a">
 </div>
-<div id="outline-container-org41489ed" class="outline-4">
-<h4 id="org41489ed">Algoritmo A*</h4>
-<div class="outline-text-4" id="text-org41489ed">
+<div id="outline-container-orgc76d630" class="outline-4">
+<h4 id="orgc76d630">Algoritmo A*</h4>
+<div class="outline-text-4" id="text-orgc76d630">
 <p>
 Vamos a tener una función para decidir a qué estado movernos
 </p>
@@ -2595,13 +2606,13 @@ del costo de la transición a otro estado.
 </div>
 </div>
 </div>
-<div id="outline-container-org7bc9f2e" class="outline-3">
-<h3 id="org7bc9f2e">Clase 15</h3>
-<div class="outline-text-3" id="text-org7bc9f2e">
+<div id="outline-container-orge1296d7" class="outline-3">
+<h3 id="orge1296d7">Clase 15</h3>
+<div class="outline-text-3" id="text-orge1296d7">
 </div>
-<div id="outline-container-org8a44b69" class="outline-4">
-<h4 id="org8a44b69">Algoritmos de búsqueda</h4>
-<div class="outline-text-4" id="text-org8a44b69">
+<div id="outline-container-org5debe48" class="outline-4">
+<h4 id="org5debe48">Algoritmos de búsqueda</h4>
+<div class="outline-text-4" id="text-org5debe48">
 <ol class="org-ol">
 <li><p>
 Árbol de búsqueda
@@ -2651,9 +2662,9 @@ los siguientes tipos de pilas:
 </div>
 </div>
 
-<div id="outline-container-orgc5b53ff" class="outline-4">
-<h4 id="orgc5b53ff">Estrategias para encontrar un final</h4>
-<div class="outline-text-4" id="text-orgc5b53ff">
+<div id="outline-container-orgdc4721e" class="outline-4">
+<h4 id="orgdc4721e">Estrategias para encontrar un final</h4>
+<div class="outline-text-4" id="text-orgdc4721e">
 <ol class="org-ol">
 <li><p>
 Early-Goal Test
@@ -2675,9 +2686,9 @@ Revisa si el estado es final cuando se retira de la pila.
 </div>
 </div>
 
-<div id="outline-container-org78c7e8f" class="outline-4">
-<h4 id="org78c7e8f">Algoritmo primero en amplitud</h4>
-<div class="outline-text-4" id="text-org78c7e8f">
+<div id="outline-container-orgddef753" class="outline-4">
+<h4 id="orgddef753">Algoritmo primero en amplitud</h4>
+<div class="outline-text-4" id="text-orgddef753">
 <div class="org-src-container">
 <pre class="src src-prog">function BFS(problem)
          n &lt;- CREATE-NODE(s0)
@@ -2700,9 +2711,9 @@ end
 </div>
 </div>
 
-<div id="outline-container-org59e92e6" class="outline-4">
-<h4 id="org59e92e6">Algoritmos de búsqueda desinformada</h4>
-<div class="outline-text-4" id="text-org59e92e6">
+<div id="outline-container-orgfe594db" class="outline-4">
+<h4 id="orgfe594db">Algoritmos de búsqueda desinformada</h4>
+<div class="outline-text-4" id="text-orgfe594db">
 <ul class="org-ul">
 <li>Primero en amplitud. <i>FIFO</i></li>
 <li>Dijkstra.</li>
@@ -2712,13 +2723,13 @@ end
 </div>
 </div>
 
-<div id="outline-container-org0b4b581" class="outline-3">
-<h3 id="org0b4b581">Clase 16</h3>
-<div class="outline-text-3" id="text-org0b4b581">
+<div id="outline-container-org0673010" class="outline-3">
+<h3 id="org0673010">Clase 16</h3>
+<div class="outline-text-3" id="text-org0673010">
 </div>
-<div id="outline-container-org41fb568" class="outline-4">
-<h4 id="org41fb568">Algoritmos de búsqueda desinformaada</h4>
-<div class="outline-text-4" id="text-org41fb568">
+<div id="outline-container-orgf0f4d23" class="outline-4">
+<h4 id="orgf0f4d23">Algoritmos de búsqueda desinformaada</h4>
+<div class="outline-text-4" id="text-orgf0f4d23">
 <ol class="org-ol">
 <li>Dijkstra</li>
 
@@ -2735,8 +2746,8 @@ Primero en profundidad
 </div>
 
 <ul class="org-ul">
-<li><a id="orgc6fd0d7"></a>Profundidad Limitada<br />
-<div class="outline-text-5" id="text-orgc6fd0d7">
+<li><a id="org13e484b"></a>Profundidad Limitada<br />
+<div class="outline-text-5" id="text-org13e484b">
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">DepthLimitedSearch</span>(problem,l):
     <span style="font-style: italic;">"""Algoritmo Depth-Limited Search"""</span>
@@ -2749,27 +2760,27 @@ Primero en profundidad
     <span style="font-weight: bold; font-style: italic;">frontier</span> = LIFOQueue()
     frontier.push(node)
     <span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">Nodos alcanzados</span>
-    <span style="font-weight: bold; font-style: italic;">reached</span> = {problem.<span style="font-weight: bold; font-style: italic;">initial</span>:node}
+    <span style="font-weight: bold; font-style: italic;">reached</span> = {problem.initial:node}
     <span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">resultado</span>
-    result = <span style="font-style: italic;">"failure"</span>
+    <span style="font-weight: bold; font-style: italic;">result</span> = <span style="font-style: italic;">"failure"</span>
 
     <span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">Mientras la frontera no est&#233; vac&#237;a</span>
     <span style="font-weight: bold;">while</span> frontier.isEmpty() == <span style="font-weight: bold; text-decoration: underline;">False</span>:
         <span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">Pop en frontera</span>
-        node = frontier.pop()
+        <span style="font-weight: bold; font-style: italic;">node</span> = frontier.pop()
         <span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">Guarda el nodo en la lista</span>
         nodes.append(node)
 
         <span style="font-weight: bold;">if</span> problem.is_goal(node.state):
             <span style="font-weight: bold;">print</span>(<span style="font-style: italic;">"Se encontr&#243; soluci&#243;n"</span>)
             <span style="font-weight: bold;">return</span> nodes
-        <span style="font-weight: bold;">if</span> node.depth &gt; <span style="font-weight: bold; font-style: italic;">l</span>:
-            result = <span style="font-style: italic;">"cutoff"</span>
+        <span style="font-weight: bold;">if</span> node.depth &gt; l:
+            <span style="font-weight: bold; font-style: italic;">result</span> = <span style="font-style: italic;">"cutoff"</span>
         <span style="font-weight: bold;">else</span>:
             <span style="font-weight: bold;">for</span> child <span style="font-weight: bold;">in</span> expand(problem, node):
-                state = child.state
+                <span style="font-weight: bold; font-style: italic;">state</span> = child.state
                 <span style="font-weight: bold;">if</span> state <span style="font-weight: bold;">not</span> <span style="font-weight: bold;">in</span> reached.keys():
-                    <span style="font-weight: bold; font-style: italic;">reached</span>[<span style="font-weight: bold; font-style: italic;">state</span>] = child
+                    <span style="font-weight: bold; font-style: italic;">reached</span>[state] = child
                     frontier.push(child)
 
     <span style="font-weight: bold;">return</span> result
@@ -2778,8 +2789,8 @@ Primero en profundidad
 </div>
 </li>
 
-<li><a id="org5b2fe20"></a>Profundidad iterativa<br />
-<div class="outline-text-5" id="text-org5b2fe20">
+<li><a id="orgb636a49"></a>Profundidad iterativa<br />
+<div class="outline-text-5" id="text-orgb636a49">
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">IterativeDeepeningSearch</span>(problem):
     <span style="font-style: italic;">"""Algoritmo de Iterative Deepening Search."""</span>
@@ -2790,9 +2801,9 @@ Primero en profundidad
     <span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">Itera hasta encontrar una soluci&#243;n</span>
     <span style="font-weight: bold;">while</span> result == <span style="font-style: italic;">"cutoff"</span>:
         <span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">Agrega una profundidad m&#225;s</span>
-        l += 1
+        <span style="font-weight: bold; font-style: italic;">l</span> += 1
         <span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">Revisa el resultado</span>
-        result = DepthLimitedSearch(problem,l)
+        <span style="font-weight: bold; font-style: italic;">result</span> = DepthLimitedSearch(problem,l)
 
     <span style="font-weight: bold;">print</span>(<span style="font-style: italic;">"Resuelto en {} iteraciones"</span>.<span style="font-weight: bold;">format</span>(l))
     <span style="font-weight: bold;">return</span> result
@@ -2804,13 +2815,13 @@ Primero en profundidad
 </div>
 </div>
 
-<div id="outline-container-orgafd46d2" class="outline-3">
-<h3 id="orgafd46d2">Clase 17</h3>
-<div class="outline-text-3" id="text-orgafd46d2">
+<div id="outline-container-orgd168259" class="outline-3">
+<h3 id="orgd168259">Clase 17</h3>
+<div class="outline-text-3" id="text-orgd168259">
 </div>
-<div id="outline-container-org1672b77" class="outline-4">
-<h4 id="org1672b77">Búsqueda heurística (informada)</h4>
-<div class="outline-text-4" id="text-org1672b77">
+<div id="outline-container-org01c5995" class="outline-4">
+<h4 id="org01c5995">Búsqueda heurística (informada)</h4>
+<div class="outline-text-4" id="text-org01c5995">
 <p>
 En ésta, la estrategia es tomar información de la posición de las
 metas.
@@ -2818,8 +2829,8 @@ metas.
 </div>
 
 <ul class="org-ul">
-<li><a id="org4be3a00"></a>Función heurística<br />
-<div class="outline-text-5" id="text-org4be3a00">
+<li><a id="orgc43a704"></a>Función heurística<br />
+<div class="outline-text-5" id="text-orgc43a704">
 <p>
 Es una función \(h:V\rightarrow\mathbb{R}\), no dará información
 sobre la meta.
@@ -2827,8 +2838,8 @@ sobre la meta.
 </div>
 
 <ul class="org-ul">
-<li><a id="org08d17b4"></a>Primero Mejor Ambicioso (<i>Greedy BFS</i>)<br />
-<div class="outline-text-6" id="text-org08d17b4">
+<li><a id="orgc26bee1"></a>Primero Mejor Ambicioso (<i>Greedy BFS</i>)<br />
+<div class="outline-text-6" id="text-orgc26bee1">
 <p>
 En un Primero Mejor, donde \(f\) está dada como:
 </p>
@@ -2839,8 +2850,8 @@ En un Primero Mejor, donde \(f\) está dada como:
 </div>
 </li>
 
-<li><a id="orgfb8cebb"></a>Algoritmo A*<br />
-<div class="outline-text-6" id="text-orgfb8cebb">
+<li><a id="orga325cbf"></a>Algoritmo A*<br />
+<div class="outline-text-6" id="text-orga325cbf">
 <p>
 Toma como función \(f\)
 </p>
@@ -2853,8 +2864,8 @@ Toma como función \(f\)
 </ul>
 </li>
 
-<li><a id="org45cf459"></a>Heurística admisible<br />
-<div class="outline-text-5" id="text-org45cf459">
+<li><a id="org99ef25f"></a>Heurística admisible<br />
+<div class="outline-text-5" id="text-org99ef25f">
 <p>
 Es aquella que siempre subestima el costo de llegar a una meta.
 </p>
@@ -2873,13 +2884,13 @@ admisible, entonces:
 </div>
 </div>
 
-<div id="outline-container-org463af32" class="outline-3">
-<h3 id="org463af32">Clase 18</h3>
-<div class="outline-text-3" id="text-org463af32">
+<div id="outline-container-org189dd04" class="outline-3">
+<h3 id="org189dd04">Clase 18</h3>
+<div class="outline-text-3" id="text-org189dd04">
 </div>
-<div id="outline-container-org992187a" class="outline-4">
-<h4 id="org992187a">Agentes que resuelven problemas</h4>
-<div class="outline-text-4" id="text-org992187a">
+<div id="outline-container-org17ba7d1" class="outline-4">
+<h4 id="org17ba7d1">Agentes que resuelven problemas</h4>
+<div class="outline-text-4" id="text-org17ba7d1">
 <p>
 Fases para resolver un problema:
 </p>
@@ -2893,13 +2904,13 @@ Fases para resolver un problema:
 </div>
 </div>
 
-<div id="outline-container-org84926bf" class="outline-3">
-<h3 id="org84926bf">Clase 19</h3>
-<div class="outline-text-3" id="text-org84926bf">
+<div id="outline-container-orgdffe9bb" class="outline-3">
+<h3 id="orgdffe9bb">Clase 19</h3>
+<div class="outline-text-3" id="text-orgdffe9bb">
 </div>
-<div id="outline-container-orgaa4c0c2" class="outline-4">
-<h4 id="orgaa4c0c2">Búsqueda Heurística</h4>
-<div class="outline-text-4" id="text-orgaa4c0c2">
+<div id="outline-container-org82ad26d" class="outline-4">
+<h4 id="org82ad26d">Búsqueda Heurística</h4>
+<div class="outline-text-4" id="text-org82ad26d">
 <p>
 Tiene como base una función que nos da información sobre la meta
 </p>
@@ -2910,9 +2921,9 @@ Tiene como base una función que nos da información sobre la meta
 </div>
 </div>
 
-<div id="outline-container-org3188dc6" class="outline-4">
-<h4 id="org3188dc6">Hint tarea</h4>
-<div class="outline-text-4" id="text-org3188dc6">
+<div id="outline-container-org55702c2" class="outline-4">
+<h4 id="org55702c2">Hint tarea</h4>
+<div class="outline-text-4" id="text-org55702c2">
 <p>
 Si \(h\) es admisible, entonces \(A^*\) es óptimo.
 </p>
@@ -2932,17 +2943,17 @@ Sea \(n_0\) el primer nodo tal que \(f(n_0)>f^*(n_0)\), etc&#x2026;
 </div>
 </div>
 
-<div id="outline-container-org216b8ee" class="outline-4">
-<h4 id="org216b8ee">Hint práctica</h4>
-<div class="outline-text-4" id="text-org216b8ee">
+<div id="outline-container-orgeef102b" class="outline-4">
+<h4 id="orgeef102b">Hint práctica</h4>
+<div class="outline-text-4" id="text-orgeef102b">
 <p>
 Distancia manhattan: \(|x_1-x_2|+|y_1-y_2|\)
 </p>
 </div>
 
 <ul class="org-ul">
-<li><a id="org4643142"></a>Definiciones<br />
-<div class="outline-text-5" id="text-org4643142">
+<li><a id="org212903b"></a>Definiciones<br />
+<div class="outline-text-5" id="text-org212903b">
 <p>
 Una heurísitca \(h_1\) domina sobre otra heurística \(h_2\) si
 </p>
@@ -2969,13 +2980,13 @@ Si una heurísitica admisible \(h_1\) domina sobre \(h_2\), entonces
 </div>
 </div>
 
-<div id="outline-container-org7a57764" class="outline-3">
-<h3 id="org7a57764">Clase 20</h3>
-<div class="outline-text-3" id="text-org7a57764">
+<div id="outline-container-org80d7fdc" class="outline-3">
+<h3 id="org80d7fdc">Clase 20</h3>
+<div class="outline-text-3" id="text-org80d7fdc">
 </div>
-<div id="outline-container-org86c1879" class="outline-4">
-<h4 id="org86c1879">Factor de ramificación efectivo</h4>
-<div class="outline-text-4" id="text-org86c1879">
+<div id="outline-container-org1fa789a" class="outline-4">
+<h4 id="org1fa789a">Factor de ramificación efectivo</h4>
+<div class="outline-text-4" id="text-org1fa789a">
 <p>
 Califica la calidad de una heurística.
 </p>
@@ -3020,9 +3031,9 @@ mayor calidad.
 </div>
 </div>
 
-<div id="outline-container-org52cf316" class="outline-4">
-<h4 id="org52cf316">Profundidad efectiva</h4>
-<div class="outline-text-4" id="text-org52cf316">
+<div id="outline-container-orgd1c837f" class="outline-4">
+<h4 id="orgd1c837f">Profundidad efectiva</h4>
+<div class="outline-text-4" id="text-orgd1c837f">
 <p>
 Califica una heurística según cómo se reduce la profundidad por
 una constante \(K_n\).
@@ -3030,9 +3041,9 @@ una constante \(K_n\).
 </div>
 </div>
 
-<div id="outline-container-org7980642" class="outline-4">
-<h4 id="org7980642">Heurística compuesta</h4>
-<div class="outline-text-4" id="text-org7980642">
+<div id="outline-container-orga8fd80f" class="outline-4">
+<h4 id="orga8fd80f">Heurística compuesta</h4>
+<div class="outline-text-4" id="text-orga8fd80f">
 <p>
 Dado un nodo \(n\) (estado \(n\) de mi árbol de búsqueda)
 </p>
@@ -3044,13 +3055,13 @@ Dado un nodo \(n\) (estado \(n\) de mi árbol de búsqueda)
 </div>
 </div>
 
-<div id="outline-container-org4596709" class="outline-3">
-<h3 id="org4596709">Clase 21</h3>
-<div class="outline-text-3" id="text-org4596709">
+<div id="outline-container-orga73581f" class="outline-3">
+<h3 id="orga73581f">Clase 21</h3>
+<div class="outline-text-3" id="text-orga73581f">
 </div>
-<div id="outline-container-orgc3adf9a" class="outline-4">
-<h4 id="orgc3adf9a">Búsqueda heurística</h4>
-<div class="outline-text-4" id="text-orgc3adf9a">
+<div id="outline-container-org9e7fe52" class="outline-4">
+<h4 id="org9e7fe52">Búsqueda heurística</h4>
+<div class="outline-text-4" id="text-org9e7fe52">
 <p>
 Recordemos que \(A^*\) es óptimo si la heurística es admisible.
 </p>
@@ -3075,8 +3086,8 @@ usar \(h_2\) tiene mayor complejidad.
 </div>
 
 <ul class="org-ul">
-<li><a id="orgdf53fb2"></a>Heurísitcas consistentes<br />
-<div class="outline-text-5" id="text-orgdf53fb2">
+<li><a id="orgb7cb41e"></a>Heurísitcas consistentes<br />
+<div class="outline-text-5" id="text-orgb7cb41e">
 <p>
 Son aquellas heurísitcas que cumplen que
 </p>
@@ -3091,8 +3102,8 @@ Donde \(n'\) es el nodo siguiente.
 </div>
 
 <ul class="org-ul">
-<li><a id="org99617e3"></a>Heurística monótona<br />
-<div class="outline-text-6" id="text-org99617e3">
+<li><a id="orgf30de68"></a>Heurística monótona<br />
+<div class="outline-text-6" id="text-orgf30de68">
 <p>
 Es el caso particular en donde
 </p>
@@ -3103,8 +3114,8 @@ Es el caso particular en donde
 </div>
 </li>
 
-<li><a id="org151826f"></a>Teorema<br />
-<div class="outline-text-6" id="text-org151826f">
+<li><a id="org1584078"></a>Teorema<br />
+<div class="outline-text-6" id="text-org1584078">
 <p>
 Si \(h\) es consistente, entonces \(h\) es admisible.
 </p>
@@ -3113,8 +3124,8 @@ Si \(h\) es consistente, entonces \(h\) es admisible.
 </ul>
 </li>
 
-<li><a id="orga8215e6"></a>Estrategias para buscar heurísitcas<br />
-<div class="outline-text-5" id="text-orga8215e6">
+<li><a id="org63ba441"></a>Estrategias para buscar heurísitcas<br />
+<div class="outline-text-5" id="text-org63ba441">
 <ol class="org-ol">
 <li><p>
 Disminución de Restricciones
@@ -3167,8 +3178,8 @@ Donde
 </div>
 </li>
 
-<li><a id="orgbabea13"></a>A* pesado<br />
-<div class="outline-text-5" id="text-orgbabea13">
+<li><a id="org15f50b9"></a>A* pesado<br />
+<div class="outline-text-5" id="text-org15f50b9">
 <p>
 \[f(n)=g(n)+\alpha h(n)\]
 </p>
@@ -3190,22 +3201,22 @@ BFS Greedy.</li>
 </div>
 </div>
 
-<div id="outline-container-orgfd0e959" class="outline-3">
-<h3 id="orgfd0e959">Clase 22</h3>
-<div class="outline-text-3" id="text-orgfd0e959">
+<div id="outline-container-orgf590ccf" class="outline-3">
+<h3 id="orgf590ccf">Clase 22</h3>
+<div class="outline-text-3" id="text-orgf590ccf">
 </div>
-<div id="outline-container-orgcfdfe1e" class="outline-4">
-<h4 id="orgcfdfe1e">A* pesado</h4>
-<div class="outline-text-4" id="text-orgcfdfe1e">
+<div id="outline-container-org7a683ad" class="outline-4">
+<h4 id="org7a683ad">A* pesado</h4>
+<div class="outline-text-4" id="text-org7a683ad">
 <p>
 \[f(n)=g(n)+\alpha h(n)\] con \(\alpha\in\mathbb{R}\)
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgd9e1aa7" class="outline-4">
-<h4 id="orgd9e1aa7">Búsqueda bidireccional</h4>
-<div class="outline-text-4" id="text-orgd9e1aa7">
+<div id="outline-container-org7f31872" class="outline-4">
+<h4 id="org7f31872">Búsqueda bidireccional</h4>
+<div class="outline-text-4" id="text-org7f31872">
 <p>
 Se crean dos árboles de búsqueda y se resuelven dos problemas
 distitnos, el camino normal y el camino en retroceso.
@@ -3214,13 +3225,13 @@ distitnos, el camino normal y el camino en retroceso.
 </div>
 </div>
 
-<div id="outline-container-orgfea0b6b" class="outline-3">
-<h3 id="orgfea0b6b">Clase 23</h3>
-<div class="outline-text-3" id="text-orgfea0b6b">
+<div id="outline-container-orgf8244a8" class="outline-3">
+<h3 id="orgf8244a8">Clase 23</h3>
+<div class="outline-text-3" id="text-orgf8244a8">
 </div>
-<div id="outline-container-orgaf5a0aa" class="outline-4">
-<h4 id="orgaf5a0aa">Búsqueda bidireccional</h4>
-<div class="outline-text-4" id="text-orgaf5a0aa">
+<div id="outline-container-orgfecf0d9" class="outline-4">
+<h4 id="orgfecf0d9">Búsqueda bidireccional</h4>
+<div class="outline-text-4" id="text-orgfecf0d9">
 <div class="org-src-container">
 <pre class="src src-prog">function Proceed(dir,problem,frontier,reached,reached2) where
          node &lt;- frontier.pop()
@@ -3268,9 +3279,9 @@ end
 </div>
 </div>
 
-<div id="outline-container-org0347d2f" class="outline-4">
-<h4 id="org0347d2f">Beam Search (búsqueda por haz)</h4>
-<div class="outline-text-4" id="text-org0347d2f">
+<div id="outline-container-orge349d63" class="outline-4">
+<h4 id="orge349d63">Beam Search (búsqueda por haz)</h4>
+<div class="outline-text-4" id="text-orge349d63">
 <p>
 Toma en cada iteración sólamente los \(k\) nodos más prioritarios.
 </p>
@@ -3278,13 +3289,13 @@ Toma en cada iteración sólamente los \(k\) nodos más prioritarios.
 </div>
 </div>
 
-<div id="outline-container-orgbdba9ce" class="outline-3">
-<h3 id="orgbdba9ce">Clase 24</h3>
-<div class="outline-text-3" id="text-orgbdba9ce">
+<div id="outline-container-org2d41bab" class="outline-3">
+<h3 id="org2d41bab">Clase 24</h3>
+<div class="outline-text-3" id="text-org2d41bab">
 </div>
-<div id="outline-container-org00e962e" class="outline-4">
-<h4 id="org00e962e">Búsquedas en problemas parcialmente observables</h4>
-<div class="outline-text-4" id="text-org00e962e">
+<div id="outline-container-org60667fd" class="outline-4">
+<h4 id="org60667fd">Búsquedas en problemas parcialmente observables</h4>
+<div class="outline-text-4" id="text-org60667fd">
 <p>
 Se tiene que convertir en un problema de creencias.
 </p>
@@ -3326,13 +3337,13 @@ inicial.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orge4f85dc" class="outline-3">
-<h3 id="orge4f85dc">Clase 25</h3>
-<div class="outline-text-3" id="text-orge4f85dc">
+<div id="outline-container-org63213c8" class="outline-3">
+<h3 id="org63213c8">Clase 25</h3>
+<div class="outline-text-3" id="text-org63213c8">
 </div>
-<div id="outline-container-orgd1bdd4a" class="outline-4">
-<h4 id="orgd1bdd4a">Búsqueda por optimización</h4>
-<div class="outline-text-4" id="text-orgd1bdd4a">
+<div id="outline-container-orgedfff4b" class="outline-4">
+<h4 id="orgedfff4b">Búsqueda por optimización</h4>
+<div class="outline-text-4" id="text-orgedfff4b">
 <p>
 <b>Búsqueda local</b>: Es realizar la búsqueda de la solución en los
 estados vecinos al estado actual.
@@ -3349,9 +3360,9 @@ determina la utilidad de la estrategia actual.
 </div>
 </div>
 
-<div id="outline-container-org4f188da" class="outline-4">
-<h4 id="org4f188da">Ascenso de la colina</h4>
-<div class="outline-text-4" id="text-org4f188da">
+<div id="outline-container-org1890797" class="outline-4">
+<h4 id="org1890797">Ascenso de la colina</h4>
+<div class="outline-text-4" id="text-org1890797">
 <div class="org-src-container">
 <pre class="src src-prog">function HILL-CLIMBING(problem)
          current &lt;- problem.INITIAL
@@ -3369,9 +3380,9 @@ end
 </div>
 </div>
 
-<div id="outline-container-orgfa796c7" class="outline-4">
-<h4 id="orgfa796c7">Algoritmo genético</h4>
-<div class="outline-text-4" id="text-orgfa796c7">
+<div id="outline-container-org191d710" class="outline-4">
+<h4 id="org191d710">Algoritmo genético</h4>
+<div class="outline-text-4" id="text-org191d710">
 <p>
 <b>Individuo</b>: Es un estado del problema codificado genéticamente
 </p>
@@ -3412,13 +3423,13 @@ conforman la población.
 </div>
 </div>
 
-<div id="outline-container-org2e378e0" class="outline-3">
-<h3 id="org2e378e0">Clase 26</h3>
-<div class="outline-text-3" id="text-org2e378e0">
+<div id="outline-container-org5220ed7" class="outline-3">
+<h3 id="org5220ed7">Clase 26</h3>
+<div class="outline-text-3" id="text-org5220ed7">
 </div>
-<div id="outline-container-orgb62df7a" class="outline-4">
-<h4 id="orgb62df7a">Algoritmo genético</h4>
-<div class="outline-text-4" id="text-orgb62df7a">
+<div id="outline-container-orgd8446a1" class="outline-4">
+<h4 id="orgd8446a1">Algoritmo genético</h4>
+<div class="outline-text-4" id="text-orgd8446a1">
 <div class="org-src-container">
 <pre class="src src-prog">function Genetic(population, f)
     do
@@ -3439,8 +3450,8 @@ end
 </div>
 
 <ul class="org-ul">
-<li><a id="orgbb5f9ec"></a>Selección<br />
-<div class="outline-text-5" id="text-orgbb5f9ec">
+<li><a id="org287f253"></a>Selección<br />
+<div class="outline-text-5" id="text-org287f253">
 <ol class="org-ol">
 <li>Ruleta: Ruleta aleatoria basada en la probabilidad de los
 individuos según su <i>fitness</i>.</li>
@@ -3454,8 +3465,8 @@ descartan paulatinamente a los individuos más débiles.</li>
 </div>
 </li>
 
-<li><a id="org4f70e33"></a>Reproducción<br />
-<div class="outline-text-5" id="text-org4f70e33">
+<li><a id="org1298348"></a>Reproducción<br />
+<div class="outline-text-5" id="text-org1298348">
 <ol class="org-ol">
 <li>En un punto: Dados dos padres, corta sus genes en un punto y
 une las mitades.</li>
@@ -3471,8 +3482,8 @@ componen al hijo.</li>
 </div>
 </li>
 
-<li><a id="org52fcffb"></a>Mutación<br />
-<div class="outline-text-5" id="text-org52fcffb">
+<li><a id="orgf707360"></a>Mutación<br />
+<div class="outline-text-5" id="text-orgf707360">
 <ol class="org-ol">
 <li>Flipping: Cambia el gen usando una máscara.</li>
 
@@ -3483,8 +3494,8 @@ componen al hijo.</li>
 </div>
 </li>
 
-<li><a id="orgfaf357c"></a>Reemplazo<br />
-<div class="outline-text-5" id="text-orgfaf357c">
+<li><a id="orgec6e060"></a>Reemplazo<br />
+<div class="outline-text-5" id="text-orgec6e060">
 <ol class="org-ol">
 <li>Generacional: Los descendientes reemplazan a los padres.</li>
 
@@ -3497,9 +3508,9 @@ componen al hijo.</li>
 </ul>
 </div>
 
-<div id="outline-container-org0fe4880" class="outline-4">
-<h4 id="org0fe4880">ONE MAX</h4>
-<div class="outline-text-4" id="text-org0fe4880">
+<div id="outline-container-org75b1871" class="outline-4">
+<h4 id="org75b1871">ONE MAX</h4>
+<div class="outline-text-4" id="text-org75b1871">
 <p>
 \[f(x)=\sum_{i=1}^n x_i\]
 </p>
@@ -3518,21 +3529,21 @@ Elegimos una población inicial, supongamos:
 </div>
 </div>
 
-<div id="outline-container-org1c82b9d" class="outline-3">
-<h3 id="org1c82b9d">Clase 27</h3>
-<div class="outline-text-3" id="text-org1c82b9d">
+<div id="outline-container-org499db6d" class="outline-3">
+<h3 id="org499db6d">Clase 27</h3>
+<div class="outline-text-3" id="text-org499db6d">
 </div>
-<div id="outline-container-orge3f3cbc" class="outline-4">
-<h4 id="orge3f3cbc">Agentes probabilísticos</h4>
-<div class="outline-text-4" id="text-orge3f3cbc">
+<div id="outline-container-org06bc7a0" class="outline-4">
+<h4 id="org06bc7a0">Agentes probabilísticos</h4>
+<div class="outline-text-4" id="text-org06bc7a0">
 <p>
 Se encuentran en un entorno no determinista, o estocástico.
 </p>
 </div>
 
 <ul class="org-ul">
-<li><a id="orgccc0764"></a>Creencia<br />
-<div class="outline-text-5" id="text-orgccc0764">
+<li><a id="org872a8d6"></a>Creencia<br />
+<div class="outline-text-5" id="text-org872a8d6">
 <p>
 Es una concepción de cómo puede estar el ambiente; puede
 modificarse con más información.
@@ -3540,8 +3551,8 @@ modificarse con más información.
 </div>
 </li>
 
-<li><a id="orgcc5e8ca"></a>Estado de creencia<br />
-<div class="outline-text-5" id="text-orgcc5e8ca">
+<li><a id="org3baf865"></a>Estado de creencia<br />
+<div class="outline-text-5" id="text-org3baf865">
 <p>
 Conjunto de creencias que tiene un agente sobre un estado.
 </p>
@@ -3550,18 +3561,18 @@ Conjunto de creencias que tiene un agente sobre un estado.
 </ul>
 </div>
 
-<div id="outline-container-orgf217c47" class="outline-4">
-<h4 id="orgf217c47">Teoría de utilidad</h4>
-<div class="outline-text-4" id="text-orgf217c47">
+<div id="outline-container-orga8629bd" class="outline-4">
+<h4 id="orga8629bd">Teoría de utilidad</h4>
+<div class="outline-text-4" id="text-orga8629bd">
 <p>
 El agente prefiere las acciones que tengan mayor utilidad.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org866198d" class="outline-4">
-<h4 id="org866198d">Teoría de decisión</h4>
-<div class="outline-text-4" id="text-org866198d">
+<div id="outline-container-org7c03e98" class="outline-4">
+<h4 id="org7c03e98">Teoría de decisión</h4>
+<div class="outline-text-4" id="text-org7c03e98">
 <p>
 Incorpora la teoría de la utilidad junto con la probabilidad.
 </p>
@@ -3577,9 +3588,9 @@ utilidad <span class="underline">esperada</span>.
 </div>
 </div>
 
-<div id="outline-container-org4cab163" class="outline-4">
-<h4 id="org4cab163">Probabilidad</h4>
-<div class="outline-text-4" id="text-org4cab163">
+<div id="outline-container-org0cd1642" class="outline-4">
+<h4 id="org0cd1642">Probabilidad</h4>
+<div class="outline-text-4" id="text-org0cd1642">
 <p>
 <b>Espacio probabilístico:</b> Es una 3-tupla \((\Omega,\mathcal{F},p)\) tal que:
 </p>
@@ -3601,8 +3612,8 @@ utilidad <span class="underline">esperada</span>.
 </div>
 
 <ul class="org-ul">
-<li><a id="orgd8b6e88"></a>Notación<br />
-<div class="outline-text-5" id="text-orgd8b6e88">
+<li><a id="orgf32da9a"></a>Notación<br />
+<div class="outline-text-5" id="text-orgf32da9a">
 <p>
 \[p(X=x)\]
 </p>
@@ -3613,8 +3624,8 @@ donde \(X\) es la variable aleatorio y \(x\) es el valor de \(X\)
 </div>
 </li>
 
-<li><a id="org303e21f"></a>Propiedades de \(\mathcal{F}\)<br />
-<div class="outline-text-5" id="text-org303e21f">
+<li><a id="org55d3876"></a>Propiedades de \(\mathcal{F}\)<br />
+<div class="outline-text-5" id="text-org55d3876">
 <ol class="org-ol">
 <li>\(\emptyset,\Omega\in\mathcal{F}\)</li>
 <li>Si \(E\in\mathcal{F}\) entonces \(E^c\in\mathcal{F}\)</li>
@@ -3629,8 +3640,8 @@ donde \(X\) es la variable aleatorio y \(x\) es el valor de \(X\)
 </div>
 </li>
 
-<li><a id="orgbc680b1"></a>Propiedades de \(p\)<br />
-<div class="outline-text-5" id="text-orgbc680b1">
+<li><a id="org3580f40"></a>Propiedades de \(p\)<br />
+<div class="outline-text-5" id="text-org3580f40">
 <ol class="org-ol">
 <li>\(p(\emptyset)=0\)</li>
 <li>\(p(\Omega)=1\)</li>
@@ -3650,8 +3661,8 @@ Se tiene que
 </div>
 </li>
 
-<li><a id="org75653a2"></a>Probabilidad Conjunta<br />
-<div class="outline-text-5" id="text-org75653a2">
+<li><a id="orgd1619f5"></a>Probabilidad Conjunta<br />
+<div class="outline-text-5" id="text-orgd1619f5">
 <p>
 \[p(E_1,E_2)=p(E_1\cap E_2)\]
 </p>
@@ -3670,8 +3681,8 @@ Diremos que \(E_1\bot E_2\) son independientes si
 </div>
 </li>
 
-<li><a id="org96966d2"></a>Probabilidad condicional<br />
-<div class="outline-text-5" id="text-org96966d2">
+<li><a id="orgd289334"></a>Probabilidad condicional<br />
+<div class="outline-text-5" id="text-orgd289334">
 <p>
 \[p(X_1=x_1|X_2=x_2)=\frac{p(X_1=x_1,X_2=x_2)}{p(X_2=x_2)}\]
 </p>
@@ -3682,8 +3693,8 @@ Diremos que \(E_1\bot E_2\) son independientes si
 </div>
 </li>
 
-<li><a id="org427e63e"></a>Esperanza<br />
-<div class="outline-text-5" id="text-org427e63e">
+<li><a id="org457e3e4"></a>Esperanza<br />
+<div class="outline-text-5" id="text-org457e3e4">
 <p>
 Es una estadística sobre una variable aleatorio \(X\) con valores
 \(x_1,\ldots,x_n\) tales que.
@@ -3697,19 +3708,19 @@ Es una estadística sobre una variable aleatorio \(X\) con valores
 </ul>
 </div>
 
-<div id="outline-container-org0392ab6" class="outline-4">
-<h4 id="org0392ab6">Teoría de decisión</h4>
-<div class="outline-text-4" id="text-org0392ab6">
+<div id="outline-container-orgc0989aa" class="outline-4">
+<h4 id="orgc0989aa">Teoría de decisión</h4>
+<div class="outline-text-4" id="text-orgc0989aa">
 <p>
 \[\max\mathbb{E}[U(X)]\]
 </p>
 </div>
 
 <ul class="org-ul">
-<li><a id="org30dda2f"></a>Redes bayesianas<br />
+<li><a id="orgbf86756"></a>Redes bayesianas<br />
 <ul class="org-ul">
-<li><a id="org31623a0"></a>Teorema de probabilidad total<br />
-<div class="outline-text-6" id="text-org31623a0">
+<li><a id="orgf8c5d17"></a>Teorema de probabilidad total<br />
+<div class="outline-text-6" id="text-orgf8c5d17">
 <p>
 \[p(X_i=x)=\sum_{x_2}\cdots\sum_{x_n}p(X_1=x_1,X_2=x_2,\ldots,X_n=x_n)\]
 </p>
@@ -3721,13 +3732,13 @@ Es una estadística sobre una variable aleatorio \(X\) con valores
 </div>
 </div>
 
-<div id="outline-container-orgaa82eac" class="outline-3">
-<h3 id="orgaa82eac">Clase 28</h3>
-<div class="outline-text-3" id="text-orgaa82eac">
+<div id="outline-container-org0ef8552" class="outline-3">
+<h3 id="org0ef8552">Clase 28</h3>
+<div class="outline-text-3" id="text-org0ef8552">
 </div>
-<div id="outline-container-org5816ffc" class="outline-4">
-<h4 id="org5816ffc">Redes Bayesianas</h4>
-<div class="outline-text-4" id="text-org5816ffc">
+<div id="outline-container-org0fc58f5" class="outline-4">
+<h4 id="org0fc58f5">Redes Bayesianas</h4>
+<div class="outline-text-4" id="text-org0fc58f5">
 <p>
 Es un modelo gráfico que asocia variables aleatorias a nodos de la
 gráfica. Una arista implica una condición.
@@ -3735,9 +3746,9 @@ gráfica. Una arista implica una condición.
 </div>
 </div>
 
-<div id="outline-container-org4b6799d" class="outline-4">
-<h4 id="org4b6799d">Muestreo por rechazo</h4>
-<div class="outline-text-4" id="text-org4b6799d">
+<div id="outline-container-org43f66cb" class="outline-4">
+<h4 id="org43f66cb">Muestreo por rechazo</h4>
+<div class="outline-text-4" id="text-org43f66cb">
 <p>
 Es la inferencia sobre redes bayesianas.
 </p>
@@ -3751,13 +3762,13 @@ de valores a ciertas variables aleatorias.
 </div>
 </div>
 
-<div id="outline-container-org685a874" class="outline-3">
-<h3 id="org685a874">Clase 29</h3>
-<div class="outline-text-3" id="text-org685a874">
+<div id="outline-container-org037ca77" class="outline-3">
+<h3 id="org037ca77">Clase 29</h3>
+<div class="outline-text-3" id="text-org037ca77">
 </div>
-<div id="outline-container-org936fef3" class="outline-4">
-<h4 id="org936fef3">Inferencia Redes Bayesianas</h4>
-<div class="outline-text-4" id="text-org936fef3">
+<div id="outline-container-orgd2a8930" class="outline-4">
+<h4 id="orgd2a8930">Inferencia Redes Bayesianas</h4>
+<div class="outline-text-4" id="text-orgd2a8930">
 <ol class="org-ol">
 <li><p>
 Muestreo por rechazo
@@ -3790,9 +3801,9 @@ end
 </div>
 </div>
 
-<div id="outline-container-org25c4ec1" class="outline-4">
-<h4 id="org25c4ec1">Ley de los grandes números</h4>
-<div class="outline-text-4" id="text-org25c4ec1">
+<div id="outline-container-orgcadd392" class="outline-4">
+<h4 id="orgcadd392">Ley de los grandes números</h4>
+<div class="outline-text-4" id="text-orgcadd392">
 <p>
 Dadas las muestras \(X_1,X_2,\ldots\) que convergen a \(X\), entonces
 </p>
@@ -3803,9 +3814,9 @@ Dadas las muestras \(X_1,X_2,\ldots\) que convergen a \(X\), entonces
 </div>
 </div>
 
-<div id="outline-container-org73de61d" class="outline-4">
-<h4 id="org73de61d">Muestreo ponderado</h4>
-<div class="outline-text-4" id="text-org73de61d">
+<div id="outline-container-org055f12c" class="outline-4">
+<h4 id="org055f12c">Muestreo ponderado</h4>
+<div class="outline-text-4" id="text-org055f12c">
 <div class="org-src-container">
 <pre class="src src-prog">function WEIGHTED-SAMPLE(bn, e)
     w &lt;- 1
@@ -3837,13 +3848,13 @@ end
 </div>
 </div>
 
-<div id="outline-container-orgc748043" class="outline-3">
-<h3 id="orgc748043">Clase 30</h3>
-<div class="outline-text-3" id="text-orgc748043">
+<div id="outline-container-org642df16" class="outline-3">
+<h3 id="org642df16">Clase 30</h3>
+<div class="outline-text-3" id="text-org642df16">
 </div>
-<div id="outline-container-org22f4392" class="outline-4">
-<h4 id="org22f4392">Agentes de aprendizaje</h4>
-<div class="outline-text-4" id="text-org22f4392">
+<div id="outline-container-org11c8097" class="outline-4">
+<h4 id="org11c8097">Agentes de aprendizaje</h4>
+<div class="outline-text-4" id="text-org11c8097">
 <ul class="org-ul">
 <li>Aprendizaje: Un ajente se dice que aprende si su desempeño,
 medido con métrica \(P\), en una tarea \(T\), mejora con experiencia
@@ -3869,8 +3880,8 @@ Por ejemplo, un agente que detecte spam:
 </div>
 
 <ul class="org-ul">
-<li><a id="orge7eb357"></a>Entrenamiento y evaluación<br />
-<div class="outline-text-5" id="text-orge7eb357">
+<li><a id="orgebef1ff"></a>Entrenamiento y evaluación<br />
+<div class="outline-text-5" id="text-orgebef1ff">
 <ul class="org-ul">
 <li>Esquema 70 : 30
 
@@ -3889,8 +3900,8 @@ Por ejemplo, un agente que detecte spam:
 </div>
 </li>
 
-<li><a id="org3e17418"></a>Hiperparámetros<br />
-<div class="outline-text-5" id="text-org3e17418">
+<li><a id="orgf283350"></a>Hiperparámetros<br />
+<div class="outline-text-5" id="text-orgf283350">
 <p>
 Son parámetros del modelo que no se aprenden, sino son determidaos
 por el programador.
@@ -3898,8 +3909,8 @@ por el programador.
 </div>
 </li>
 
-<li><a id="orgb6e2f74"></a>Entrenamiento<br />
-<div class="outline-text-5" id="text-orgb6e2f74">
+<li><a id="orgf2a0ad2"></a>Entrenamiento<br />
+<div class="outline-text-5" id="text-orgf2a0ad2">
 <p>
 Consiste en convertir el problema de aprendizaje en un problema
 de optimización.
@@ -3907,8 +3918,8 @@ de optimización.
 </div>
 
 <ul class="org-ul">
-<li><a id="org3d9abb1"></a>Función objetivo<br />
-<div class="outline-text-6" id="text-org3d9abb1">
+<li><a id="org1b92509"></a>Función objetivo<br />
+<div class="outline-text-6" id="text-org1b92509">
 <p>
 Sea \(f\) un agente de aprendizaje
 </p>
@@ -3929,8 +3940,8 @@ donde
 </ul>
 </li>
 
-<li><a id="org8bc8016"></a>Evaluación<br />
-<div class="outline-text-5" id="text-org8bc8016">
+<li><a id="orge69eb48"></a>Evaluación<br />
+<div class="outline-text-5" id="text-orge69eb48">
 <ul class="org-ul">
 <li>Supervisado:
 
@@ -3945,8 +3956,8 @@ donde
 </div>
 </li>
 
-<li><a id="orgaa845ae"></a>Regresión<br />
-<div class="outline-text-5" id="text-orgaa845ae">
+<li><a id="org16ba1aa"></a>Regresión<br />
+<div class="outline-text-5" id="text-org16ba1aa">
 <p>
 \(f:X\rightarrow \mathbb{R}\)
 </p>
@@ -3978,17 +3989,17 @@ donde \(M_x\) es la media de los valores de salida \(y\)
 </div>
 </div>
 
-<div id="outline-container-org1ccddb9" class="outline-3">
-<h3 id="org1ccddb9">Clase 31</h3>
-<div class="outline-text-3" id="text-org1ccddb9">
+<div id="outline-container-orgf661523" class="outline-3">
+<h3 id="orgf661523">Clase 31</h3>
+<div class="outline-text-3" id="text-orgf661523">
 </div>
-<div id="outline-container-org1df3fab" class="outline-4">
-<h4 id="org1df3fab">Aprendizaje supervisado</h4>
-<div class="outline-text-4" id="text-org1df3fab">
+<div id="outline-container-orga5a08c8" class="outline-4">
+<h4 id="orga5a08c8">Aprendizaje supervisado</h4>
+<div class="outline-text-4" id="text-orga5a08c8">
 </div>
 <ul class="org-ul">
-<li><a id="org47ec249"></a>Algoritmos<br />
-<div class="outline-text-5" id="text-org47ec249">
+<li><a id="orgc741992"></a>Algoritmos<br />
+<div class="outline-text-5" id="text-orgc741992">
 <p>
 Regresión lineal: Encontrar una recta que mejor se ajuste a los
 datos.
@@ -4009,8 +4020,8 @@ en el error.
 </div>
 
 <ul class="org-ul">
-<li><a id="org544396c"></a>Funcion objetivo<br />
-<div class="outline-text-6" id="text-org544396c">
+<li><a id="orgddf0426"></a>Funcion objetivo<br />
+<div class="outline-text-6" id="text-orgddf0426">
 <ol class="org-ol">
 <li>VAE: \[\frac{1}{N}\sum_{i=1}^N|y_i-f(x_i)|\]</li>
 
@@ -4035,13 +4046,13 @@ Para ello, derivamos e igualamos a 0
 </div>
 </div>
 
-<div id="outline-container-org8bcbef1" class="outline-3">
-<h3 id="org8bcbef1">Clase 32</h3>
-<div class="outline-text-3" id="text-org8bcbef1">
+<div id="outline-container-orgf37682c" class="outline-3">
+<h3 id="orgf37682c">Clase 32</h3>
+<div class="outline-text-3" id="text-orgf37682c">
 </div>
-<div id="outline-container-orged64487" class="outline-4">
-<h4 id="orged64487">Evaluación de clasificación</h4>
-<div class="outline-text-4" id="text-orged64487">
+<div id="outline-container-org6a3d242" class="outline-4">
+<h4 id="org6a3d242">Evaluación de clasificación</h4>
+<div class="outline-text-4" id="text-org6a3d242">
 <ul class="org-ul">
 <li>Matriz de confusión</li>
 
@@ -4050,9 +4061,9 @@ Para ello, derivamos e igualamos a 0
 </div>
 </div>
 
-<div id="outline-container-org2ccb19d" class="outline-4">
-<h4 id="org2ccb19d">Clasificadores lineales</h4>
-<div class="outline-text-4" id="text-org2ccb19d">
+<div id="outline-container-org91655c3" class="outline-4">
+<h4 id="org91655c3">Clasificadores lineales</h4>
+<div class="outline-text-4" id="text-org91655c3">
 <ol class="org-ol">
 <li>Regresión logística</li>
 
@@ -4061,8 +4072,8 @@ Para ello, derivamos e igualamos a 0
 </div>
 
 <ul class="org-ul">
-<li><a id="orgec57a77"></a>Regresión logistica<br />
-<div class="outline-text-5" id="text-orgec57a77">
+<li><a id="org29a2c14"></a>Regresión logistica<br />
+<div class="outline-text-5" id="text-org29a2c14">
 <p>
 \[\sigma(x)=\frac{1}{1+\exp\{-(wx+b)\}}\in[0,1]\]
 </p>
@@ -4098,8 +4109,8 @@ aleatorias.
 </div>
 
 <ul class="org-ul">
-<li><a id="orgd1ba28f"></a>Función objetivo<br />
-<div class="outline-text-6" id="text-orgd1ba28f">
+<li><a id="orgaf7d3f6"></a>Función objetivo<br />
+<div class="outline-text-6" id="text-orgaf7d3f6">
 <p>
 Siendo \(x\) la entrada y \(y\) su clase
 </p>
@@ -4110,20 +4121,20 @@ Siendo \(x\) la entrada y \(y\) su clase
 </div>
 </li>
 
-<li><a id="orge66bf68"></a>Descenso por Gradiente<br /></li>
+<li><a id="org54c307c"></a>Descenso por Gradiente<br /></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org701c4b7" class="outline-3">
-<h3 id="org701c4b7">Clase 33</h3>
-<div class="outline-text-3" id="text-org701c4b7">
+<div id="outline-container-org2bc7435" class="outline-3">
+<h3 id="org2bc7435">Clase 33</h3>
+<div class="outline-text-3" id="text-org2bc7435">
 </div>
-<div id="outline-container-orgd3f2ac6" class="outline-4">
-<h4 id="orgd3f2ac6">Clasificacion</h4>
-<div class="outline-text-4" id="text-orgd3f2ac6">
+<div id="outline-container-org4fd9432" class="outline-4">
+<h4 id="org4fd9432">Clasificacion</h4>
+<div class="outline-text-4" id="text-org4fd9432">
 <div class="org-src-container">
 <pre class="src src-prog">Predict(x):
     f(x) &lt;- 1 / 1 + exp(-wx+b)
@@ -4140,9 +4151,9 @@ fit(X,Y,eta,T):
 </div>
 </div>
 
-<div id="outline-container-orgbb03b3f" class="outline-4">
-<h4 id="orgbb03b3f">Perceptrón</h4>
-<div class="outline-text-4" id="text-orgbb03b3f">
+<div id="outline-container-org94f7536" class="outline-4">
+<h4 id="org94f7536">Perceptrón</h4>
+<div class="outline-text-4" id="text-org94f7536">
 <div class="org-src-container">
 <pre class="src src-prog">Predict(x):
     f(x) = wx + b &gt; 0 ? 1 : 0;
@@ -4161,9 +4172,9 @@ Fit(X,Y,eta,T):
 </div>
 </div>
 
-<div id="outline-container-org15830c6" class="outline-4">
-<h4 id="org15830c6">Aprendizaje no supervisado</h4>
-<div class="outline-text-4" id="text-org15830c6">
+<div id="outline-container-org8c1dcf1" class="outline-4">
+<h4 id="org8c1dcf1">Aprendizaje no supervisado</h4>
+<div class="outline-text-4" id="text-org8c1dcf1">
 <ul class="org-ul">
 <li>Agrupamiento</li>
 
@@ -4172,9 +4183,9 @@ Fit(X,Y,eta,T):
 </div>
 </div>
 
-<div id="outline-container-org319530c" class="outline-4">
-<h4 id="org319530c">Agrupamiento por k-medias</h4>
-<div class="outline-text-4" id="text-org319530c">
+<div id="outline-container-org2d4ad1a" class="outline-4">
+<h4 id="org2d4ad1a">Agrupamiento por k-medias</h4>
+<div class="outline-text-4" id="text-org2d4ad1a">
 <div class="org-src-container">
 <pre class="src src-prog">Fit(X, k):
     M_i &lt;- Random(M_i), i = [1..k]
@@ -4190,9 +4201,9 @@ Fit(X,Y,eta,T):
 </div>
 </div>
 
-<div id="outline-container-orge2280ea" class="outline-4">
-<h4 id="orge2280ea">Evaluación</h4>
-<div class="outline-text-4" id="text-orge2280ea">
+<div id="outline-container-orgc55e6e7" class="outline-4">
+<h4 id="orgc55e6e7">Evaluación</h4>
+<div class="outline-text-4" id="text-orgc55e6e7">
 <ul class="org-ul">
 <li><i>Gold standard</i>: Un agrupamiento ideal (dado por un humano)</li>
 </ul>
@@ -4201,14 +4212,14 @@ Fit(X,Y,eta,T):
 </div>
 </div>
 
-<div id="outline-container-org24aca40" class="outline-2">
-<h2 id="org24aca40">Tareas</h2>
+<div id="outline-container-orgb13695f" class="outline-2">
+<h2 id="orgb13695f">Tareas</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Erik Rangel Limón</p>
-<p class="date">Created: 2023-07-06 Thu 22:45</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.5.5)</p>
+<p class="date">Created: 2023-08-08 Tue 02:17</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1 (<a href="https://orgmode.org">Org</a> mode 9.6.6)</p>
 </div>
 </body>
 </html>

@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-08-08 Tue 02:17 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Introducción a Emacs</title>
+<meta name="author" content="Erik Rangel Limón" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">/* Base */html,body {    background-color: #222;    min-height: 100%;    line-height: 1.5;}body {    color: #fafafa;    font-family: "Courier New";}::selection {    background-color:  #2ecc40;    color: white;}/* Responsive content positioning */@media only screen and (min-width: 1020px) /* Large screens */{    body{        padding: 10vh 25vw;    }}@media only screen and (max-width: 1020px) and (min-width: 750px) /* Small screens */{    body{        padding: 5vh 10vw;    }}@media only screen and (max-width: 750px) /* Small screens */{    body{        padding: 2vh 5vw;    }}/* Headers */h1{font-size: 2.5rem;}h2{font-size: 1.7rem;}h1 > .subtitle, h3, h4, h5, h6{font-size: 1.3rem;}.title{    margin-bottom: 2.5rem;}/* Padding & Margin */* {margin: 0; padding: 0;}pre, blockquote, ul, ol, p, table{    margin: 1rem 0;}h1, h2{margin-top: 2rem; line-height: 2rem;}h3, h4, h5, h6{margin-top: 1rem;}/* Links  */a, a:visited {    color: #01ff70;    text-decoration: underline;}a:hover, a:focus, a:active {    color: #2ecc40;}/* Code */pre {    font-family: "Courier New";    padding: .5rem;    background-color: #333;    padding: 0.5rem;    border-radius: 0.2rem;    font-size: 0.9rem;    color: #EEE;    overflow-x: auto;}.org-keyword{    color: #01ff70;}.org-rainbow-delimiters-depth-1{    color: #2ecc40;}.org-rainbow-delimiters-depth-2{    color: #01ff70;}/* Blockquotes */blockquote {    border-left: 3px solid #01ff70;    padding-left: 1rem;}li{    list-style-position: inside;}/* Tags */.tag{    margin-top: 0.5rem;    display: block;    color: white;    font-size: var(--font-size-xsmall);}.tag > span{		font-weight: 400;    font-size: 0.8rem;    background-color: #444;    text-transform: uppercase;    border-radius: 2px;    width: fit-content;    height: auto;    padding: 1px 5px;}/* Keywords */.todo{    color: #2ecc40;}.done{    color: #444;}/* Overflows */.outline-text-2, .outline-text-3, .outline-text-4{	  max-width: 100%;	  overflow-x: auto;}/* Table */tr:nth-child(even) {    background-color: #333;}th, td{    padding: 0.5rem;    text-align: center;}.underline{    text-decoration: underline;}img{    max-width: 100%;    height: auto;}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Introducción a Emacs</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgcd28820">¿Qué es Emacs?</a></li>
+<li><a href="#org4e7a9a4">¿Como uso Emacs?</a></li>
+<li><a href="#org18b9502">Atajos de Emacs</a></li>
+<li><a href="#org6c9d4b9">Glosario de comandos</a>
+<ul>
+<li><a href="#org716056d">Navegación</a></li>
+<li><a href="#org2e9968d">Creación y edición de archivos</a></li>
+</ul>
+</li>
+<li><a href="#org48614ba">Manejo de buffers</a></li>
+<li><a href="#org0c6ee0a">Versión de Emacs para emulador de terminal</a></li>
+<li><a href="#orgc2c919b">Personalizar Emacs</a></li>
+<li><a href="#orgc4c7b87">init.el</a>
+<ul>
+<li><a href="#org278e78b">Añadiendo repositorios</a></li>
+<li><a href="#orga21ce64">Definiendo init.el como archivo de configuración.</a></li>
+<li><a href="#orgd1d71c6">Tema general de emacs</a></li>
+<li><a href="#orgad3927b">Instalación de otras extensiones</a></li>
+<li><a href="#org40ec2e4">Cargar la configuración</a></li>
+</ul>
+</li>
+<li><a href="#org4b6618c">¿Dónde puedo aprender más sobre Emacs?</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcd28820" class="outline-2">
+<h2 id="orgcd28820">¿Qué es Emacs?</h2>
+<div class="outline-text-2" id="text-orgcd28820">
+<p>
+Principalmente, es un editor de texto <b>libre y de código abierto</b>;
+pero puede llegar a ser la única herramienta que podrían necesitar
+en un sistema de cómputo gracias a su amplia extensionalidad.
+</p>
+
+<p>
+Desde crear y editar archivos de texto plano, hasta tener un propio
+emulador de terminal, servidor de correo, reproductor de audio,
+navegador web, gestor de ventanas, administradores de chat como
+Telegram o si uno se lo propone hasta un editor de video.
+</p>
+
+<p>
+Y todo ésto es posible ya que cuenta con su propio lenguaje de
+programación y un intérprete de éste lenguaje, además de que tiene
+una comunidad amplia que se dedica a lanzar al público nuevas
+extensiones y actualizarlas con el tiempo.
+</p>
+
+<p>
+Pero por lo pronto, sólo véanlo como un editor de texto.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4e7a9a4" class="outline-2">
+<h2 id="org4e7a9a4">¿Como uso Emacs?</h2>
+<div class="outline-text-2" id="text-org4e7a9a4">
+<p>
+Posiblemente cuándo recién lo instalen vean una interfaz con un
+fondo blanco, con un menú en la parte superior para hacer tareas
+básicas para editar texto, abrir archivos, entre otros.
+</p>
+
+<p>
+No se deben dejar engañar por este menú ya que Emacs se maneja
+principalmente con atajos de teclado, lo cual resulta conveniente
+para aumentar su productividad y no detenerse para realizar alguna
+acción con el ratón.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org18b9502" class="outline-2">
+<h2 id="org18b9502">Atajos de Emacs</h2>
+<div class="outline-text-2" id="text-org18b9502">
+<p>
+Los atajos de teclado de Emacs se escriben de una manera particular
+</p>
+
+<p>
+Primero que nada, las dos teclas utilizadas en todos los comandos de
+Emacs son las siguientes:
+</p>
+
+<ul class="org-ul">
+<li><code>C</code>: Se refiere a la tecla <code>control</code> de los teclados</li>
+
+<li><code>M</code>: Se refiere a <code>Meta</code>, la cual equivale a la tecla <code>Alt</code> en teclados
+que usan una distribución como la de <i>Windows</i> o <code>Command</code> en
+distribuciones del teclado de las computadoras <i>Mac</i>.</li>
+</ul>
+
+
+<p>
+Luego, las combinaciones de teclas suelen escribirse de las
+siguientes formas:
+</p>
+
+<ul class="org-ul">
+<li><code>C-a</code>
+
+<ul class="org-ul">
+<li>Lo cual quiere decir:</li>
+
+<li>Mantener pulsada la tecla <code>Control</code> y sin soltarla pulsar y soltar
+la tecla <code>a</code>; luego soltar <code>Control</code>./</li>
+</ul></li>
+
+<li><code>C-x C-f</code>
+
+<ul class="org-ul">
+<li>Lo cual quiere decir:</li>
+
+<li>Deja pulsada la tecla <code>Control</code>, pulsa y suelta la tecla <code>x</code> (sin
+soltar <code>Control</code>), pulsa y suelta la tecla <code>f</code>, suelta <code>Control</code>./</li>
+</ul></li>
+
+<li><code>C-x h</code>
+
+<ul class="org-ul">
+<li>Lo cual quiere decir:</li>
+
+<li>Deja pulsada la tecla <code>Control</code>, pulsa y suelta la tecla <code>x</code>, suelta
+<code>Control</code>, y luego pulsa y suelta la tecla <code>h</code>./</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6c9d4b9" class="outline-2">
+<h2 id="org6c9d4b9">Glosario de comandos</h2>
+<div class="outline-text-2" id="text-org6c9d4b9">
+</div>
+<div id="outline-container-org716056d" class="outline-3">
+<h3 id="org716056d">Navegación</h3>
+<div class="outline-text-3" id="text-org716056d">
+<p>
+Seguro habrán notado el cursor (el cuadrito que está parpadeando).
+</p>
+
+<ul class="org-ul">
+<li><code>C-b</code>: Mover el cursor a la izquierda</li>
+<li><code>C-f</code>: Mover el cursor a la derecha</li>
+<li><code>C-p</code>: Mover el cursor hacia arriba</li>
+<li><code>C-n</code>: Mover el cursor hacia abajo</li>
+</ul>
+
+
+<p>
+Si no se acostumbran a hacerlo de ésta manera, también pueden
+moverse con las flechitas del teclado.
+</p>
+
+<ul class="org-ul">
+<li><code>C-a</code>: Mover el cursor al inicio de la línea</li>
+<li><code>C-e</code>: Mover el cursor al final de la línea</li>
+<li><code>M-b</code>: Mover el cursor una palabra hacia la izquierda</li>
+<li><code>M-f</code>: Mover el cursor una palabra hacia la derecha</li>
+<li><code>M-a</code>: Mover el cursor a una oración (sección) anterior</li>
+<li><code>M-e</code>: Mover el cursor a una oración (sección) posterior</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2e9968d" class="outline-3">
+<h3 id="org2e9968d">Creación y edición de archivos</h3>
+<div class="outline-text-3" id="text-org2e9968d">
+<ul class="org-ul">
+<li><code>C-x C-f</code>
+
+<ul class="org-ul">
+<li>Al ejecutar éste comando, en la parte inferior de la ventana de
+Emacs aparecerá un texto que dice "<i>Find files</i>" (a ésta área se le
+conoce como "<i>minibuffer</i>"), en ésta parte se habrá movido su
+cursor y deberán escribir la ruta del archivo que quieren abrir,
+o si no existe, la ruta que tendrá el nuevo archivo que quieren
+crear, recuerden que pueden usar la tecla <code>Tab</code> para autocompletar
+la ruta. Al terminar de escribir la ruta presionen la tecla <code>Ret</code>
+(<code>Enter</code>).</li>
+
+<li>Ésto les abrirá un nuevo archivo y podrán escribir en él como
+comúnmente lo harían.</li>
+</ul></li>
+
+<li><code>Shift</code>
+
+<ul class="org-ul">
+<li>Éste lo pueden mantener pulsado mientras mueven su cursor para
+seleccionar una región de texto, sin embargo si les parece
+incómodo, también hay otra opción para seleccionar texto.</li>
+</ul></li>
+
+<li><code>C-SPC</code> (Control - Espacio)
+
+<ul class="org-ul">
+<li>Si lo presionan una sóla vez entraran a un modo de selección,
+intenten mover su cursor y vean como se va seleccionando el
+texto.</li>
+
+<li>Usen <code>C-g</code> para dejar de seleccionar.</li>
+</ul></li>
+
+<li><code>C-x h</code>: Para seleccionar <b>todo</b>.</li>
+
+<li><code>C-s</code>: Buscar texto en el documento hacia adelante.</li>
+
+<li><code>C-r</code>: Buscar texto en el documento hacia atrás.</li>
+
+<li><code>M-w</code>: Copiar región seleccionada.</li>
+
+<li><code>C-w</code>: Cortar región seleccionada.</li>
+
+<li><code>C-y</code>: Pegar</li>
+
+<li><code>C-g</code>: Salir de cualquier atajo de teclado.</li>
+</ul>
+
+
+<p>
+Como ejercicio escriban una presentación breve de ustedes, ¿Cómo se
+llaman? ¿Cómo entraron a la carrera (examen / pase)? ¿De qué
+preparatoria / bachillerato / cch vienen?
+</p>
+
+<p>
+Una vez terminado usen el texto que hayan escrito para probar los
+comandos mostrados, si surgen dudas, no duden en decirnos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org48614ba" class="outline-2">
+<h2 id="org48614ba">Manejo de buffers</h2>
+<div class="outline-text-2" id="text-org48614ba">
+<p>
+La pantalla en donde ustedes escribieron su presentación es lo que
+se le conoce como un <i>buffer</i>, el cuál sería análogo a una ventana del
+navegador.
+</p>
+
+<ul class="org-ul">
+<li><code>C-x derecha</code>: cambiar al siguiente <i>buffer</i></li>
+
+<li><code>C-x izquierda</code>: cambiar al <i>buffer</i> anterior</li>
+
+<li><code>C-x b</code>: Escribir en el <i>minibuffer</i> el <i>buffer</i> específico al cual se
+quiere cambiar (por ejemplo, el nombre de un archivo que hayan
+creado / abierto).</li>
+</ul>
+
+
+<p>
+Tambień es posible dividir la pantalla de emacs para ver varios
+<i>buffers</i> al mismo tiempo.
+</p>
+
+<ul class="org-ul">
+<li><code>C-x 2</code>: Divide el <i>buffer</i> actual de manera horizontal</li>
+
+<li><code>C-x 3</code>: Divide el <i>buffer</i> actual de manera vertical</li>
+
+<li><code>C-x o</code>: Cambiar entre <i>buffers</i> divididos</li>
+
+<li><code>C-x 0</code>: Cerrar el <i>buffer</i> dividido actual</li>
+
+<li><code>C-x 1</code>: Cerrar todos los <i>buffers</i> divididos menos el actual.</li>
+</ul>
+
+
+<p>
+Creen otro archivo en un buffer dividido, y ahora escriban por qué
+escogieron la carrera de Ciencias de la Computación. Prueben los
+nuevos comandos para navegar entre buffers.
+</p>
+
+<p>
+Si no se acomodan siempre pueden recurrir al ratón para seleccionar
+texto, seleccionar buffers divididos, entre otras tareas comunes que
+harían con él, pero siempre será más recomendable usar el teclado.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0c6ee0a" class="outline-2">
+<h2 id="org0c6ee0a">Versión de Emacs para emulador de terminal</h2>
+<div class="outline-text-2" id="text-org0c6ee0a">
+<p>
+Si están en un sistema sin entorno gráfico, o en un emulador de
+terminal, también pueden utilizar emacs dentro de la misma terminal.
+</p>
+
+<p>
+En su terminal escriban el siguiente comando con la siguiente
+bandera:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">&gt; emacs -nw
+</pre>
+</div>
+
+<p>
+Con ésto abriran emacs y funcionará igual que la versión con
+interfaz gráfica, pero todas las tareas las tendrán que hacer con el
+teclado ya que en éste modo no funciona el ratón. Por eso es una
+buena idea practicar sus atajos de teclado antes que usar el ratón.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc2c919b" class="outline-2">
+<h2 id="orgc2c919b">Personalizar Emacs</h2>
+<div class="outline-text-2" id="text-orgc2c919b">
+<p>
+Emacs no es bueno dando primeras impresiones, parece un editor de
+texto simple que tiene una interfaz antigua, un tema claro y
+posiblemente incómodo de usar.
+</p>
+
+<p>
+Sin embargo, la característica principal de Emacs es que no existe
+una sola cosa en el programa que no se pueda personalizar, sólo hay
+que aprender a hacerlo.
+</p>
+
+<p>
+Emacs se puede personalizar de dos formas principalmente, de manera
+gráfica y por medio de un archivo de texto.
+</p>
+
+<p>
+De manera gráfica hay un menú que se puede abrir con el comando <code>M-x</code>
+y escribiendo en el minibuffer "customize" y presionar <code>Enter</code> (<code>Ret</code>).
+</p>
+
+<p>
+Es un menú con un buscador para modificar cualquier parámetro del
+programa.
+</p>
+
+<p>
+Sin embargo, es más recomendable hacerlo por medio de un archivo de
+texto, pues si buscan en internet ciertas configuraciones, esta será
+la manera en la que lo encontrarán.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc4c7b87" class="outline-2">
+<h2 id="orgc4c7b87">init.el</h2>
+<div class="outline-text-2" id="text-orgc4c7b87">
+<p>
+En su carpeta <code>$HOME</code> creen un directorio llamado <code>.emacs.d</code> (si es que
+no existe) y dentro de este directorio creen un archivo llamado
+<code>init.el</code>.
+</p>
+
+<p>
+(<code>C-x C-f</code> <code>$HOME/.emacs.d/init.el</code> <code>RET</code>)
+</p>
+
+<p>
+Éste será el archivo de configuración.
+</p>
+</div>
+
+<div id="outline-container-org278e78b" class="outline-3">
+<h3 id="org278e78b">Añadiendo repositorios</h3>
+<div class="outline-text-3" id="text-org278e78b">
+<p>
+Emacs tiene su propio administrador de paquetes, que sirve
+principalmente para añadir o actualizar extensiones para el editor
+de texto.
+</p>
+
+<p>
+Emacs cuenta con sus propios repositorios de los cuales ya puede
+descargar ciertas extensiones, sin embargo el repositorio donde se
+encuentra la mayoría de extensiones desarrolladas por la comunidad
+es <code>MELPA</code>.
+</p>
+
+<p>
+Para añadir éste repositorio añadan las siguuientes lineas en el archivo <code>init.el</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">package</span>)
+(add-to-list 'package-archives
+             '(<span style="font-style: italic;">"melpa"</span> . <span style="font-style: italic;">"https://melpa.org/packages/"</span>))
+(package-initialize)
+(package-refresh-contents)
+</pre>
+</div>
+
+<p>
+Ésto hará que al iniciar Emacs se agregue el repositorio,
+inicialice los paquetes y actualice su contenido.
+</p>
+
+<p>
+Se pueden ver todos los paquetes con el siguiente comando
+</p>
+
+<p>
+<code>M-x list-packages RET</code>
+</p>
+
+<p>
+Y se puede buscar algún paquete en específico con <code>C-s</code> o <code>C-r</code>.
+</p>
+
+<p>
+La instalación de estos paquetes se puede hacer con comandos
+de Emacs, como con:
+</p>
+
+<p>
+<code>M-x install-package RET &lt;nombre-del-paquete&gt; RET</code>
+</p>
+
+<p>
+Pero de igual forma una mejor manera de administrar éstos paquetes
+es por medio del archivo de configuración.
+</p>
+
+<p>
+Para ello, utilizaremos una extensión llamada <code>use-package</code>.
+</p>
+
+<p>
+Al final del archivo <code>init.el</code> añadan las siguientes lineas de texto:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="font-weight: bold;">unless</span> (package-installed-p 'use-package)
+  (package-install 'use-package))
+(<span style="font-weight: bold;">eval-when-compile</span>
+  (<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">use-package</span>))
+(<span style="font-weight: bold;">setq</span> use-package-always-ensure t)
+</pre>
+</div>
+
+<p>
+Con ésto aseguran que esté instalada ésta herramienta y verifique
+la instalación de todos los programas que uno le indique
+posteriormente en el archivo de texto.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga21ce64" class="outline-3">
+<h3 id="orga21ce64">Definiendo init.el como archivo de configuración.</h3>
+<div class="outline-text-3" id="text-orga21ce64">
+<p>
+Añadan las siguientes líneas de texto al final de <code>init.el</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="font-weight: bold;">setq</span> custom-file <span style="font-style: italic;">"~/.custom.el"</span>)
+(<span style="font-weight: bold;">setq</span> user-init-file <span style="font-style: italic;">"~/.emacs.d/init.el"</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd1d71c6" class="outline-3">
+<h3 id="orgd1d71c6">Tema general de emacs</h3>
+<div class="outline-text-3" id="text-orgd1d71c6">
+<p>
+La página <a href="https://emacsthemes.com/">https://emacsthemes.com/</a> contiene una galería de temas para emacs, si encuentran uno que les guste pueden buscarlo en <code>M-x list-packages RET</code> para averiguar el nombre preciso del paquete en el que se encuentra
+</p>
+
+<p>
+Ya que lo tengan, de manera general lo pueden instalar y activar de la siguiente forma (utilizaré como ejemplo el tema <a href="https://emacsthemes.com/themes/timu-caribbean.html">https://emacsthemes.com/themes/timu-caribbean.html</a>):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="font-weight: bold;">use-package</span> timu-caribbean-theme
+  <span style="font-weight: bold;">:config</span>
+  (load-theme 'timu-caribbean t))
+</pre>
+</div>
+
+<p>
+<code>timu-caribbean-theme</code> es el nombre del paquete en donde se encuentra
+el tema y <code>timu-caribbean</code> es el nombre del tema como tal.
+</p>
+
+<p>
+Es importante que sepan ésto ya que pueden encontrar algún paquete
+que tenga varios temas.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgad3927b" class="outline-3">
+<h3 id="orgad3927b">Instalación de otras extensiones</h3>
+<div class="outline-text-3" id="text-orgad3927b">
+<p>
+Para instalar otras extensiones pueden basarse en las instrucciones
+que deja el autor de la extensión, por ejemplo para la extensión
+<code>pdf-tools</code> (que recomiendo para editar documentos en LaTeX) se
+instalaría de la siguiente manera:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="font-weight: bold;">use-package</span> pdf-tools
+  <span style="font-weight: bold;">:config</span> (pdf-tools-install))
+</pre>
+</div>
+
+<p>
+Si la extensión requiere de alguna configuración en especial, ésta
+se puede escribir después de la sección <code>:config</code>.
+</p>
+
+<p>
+<code>use-package</code> también tiene otras funcionalidades para configurar las
+extensiones que se instalen, éstas se pueden ver a detalle aquí:
+<a href="https://github.com/jwiegley/use-package#readme">https://github.com/jwiegley/use-package#readme</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org40ec2e4" class="outline-3">
+<h3 id="org40ec2e4">Cargar la configuración</h3>
+<div class="outline-text-3" id="text-org40ec2e4">
+<p>
+Para que la configuración tome efecto, se puede hacer con el
+comando <code>M-x ev-b RET</code>, y una vez que termine, reinicien emacs.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4b6618c" class="outline-2">
+<h2 id="org4b6618c">¿Dónde puedo aprender más sobre Emacs?</h2>
+<div class="outline-text-2" id="text-org4b6618c">
+<ul class="org-ul">
+<li><b>Tutorial a detalle de Emacs</b>
+
+<ul class="org-ul">
+<li>Para poner en práctica más comandos, atajos y funcionalidades de
+Emacs, el propio Emacs incluye su propio tutorial, que recomiendo
+que sigan para practicar. Para acceder a él en cualquier momento,
+lo pueden hacer con el comando <code>C-h t</code>.</li>
+</ul></li>
+
+<li><b>Wiki oficial de Emacs</b>
+
+<ul class="org-ul">
+<li><a href="https://www.emacswiki.org/">https://www.emacswiki.org/</a></li>
+</ul></li>
+
+<li><b>Tips de la wiki de Arch Linux</b>
+
+<ul class="org-ul">
+<li><a href="https://wiki.archlinux.org/title/Emacs">https://wiki.archlinux.org/title/Emacs</a></li>
+</ul></li>
+
+<li><b>Emacs tiene su propio apartado en <i>stackexchange</i>.</b> (foro de dudas)
+
+<ul class="org-ul">
+<li><a href="https://emacs.stackexchange.com/">https://emacs.stackexchange.com/</a></li>
+</ul></li>
+
+<li><b>Si quieren profundizar en Emacs, este canal te enseña a hacerlo</b>
+
+<ul class="org-ul">
+<li><a href="https://www.youtube.com/@SystemCrafters/playlists">https://www.youtube.com/@SystemCrafters/playlists</a></li>
+</ul></li>
+
+<li><b>Emacs tiene una herramienta propia para tomar notas de lo que sea</b>
+
+<ul class="org-ul">
+<li>Y resulta muy versátil para las notas de clase, configurándose bien:</li>
+
+<li><a href="https://orgmode.org/manual/">https://orgmode.org/manual/</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Erik Rangel Limón</p>
+<p class="date">Created: 2023-08-08 Tue 02:17</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1 (<a href="https://orgmode.org">Org</a> mode 9.6.6)</p>
+</div>
+</body>
+</html>

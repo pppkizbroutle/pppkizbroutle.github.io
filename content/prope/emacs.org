@@ -1,0 +1,366 @@
+#+title: Introducción a Emacs
+#+author: Erik Rangel Limón
+
+* ¿Qué es Emacs?
+
+  Principalmente, es un editor de texto *libre y de código abierto*;
+  pero puede llegar a ser la única herramienta que podrían necesitar
+  en un sistema de cómputo gracias a su amplia extensionalidad.
+
+  Desde crear y editar archivos de texto plano, hasta tener un propio
+  emulador de terminal, servidor de correo, reproductor de audio,
+  navegador web, gestor de ventanas, administradores de chat como
+  Telegram o si uno se lo propone hasta un editor de video.
+
+  Y todo ésto es posible ya que cuenta con su propio lenguaje de
+  programación y un intérprete de éste lenguaje, además de que tiene
+  una comunidad amplia que se dedica a lanzar al público nuevas
+  extensiones y actualizarlas con el tiempo.
+
+  Pero por lo pronto, sólo véanlo como un editor de texto.
+
+* ¿Como uso Emacs?
+
+  Posiblemente cuándo recién lo instalen vean una interfaz con un
+  fondo blanco, con un menú en la parte superior para hacer tareas
+  básicas para editar texto, abrir archivos, entre otros.
+
+  No se deben dejar engañar por este menú ya que Emacs se maneja
+  principalmente con atajos de teclado, lo cual resulta conveniente
+  para aumentar su productividad y no detenerse para realizar alguna
+  acción con el ratón.
+
+* Atajos de Emacs
+
+  Los atajos de teclado de Emacs se escriben de una manera particular
+
+  Primero que nada, las dos teclas utilizadas en todos los comandos de
+  Emacs son las siguientes:
+
+  - =C=: Se refiere a la tecla =control= de los teclados
+
+  - =M=: Se refiere a =Meta=, la cual equivale a la tecla =Alt= en teclados
+    que usan una distribución como la de /Windows/ o =Command= en
+    distribuciones del teclado de las computadoras /Mac/.
+
+
+  Luego, las combinaciones de teclas suelen escribirse de las
+  siguientes formas:
+
+  - =C-a=
+
+    - Lo cual quiere decir:
+
+    - Mantener pulsada la tecla =Control= y sin soltarla pulsar y soltar
+      la tecla =a=; luego soltar =Control=./
+
+  - =C-x C-f=
+
+    - Lo cual quiere decir:
+
+    - Deja pulsada la tecla =Control=, pulsa y suelta la tecla =x= (sin
+      soltar =Control=), pulsa y suelta la tecla =f=, suelta =Control=./
+
+  - =C-x h=
+
+    - Lo cual quiere decir:
+
+    - Deja pulsada la tecla =Control=, pulsa y suelta la tecla =x=, suelta
+      =Control=, y luego pulsa y suelta la tecla =h=./
+
+* Glosario de comandos
+
+** Navegación
+
+   Seguro habrán notado el cursor (el cuadrito que está parpadeando).
+
+   - =C-b=: Mover el cursor a la izquierda
+   - =C-f=: Mover el cursor a la derecha
+   - =C-p=: Mover el cursor hacia arriba
+   - =C-n=: Mover el cursor hacia abajo
+
+
+   Si no se acostumbran a hacerlo de ésta manera, también pueden
+   moverse con las flechitas del teclado.
+   
+   - =C-a=: Mover el cursor al inicio de la línea
+   - =C-e=: Mover el cursor al final de la línea
+   - =M-b=: Mover el cursor una palabra hacia la izquierda
+   - =M-f=: Mover el cursor una palabra hacia la derecha
+   - =M-a=: Mover el cursor a una oración (sección) anterior
+   - =M-e=: Mover el cursor a una oración (sección) posterior
+  
+** Creación y edición de archivos
+
+   - =C-x C-f=
+
+     - Al ejecutar éste comando, en la parte inferior de la ventana de
+       Emacs aparecerá un texto que dice "/Find files/" (a ésta área se le
+       conoce como "/minibuffer/"), en ésta parte se habrá movido su
+       cursor y deberán escribir la ruta del archivo que quieren abrir,
+       o si no existe, la ruta que tendrá el nuevo archivo que quieren
+       crear, recuerden que pueden usar la tecla =Tab= para autocompletar
+       la ruta. Al terminar de escribir la ruta presionen la tecla =Ret=
+       (=Enter=).
+
+     - Ésto les abrirá un nuevo archivo y podrán escribir en él como
+       comúnmente lo harían.
+
+   - =Shift=
+
+     - Éste lo pueden mantener pulsado mientras mueven su cursor para
+       seleccionar una región de texto, sin embargo si les parece
+       incómodo, también hay otra opción para seleccionar texto.
+
+   - =C-SPC= (Control - Espacio)
+
+     - Si lo presionan una sóla vez entraran a un modo de selección,
+       intenten mover su cursor y vean como se va seleccionando el
+       texto.
+
+     - Usen =C-g= para dejar de seleccionar.
+
+   - =C-x h=: Para seleccionar *todo*.
+
+   - =C-s=: Buscar texto en el documento hacia adelante.
+
+   - =C-r=: Buscar texto en el documento hacia atrás.
+
+   - =M-w=: Copiar región seleccionada.
+
+   - =C-w=: Cortar región seleccionada.
+
+   - =C-y=: Pegar
+
+   - =C-g=: Salir de cualquier atajo de teclado.
+
+
+   Como ejercicio escriban una presentación breve de ustedes, ¿Cómo se
+   llaman? ¿Cómo entraron a la carrera (examen / pase)? ¿De qué
+   preparatoria / bachillerato / cch vienen?
+
+   Una vez terminado usen el texto que hayan escrito para probar los
+   comandos mostrados, si surgen dudas, no duden en decirnos.
+
+* Manejo de buffers
+
+  La pantalla en donde ustedes escribieron su presentación es lo que
+  se le conoce como un /buffer/, el cuál sería análogo a una ventana del
+  navegador.
+
+  - =C-x derecha=: cambiar al siguiente /buffer/
+
+  - =C-x izquierda=: cambiar al /buffer/ anterior
+
+  - =C-x b=: Escribir en el /minibuffer/ el /buffer/ específico al cual se
+    quiere cambiar (por ejemplo, el nombre de un archivo que hayan
+    creado / abierto).
+
+
+  Tambień es posible dividir la pantalla de emacs para ver varios
+  /buffers/ al mismo tiempo.
+
+  - =C-x 2=: Divide el /buffer/ actual de manera horizontal
+
+  - =C-x 3=: Divide el /buffer/ actual de manera vertical
+
+  - =C-x o=: Cambiar entre /buffers/ divididos
+
+  - =C-x 0=: Cerrar el /buffer/ dividido actual
+
+  - =C-x 1=: Cerrar todos los /buffers/ divididos menos el actual.
+
+
+  Creen otro archivo en un buffer dividido, y ahora escriban por qué
+  escogieron la carrera de Ciencias de la Computación. Prueben los
+  nuevos comandos para navegar entre buffers.
+
+  Si no se acomodan siempre pueden recurrir al ratón para seleccionar
+  texto, seleccionar buffers divididos, entre otras tareas comunes que
+  harían con él, pero siempre será más recomendable usar el teclado.
+
+* Versión de Emacs para emulador de terminal
+
+  Si están en un sistema sin entorno gráfico, o en un emulador de
+  terminal, también pueden utilizar emacs dentro de la misma terminal.
+
+  En su terminal escriban el siguiente comando con la siguiente
+  bandera:
+
+  #+begin_src bash
+> emacs -nw
+  #+end_src
+
+  Con ésto abriran emacs y funcionará igual que la versión con
+  interfaz gráfica, pero todas las tareas las tendrán que hacer con el
+  teclado ya que en éste modo no funciona el ratón. Por eso es una
+  buena idea practicar sus atajos de teclado antes que usar el ratón.
+
+* Personalizar Emacs
+
+  Emacs no es bueno dando primeras impresiones, parece un editor de
+  texto simple que tiene una interfaz antigua, un tema claro y
+  posiblemente incómodo de usar.
+
+  Sin embargo, la característica principal de Emacs es que no existe
+  una sola cosa en el programa que no se pueda personalizar, sólo hay
+  que aprender a hacerlo.
+
+  Emacs se puede personalizar de dos formas principalmente, de manera
+  gráfica y por medio de un archivo de texto.
+
+  De manera gráfica hay un menú que se puede abrir con el comando =M-x=
+  y escribiendo en el minibuffer "customize" y presionar =Enter= (=Ret=).
+
+  Es un menú con un buscador para modificar cualquier parámetro del
+  programa.
+
+  Sin embargo, es más recomendable hacerlo por medio de un archivo de
+  texto, pues si buscan en internet ciertas configuraciones, esta será
+  la manera en la que lo encontrarán.
+
+* init.el
+
+  En su carpeta =$HOME= creen un directorio llamado =.emacs.d= (si es que
+  no existe) y dentro de este directorio creen un archivo llamado
+  =init.el=.
+
+  (=C-x C-f= =$HOME/.emacs.d/init.el= =RET=)
+
+  Éste será el archivo de configuración.
+
+** Añadiendo repositorios
+
+   Emacs tiene su propio administrador de paquetes, que sirve
+   principalmente para añadir o actualizar extensiones para el editor
+   de texto.
+
+   Emacs cuenta con sus propios repositorios de los cuales ya puede
+   descargar ciertas extensiones, sin embargo el repositorio donde se
+   encuentra la mayoría de extensiones desarrolladas por la comunidad
+   es =MELPA=.
+
+   Para añadir éste repositorio añadan las siguuientes lineas en el archivo =init.el=
+
+   #+begin_src elisp
+(require 'package)
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
+(package-refresh-contents)
+   #+end_src
+
+   Ésto hará que al iniciar Emacs se agregue el repositorio,
+   inicialice los paquetes y actualice su contenido.
+
+   Se pueden ver todos los paquetes con el siguiente comando
+
+   =M-x list-packages RET=
+
+   Y se puede buscar algún paquete en específico con =C-s= o =C-r=.
+   
+   La instalación de estos paquetes se puede hacer con comandos
+   de Emacs, como con:
+
+   =M-x install-package RET <nombre-del-paquete> RET=
+
+   Pero de igual forma una mejor manera de administrar éstos paquetes
+   es por medio del archivo de configuración.
+
+   Para ello, utilizaremos una extensión llamada =use-package=.
+
+   Al final del archivo =init.el= añadan las siguientes lineas de texto:
+
+   #+begin_src elisp
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
+(setq use-package-always-ensure t)
+   #+end_src
+
+   Con ésto aseguran que esté instalada ésta herramienta y verifique
+   la instalación de todos los programas que uno le indique
+   posteriormente en el archivo de texto.
+
+** Definiendo init.el como archivo de configuración.
+
+   Añadan las siguientes líneas de texto al final de =init.el=
+
+   #+begin_src elisp
+(setq custom-file "~/.custom.el")
+(setq user-init-file "~/.emacs.d/init.el")
+   #+end_src
+
+** Tema general de emacs
+
+   La página [[https://emacsthemes.com/]] contiene una galería de temas para emacs, si encuentran uno que les guste pueden buscarlo en =M-x list-packages RET= para averiguar el nombre preciso del paquete en el que se encuentra
+
+   Ya que lo tengan, de manera general lo pueden instalar y activar de la siguiente forma (utilizaré como ejemplo el tema [[https://emacsthemes.com/themes/timu-caribbean.html]]):
+
+   #+begin_src elisp
+(use-package timu-caribbean-theme
+  :config
+  (load-theme 'timu-caribbean t))
+   #+end_src
+
+   =timu-caribbean-theme= es el nombre del paquete en donde se encuentra
+   el tema y =timu-caribbean= es el nombre del tema como tal.
+
+   Es importante que sepan ésto ya que pueden encontrar algún paquete
+   que tenga varios temas.
+
+** Instalación de otras extensiones
+
+   Para instalar otras extensiones pueden basarse en las instrucciones
+   que deja el autor de la extensión, por ejemplo para la extensión
+   =pdf-tools= (que recomiendo para editar documentos en LaTeX) se
+   instalaría de la siguiente manera:
+
+   #+begin_src elisp
+(use-package pdf-tools
+  :config (pdf-tools-install))
+   #+end_src
+
+   Si la extensión requiere de alguna configuración en especial, ésta
+   se puede escribir después de la sección =:config=.
+
+   =use-package= también tiene otras funcionalidades para configurar las
+   extensiones que se instalen, éstas se pueden ver a detalle aquí:
+   [[https://github.com/jwiegley/use-package#readme]]
+
+** Cargar la configuración
+
+   Para que la configuración tome efecto, se puede hacer con el
+   comando =M-x ev-b RET=, y una vez que termine, reinicien emacs.
+
+* ¿Dónde puedo aprender más sobre Emacs?
+
+  - *Tutorial a detalle de Emacs*
+
+    - Para poner en práctica más comandos, atajos y funcionalidades de
+      Emacs, el propio Emacs incluye su propio tutorial, que recomiendo
+      que sigan para practicar. Para acceder a él en cualquier momento,
+      lo pueden hacer con el comando =C-h t=.
+
+  - *Wiki oficial de Emacs*
+
+    - https://www.emacswiki.org/
+
+  - *Tips de la wiki de Arch Linux*
+
+    - [[https://wiki.archlinux.org/title/Emacs]]
+
+  - *Emacs tiene su propio apartado en /stackexchange/.* (foro de dudas)
+
+    - [[https://emacs.stackexchange.com/]]
+
+  - *Si quieren profundizar en Emacs, este canal te enseña a hacerlo*
+
+    - [[https://www.youtube.com/@SystemCrafters/playlists]]
+
+  - *Emacs tiene una herramienta propia para tomar notas de lo que sea*
+
+    - Y resulta muy versátil para las notas de clase, configurándose bien:
+
+    - [[https://orgmode.org/manual/]]
