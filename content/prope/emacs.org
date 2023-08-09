@@ -106,6 +106,11 @@
      - Ésto les abrirá un nuevo archivo y podrán escribir en él como
        comúnmente lo harían.
 
+   - =C-x C-s=
+
+     - Éste atajo de teclado guardará el documento en donde se
+       encuentre el cursor actualmente.
+
    - =Shift=
 
      - Éste lo pueden mantener pulsado mientras mueven su cursor para
@@ -240,7 +245,8 @@
    encuentra la mayoría de extensiones desarrolladas por la comunidad
    es =MELPA=.
 
-   Para añadir éste repositorio añadan las siguuientes lineas en el archivo =init.el=
+   Para añadir éste repositorio añadan las siguuientes lineas en el
+   archivo =init.el=
 
    #+begin_src elisp
 (require 'package)
@@ -294,9 +300,14 @@
 
 ** Tema general de emacs
 
-   La página [[https://emacsthemes.com/]] contiene una galería de temas para emacs, si encuentran uno que les guste pueden buscarlo en =M-x list-packages RET= para averiguar el nombre preciso del paquete en el que se encuentra
+   La página [[https://emacsthemes.com/]] contiene una galería de temas
+   para emacs, si encuentran uno que les guste pueden buscarlo en =M-x
+   list-packages RET= para averiguar el nombre preciso del paquete en
+   el que se encuentra
 
-   Ya que lo tengan, de manera general lo pueden instalar y activar de la siguiente forma (utilizaré como ejemplo el tema [[https://emacsthemes.com/themes/timu-caribbean.html]]):
+   Ya que lo tengan, de manera general lo pueden instalar y activar de
+   la siguiente forma (utilizaré como ejemplo el tema
+   [[https://emacsthemes.com/themes/timu-caribbean.html]]):
 
    #+begin_src elisp
 (use-package timu-caribbean-theme
@@ -364,3 +375,246 @@
     - Y resulta muy versátil para las notas de clase, configurándose bien:
 
     - [[https://orgmode.org/manual/]]
+
+  - *Un "cheatsheet" de los atajos más útiles de emacs*
+
+    - [[https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf]]
+
+* Ejercicios
+
+  Para los siguientes ejercicios usen lo menos posible el ratón de su
+  computadora. (Salvo para buscar en internet)
+
+** Creen dos directorios directamente desde emacs
+
+   Olvidé mencionar qué hace el atajo =M-x=. Éste es en general para
+   ejecutar comandos propios de /Emacs/.
+
+   Al correrlo, les va a mover su cursor al /minibuffer/ y tendrán
+   que escribir en él algún comando en particular.
+
+   Éste comando puede ser para activar modos, abrir algún menú, entre
+   otras tareas.
+
+   Vamos a crear un directorio en la ruta =~/Propedeutico/dir1=
+
+   Para hacerlo presionamos =M-x= y en el /minibuffer/ escribimos
+   =make-directory= y dan enter, nos pedirá la ruta del directorio, y
+   escribimos =~/Propedeutico/dir1= y dan =Enter=.
+
+   Ahora, creen una carpeta llamada =dir2= dentro de =dir1=.
+
+   ¿Cuál es la ruta que tendrá esta carpeta?
+
+   Dentro de =dir2= creen un archivo con la extensión =.txt=
+
+   ¿Cuál sería la ruta de éste nuevo archivo?
+
+   Escriban lo que sea en éste archivo y guárdenlo.
+
+   Creen dos nuevos archivos en la carpeta =dir1= con la extensión =.txt=
+
+   ¿Cuál sería la ruta de éstos nuevos archivos?
+  
+** Personalizar Emacs con init.el
+
+   Éste ejercicio se quedaría más como una tarea moral, que espero que
+   hagan en sus computadoras con Emacs.
+
+   El motivo de éste ejercicio principalmente es que puedan hacer
+   tareas comunes como copiar y pegar en un documento, no es necesario
+   que entiendan del todo el código de /emacs lisp/. (les puedo asegurar
+   que no hará nada extraño con su computadora).
+
+   Y de hecho, no hace falta entender del todo el funcionamiento de
+   /emacs lisp/ para personalizar su emacs (yo todavía no lo hago del
+   todo y considero que he llegado lejos a base de copiar y pegar). Lo
+   importante de éste archivo es cómo lo irán estructurando con el
+   tiempo hasta llegar a hacer su versión propia de /emacs/.
+
+   Terminando de hacer esta configuración, tendrán todo lo necesario
+   para utilizar /Emacs/ desde su primer semestre.
+
+   1. Sigan los pasos vistos en /Añadiendo repositorios/ y /Definiendo
+      init.el como archivo de configuración/ de la sección /init.el/
+
+      - Es decir, creen el archivo =~/.emacs.d/init.el=
+
+      - Copien y peguen las siguientes líneas dentro del archivo
+
+	#+begin_src elisp
+(require 'package)
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
+(package-refresh-contents)
+
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
+(setq use-package-always-ensure t)
+
+(setq custom-file "~/.custom.el")
+(setq user-init-file "~/.emacs.d/init.el")
+	#+end_src
+   
+   2. ¿Recuerdan las barras superiores que les dije que ignoraran?,
+      bueno es momento de quitarlas, y de paso, también el
+      "/scrollbar/".
+
+      - Copien y peguen lo siguiente al final del archivo =init.el=
+
+	#+begin_src elisp
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+	#+end_src
+
+   3. Evalúen el /buffer/
+
+      - Con =M-x ev-b RET=
+
+   4. Ahora, busquen un tema que les agrade en la página
+      [[https://emacsthemes.com/]]
+
+      - Una vez que lo hayan elegido, selecciónenlo y les abrirá su
+        página en la cual deberán seleccionar el hipervínculo que dice
+        /Official Source/.
+
+      - Lo más probable es que les abra una página de /gitlab/ o /github/
+        y en ese mismo generalmente vienen instrucciones de cómo
+        instalarlo y activarlo con =use-package=, si es así, sólo
+        cópienlo y péguenlo al final de su documento de =init.el=.
+
+      - Si no vienen instrucciones de como hacerlo con =use-package=, se
+        puede hacer de la siguiente manera con casi cualquier tema:
+
+	#+begin_src elisp
+(use-package nombre-del-paquete
+  :config (load-theme 'nombre-del-tema t))
+	#+end_src
+
+      - El nombre preciso del paquete lo pueden encontrar abriendo un
+        nuevo /sub-buffer/ (ya sea con =C-x 2= ó =C-x 3= ) y en éste nuevo
+        buffer correr el comando =M-x list-packages RET=, y buscando con
+        =C-s.=
+
+      - Por lo general si el nombre del paquete es algo como =<nombre
+        del tema>-theme=, lo más seguro es que el nombre del tema sea
+        sólo =<nombre del tema>= (sin el =theme=).
+
+      - Si no es así, dígannos y podemos investigarlo.
+
+   5. Terminando, evalúen su buffer con =M-x ev-b RET=
+
+   6. Los siguientes son configuraciones y extensiones que recomiendo
+      para que empicen a utilizar /Emacs/ desde su primer semestre.
+
+      la siguiente opción activará el indicador numérico de la línea
+      en la que se encuentran dentro de cualquier archivo que abran
+      desde emacs de manera global.
+
+      #+begin_src elisp
+(global-display-line-numbers-mode)
+      #+end_src
+
+      La siguiente opción resaltará hasta donde se cierra el
+      paréntesis/corchete/llave que está señalando actualmente su
+      cursor.
+
+      #+begin_src elisp
+(show-paren-mode 1)
+      #+end_src
+
+      La siguiente opción auto-completerá los
+      paréntesis/corchetes/llaves/comillas.
+
+      #+begin_src elisp
+(electric-pair-mode 1)
+(setq electric-pair-pairs
+      '((?\" . ?\")
+        (?\{ . ?\})))
+      #+end_src
+
+      La siguiente opción pintará de distinto color los paréntesis
+      anidados en cualquier lenguaje de programación en el que se
+      encuentren.
+
+      #+begin_src elisp
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))  
+      #+end_src
+
+      La siguiente opción resaltará los números de otro color en
+      cualquier lenguaje de programación en el que se encuentren.
+
+      #+begin_src elisp
+(use-package highlight-numbers
+  :hook (prog-mode . highlight-numbers-mode))
+      #+end_src
+
+      Lo más probable es que en su curso de /Estructuras Discretas/ en
+      sus laboratorios vean /Haskell/, y Emacs no trae por defecto el
+      modo para éste lenguaje, por lo que lo pueden instalar con la
+      siguiente línea.
+
+      #+begin_src elisp
+(use-package haskell-mode)
+      #+end_src
+
+      Configuren =LaTeX= para que también ponga entre paréntesis el
+      símbolo =$= automáticamente.
+
+      #+begin_src elisp
+(use-package latex-mode
+  :ensure nil
+  :defer t
+  :hook (latex-mode . (lambda ()
+			(setq electric-pair-pairs
+			      (?$ . ?$)))))
+      #+end_src
+
+      La siguiente extensión es para mostrar sugerencias para un atajo
+      de teclado que hayan ingresado de manera incompleta, se las
+      recomiendo mucho para que poco a poco se vayan aprendiendo los
+      atajos de teclado.
+
+      #+begin_src elisp
+(use-package which-key
+  :config (which-key-mode))
+      #+end_src
+
+      La siguiente extensión es el emulador de terminal que yo utilizo
+      dentro de emacs, esta configración desactiva el
+      display-line-numbers-mode ya que no funciona correctamente si
+      está activado, también añade un atajo personalizado para abrir
+      una terminal en cualquier momento con =C-c t=
+
+      #+begin_src elisp
+(use-package vterm
+  :hook (vterm-mode . (lambda () (display-line-numbers-mode -1)))
+  :bind ("C-c t" . vterm))  
+      #+end_src
+
+      La siguiente extensión es una mejor herramienta para visualizar
+      pdf's dentro de /Emacs/ (también desactiva
+      display-line-numbers-mode). La recomiendo mucho para visualizar
+      sus documentos de LaTeX.
+
+      #+begin_src elisp
+(use-package pdf-tools
+  :hook (pdf-view-mode . (lambda () (display-line-numbers-mode -1)))
+  :config (pdf-tools-install))
+      #+end_src
+
+      Como buena práctica de programación, siempre es mejor no superar
+      los 80 caracteres en una sóla línea de código. Ésto hará su
+      código más legible, y en general más bonito.
+
+      Para ello, podemos configurar la siguiente línea ajustada en el
+      caracter 80 para que procuren nunca superarla.
+
+      #+begin_src elisp
+(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
+      #+end_src
