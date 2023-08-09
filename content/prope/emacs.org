@@ -563,8 +563,8 @@
 (use-package haskell-mode)
       #+end_src
 
-      Configuren =LaTeX= para que también ponga entre paréntesis el
-      símbolo =$= automáticamente.
+      Configuren =LaTeX= para que también cierre el símbolo =$=
+      automáticamente.
 
       #+begin_src elisp
 (use-package latex-mode
