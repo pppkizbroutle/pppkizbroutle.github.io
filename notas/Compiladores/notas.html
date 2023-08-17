@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-08-17 Thu 15:56 -->
+<!-- 2023-08-17 Thu 16:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Compiladores</title>
@@ -50,38 +50,44 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org033b81b">Rubros</a></li>
-<li><a href="#org13af4c0">Notas</a>
+<li><a href="#orgf763001">Rubros</a></li>
+<li><a href="#org44ac9b7">Notas</a>
 <ul>
-<li><a href="#org2985d1b">Temario ( 15 / 08 / 23 )</a></li>
-<li><a href="#orgd8f54b9">Autómatas (repaso)</a></li>
-<li><a href="#org9e9b0c4">16 / 08 / 23</a>
+<li><a href="#org4a4ea03">Temario ( 15 / 08 / 23 )</a></li>
+<li><a href="#org6029f38">Autómatas (repaso)</a></li>
+<li><a href="#orgd2cea2e">16 / 08 / 23</a>
 <ul>
-<li><a href="#orgd46b85f">Compilador</a></li>
-<li><a href="#orgfccceb4">Jerarquía de Chomsky</a></li>
-<li><a href="#orga0cf590">Autómatas finitos y expresiones regulares</a></li>
-<li><a href="#org98f1b9b">Técnicas de optimización</a></li>
-<li><a href="#org12386a1">Otros avances</a></li>
-<li><a href="#orgd8e91dd">Intérpretes</a></li>
-<li><a href="#orga060c5d">Ensambladores</a></li>
-<li><a href="#org5c92ae2">Enlazador</a></li>
-<li><a href="#org3525309">Preprocesadores</a></li>
-<li><a href="#org3a9ba08">Editores</a></li>
-<li><a href="#orgdee3a09">Depuradores</a></li>
-<li><a href="#org54d2f4b">Perfiladores</a></li>
-<li><a href="#org7f6c00d">Administradores de proyecto</a></li>
+<li><a href="#org9b0185f">Compilador</a></li>
+<li><a href="#org0020c94">Jerarquía de Chomsky</a></li>
+<li><a href="#orgf6ae622">Autómatas finitos y expresiones regulares</a></li>
+<li><a href="#org9bee425">Técnicas de optimización</a></li>
+<li><a href="#org6b13db2">Otros avances</a></li>
+<li><a href="#orge051b6f">Intérpretes</a></li>
+<li><a href="#org55d7a67">Ensambladores</a></li>
+<li><a href="#orgeab065b">Enlazador</a></li>
+<li><a href="#orgaaede6b">Preprocesadores</a></li>
+<li><a href="#org55dba49">Editores</a></li>
+<li><a href="#org4d9d2a9">Depuradores</a></li>
+<li><a href="#org7011e81">Perfiladores</a></li>
+<li><a href="#orgb079090">Administradores de proyecto</a></li>
+</ul>
+</li>
+<li><a href="#org11858bb">17 / 08 / 23</a>
+<ul>
+<li><a href="#org67b88dd">Lenguajes Regulares</a></li>
+<li><a href="#org496b1b4">Regex</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgfb3972d">Bibliografía</a></li>
+<li><a href="#org5398c10">Bibliografía</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org033b81b" class="outline-2">
-<h2 id="org033b81b">Rubros</h2>
-<div class="outline-text-2" id="text-org033b81b">
+<div id="outline-container-orgf763001" class="outline-2">
+<h2 id="orgf763001">Rubros</h2>
+<div class="outline-text-2" id="text-orgf763001">
 <ul class="org-ul">
 <li>Prácticas 20%</li>
 <li>Proyecto final 30%</li>
@@ -91,13 +97,13 @@
 </div>
 </div>
 
-<div id="outline-container-org13af4c0" class="outline-2">
-<h2 id="org13af4c0">Notas</h2>
-<div class="outline-text-2" id="text-org13af4c0">
+<div id="outline-container-org44ac9b7" class="outline-2">
+<h2 id="org44ac9b7">Notas</h2>
+<div class="outline-text-2" id="text-org44ac9b7">
 </div>
-<div id="outline-container-org2985d1b" class="outline-3">
-<h3 id="org2985d1b">Temario ( 15 / 08 / 23 )</h3>
-<div class="outline-text-3" id="text-org2985d1b">
+<div id="outline-container-org4a4ea03" class="outline-3">
+<h3 id="org4a4ea03">Temario ( 15 / 08 / 23 )</h3>
+<div class="outline-text-3" id="text-org4a4ea03">
 <ol class="org-ol">
 <li>Introducción</li>
 
@@ -116,9 +122,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgd8f54b9" class="outline-3">
-<h3 id="orgd8f54b9">Autómatas (repaso)</h3>
-<div class="outline-text-3" id="text-orgd8f54b9">
+<div id="outline-container-org6029f38" class="outline-3">
+<h3 id="org6029f38">Autómatas (repaso)</h3>
+<div class="outline-text-3" id="text-org6029f38">
 <ul class="org-ul">
 <li>Lenguaje: Es un conjunto de cadenas sobre un alfabeto \(\Sigma\).
 
@@ -179,13 +185,13 @@ concatenaciones de palabras de \(\mathcal{L}\) con \(\mathcal{M}\)</li>
 </div>
 </div>
 
-<div id="outline-container-org9e9b0c4" class="outline-3">
-<h3 id="org9e9b0c4">16 / 08 / 23</h3>
-<div class="outline-text-3" id="text-org9e9b0c4">
+<div id="outline-container-orgd2cea2e" class="outline-3">
+<h3 id="orgd2cea2e">16 / 08 / 23</h3>
+<div class="outline-text-3" id="text-orgd2cea2e">
 </div>
-<div id="outline-container-orgd46b85f" class="outline-4">
-<h4 id="orgd46b85f">Compilador</h4>
-<div class="outline-text-4" id="text-orgd46b85f">
+<div id="outline-container-org9b0185f" class="outline-4">
+<h4 id="org9b0185f">Compilador</h4>
+<div class="outline-text-4" id="text-org9b0185f">
 <p>
 Un compilador es un programa que traduce de un lenguaje a
 otro. Toma como entrada un programa escrito en un lenguaje fuente
@@ -208,9 +214,9 @@ lenguaje objetivo (.class, .out, .exe).
 </div>
 </div>
 
-<div id="outline-container-orgfccceb4" class="outline-4">
-<h4 id="orgfccceb4">Jerarquía de Chomsky</h4>
-<div class="outline-text-4" id="text-orgfccceb4">
+<div id="outline-container-org0020c94" class="outline-4">
+<h4 id="org0020c94">Jerarquía de Chomsky</h4>
+<div class="outline-text-4" id="text-org0020c94">
 <ul class="org-ul">
 <li>Los estudios de <i>Noam Chomsky</i> condujeron a la clasificación de
 los lenguajes de acuerdo a la complejidad de sus gramáticas y la
@@ -233,8 +239,8 @@ cuales es una especialización de la anterior.
 </div>
 
 <ul class="org-ul">
-<li><a id="org8ca1bd0"></a>Gramáticas libres de contexto<br />
-<div class="outline-text-5" id="text-org8ca1bd0">
+<li><a id="orged68a47"></a>Gramáticas libres de contexto<br />
+<div class="outline-text-5" id="text-orged68a47">
 <ul class="org-ul">
 <li>Las gramáticas de tipo 2, mejor conocidas como gramáticas
 libres de contexto, han demostrado ser las más útiles para
@@ -257,9 +263,9 @@ Johnson en 1975 para el sistema Unix.</li>
 </ul>
 </div>
 
-<div id="outline-container-orga0cf590" class="outline-4">
-<h4 id="orga0cf590">Autómatas finitos y expresiones regulares</h4>
-<div class="outline-text-4" id="text-orga0cf590">
+<div id="outline-container-orgf6ae622" class="outline-4">
+<h4 id="orgf6ae622">Autómatas finitos y expresiones regulares</h4>
+<div class="outline-text-4" id="text-orgf6ae622">
 <ul class="org-ul">
 <li>Estas técnicas, corresponden a las gramáticas tipo 3 y se
 encuentran relacionadas con las gramáticas libres de contexto.</li>
@@ -275,9 +281,9 @@ conocido es Lex.</li>
 </div>
 </div>
 
-<div id="outline-container-org98f1b9b" class="outline-4">
-<h4 id="org98f1b9b">Técnicas de optimización</h4>
-<div class="outline-text-4" id="text-org98f1b9b">
+<div id="outline-container-org9bee425" class="outline-4">
+<h4 id="org9bee425">Técnicas de optimización</h4>
+<div class="outline-text-4" id="text-org9bee425">
 <ul class="org-ul">
 <li>Otro aspecto destacable en el área ha sido el desarrollo de
 métodos para la generación de código objeto eficaz.</li>
@@ -290,9 +296,9 @@ objeto verdaderamente óptimo.</li>
 </div>
 </div>
 
-<div id="outline-container-org12386a1" class="outline-4">
-<h4 id="org12386a1">Otros avances</h4>
-<div class="outline-text-4" id="text-org12386a1">
+<div id="outline-container-org6b13db2" class="outline-4">
+<h4 id="org6b13db2">Otros avances</h4>
+<div class="outline-text-4" id="text-org6b13db2">
 <ul class="org-ul">
 <li>Algoritmos para inferir y / o simplificar la información
 contenida en un programa, por ejemplo el algoritmo de
@@ -303,9 +309,9 @@ unificación de tipos de <i>Hindley-Milner</i>.</li>
 </div>
 </div>
 
-<div id="outline-container-orgd8e91dd" class="outline-4">
-<h4 id="orgd8e91dd">Intérpretes</h4>
-<div class="outline-text-4" id="text-orgd8e91dd">
+<div id="outline-container-orge051b6f" class="outline-4">
+<h4 id="orge051b6f">Intérpretes</h4>
+<div class="outline-text-4" id="text-orge051b6f">
 <ul class="org-ul">
 <li>A diferencia de un compilador, un intérprete ejecuta un programa
 fuente inmediatamente.</li>
@@ -324,9 +330,9 @@ intérpretes y existen incluso traductores híbridos.</li>
 </div>
 </div>
 
-<div id="outline-container-orga060c5d" class="outline-4">
-<h4 id="orga060c5d">Ensambladores</h4>
-<div class="outline-text-4" id="text-orga060c5d">
+<div id="outline-container-org55d7a67" class="outline-4">
+<h4 id="org55d7a67">Ensambladores</h4>
+<div class="outline-text-4" id="text-org55d7a67">
 <ul class="org-ul">
 <li>Un ensamblador es un traductor para el lenguaje ensamblador.</li>
 
@@ -337,9 +343,9 @@ la traducción a código objeto.</li>
 </div>
 </div>
 
-<div id="outline-container-org5c92ae2" class="outline-4">
-<h4 id="org5c92ae2">Enlazador</h4>
-<div class="outline-text-4" id="text-org5c92ae2">
+<div id="outline-container-orgeab065b" class="outline-4">
+<h4 id="orgeab065b">Enlazador</h4>
+<div class="outline-text-4" id="text-orgeab065b">
 <ul class="org-ul">
 <li>Es un programa que combina los códigos objeto generados por el
 compilador o ensamblador así como otras piezas de código para
@@ -354,9 +360,9 @@ vínculo entre ellos.</li>
 </div>
 </div>
 
-<div id="outline-container-org3525309" class="outline-4">
-<h4 id="org3525309">Preprocesadores</h4>
-<div class="outline-text-4" id="text-org3525309">
+<div id="outline-container-orgaaede6b" class="outline-4">
+<h4 id="orgaaede6b">Preprocesadores</h4>
+<div class="outline-text-4" id="text-orgaaede6b">
 <ul class="org-ul">
 <li>Son programas separados que son invocados por el compilador
 antes de que comience la traducción real.</li>
@@ -369,9 +375,9 @@ adicionales.</li>
 </div>
 </div>
 
-<div id="outline-container-org3a9ba08" class="outline-4">
-<h4 id="org3a9ba08">Editores</h4>
-<div class="outline-text-4" id="text-org3a9ba08">
+<div id="outline-container-org55dba49" class="outline-4">
+<h4 id="org55dba49">Editores</h4>
+<div class="outline-text-4" id="text-org55dba49">
 <ul class="org-ul">
 <li>Los compiladores aceptan programas fuente escritos usando
 cualquier editor.</li>
@@ -389,9 +395,9 @@ programa se vaya escribiendo.</li>
 </div>
 </div>
 
-<div id="outline-container-orgdee3a09" class="outline-4">
-<h4 id="orgdee3a09">Depuradores</h4>
-<div class="outline-text-4" id="text-orgdee3a09">
+<div id="outline-container-org4d9d2a9" class="outline-4">
+<h4 id="org4d9d2a9">Depuradores</h4>
+<div class="outline-text-4" id="text-org4d9d2a9">
 <ul class="org-ul">
 <li>Son programas que se usan para determinar los errores de
 ejecución en un programa.</li>
@@ -408,9 +414,9 @@ especificados.</li>
 </div>
 </div>
 
-<div id="outline-container-org54d2f4b" class="outline-4">
-<h4 id="org54d2f4b">Perfiladores</h4>
-<div class="outline-text-4" id="text-org54d2f4b">
+<div id="outline-container-org7011e81" class="outline-4">
+<h4 id="org7011e81">Perfiladores</h4>
+<div class="outline-text-4" id="text-org7011e81">
 <ul class="org-ul">
 <li>Un perfilador es un programa que recolecta estadísticas sobre el
 comportamienbto de un programa objeto durante la ejecución.</li>
@@ -423,9 +429,9 @@ ellos.</li>
 </div>
 </div>
 
-<div id="outline-container-org7f6c00d" class="outline-4">
-<h4 id="org7f6c00d">Administradores de proyecto</h4>
-<div class="outline-text-4" id="text-org7f6c00d">
+<div id="outline-container-orgb079090" class="outline-4">
+<h4 id="orgb079090">Administradores de proyecto</h4>
+<div class="outline-text-4" id="text-orgb079090">
 <ul class="org-ul">
 <li>Los proyecto de software por lo general son tan grandes que
 tienen que ser realizados por grupos de programadores en lugar
@@ -441,15 +447,68 @@ por programadores diferentes.</li>
 </div>
 </div>
 </div>
+
+<div id="outline-container-org11858bb" class="outline-3">
+<h3 id="org11858bb">17 / 08 / 23</h3>
+<div class="outline-text-3" id="text-org11858bb">
+</div>
+<div id="outline-container-org67b88dd" class="outline-4">
+<h4 id="org67b88dd">Lenguajes Regulares</h4>
+<div class="outline-text-4" id="text-org67b88dd">
+<p>
+Un lenguaje \(\mathcal{L}\) bajo un alfabeto \(\Sigma\) es regular si
+se puede generar a partir de lenguajes básicos (\(\{\varepsilon\}\),
+\(\emptyset\), \(\{a\}\)).
+</p>
+
+<ul class="org-ul">
+<li>\(\emptyset\) es regular</li>
+
+<li>\(\{\varepsilon\}\) es regular</li>
+
+<li>Si \(a\in\Sigma\), entonces \(\{a\}\) es un lenguaje regular.</li>
+
+<li>Si \(\mathcal{L}\) es regular, entonces \(\mathcal{L}^*\) también es
+regular.</li>
+
+<li>Si \(\mathcal{L}\) y \(\mathcal{M}\) son lenguajes regulares,
+entonces \(\mathcal{L}\cup\mathcal{M}\) y \(\mathcal{LM}\) son
+regulares.</li>
+
+<li>Son todas</li>
+</ul>
+</div>
 </div>
 
-<div id="outline-container-orgfb3972d" class="outline-2">
-<h2 id="orgfb3972d">Bibliografía</h2>
+<div id="outline-container-org496b1b4" class="outline-4">
+<h4 id="org496b1b4">Regex</h4>
+<div class="outline-text-4" id="text-org496b1b4">
+<ul class="org-ul">
+<li>\(\emptyset\) es un regex</li>
+
+<li>\(\varepsilon\) es un regex</li>
+
+<li>Si \(a\in\Sigma\), entonces \(a\) es un regex</li>
+
+<li>Si \(\alpha\) es un regex, entonces \(\alpha^*\) es un regex</li>
+
+<li>Si \(\alpha\), \(\beta\) son regex, entonces \(\alpha+\beta\) y
+\(\alpha\beta\) son regex.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org5398c10" class="outline-2">
+<h2 id="org5398c10">Bibliografía</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Erik Rangel Limón</p>
-<p class="date">Created: 2023-08-17 Thu 15:56</p>
+<p class="date">Created: 2023-08-17 Thu 16:43</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1 (<a href="https://orgmode.org">Org</a> mode 9.6.6)</p>
 </div>
 </body>
