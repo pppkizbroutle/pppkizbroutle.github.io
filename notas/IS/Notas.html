@@ -1,0 +1,3711 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-08-17 Thu 15:56 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ingeniería de Software</title>
+<meta name="author" content="Erik Rangel Limón" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">/* Base */html,body {    background-color: #222;    min-height: 100%;    line-height: 1.5;}body {    color: #fafafa;    font-family: "Courier New";}::selection {    background-color:  #2ecc40;    color: white;}/* Responsive content positioning */@media only screen and (min-width: 1020px) /* Large screens */{    body{        padding: 10vh 25vw;    }}@media only screen and (max-width: 1020px) and (min-width: 750px) /* Small screens */{    body{        padding: 5vh 10vw;    }}@media only screen and (max-width: 750px) /* Small screens */{    body{        padding: 2vh 5vw;    }}/* Headers */h1{font-size: 2.5rem;}h2{font-size: 1.7rem;}h1 > .subtitle, h3, h4, h5, h6{font-size: 1.3rem;}.title{    margin-bottom: 2.5rem;}/* Padding & Margin */* {margin: 0; padding: 0;}pre, blockquote, ul, ol, p, table{    margin: 1rem 0;}h1, h2{margin-top: 2rem; line-height: 2rem;}h3, h4, h5, h6{margin-top: 1rem;}/* Links  */a, a:visited {    color: #01ff70;    text-decoration: underline;}a:hover, a:focus, a:active {    color: #2ecc40;}/* Code */pre {    font-family: "Courier New";    padding: .5rem;    background-color: #333;    padding: 0.5rem;    border-radius: 0.2rem;    font-size: 0.9rem;    color: #EEE;    overflow-x: auto;}.org-keyword{    color: #01ff70;}.org-rainbow-delimiters-depth-1{    color: #2ecc40;}.org-rainbow-delimiters-depth-2{    color: #01ff70;}/* Blockquotes */blockquote {    border-left: 3px solid #01ff70;    padding-left: 1rem;}li{    list-style-position: inside;}/* Tags */.tag{    margin-top: 0.5rem;    display: block;    color: white;    font-size: var(--font-size-xsmall);}.tag > span{		font-weight: 400;    font-size: 0.8rem;    background-color: #444;    text-transform: uppercase;    border-radius: 2px;    width: fit-content;    height: auto;    padding: 1px 5px;}/* Keywords */.todo{    color: #2ecc40;}.done{    color: #444;}/* Overflows */.outline-text-2, .outline-text-3, .outline-text-4{	  max-width: 100%;	  overflow-x: auto;}/* Table */tr:nth-child(even) {    background-color: #333;}th, td{    padding: 0.5rem;    text-align: center;}.underline{    text-decoration: underline;}img{    max-width: 100%;    height: auto;}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Ingeniería de Software</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org1ecbf73">Bibliografía</a></li>
+<li><a href="#orgb286e88">Evaluación</a>
+<ul>
+<li><a href="#org1088322">Clases teóricas:</a></li>
+<li><a href="#org736ff8e">Ayudantía:</a></li>
+<li><a href="#org49019db">Laboratorio:</a></li>
+<li><a href="#orgf32eef6">Calificación final</a></li>
+</ul>
+</li>
+<li><a href="#org1314d0a">Notas de Clase</a>
+<ul>
+<li><a href="#org815598e">Clase 1</a>
+<ul>
+<li><a href="#org7475c02">Objetivo</a></li>
+<li><a href="#org6e3931f">Temario</a></li>
+</ul>
+</li>
+<li><a href="#org27f7417">Clase 2</a>
+<ul>
+<li><a href="#orgf44397c">Diferencia entre programación e ingeniería de software</a></li>
+<li><a href="#org0c0ef2a">Definiciones de la Ingeniería de Software</a></li>
+<li><a href="#org8f5c73a">Objetivo de la Ingeniería de Software</a></li>
+<li><a href="#orgbe72efe">Campo de acción de la Ingeniería de Software</a></li>
+<li><a href="#orgd9a3bca">Relación entre las Matemáticas, Ciencias de la Computación e Ingeniería de Software</a></li>
+<li><a href="#orgf70c5d4">Software</a></li>
+</ul>
+</li>
+<li><a href="#org44a4471">Clase 3</a>
+<ul>
+<li><a href="#org5c58607">Características del software</a></li>
+<li><a href="#orgf37be8b">Tipos de software</a></li>
+<li><a href="#org03a95b4">Calidad de software</a></li>
+<li><a href="#org3d5d746">Prácticas de calidad</a></li>
+</ul>
+</li>
+<li><a href="#orgc2f435b">Laboratorio 1</a>
+<ul>
+<li><a href="#orgf4d6b59">Glosario de Bases de Datos (MySQL)</a></li>
+</ul>
+</li>
+<li><a href="#orgeaba026">Clase 4</a>
+<ul>
+<li><a href="#org09d2ab4">Cualidades del software</a></li>
+<li><a href="#orgdd5d4e3">Definición de cliente y equipo de desarrollo</a></li>
+<li><a href="#org8cb1583">Ciclo de vida de software</a></li>
+</ul>
+</li>
+<li><a href="#orgefef69e">Clase 5</a>
+<ul>
+<li><a href="#orgf903d8f">Roles</a></li>
+</ul>
+</li>
+<li><a href="#orgbd9bfef">Clase 6</a>
+<ul>
+<li><a href="#orgd77e663">Etapa de desarrollo</a></li>
+<li><a href="#org8543548">Principios de la Ingeniería de Software</a></li>
+<li><a href="#org19f02c0">Historia de la Ingeniería de Software</a></li>
+</ul>
+</li>
+<li><a href="#org0fbac35">Clase 7</a>
+<ul>
+<li><a href="#orgeba05b7">Historia de la Ingeniería de Software</a></li>
+</ul>
+</li>
+<li><a href="#org2d014c6">Clase 8</a>
+<ul>
+<li><a href="#orgc232f62">Cuerpo de Conociemientos de la Ingeniería de Software</a></li>
+<li><a href="#orgd327097">Ingeniería de Software como profesión</a></li>
+<li><a href="#org023fe88">Estándares</a></li>
+<li><a href="#orge0fb16a">Administración de Proyecto</a></li>
+<li><a href="#org370f34b">Implementación de Software</a></li>
+<li><a href="#org7b37b9f">SCRUM prácticas ágiles</a></li>
+</ul>
+</li>
+<li><a href="#orgf7095df">Clase 9</a>
+<ul>
+<li><a href="#org3d62d32">Kuali-Beh</a></li>
+<li><a href="#org3b6872f">UML</a></li>
+</ul>
+</li>
+<li><a href="#org6d03bdb">Clase 10</a>
+<ul>
+<li><a href="#orgf6ca190">Métodos y prácticas a utilizar</a></li>
+</ul>
+</li>
+<li><a href="#org5e6c3c1">Clase 11</a>
+<ul>
+<li><a href="#org8fbf516">Concepto de equipo</a></li>
+<li><a href="#org2a6c00e">Tamaño de un equipo</a></li>
+</ul>
+</li>
+<li><a href="#orga635aff">Clase 12</a>
+<ul>
+<li><a href="#org3fec249">Práctoca Social 1. Conformación del equipo</a></li>
+<li><a href="#org126913b">Práctica Social 2. Definición de la comunicación en el equipo</a></li>
+<li><a href="#orgf7fffff">Práctica Social 3. Creación del repositorio común de documentos</a></li>
+</ul>
+</li>
+<li><a href="#orgb67cabb">Unidad 4</a>
+<ul>
+<li><a href="#orgf72a853">Concepto de Proyecto</a></li>
+<li><a href="#org1598646">Administración de Proyecto</a></li>
+<li><a href="#org957b71c">Planificar el proyecto</a></li>
+<li><a href="#orgb0b2f78">Diagrama general de casos de uso</a></li>
+<li><a href="#orgcd6768f">Práctica Administrativa 1. Planificar el proyecto</a></li>
+<li><a href="#orge187c4c">Pŕactica Administrativa 2. Planificar la iteración</a></li>
+<li><a href="#orgcfc8328">Práctica Administrativa 3. Ejecutar el plan de la iteración</a></li>
+<li><a href="#org5c30075">Práctica Administratica 4. Evaluar y controlar la iteración</a></li>
+</ul>
+</li>
+<li><a href="#org947fd19">Unidad 5. Requerimientos de software</a>
+<ul>
+<li><a href="#org4b9f23f">¿Qué es un requerimiento?</a></li>
+<li><a href="#orgedfbd2c">¿Cómo se expresan los requerimientos?</a></li>
+<li><a href="#org530e90d">Objetivos de la especificación de requerimientos</a></li>
+<li><a href="#org078b960">Calidad de un producto de software</a></li>
+<li><a href="#orgfc486ed">¿Cómo asegurar la calidad de la especificación de los requerimientos?</a></li>
+<li><a href="#org7a2d9fc">Tipos de requerimientos</a></li>
+<li><a href="#org18f58de">Actividades para definir los requerimientos</a></li>
+<li><a href="#orgbd71aa4">Caso de prueba</a></li>
+<li><a href="#orgc65fa5b">Práctica de desarrollo de software</a></li>
+</ul>
+</li>
+<li><a href="#orgd343557">Unidad 6. Diseño de Software</a>
+<ul>
+<li><a href="#org0edd5c7">Diseño de Software</a></li>
+<li><a href="#orgebb6a0e">Objetivos del diseño</a></li>
+<li><a href="#org3366e49">Niveles de abstracción.</a></li>
+<li><a href="#orgc1828ac">Principios para el Diseño</a></li>
+<li><a href="#org9ee9bd2">Otros principios</a></li>
+<li><a href="#orge4d7872">Cualidades del software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org016a04c">Tareas</a></li>
+</ul>
+</div>
+</div>
+<ul class="org-ul">
+<li>Código de classroom: 3xjcc6g</li>
+<li>Link de meet: <a href="https://meet.google.com/xgj-xgwi-urj">https://meet.google.com/xgj-xgwi-urj</a></li>
+</ul>
+
+<div id="outline-container-org1ecbf73" class="outline-2">
+<h2 id="org1ecbf73">Bibliografía</h2>
+<div class="outline-text-2" id="text-org1ecbf73">
+<p>
+Guadalupe Ibargüengoitia G. Hanna Oktaba. Introducción a la
+Ingeniería de Software
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb286e88" class="outline-2">
+<h2 id="orgb286e88">Evaluación</h2>
+<div class="outline-text-2" id="text-orgb286e88">
+</div>
+<div id="outline-container-org1088322" class="outline-3">
+<h3 id="org1088322">Clases teóricas:</h3>
+<div class="outline-text-3" id="text-org1088322">
+<ul class="org-ul">
+<li>Participación activa en las discusiones sobre temas teóricos</li>
+
+<li>Presentación de los productos de trabajo desarrollados
+individualmente y por el equipo.</li>
+</ul>
+
+
+<p>
+Examen teórico individual al final de la primera iteración
+</p>
+</div>
+</div>
+
+<div id="outline-container-org736ff8e" class="outline-3">
+<h3 id="org736ff8e">Ayudantía:</h3>
+<div class="outline-text-3" id="text-org736ff8e">
+<ul class="org-ul">
+<li>Participación equitativa de los alumnos en el trabajo del equipo
+al generar los documentos</li>
+</ul>
+
+
+<p>
+Entrega puntual de documentos y del código por equipo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org49019db" class="outline-3">
+<h3 id="org49019db">Laboratorio:</h3>
+<div class="outline-text-3" id="text-org49019db">
+<ul class="org-ul">
+<li>Evaluaciones individuales a cada alumno de su aprovechamiento en
+el aprendizaje de las herramientas.</li>
+
+<li>Examen.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf32eef6" class="outline-3">
+<h3 id="orgf32eef6">Calificación final</h3>
+<div class="outline-text-3" id="text-orgf32eef6">
+<ul class="org-ul">
+<li>40% calificación del equipo documentación y funcionamiento del
+sistema, desempeño del equipo. <b>Calificación individual</b>.</li>
+
+<li>20% calificación individual por examen teórico, participación y
+asistencia a las clases teóricas.</li>
+
+<li>20% calificación individual de la ayudantía, desempeño individual
+en el rol asignado, uso del tablero de tarjetas de trabajo y
+asistencia.</li>
+
+<li>20% calificación individual del laboratorio, evaluaciones de la
+implementación de los casos de uso asignados, examen del
+laboratorio y asistencia.</li>
+</ul>
+
+
+<p>
+Al empezar a recibir calificaciones ya no se tendrá derecho a NP.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1314d0a" class="outline-2">
+<h2 id="org1314d0a">Notas de Clase</h2>
+<div class="outline-text-2" id="text-org1314d0a">
+</div>
+<div id="outline-container-org815598e" class="outline-3">
+<h3 id="org815598e">Clase 1</h3>
+<div class="outline-text-3" id="text-org815598e">
+</div>
+<div id="outline-container-org7475c02" class="outline-4">
+<h4 id="org7475c02">Objetivo</h4>
+<div class="outline-text-4" id="text-org7475c02">
+<p>
+Aprender las mejores prácticas de la ingeniería de software para
+el trabajo en equipo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6e3931f" class="outline-4">
+<h4 id="org6e3931f">Temario</h4>
+<div class="outline-text-4" id="text-org6e3931f">
+<ol class="org-ol">
+<li>Introducción a la Ingeniería de Software.</li>
+
+<li>Cómo y con qué vamos a trabajar. Método del curso.</li>
+
+<li>Pacticas sociales: Trabajo en equipo.</li>
+
+<li>Prácticas administrativas: Administración de proyectos.</li>
+
+<li>Requerimientos de software.</li>
+
+<li>Diseño de software.</li>
+
+<li>Construcción de software.</li>
+
+<li>Integración y prueba de software.</li>
+
+<li>Cierre del proyecto.</li>
+
+<li>Temas avanzados de ingeniería de software:
+
+<ul class="org-ul">
+<li>Métodos ágiles.</li>
+
+<li>Estándares de desarrollo de software</li>
+
+<li>Código de ética.</li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org27f7417" class="outline-3">
+<h3 id="org27f7417">Clase 2</h3>
+<div class="outline-text-3" id="text-org27f7417">
+</div>
+<div id="outline-container-orgf44397c" class="outline-4">
+<h4 id="orgf44397c">Diferencia entre programación e ingeniería de software</h4>
+<div class="outline-text-4" id="text-orgf44397c">
+<ul class="org-ul">
+<li>La ingeniería de Software es una disciplina reciente, comparada
+con otras ingenierías.</li>
+
+<li>Sus inicios datan de finales de los años sesenta del siglo
+pasado, mientras que, por ejemplo, ingeniería civil tiene
+antigüedad milenaria.</li>
+
+<li>Mientras que la programación es la capacidad de poder dar
+órdenes a una computadora para crear un algoritmo y resolver un
+problema determinado.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0c0ef2a" class="outline-4">
+<h4 id="org0c0ef2a">Definiciones de la Ingeniería de Software</h4>
+<div class="outline-text-4" id="text-org0c0ef2a">
+<ul class="org-ul">
+<li>La Ingeniería de software es la aplicación de un enfoque
+sistemáticos, discriplinado y cuantificable al desarrollo, la
+operación y el mantenimiento de software (SEVOCAB, 2017).</li>
+
+<li>La Ingeniería de Software es una disciplina de la ingeniería que
+se ocupa de todos los aspectos de la producción del software,
+desde sus pasos iniciales de la especificación del sistema,
+hasta el mantenimiento cuando está en uso (Sommerville I., 2011).</li>
+
+<li>La aplicación de un enfoque sistemático, disciplinado,
+cuantificable para el desarrollo, operación y el mantenimiento
+del software (IEEE, 1990).</li>
+
+<li>La ingeniería de Software es la construcción de <span class="underline">productos de
+software</span> por grupos de personas, para que san usadas por otras.</li>
+
+<li>El <span class="underline">cliente</span> es quien solicita el desarrollo del producto y
+plantea el problema a resolver.</li>
+
+<li>El <span class="underline">equipo de desarrollo construye y entrega</span> el producto
+solicitado.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8f5c73a" class="outline-4">
+<h4 id="org8f5c73a">Objetivo de la Ingeniería de Software</h4>
+<div class="outline-text-4" id="text-org8f5c73a">
+<p>
+El objetivo según se estableció en la primera conferencia
+importate de Ingeniería de Software en 1968 fue: <i>"el</i>
+<i>establecimiento y uso de principios robustos, orientados a obtener</i>
+<i>software <b>económico</b> que sea <b>fiable</b> y funcione de manera <b>eficiente</b>
+sobre máquinas reales"</i> (Naur P., 1968).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbe72efe" class="outline-4">
+<h4 id="orgbe72efe">Campo de acción de la Ingeniería de Software</h4>
+<div class="outline-text-4" id="text-orgbe72efe">
+<p>
+El campo de acción de la Ingeniería de Software está en el
+desarrollo de producto de software de calidad, apoyándose en
+principios aplicados en los procesos de desarrollo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd9a3bca" class="outline-4">
+<h4 id="orgd9a3bca">Relación entre las Matemáticas, Ciencias de la Computación e Ingeniería de Software</h4>
+<div class="outline-text-4" id="text-orgd9a3bca">
+<ul class="org-ul">
+<li>Las <b>matemáticas</b> te facilitasn, a través de la formación mental,
+la bastracción de conceptos, expresión de algoritmo y
+construcción de modelos.</li>
+
+<li>Las <b>Ciencias de la Computación</b> te proporcionan conocimientos y
+herramientas para hacer programas y fundamentos computacionales
+tales como: conceptos de lenguajes de programación, análisis de
+algoritmos, sistemas operativos, aqrquitectura de computadoras,
+entre otros.</li>
+
+<li>Las prácticas de la Ingeniería que ha incorporado la <b>Ingeniería</b>
+<b>de Software</b> son: especificación de requisitos, diseño y
+organización del trabajo en equipos, entre otros.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf70c5d4" class="outline-4">
+<h4 id="orgf70c5d4">Software</h4>
+<div class="outline-text-4" id="text-orgf70c5d4">
+<ul class="org-ul">
+<li>Es el conjunto de programas de cómputo, procedimientos, reglas,
+documentación y datos asociados, que forman parte de las
+operaciones de un sistema de computación. (SECOVAB, 2017)</li>
+
+<li>Un producto de software es la suma total de: programas de
+computadora, procedimientos, reglas, documentación asociada y
+datos necesarios para la operación de un sistema
+computarizado. (ISO/IEC 12207, 2008)</li>
+</ul>
+
+
+<p>
+El software hace que el hardware funcione e interactúe con
+nosotros.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org44a4471" class="outline-3">
+<h3 id="org44a4471">Clase 3</h3>
+<div class="outline-text-3" id="text-org44a4471">
+</div>
+<div id="outline-container-org5c58607" class="outline-4">
+<h4 id="org5c58607">Características del software</h4>
+<div class="outline-text-4" id="text-org5c58607">
+<ul class="org-ul">
+<li>Es abstracto e intangible. No está restringido por las
+propiedades de los materiales, ni las leyes físicas, ni las
+reglas de manufactura. (Sommerville I., 2011)</li>
+
+<li>El software se desarrolla, no se fabrica en un sentido clásico
+(Pressman R.S.).</li>
+
+<li>Es fácilmente modificable y por lo tanto se puede corromper.</li>
+
+<li>Está hecho para evolucionar, pues cambiará según las necesidades
+de sus usuarios.</li>
+
+<li>El software no se desgasta con el paso del tiempo pero se ouede
+deteriorar si al mantenerlo se le incorporan nuevos
+defectos. (Pressman R.S.)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf37be8b" class="outline-4">
+<h4 id="orgf37be8b">Tipos de software</h4>
+<div class="outline-text-4" id="text-orgf37be8b">
+<ul class="org-ul">
+<li>Sistemas de entretenimiento.</li>
+<li>Software científico y de simulación de procesos reales.</li>
+<li>Aplicaciones de red y móviles.</li>
+<li>Software de almacenamiento de datos.</li>
+<li>Sistemas de sistemas.</li>
+<li>Software interactivo.</li>
+<li>Sistemas de entretenimiento.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org03a95b4" class="outline-4">
+<h4 id="org03a95b4">Calidad de software</h4>
+<div class="outline-text-4" id="text-org03a95b4">
+<ul class="org-ul">
+<li><i>Calidad</i> de un producto de software es el "grado en que satisface
+las necesidades y expectativas del usuario cuando se usa en
+condiciones específicas". (ISO/IEC 25010, 2009)</li>
+
+<li>Para obtener software de calidad es necesario que todos los
+productos que se generen en el desarrollo sean consistentes y no
+tengan defectos.</li>
+
+<li>Un <i>defecto</i> es resultado de un error cometito por un
+desorrollador al generar un producto.</li>
+
+<li>"Los defectos aún pequeños como faltas de ortografía o de ddedo,
+puede cosaionar problemas severos en el software al presentar
+inconsistencias o respuestas impredecibles" (Humphrey W., 1996).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3d5d746" class="outline-4">
+<h4 id="org3d5d746">Prácticas de calidad</h4>
+<div class="outline-text-4" id="text-org3d5d746">
+<p>
+Se utilizan dos:
+</p>
+
+<ul class="org-ul">
+<li>Verificar un producto de software tiene por objetivo revisar que
+no tenga defectos introducidos por el desarrollador.</li>
+
+<li>Validad el software es asegurarse que hace lo que el usuario
+espera que haga.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc2f435b" class="outline-3">
+<h3 id="orgc2f435b">Laboratorio 1</h3>
+<div class="outline-text-3" id="text-orgc2f435b">
+</div>
+<div id="outline-container-orgf4d6b59" class="outline-4">
+<h4 id="orgf4d6b59">Glosario de Bases de Datos (MySQL)</h4>
+<div class="outline-text-4" id="text-orgf4d6b59">
+<ul class="org-ul">
+<li>MySQL: Es un manejador de bases de datos
+
+<ul class="org-ul">
+<li><p>
+Crear tablas:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="font-weight: bold;">CREATE</span> <span style="font-weight: bold;">TABLE</span> &lt;Nombre_Tabla&gt; (&lt;id&gt; &lt;tipo&gt; [restricciones], &lt;id2&gt; &lt;tipo&gt; [restricciones], ...., [<span style="font-weight: bold;">PRIMARY</span> <span style="font-weight: bold;">KEY</span>(&lt;id_n&gt;)]);
+</pre>
+</div></li>
+
+<li><p>
+Borrar tabla:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="font-weight: bold;">DROP</span> <span style="font-weight: bold;">TABLE</span> &lt;Nombre_tabla&gt;;
+</pre>
+</div></li>
+
+<li><p>
+Actualiza tabla:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="font-weight: bold;">UPDATE</span> <span style="font-weight: bold;">TABLE</span> &lt;Nombre_tabla&gt; (&lt;idx&gt; &lt;tipo&gt;, ...);
+</pre>
+</div></li>
+
+<li><p>
+Ver tablas:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="font-weight: bold;">DESCRIBE</span> &lt;Nombre_tabla&gt;;
+</pre>
+</div></li>
+
+<li><p>
+Insertar
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="font-weight: bold;">INSERT</span> <span style="font-weight: bold;">INTO</span> &lt;Nombre_Tabla&gt; <span style="font-weight: bold;">VALUES</span> (va1,val2,...);
+</pre>
+</div></li>
+
+<li><p>
+Update
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="font-weight: bold;">UPDATE</span> &lt;Nombre_Tabla&gt; <span style="font-weight: bold;">SET</span> &lt;colx&gt; = &lt;valx&gt;, &lt;coly&gt; = &lt;valy&gt;, ... (<span style="font-weight: bold;">WHERE</span> &lt;condicion_booleana&gt;);
+</pre>
+</div></li>
+
+<li><p>
+Select
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql">
+<span style="font-weight: bold;">SELECT</span> col1 (<span style="font-weight: bold;">AS</span> &lt;nom_sim&gt;), col2, ..., coln <span style="font-weight: bold;">FROM</span> &lt;Nombre_tabla&gt; (<span style="font-weight: bold;">WHERE</span> &lt;condicion_booleana&gt;);
+</pre>
+</div></li>
+
+<li><p>
+Delete
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="font-weight: bold;">DELETE</span> <span style="font-weight: bold;">FROM</span> &lt;Nombre_tabla&gt; (<span style="font-weight: bold;">WHERE</span> &lt;condicion_booleana&gt;);
+</pre>
+</div></li>
+</ul></li>
+
+<li>Puertos: Identificador donde se responden o atienden servicios
+(MySQL utiliza el puerto 3306)</li>
+
+<li>View:</li>
+<li>ORM</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeaba026" class="outline-3">
+<h3 id="orgeaba026">Clase 4</h3>
+<div class="outline-text-3" id="text-orgeaba026">
+</div>
+<div id="outline-container-org09d2ab4" class="outline-4">
+<h4 id="org09d2ab4">Cualidades del software</h4>
+<div class="outline-text-4" id="text-org09d2ab4">
+<ul class="org-ul">
+<li><b>Adecuación funcional</b>. (Functional suitability) Representa la
+capacidad del producto de software para proporcionar funciones
+que satisfacen las necesidades declaradas e implícitas, cuando
+el producto se usa en las condiciones especificadas.</li>
+
+<li><b>Eficiencia de Desempeño</b> (Performance efficiency). Representa el
+desempeño relativo a la cantidad de recursos utilizados, bajo
+determinadas condiciones.</li>
+
+<li><b>Compatibilidad</b> (COmpatibility). Capacidad de dos o más sistemas
+o componentes para intercambiar información y/o llevar a cabo
+sus funciones requeridas cuando comparten el mismo entorno de
+hardware o software.</li>
+
+<li><b>Usabilidad</b> (Usability). Capacidad del producto de software para
+ser entendido, aprendido, usado y resultar atractivo para el
+usuario, cuando se usa bajo determinadas condiciones.</li>
+
+<li><b>Fiabilidad</b> (Reliability). Capacidad de un sistema o componente
+para desempeñar las funciones especificadas, cuando se usa bajo
+unas condiciones y periodo de tiempo determinados.</li>
+
+<li><b>Seguridad</b> (Security). Capacidad de protección de la información
+y los datos de manera, que personas o sistemas no autorizados no
+puedan leerlos o modificarlos.</li>
+
+<li><b>Mantenibilidad</b> (Mantainabilty). Capacidad del producto de
+software para ser modificado efectiva y eficientemente, debido a
+necesidades evolutivas.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgdd5d4e3" class="outline-4">
+<h4 id="orgdd5d4e3">Definición de cliente y equipo de desarrollo</h4>
+<div class="outline-text-4" id="text-orgdd5d4e3">
+<ul class="org-ul">
+<li>En la Ingeniería de Software el <i>cliente</i> es quien solicita el
+software. Ese cliente podrías ser tú mismo, otra persona que
+requiere el desarrollo de software, alguien que está dispuesto a
+pagarte para que le construyas un software, etc.</li>
+
+<li>El <i>equipo de desarrollo</i> es otro término importante y puede ser
+una sola persona, 2 o 3 o muchas, que se encargan de desarrollar
+y entregal el software al cliente que lo solicitó.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8cb1583" class="outline-4">
+<h4 id="org8cb1583">Ciclo de vida de software</h4>
+<div class="outline-text-4" id="text-org8cb1583">
+<ul class="org-ul">
+<li>"La evolución que va sufriendo el software desde el momento en
+que se plantea su construcción, el tiempo que lleva su
+desarrollo, la evolución donde se le agregan y modifican
+funcionalidades, hasta su retiro de uso." (IEEE, 1990).</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgefef69e" class="outline-3">
+<h3 id="orgefef69e">Clase 5</h3>
+<div class="outline-text-3" id="text-orgefef69e">
+</div>
+<div id="outline-container-orgf903d8f" class="outline-4">
+<h4 id="orgf903d8f">Roles</h4>
+<div class="outline-text-4" id="text-orgf903d8f">
+<ul class="org-ul">
+<li>Azul: líder del equipo</li>
+<li>Rojo: Técnico, ayudar a los integrantes a los demás.</li>
+<li>Verde: Me la muerde asjjsa</li>
+<li>Amarillo: Documentos, calidad</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbd9bfef" class="outline-3">
+<h3 id="orgbd9bfef">Clase 6</h3>
+<div class="outline-text-3" id="text-orgbd9bfef">
+</div>
+<div id="outline-container-orgd77e663" class="outline-4">
+<h4 id="orgd77e663">Etapa de desarrollo</h4>
+<div class="outline-text-4" id="text-orgd77e663">
+<ul class="org-ul">
+<li><p>
+Análisis de requisitos:
+</p>
+
+<p>
+Es el paso en el qie el cliente expresa sus necesidades para
+crear el software y el equipo de desarrollo, al analizarlas, las
+convierte en la especificación de requerimientos del producto de
+software.
+</p></li>
+
+<li><p>
+Diseño:
+</p>
+
+<p>
+El equipo de desarrollo, en gunción de la especificación de
+requerimientos establece la estructura del software,
+identificando sus componentes principales con sus relaciones y
+especifica cada componente a detalle.
+</p></li>
+
+<li><p>
+Construcción:
+</p>
+
+<p>
+Se genera el código de cada componente siguiente el diseño.
+</p></li>
+
+<li><p>
+Integración:
+</p>
+
+<p>
+Se asegura que todos los componentes trabajen adecuadamente
+juntos, haciendo las pruebas.
+</p></li>
+
+<li>Pruebas:</li>
+<li>Entrega:</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8543548" class="outline-4">
+<h4 id="org8543548">Principios de la Ingeniería de Software</h4>
+<div class="outline-text-4" id="text-org8543548">
+</div>
+<ul class="org-ul">
+<li><a id="org853678a"></a>Generalidad<br />
+<div class="outline-text-5" id="text-org853678a">
+<p>
+Descubrir los aspectos más generales que existe en la necesidades
+del software para desarrollar el producto de software más general
+que los cumpla. Este principio es fundamental para desarrollar
+herramientas y paquetes genéricos.
+</p>
+</div>
+</li>
+
+<li><a id="org03e2113"></a>Abstracción.<br />
+<div class="outline-text-5" id="text-org03e2113">
+<p>
+Identificar los aspectos más importantes e ir cincorporando los
+detalles gradualmente.
+</p>
+</div>
+</li>
+
+<li><a id="org95f71d3"></a>Modularidad<br />
+<div class="outline-text-5" id="text-org95f71d3">
+<p>
+Dividir el problema en subproblemas menos complejos. Incluye los
+conceptos de cohesión y acoplamiento: Los subproblemas deben ser
+internamente cohesivos y, en relación a otros, débilmente
+acoplados.
+</p>
+</div>
+</li>
+
+<li><a id="orgd8a5e94"></a>Incrementabilidad<br />
+<div class="outline-text-5" id="text-orgd8a5e94">
+<p>
+Consiste en obtener el producto de software incrementando la
+funcionalidad a través de varias iteraciones de desarrollo.
+</p>
+</div>
+</li>
+
+<li><a id="orga90e86b"></a>Anticipación al cambio<br />
+<div class="outline-text-5" id="text-orga90e86b">
+<p>
+Es diseñar el software para que pueda evolucionar a nuevas
+versiones.
+</p>
+</div>
+</li>
+
+<li><a id="org3d0c27b"></a>Separación de conceptos<br />
+<div class="outline-text-5" id="text-org3d0c27b">
+<p>
+Es manejar diferentas aaspectos de un problema concentrándose en
+cada un por separado.
+</p>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org19f02c0" class="outline-4">
+<h4 id="org19f02c0">Historia de la Ingeniería de Software</h4>
+<div class="outline-text-4" id="text-org19f02c0">
+</div>
+<ul class="org-ul">
+<li><a id="orgec7d4ca"></a>La Ingeniería de Software en los 70's<br />
+<div class="outline-text-5" id="text-orgec7d4ca">
+<ul class="org-ul">
+<li>A fines de los 60's desarrollar software consistía
+principalmente en codificar y corregir errores (code&amp;fix).</li>
+
+<li>Surge la llamada crisis del software, debido a que la mayor
+parte de sistemas de software:</li>
+
+<li>No respondía a las necesidades de los clientes.</li>
+
+<li>Costaba mucho más caro de lo contratado.</li>
+
+<li>No se entregaba en el tiempo planeado.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org89a6021"></a>La Ingeniería de Software en los 80's<br />
+<div class="outline-text-5" id="text-org89a6021">
+<ul class="org-ul">
+<li>Surgen las Metodologías de desarrollo de software estructuradas.</li>
+
+<li>Su objetivo es desarrollar software siguiendo el ciclo de vida
+del software, que consiste en una serie de pasos:
+
+<ul class="org-ul">
+<li>Definir los requerimientos para el software</li>
+
+<li>Analizarlos</li>
+
+<li>Diseñar el software</li>
+
+<li>Implementarlo</li>
+
+<li>Probarlo</li>
+
+<li>Ponerlo a disposición de los usuarios.</li>
+</ul></li>
+
+<li>Entregado al cliente, se le daba mantenimiento:
+
+<ul class="org-ul">
+<li>Correcivo: Para eliminar los defectos</li>
+
+<li>Adaptativo: Para adecuarlo a las necesidades del usuario.</li>
+
+<li>Perfectivo: Para mejorarlo</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org5e463fe"></a>La Ingeniería de Software en los 90's<br />
+<div class="outline-text-5" id="text-org5e463fe">
+<ul class="org-ul">
+<li>En el 97 se desarrolla el UML</li>
+
+<li>UML sigue siento el estándar de modelado vigente y el más
+utilizado en la industria de software.</li>
+
+<li>Modelos de procesos como estándares internacionales.
+
+<ul class="org-ul">
+<li>Modelo de Madurez de Capacidades</li>
+<li>ISO/IEC 12207 y 15504</li>
+</ul></li>
+
+<li>El CMM evolucionó en la siguiente década a CMMI, máximo
+referente en las empresas de desarrollo de software.</li>
+</ul>
+
+
+<p>
+Actualmente CMMI tiene prácticas para el desarrollo de software.
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0fbac35" class="outline-3">
+<h3 id="org0fbac35">Clase 7</h3>
+<div class="outline-text-3" id="text-org0fbac35">
+</div>
+<div id="outline-container-orgeba05b7" class="outline-4">
+<h4 id="orgeba05b7">Historia de la Ingeniería de Software</h4>
+<div class="outline-text-4" id="text-orgeba05b7">
+<ul class="org-ul">
+<li>Procesos de software: "Un proceso de ingeniería consiste en un
+conjunto de actividades interrelacionadas que transforman una o
+más entradas en salidas. Al realizar la transformación se
+consumen recursos" (SWEBOK 3.0, 2014).</li>
+
+<li>Watts Humphrey propuso dos modelos de procesos de apoyo al
+desarrollo de software.</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="orga22ca34"></a>La ingeniería de Software en los 2000's<br />
+<div class="outline-text-5" id="text-orga22ca34">
+<ul class="org-ul">
+<li>Movimiento ágil que publica el Manifiesto por el desarrollo ágil de software
+
+<ul class="org-ul">
+<li>Individuos y sus interacciones sobre procesos y herramientas</li>
+
+<li>Software funcionando sobre documentación extensiva.</li>
+
+<li>Colaboración con el cliente sobre negociación contractual.</li>
+
+<li>Respuesta ante el cambio sobre seguir un plan.</li>
+</ul></li>
+
+<li>Ejemplos de metodos ágiles más populares:
+
+<ul class="org-ul">
+<li>eXtreme Programming (XP)</li>
+
+<li>SCRUM</li>
+</ul></li>
+
+<li>Evolucionan los procesos y estándare internacionales para
+aplicarse a empresas pequeñas surgiendo estándares nacionales
+como:
+
+<ul class="org-ul">
+<li>el estándar mexicano MoProSoft (MoProSoft, 2005)</li>
+
+<li>ISO/IEC 29110 Basic Profile for VSEs basado en MoProSoft.</li>
+</ul></li>
+
+<li>Tendencia para balancear de los procesos con los métodos
+ágiles. (Bohem, 2004).</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgee210d6"></a>La ingeniería en el 2010<br />
+<div class="outline-text-5" id="text-orgee210d6">
+<p>
+Cuerpo de Conocimientos de la Ingeniería de Software (Software ENgineering Body of Knowlegde).
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2d014c6" class="outline-3">
+<h3 id="org2d014c6">Clase 8</h3>
+<div class="outline-text-3" id="text-org2d014c6">
+</div>
+<div id="outline-container-orgc232f62" class="outline-4">
+<h4 id="orgc232f62">Cuerpo de Conociemientos de la Ingeniería de Software</h4>
+<div class="outline-text-4" id="text-orgc232f62">
+<p>
+Cuerpo de Conociemientos de la Ingeniería de Software (Software
+Engineering Body of Knowledge)
+</p>
+
+<ul class="org-ul">
+<li>Es un compendio recogido por académicos y profesionales, que la
+ejercen en todo el mundo, para ser utilizado en la educación y
+en la práctica.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd327097" class="outline-4">
+<h4 id="orgd327097">Ingeniería de Software como profesión</h4>
+<div class="outline-text-4" id="text-orgd327097">
+<p>
+La Ingeniería de Software ha crecido tanto que actualmente se han
+reconocido como una actividad profesional y existen carreras
+profesionales completas dentro del área de la Computación que se
+llaman Ingniería de Software.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org023fe88" class="outline-4">
+<h4 id="org023fe88">Estándares</h4>
+<div class="outline-text-4" id="text-org023fe88">
+</div>
+<ul class="org-ul">
+<li><a id="orgc8179f2"></a>¿Qué son?<br />
+<div class="outline-text-5" id="text-orgc8179f2">
+<p>
+Se crean como acuerdos entre grupos de personas, empresas,
+organismos o países para resolver o aminorar algún problema en
+común.
+</p>
+</div>
+</li>
+
+<li><a id="org8cea6ac"></a>¿De qué sirven?<br />
+<div class="outline-text-5" id="text-org8cea6ac">
+<p>
+Introducen reglas de comportamiento para el bien de las
+comunidades, como por ejemplo, el reglamento de tránsito
+(semáforos, pasos peatonales, multas, &#x2026;)
+</p>
+
+<p>
+Lograr ciertos objetivos siguiendo formas de trabajar sugeridas.
+</p>
+
+<p>
+Generar productos, como el estándar USB para conectar y alimentas
+los dispositivos electrónicos.
+</p>
+</div>
+</li>
+
+<li><a id="orgcabdad6"></a>¿Cómo se nombran?<br />
+<div class="outline-text-5" id="text-orgcabdad6">
+<p>
+Los estándares tienen distintos nombre: normas, procesos,
+modelos, reglamentos o protocolos.
+</p>
+</div>
+</li>
+
+<li><a id="org81d21b6"></a>SWEBOK 3.0<br />
+<div class="outline-text-5" id="text-org81d21b6">
+<p>
+Es un cuerpo de conocimiento sobre la Ingeniería de SOftware
+recopilado por la comunidad del os progesionales y académicos,
+con el objetivo principal de integrar y sistematizar los
+contenidos de la Ingeniería de Software y hacerlos disponibles a
+la comunidad mundial.
+</p>
+</div>
+</li>
+
+<li><a id="orgc1309a3"></a>ISO/IEC 19110<br />
+<div class="outline-text-5" id="text-orgc1309a3">
+<p>
+Es un estándar internacional, que contiene la descripción de dos
+procesos: Administración de Proyecto e Impleentación de Software.
+</p>
+
+<p>
+Estos procesos recogen las buenas prácticas ára el desarrollo de
+proyectos de software por organizaciones pequeñas de hasta 25
+personas.
+</p>
+
+<p>
+Está basado en los procesos correspondientes de la norma mexicana
+NMX-059-NYC que es el modelo de procesos MoProSoft.
+</p>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orge0fb16a" class="outline-4">
+<h4 id="orge0fb16a">Administración de Proyecto</h4>
+<div class="outline-text-4" id="text-orge0fb16a">
+<p>
+Tiene el propósito de organizar el trabajo del equipo de
+desarrollo y vigilar el cumplimiento de las necesidades del
+cliente.
+</p>
+
+<p>
+Contiene las actividades que permiten guiar la colaboración del
+equipo involucrado en el proceso de implementación.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org370f34b" class="outline-4">
+<h4 id="org370f34b">Implementación de Software</h4>
+<div class="outline-text-4" id="text-org370f34b">
+<p>
+Se empieza por entender las necesidades del cliente, analizar
+estas necesidades u expresarlas en forma de reuerimientos para el
+software.
+</p>
+
+<p>
+Una vez entendidos los requerimientos hay que idear el diseño
+arquitectónico de los componentes del sistema, sus relaciones y,
+luego detallarolos asegurándose que se cumplen los requerimientos.
+</p>
+
+<p>
+A partir del diseño se construyen los componentes de software y se
+prueban de manera individual.
+</p>
+
+<p>
+La siguiente actividad es la integración de los componentes y
+probal el sistema integrado, además incluye la correción de
+defectos encontrados.
+</p>
+
+<p>
+Finalmente, se entrega el software funcional acompañado de la
+documentación, que ayuda al cliente a operarlo y a comprenderlo
+para las futuras modificaciones.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7b37b9f" class="outline-4">
+<h4 id="org7b37b9f">SCRUM prácticas ágiles</h4>
+<div class="outline-text-4" id="text-org7b37b9f">
+<p>
+Es un marco de trabajo que define un conjunto de prácticas y roles
+para organizar el trabajo de desarrollo de software en equipos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf7095df" class="outline-3">
+<h3 id="orgf7095df">Clase 9</h3>
+<div class="outline-text-3" id="text-orgf7095df">
+</div>
+<div id="outline-container-org3d62d32" class="outline-4">
+<h4 id="org3d62d32">Kuali-Beh</h4>
+<div class="outline-text-4" id="text-org3d62d32">
+<p>
+Una práctica "porporciona una guía del tabajo a realizar, tiene un
+objetivo específico y proporciona una orientación de cómo producir
+un resultado a partir de una entrada. La guía ofrece un conjunto
+de actividades sistemáticas y repetibles, enfocadas alograr el
+objetivo de la práctica y su resultado. Se requieren habilidades y
+conocimientos particulares para seguir la guía de práctica y
+algunas herramientas pueden facilitar su realización" (OMG, 2013)
+</p>
+
+<p>
+Un método es "la articulación de un conjunto coherente,
+consistente y completo de prácticas que tiene el propósito de
+satisfacer las necesidades del cliente, bajo condiciones
+específicas" (OMG, 2013).
+</p>
+
+<p>
+KUALI-BEH describe los conceptos comunes y sus relaciones
+presentes en cualquier proyecto de softwware. Se trata de una
+propuesta mexicana a la solicitud del Object Management Group, la
+cual se fundamenta en el conocimiento y experiencia obtenidos en
+múltiples proyectos, incluyendo la definición de estándares de
+desarrollo de software.
+</p>
+
+<p>
+KUALI-BEH se compone de dos vistas:
+</p>
+
+<ul class="org-ul">
+<li><p>
+Vista estática:
+</p>
+
+<p>
+La cual proporciona un marco de trabajo para la definición de
+las diferentes formas de trabajo de los practicantes. Estas
+formas de trabajo son organizadas en métodos compuestos por
+prácticas. Este conocimiento se estructura en una
+infraestructura de método y prácitcas que pueden ser aplicadas
+por los practicantes.
+</p></li>
+
+<li><p>
+Vista operacional:
+</p>
+
+<p>
+Está relacionada con la ejecución de proyecto de software. Esta
+vista proporciona a los practicantes mecanismos para ejecutar y
+adaptar un método con sus prácticas de acuerdo a las necesidades
+de los principales interesados y a un contexto específico.
+</p></li>
+</ul>
+
+
+<p>
+Los conceptos de KUELI-BEH se pueden aplicar para definir métodos
+y prácticas de cualquier proyecto de software, independientemente
+del tamaño, complejidad, modelo de ciclo de visa utilzado o
+tecnología.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3b6872f" class="outline-4">
+<h4 id="org3b6872f">UML</h4>
+<div class="outline-text-4" id="text-org3b6872f">
+<ul class="org-ul">
+<li>Lenguaje de Modelado Unificado tiene como proósito visualizar,
+especificar, facilitar la construcción y documentar software
+para su construcción y mantenimiento.</li>
+
+<li>Uitliza símbolos gráficos para representar conceptos y sus
+relaciones siguiendo una sintaxis de lenguaje gráfico.</li>
+
+<li>Ofrece a los desarrolladores varios tipos de diagramas para
+modelar diferentes aspectos y etapas del desarrollo de software.</li>
+
+<li>Estos diagramas están clasificados en diagramas de estructura y
+del comportamiento.</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="orge076a14"></a>Diagramas de estructura<br />
+<div class="outline-text-5" id="text-orge076a14">
+<p>
+Los diagramas de estructura muestran los elementos de los que se
+compone el software y sus relaciones en diferentes niveles de
+abstracción.
+</p>
+
+<ul class="org-ul">
+<li>Clases son bloques de construcción básicos (Diagrama de clases).</li>
+<li>Paquetes es un mecasimo para agrupar a los diagramas de clases
+en una estructura más abstracta (Diagrama de paquetes).</li>
+<li>Distribución sirven para visualizar como el software va a ser
+distribuido entre los elementos físicos (<i>hardware</i>) del sistema
+de software. (Diagrama de distribución)</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org2a1a718"></a>Diagramas del comportamiento<br />
+<div class="outline-text-5" id="text-org2a1a718">
+<p>
+Éstos muestran como interaccionan estos elementos a los largo del
+tiempo para proporcionar una funcionalidad.
+</p>
+
+<ul class="org-ul">
+<li>Casos de uso especifican el resultado de la interacción entre
+un actor (usuario u otro sistema) y el sistema de software
+mismo. (Diagrama de casos de uso).</li>
+<li>Secuencia muestran la interacción de envío de mensajes entre
+los objetos de las clases del sistema. (Diagrama de secuencia)</li>
+<li>Estados representan las máquinas de estados finitos que ayudan
+a modelar diferentes aspectos del comportamiento dinámico del
+sistema badado en cambio de estados a raíz de eventos (Diagrama
+de navegación).</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6d03bdb" class="outline-3">
+<h3 id="org6d03bdb">Clase 10</h3>
+<div class="outline-text-3" id="text-org6d03bdb">
+</div>
+<div id="outline-container-orgf6ca190" class="outline-4">
+<h4 id="orgf6ca190">Métodos y prácticas a utilizar</h4>
+<div class="outline-text-4" id="text-orgf6ca190">
+</div>
+<ul class="org-ul">
+<li><a id="orgb00b000"></a><i>Método Inicial de Desarrollo de Software</i> <b>(MIDS)</b><br />
+<div class="outline-text-5" id="text-orgb00b000">
+<ul class="org-ul">
+<li>Para este curso, hemos definido el método que se llama Método
+Inicial de Desarrollo de Software (MIDS). Este método está
+basado en el estándar <b>ISO/IEC 29110 Perfil Básico</b> porlo que
+sigue de los dos procesos de desarrollo que se definen para
+este perfil.</li>
+
+<li>Los nombres de las prácticas que conformal el método
+corresponden a las actividades de estos dos procesos y se
+agregaron unas prácticas sociales para facilitar el trabajo en
+equipo.</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org0e443c4"></a>Prácticas del MIDS<br />
+<ul class="org-ul">
+<li><a id="org14287ff"></a>Practicas Sociales<br />
+<div class="outline-text-7" id="text-org14287ff">
+<ul class="org-ul">
+<li>Conformar el equipo</li>
+
+<li>Definir la comunicación en el equipo</li>
+
+<li>Crear el repositorio commún de documentos</li>
+
+<li>Retrospectiva de la iteración</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgb62d451"></a>Prácticas Administrativas<br />
+<div class="outline-text-7" id="text-orgb62d451">
+<p>
+Éstas están basadas en el proceso de <i>Administración de Proyecto</i>
+de la ISO/IEC 29110 y se aplican algunos de los conceptos ágiles
+de SCRUM.
+</p>
+
+<ul class="org-ul">
+<li>Planificar el proyecto</li>
+
+<li>Planificar la iteración</li>
+
+<li>Ejecutar el plan de iteración</li>
+
+<li>Evaluar y controlar la iteración</li>
+
+<li>Cerrar la iteración</li>
+
+<li>Cerrar el proyecto</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgd4d2b71"></a>Prácticas para el Desarrollo<br />
+<div class="outline-text-7" id="text-orgd4d2b71">
+<p>
+Están basadas en el proceso de <i>Implementación de Software</i> de la
+ISO/IEC 29110.
+</p>
+
+<ul class="org-ul">
+<li>Requerimientos de software</li>
+
+<li>Diseño de software</li>
+
+<li>Integración y pruebas de software</li>
+
+<li>Prueba de Aceptación del Software</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="org8c4d9f4"></a>Apoyos al MIDS<br />
+<div class="outline-text-6" id="text-org8c4d9f4">
+<ul class="org-ul">
+<li>Presentaciones</li>
+<li>Guión del curso</li>
+<li>Planteamineto de Necesidades</li>
+<li>Plantillas</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgd8ecab7"></a>Roles para miembros del equipo<br />
+<div class="outline-text-6" id="text-orgd8ecab7">
+<ul class="org-ul">
+<li>Las prácticas tiene actividades que los miembros del equipo
+tendrán que ejecutar, a veces en equipo y a veces de manera
+individual.</li>
+
+<li>Para saber quién va a ser responsable por ejecutar qué
+actividad vamos a definir cinco roles que se asignarán a los
+miembros del equipo. Cada rol tiene definido su objetivo, las
+habilidades que se requieren para desempeñarlo y sus
+responsabilidades.</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="orgb771f9d"></a>Desarrollador<br />
+<ul class="org-ul">
+<li><a id="org5472803"></a>Objetivo<br />
+<div class="outline-text-8" id="text-org5472803">
+<ul class="org-ul">
+<li>Participar en la ejecución de todas las prácticas del
+desarrollo de software.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgcd98a23"></a>Habilidades<br />
+<div class="outline-text-8" id="text-orgcd98a23">
+<ul class="org-ul">
+<li>Tener conocimientos y experiencia en programación,
+estructuras de datos y bases de datos.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org81773c2"></a>Responsabilidades<br />
+<div class="outline-text-8" id="text-org81773c2">
+<ul class="org-ul">
+<li>Entender los requisitos del software, participar en la
+especificación de requerimientos, el diseño, la
+construcción, integración y pruebas del software.</li>
+
+<li>Participar en las reuniones de trabajo.</li>
+
+<li>Revisar y corregir los productos de los que sea
+resoponsable.</li>
+
+<li>Aplicar los estándares solicitados.</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="org1de927d"></a>Responsable del equipo<br />
+<ul class="org-ul">
+<li><a id="org1ed5889"></a>Objetivo<br />
+<div class="outline-text-8" id="text-org1ed5889">
+<ul class="org-ul">
+<li>Mantener motivados a todos los miembros del equipo para que
+participen activamente en el proyecto y trabajen en armonía.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgad53894"></a>Habilidades<br />
+<div class="outline-text-8" id="text-orgad53894">
+<ul class="org-ul">
+<li>Sociable y amistoso</li>
+<li>Es un líder natural en los grupos</li>
+<li>No conflictivo, sabe motiva a los demás.</li>
+<li>No es impositivo sino conciliador, pero intolerante a faltas
+de compromiso.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org6ddbbb4"></a>Responsabilidades<br />
+<div class="outline-text-8" id="text-org6ddbbb4">
+<ul class="org-ul">
+<li>Construye y mantiene la cohesión del equipo y su efectividad.</li>
+<li>Motiva a los miembros a trabajar en equipo y cumplir sus compromisos.</li>
+<li>Ayuda a resolver los conflicto que se presenten en el
+equipo. Si no lo logra, los comunica al docente de manera
+oportuna para que ayude a resolverlos.</li>
+<li>Convoca y dirife las reuniones del equipo.</li>
+<li>Coordina la retrospectiva de la iteración.</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="org28e1b2f"></a>Responsable técnico<br />
+<ul class="org-ul">
+<li><a id="org2e1d106"></a>Objetivo<br />
+<div class="outline-text-8" id="text-org2e1d106">
+<ul class="org-ul">
+<li>Lograr que los resultados del equipo sean de la mejor calidad técnica.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org5398dfd"></a>Habilidades<br />
+<div class="outline-text-8" id="text-org5398dfd">
+<ul class="org-ul">
+<li>Experiencia en programación.</li>
+<li>Reconocimiento del equipo por sus habilidades técnicas.</li>
+<li>Conocimientos de lenguajes de programación, ambientes de
+programación y herramientas de apoyo.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org10b2978"></a>Responsabilidades<br />
+<div class="outline-text-8" id="text-org10b2978">
+<ul class="org-ul">
+<li>Dirigir al equipo en la toma de decisiones en las
+actividades técnicas de desarrollo.</li>
+<li>Aprovechar al máximo las habilidades y los conocimientos en
+programación de los miembros del equipo.</li>
+<li>Ayudar a los miembros del equipo en la solución de problemas
+técnicos.</li>
+<li>Seleccionar las herramientas necesarias para el trabajo.</li>
+<li>Entrenar a los miembros del equipo en el uso de las
+herramientas que trabajarán.</li>
+<li>Coordinar la integración del código de los desarrolladores.</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="org2b85d75"></a>Responsable de la calidad<br />
+<ul class="org-ul">
+<li><a id="org0e77307"></a>Objetivos<br />
+<div class="outline-text-8" id="text-org0e77307">
+<ul class="org-ul">
+<li>Asegurar que se sigan los estándares establecidos para cada
+producto.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org1a0b00d"></a>Habilidades<br />
+<div class="outline-text-8" id="text-org1a0b00d">
+<ul class="org-ul">
+<li>Persona ordenada e interesada en la calidad del software.</li>
+<li>Saber hacer buenas revisiones y pruebas a los productos.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org1e7e82f"></a>Responsabilidades<br />
+<div class="outline-text-8" id="text-org1e7e82f">
+<ul class="org-ul">
+<li>Coordinar la integración de los documentos de todas las
+actividades del desarrollo apoyado por los demás roles.</li>
+<li>Encontrar los defectos y vigilar a que se corrijan.</li>
+<li>No permitir que se hagan cambios no autorizados a productos
+ya aprobados.</li>
+<li>Coordinar las pruebas y revisiones del producto de software.</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="orgc65832a"></a>Responsable de la colaboración<br />
+<ul class="org-ul">
+<li><a id="org99db1ec"></a>Objetivo<br />
+<div class="outline-text-8" id="text-org99db1ec">
+<ul class="org-ul">
+<li>Apoyar el trabajo colaborativo del equipo mediante uso de
+herramientas para la comunicación, la coordinación del
+trabajo y los repositorios comparitdos de documentos y del
+código.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org420c186"></a>Habilidades<br />
+<div class="outline-text-8" id="text-org420c186">
+<ul class="org-ul">
+<li>Conocedor de redes sociales y repositorios compartidos.</li>
+<li>Entrusiasmo en aprender el uso de repositorios y explicar al
+equipo su uso.</li>
+<li>Disciplinado en el manejo de repositorios comunes de
+documentos y del código para facilitar la comunicación
+asíncrona del equipo.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgb0d1fba"></a>Responsabilidades<br />
+<div class="outline-text-8" id="text-orgb0d1fba">
+<ul class="org-ul">
+<li>Seleccionar las herramientas necesarias para apoyar al
+equipo en la comunicación y coordinación.</li>
+<li>Crear y mantener los repositorios comunes de documentos y de
+código.</li>
+<li>Ayudar en la coordinación de la realización de las
+actividades de administración del proyecto manteniendo
+actualizando el contenido de la herramienta de coordinación
+según las actividades realizadas por el equipo.</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5e6c3c1" class="outline-3">
+<h3 id="org5e6c3c1">Clase 11</h3>
+<div class="outline-text-3" id="text-org5e6c3c1">
+</div>
+<div id="outline-container-org8fbf516" class="outline-4">
+<h4 id="org8fbf516">Concepto de equipo</h4>
+<div class="outline-text-4" id="text-org8fbf516">
+<ul class="org-ul">
+<li>Es "un número reducido de personas con habilidades
+complementarias que están comprometidas con un propósito común,
+tienen metas de desmpeño y un enfoque común del que son
+mutuamente responsables".</li>
+
+<li>En Ingeniería de Software, un "equipo de trabajo es un grupo de
+practicantes que trabajan juntos de manera colaborativa durante
+un periodo de tiempo, para obtener el objetivo específico de
+construir un producto de software".</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2a6c00e" class="outline-4">
+<h4 id="org2a6c00e">Tamaño de un equipo</h4>
+<div class="outline-text-4" id="text-org2a6c00e">
+<ul class="org-ul">
+<li>SCRUM para el desarrollo de software el tamaño ideal del equipo
+es entre 3 y 9 personas.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga635aff" class="outline-3">
+<h3 id="orga635aff">Clase 12</h3>
+<div class="outline-text-3" id="text-orga635aff">
+</div>
+<div id="outline-container-org3fec249" class="outline-4">
+<h4 id="org3fec249">Práctoca Social 1. Conformación del equipo</h4>
+<div class="outline-text-4" id="text-org3fec249">
+</div>
+<ul class="org-ul">
+<li><a id="org47a7faa"></a>Objetivos<br />
+<div class="outline-text-5" id="text-org47a7faa">
+<ul class="org-ul">
+<li>Dar la identidad al equipo con un nombre y logo.</li>
+<li>Repartir los roles entre los miembros del equipo según sus habilidades.</li>
+<li>Entender las características del producto de software a
+desarrollar y asignarle un nombre.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgf3e63d1"></a>Entrada<br />
+<ul class="org-ul">
+<li><a id="org3143993"></a>Condiciones<br />
+<div class="outline-text-6" id="text-org3143993">
+<ul class="org-ul">
+<li>Grupo de 3 a 5 alumnos del curso de Ingeniería de Software que
+conformará el equipo de trabajo.</li>
+<li>Todos han entendido el método MIDS que se va a seguir en el
+curso.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgc220ba2"></a>Productos de trabajo<br />
+<div class="outline-text-6" id="text-orgc220ba2">
+<ul class="org-ul">
+<li>Plantemiento de Necesidades</li>
+<li>Guión del Curso</li>
+<li>Plantillas</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="org5623518"></a>Resultado<br />
+<ul class="org-ul">
+<li><a id="org90b39b1"></a>Condiciones<br />
+<div class="outline-text-6" id="text-org90b39b1">
+<ul class="org-ul">
+<li>Equipo conformado
+
+<ul class="org-ul">
+<li>Identificado con nombre y logo.</li>
+
+<li>Cada participante del equipo conoce su rol y sus responsabilidades.</li>
+
+<li>Todos entienden las características del producto de software
+a desarrollar y eligieron su nombre.</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgebc1c7f"></a>Productos de trabajo<br />
+<div class="outline-text-6" id="text-orgebc1c7f">
+<ul class="org-ul">
+<li>Primer proyecto de software
+
+<ul class="org-ul">
+<li>Plantilla personalizada con los daros del equipo y proyecto.</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org618b89c"></a>Actividades<br />
+<div class="outline-text-6" id="text-org618b89c">
+<ol class="org-ol">
+<li>Definir el nombre y logo del equipo.</li>
+<li>Repartir los roles.</li>
+<li>Prpponer el nombre al producto de software en función de su
+objetivo.</li>
+<li>Generar la plantilla personalizada del <i>Primer proyecto de
+software</i> con los datos del proyecto.</li>
+</ol>
+</div>
+
+<ul class="org-ul">
+<li><a id="orgea70816"></a>Técnica para definir el nombre y logo del equipo.<br />
+<div class="outline-text-7" id="text-orgea70816">
+<ul class="org-ul">
+<li>Una primera reunión de todo el equipo. Al llegar a la reunión
+cada persona deberá tener:
+
+<ul class="org-ul">
+<li>Por lo menos una propuesta de nombre para el equipo.</li>
+
+<li>Por lo menos una propuesta de dibujo para el logo que
+corresponde al nombre.</li>
+</ul></li>
+
+<li>Al llegar a la reunión, cada alumno propone sus nombres y
+logos explicándolos a sus compañeros.</li>
+
+<li>Todos votan por una de las propuestas nombre-logo.</li>
+
+<li>La que tenga más votos gana.</li>
+
+<li>Si hay empate entre 2 propuestas, se explican los votos a
+favor de ambas propuestas y se repite el procedimiento. Si no
+se logra desempate, se puede echar un volado.</li>
+
+<li>La persona cuya propuesta ganó refina la representación
+gráfica del logo con el nombre utilizando una herramienta
+gráfica e incorporando las sugerencias de sus compañeros
+acordadas por todos.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org7682590"></a>Técnica para repartir los roles<br />
+<div class="outline-text-7" id="text-org7682590">
+<ul class="org-ul">
+<li>Hay cinco roles:
+
+<ul class="org-ul">
+<li>Desarrollador, que serán todos los miembros del equipo.</li>
+
+<li>Responsable del equipo</li>
+
+<li>Responsable técnico</li>
+
+<li>Responsable de la calidad</li>
+
+<li>Responsable de la colaboración</li>
+</ul></li>
+
+<li>Para repartir los roles se toman en cuenta las habilidades e
+intereses de los miembros del equipo.</li>
+
+<li>Reunión del equipo:
+
+<ul class="org-ul">
+<li>Cada alumno se presenta con su nombre, pasatiempos
+favoritos y una pequeña descripción de su personalidad.</li>
+
+<li>Luego, cada uno expone su lista de preferencias de roles y
+argumenta las razones por las que le gustaría jugar su rol
+preferente.</li>
+
+<li>Cuando dos miembros del equipo quieran jugar un mismo rol,
+tratar de convencer al equipo.</li>
+
+<li>Si se mantiene el empate, se puede resolver con un volado.</li>
+</ul></li>
+
+<li>Si el equipo tiene 5 personas la comunicación y la
+coordinación entre ellas se complica.</li>
+
+<li>Se reparten en dos los roles de colaboración:
+
+<ul class="org-ul">
+<li>Uno se encarga del seguimiento del Tablero</li>
+
+<li>Otro se encarga del manejo de repositorios y las versiones
+de los documentos y código.</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org5893a2d"></a>Técnica para proponer el nombre al producto de software<br />
+<div class="outline-text-7" id="text-org5893a2d">
+<ul class="org-ul">
+<li>Todos los miembros del equipo deben leer el documento de
+Planteamiento de Necesidades y comentarlo entre ellos. En
+caso de dudas deben solicitar las aclaraciones al docente.</li>
+
+<li>Una vez entendido el objetivo del software todos proponen el
+nombre al sistema a desarrollar y lo seleccionan en votación.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org381cb25"></a>Técnica para generar la plantilla personalizada del Primer proyecto de software<br />
+<div class="outline-text-7" id="text-org381cb25">
+<ul class="org-ul">
+<li>El responsable de la calidad personaliza e integra la
+plantilla de la Portada de los documentos y la plantilla del
+<i>Primer proyecto de software</i> colocando el logo y el nombre del
+equipo. En todas las plantillas los textos marcados en azul
+son los que tendrán que sustituirse por información generada
+por el equipo.</li>
+
+<li>El responsable de la calidad documenta los nombres de los
+miembros del equpo con sus roles seleccionados y el nombre
+del docente en la plantilla personalizada para el <i>Primer
+proyecto de software</i>. En el mismo documento pone las
+referencias al documento de <i>Planteamiento de Necesidades</i> y al
+Guion del curso, así como las fechas de inicio y del fin del
+proyecto indicadas en el guion.</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org126913b" class="outline-4">
+<h4 id="org126913b">Práctica Social 2. Definición de la comunicación en el equipo</h4>
+<div class="outline-text-4" id="text-org126913b">
+</div>
+<ul class="org-ul">
+<li><a id="orgfa61e84"></a>Objetivos<br />
+<div class="outline-text-5" id="text-orgfa61e84">
+<ul class="org-ul">
+<li>Establecer las formas de comunicación síncrona del equipo para el proyecto.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org2e380c5"></a>Entrada<br />
+<ul class="org-ul">
+<li><a id="org39feeea"></a>Condiciones<br />
+<div class="outline-text-6" id="text-org39feeea">
+<ul class="org-ul">
+<li>Equipo conformado</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org314496b"></a>Productos de trabajo<br />
+<div class="outline-text-6" id="text-org314496b">
+<ul class="org-ul">
+<li>Primer proyecto de software
+
+<ul class="org-ul">
+<li>Plantilla personalizada con los datos del equipo y proyecto.</li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="org14aff48"></a>Resultado<br />
+<ul class="org-ul">
+<li><a id="orga33881a"></a>Condiciones<br />
+<div class="outline-text-6" id="text-orga33881a">
+<ul class="org-ul">
+<li>Equipo conformado
+
+<ul class="org-ul">
+<li>Con canales y formas de comunicación síncrona definidos.</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org5033781"></a>Productos de trabajo<br />
+<div class="outline-text-6" id="text-org5033781">
+<ul class="org-ul">
+<li>Primer proyecto de software
+
+<ul class="org-ul">
+<li>Plantilla personalizada con los datos del equipo, proyecto y
+comunicación.</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org8c73d72"></a>Actividades<br />
+<div class="outline-text-6" id="text-org8c73d72">
+<ol class="org-ol">
+<li>Establecer reuniones diarias y completar la plantilla del
+<i>Primer proyecto de software</i> con acuerdo de cómo se llevarán a
+cabo.</li>
+
+<li>Establecer reuniones de toma de decisiones.</li>
+</ol>
+</div>
+
+<ul class="org-ul">
+<li><a id="org95b6742"></a>Técnica para establecer las reuniones diarias<br />
+<div class="outline-text-7" id="text-org95b6742">
+<ul class="org-ul">
+<li>El responsable del equipo es quien coordina la reunión
+diaria.</li>
+
+<li>La reunión dura 15 minutos. Cada miembro del equipo reporta
+los avancer contestando las siguientes preguntas:
+
+<ul class="org-ul">
+<li>¿Qué hiciste desde la última reunión?</li>
+
+<li>¿Qué dificultades encontraste?</li>
+
+<li>¿Qué harás antes de la siguiente reunión?</li>
+</ul></li>
+
+<li>Al final de la reunión se acuerdan nuevos compromisos
+repartiendo el trabajo de manera equitativa y en consenso.</li>
+
+<li>El equipo tiene que reunirse para acordar la fomra
+(presencial, virtual o mixta) y la hora de las reuniones
+diarias. En el caso de reuniones presenciales se define el
+lugar y en el caso de las virtuales se escoge el canal de
+comunicación.</li>
+
+<li>La versión mixta significa que unos se juntan de manera
+presencial y otros se conectan virtualmente en la misma
+reunión. Se complementa la plantilla del <i>Primer proyecto de
+software</i> con acuerdo de cómo se llevarán a cabo.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org4e794d3"></a>Técnica para establecer las reuniones de toma de decisiones<br />
+<div class="outline-text-7" id="text-org4e794d3">
+<p>
+Durante desarrollo de un proyecto se necesitan también
+reuniones del equipo para tratar asuntos en los cuales todos
+tienen que ponerse de acuerdo o tomar decisiones. Para este
+tipo de reuniones, se proponen los siguientes pasos:
+</p>
+
+<ul class="org-ul">
+<li>CUalquier miembro del equipo envía invitaciones a la reunión
+a todos los miembros, estableciendo claramente día, hora,
+canal de reunión, si es virtual, o lugar, si es presencial.</li>
+<li>Se definen los objetivos de la reunión.</li>
+<li>Se establece si hay trabajo previo que deberá hacer cada
+miembro del equipo antes de llegar a la reunión.</li>
+<li>Todos los miembros del equipo llegan a la reunión con el
+trabajo solicitado.</li>
+<li>Se inicia el trabajo y se abre a la discusión para lograr los
+objetivos y se llegan a acuerdos.</li>
+<li>El responsable de la colaboración registra los puntos y los
+acuerdos, resguardándolos en el repositorio común para que
+todos puedan consultarlos.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org62e2583"></a>Repositorio común de documentos<br />
+<div class="outline-text-7" id="text-org62e2583">
+<ul class="org-ul">
+<li><p>
+Durante el desarrollo de software se feneran diversos
+documentos que plasman el trabajo.
+</p>
+
+<p>
+Todos estos documentos deben estar accesibles a los miembros
+del equipo y demás interesados. Por esto se guardan en un
+repositorio común de documentos asignado para cada proyecto.
+</p></li>
+
+<li>El repositorio ayuda a establecer una comunicación asíncrona
+del equipo porque permite a todos los miembros consultar en
+cualquier momento los documentos y acuerdos generados, lo que
+ayuda a tener una visibilidad del avance del trabajo.</li>
+
+<li>Google Drive o Dropbox son ejemplos de las herramientas que
+sirven para crear los repositorios de documentos.</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orgf7fffff" class="outline-4">
+<h4 id="orgf7fffff">Práctica Social 3. Creación del repositorio común de documentos</h4>
+<div class="outline-text-4" id="text-orgf7fffff">
+</div>
+<ul class="org-ul">
+<li><a id="orgc5b6585"></a>Objetivos<br />
+<div class="outline-text-5" id="text-orgc5b6585">
+<p>
+Tener un repositorio común de documentos del equipo para
+facilitar la colaboración.
+</p>
+</div>
+</li>
+
+<li><a id="orga82eeda"></a>Entrada<br />
+<ul class="org-ul">
+<li><a id="org100c682"></a>Condiciones<br />
+<div class="outline-text-6" id="text-org100c682">
+<ul class="org-ul">
+<li>Equipo conformado
+
+<ul class="org-ul">
+<li>Con canales y formas de comunicación síncrona definidos.</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org19d399c"></a>Productos de trabajo<br />
+<div class="outline-text-6" id="text-org19d399c">
+<ul class="org-ul">
+<li>Primer proyecto de software
+
+<ul class="org-ul">
+<li>Plantilla personalidzada con los datos del equipo, proyecto
+y comunicación.</li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="org38d4a3d"></a>Resultado<br />
+<ul class="org-ul">
+<li><a id="org4fb9f2c"></a>Condiciones<br />
+<div class="outline-text-6" id="text-org4fb9f2c">
+<ul class="org-ul">
+<li>Equipo conformado
+
+<ul class="org-ul">
+<li>Con canales y formas de comunicación síncrona definidos.</li>
+
+<li>Con repositorio com+un de documentos.</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgb364044"></a>Productos de trabajo<br />
+<div class="outline-text-6" id="text-orgb364044">
+<ul class="org-ul">
+<li>Primer proyecto de software
+
+<ul class="org-ul">
+<li>Plantilla personalizada con los datos del equipo, proyecto,
+comunicación y repositorio.</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org7b66ef6"></a>Actividades<br />
+<div class="outline-text-6" id="text-org7b66ef6">
+<ol class="org-ol">
+<li>Seleccionar el repositorio común de documentos</li>
+<li>Crear el repositorio común de documentos y registrarlo en la plantilla del <i>Primer proyecto de software</i>.</li>
+</ol>
+</div>
+
+<ul class="org-ul">
+<li><a id="orgbbe7468"></a>Técnica para seleccionar el repositorio común de documentos<br />
+<div class="outline-text-7" id="text-orgbbe7468">
+<p>
+El equipo puede seguir estos pasos para seleccionar la
+herramienta para el repositorio común de documentos:
+</p>
+
+<ul class="org-ul">
+<li>El responsable de la colaboración busca en Internet las
+herramientas gratuitas para repositorios de documentos.</li>
+
+<li>En una reunión con el equipo el Responsable de la
+colaboración presenta las ventajas y desventajas de las
+herramientas.</li>
+
+<li>El equipo selecciona de común acuerdo una de las herramientas
+que les convenga más.</li>
+
+<li>El responsable de la colaboración crea el repositorio común
+en una carpeta y propone una estructura de carpetas inicial.</li>
+
+<li>Da los permisos de acceso a todos los demás miembros del
+equipo incluyendo al docente.</li>
+
+<li>Capacita a los demás miembros del equipo en el uso de la
+herramienta, si sea necesario.</li>
+
+<li>El responsable de la calidad introduce el nombre de la
+carpeta que contendrá al repositorio, en la plantilla del
+<i>Primer proyecto de software</i>, incluyendo la liga al mismo y
+guarda la plantilla completa en el repositorio.</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb67cabb" class="outline-3">
+<h3 id="orgb67cabb">Unidad 4</h3>
+<div class="outline-text-3" id="text-orgb67cabb">
+</div>
+<div id="outline-container-orgf72a853" class="outline-4">
+<h4 id="orgf72a853">Concepto de Proyecto</h4>
+<div class="outline-text-4" id="text-orgf72a853">
+<p>
+Un proyecto se puede definir como el esfuerzo de una organización
+para desarrollar, introudico o evaluar un resultado único.
+</p>
+
+<p>
+Es un esfuerzo que se lleva a cabo durante un periodo de tiempo
+delimitado, con un equipo de trabajo asignado y con recursos
+disponibles para producirlo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1598646" class="outline-4">
+<h4 id="org1598646">Administración de Proyecto</h4>
+<div class="outline-text-4" id="text-org1598646">
+<p>
+La "Administracion de proyectos es la aplicación de conocimientos,
+habilidades, herraminetas y técnicas a las actividades de un
+rpoyecto para satisfacer su requisitos." (PMBOK, 2013)
+</p>
+
+<p>
+Los requisitos principales de un proyecto son: calida, tiempo y
+costo.
+</p>
+
+<p>
+Tiene por objetivo establecer y lleavar a cabo sistemáticamente un
+conjunto de actividades a fin de lograr el objetivo del proyecto
+de software en calidad, tiempo y costo. (ISO/IEC 29110)
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="org983de3d"></a>Entrada<br />
+<div class="outline-text-5" id="text-org983de3d">
+<p>
+El planteamiento de necesidades
+</p>
+</div>
+</li>
+
+<li><a id="orga4696eb"></a>Salida<br />
+<div class="outline-text-5" id="text-orga4696eb">
+<p>
+El Plan del proyecto
+</p>
+</div>
+</li>
+
+<li><a id="org67c6ae1"></a>Actividades principales<br />
+<div class="outline-text-5" id="text-org67c6ae1">
+<ul class="org-ul">
+<li>Planificar el proyecto</li>
+
+<li>Ejecutar el Plan del proyecto</li>
+
+<li>Evaluar y controlar el proyecto</li>
+
+<li>Cerrar el proyecto</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org957b71c" class="outline-4">
+<h4 id="org957b71c">Planificar el proyecto</h4>
+<div class="outline-text-4" id="text-org957b71c">
+<ul class="org-ul">
+<li>La planificación del proyecto se inicia con el entendimiento de
+sus objetivos y restricciones.</li>
+
+<li>Se definen qué actividades se deben llevar a cabo en un
+proyecto, quién las debe hacer y cuándo.</li>
+
+<li>El resultado de la actividad de planificar el proyecto es el
+documento llamado Plan de proyecto.</li>
+
+<li>Los objetivos del proyecto acordes con las necesidades del cliente.</li>
+
+<li>Las fechas de inicio y fin del proyecto</li>
+
+<li>La lista de los entregables, que son los documentos que serán
+entregados al cliente, junto con el código del producto de
+software.</li>
+
+<li>La fecha y forma de cómo se entregará el producto de software
+acordadas con el cliente.</li>
+
+<li>La identificación de las funcionalidades que tendrá el sistema o
+producto de software.</li>
+
+<li>Restricciones no funcionales (por ejemplo: uso de cierto
+lenguaje de programación o base de datos, entre otros).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb0b2f78" class="outline-4">
+<h4 id="orgb0b2f78">Diagrama general de casos de uso</h4>
+<div class="outline-text-4" id="text-orgb0b2f78">
+<ul class="org-ul">
+<li>Una de las técnicas para identificar las funcionalidades de un
+producto de software, se llama casos de uso.</li>
+
+<li>Es una vista gráfica más general y abstracta del sistema de
+software.</li>
+
+<li>Representa las funcionalidades generales del software.</li>
+
+<li>Define qué tipo de usuarios utilizarán el software.</li>
+
+<li>El diagrama es un conjunto de casos de uso.</li>
+
+<li>Ésta técnica se utiliza para comprender las necesidades o los
+requerimientos funcionales y a partir de ellos se diseña,
+implementa y prueba el software.</li>
+
+<li>La importancia del Diagrama general de casos de uso reside en
+que las prácticas de desarrollo se pueden guiar por los casos de
+uso. (Rosenberg Doug, 2001).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcd6768f" class="outline-4">
+<h4 id="orgcd6768f">Práctica Administrativa 1. Planificar el proyecto</h4>
+<div class="outline-text-4" id="text-orgcd6768f">
+</div>
+<ul class="org-ul">
+<li><a id="org886736e"></a>Objetivos<br />
+<div class="outline-text-5" id="text-org886736e">
+<p>
+Generar el Plan del proyecto
+</p>
+</div>
+</li>
+
+<li><a id="org209feb8"></a>Entrada<br />
+<ul class="org-ul">
+<li><a id="org5b32881"></a>Condiciones<br />
+<div class="outline-text-6" id="text-org5b32881">
+<p>
+Equipo de trabajo conformado
+</p>
+</div>
+</li>
+
+<li><a id="orgbae1cd4"></a>Productos de trabajo<br />
+<div class="outline-text-6" id="text-orgbae1cd4">
+<ul class="org-ul">
+<li>Primer proyecto de software
+
+<ul class="org-ul">
+<li>Planteamiento de necesidades</li>
+
+<li>Guion del curso</li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="org5dc25c9"></a>Resultado<br />
+<ul class="org-ul">
+<li><a id="org1cf1846"></a>Condiciones<br />
+<div class="outline-text-6" id="text-org1cf1846">
+<p>
+Proyecto planificado
+</p>
+</div>
+</li>
+
+<li><a id="org07e315a"></a>Productos de trabajo<br />
+<div class="outline-text-6" id="text-org07e315a">
+<ul class="org-ul">
+<li>Plan del proyecto
+
+<ul class="org-ul">
+<li>Nombre del proyecto</li>
+
+<li>Objetivo del proyecto</li>
+
+<li>Fecha de inicio y fin</li>
+
+<li>Entregables</li>
+
+<li>Fecha y forma de entrega del producto de software</li>
+
+<li>Identificación de las funcionalidades del producto de software</li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="orgfe3d0a6"></a>Actividades<br />
+<div class="outline-text-5" id="text-orgfe3d0a6">
+<ol class="org-ol">
+<li>Identificar las funcionalidades del producto.</li>
+<li>Hacer el Plan del proyecto</li>
+</ol>
+</div>
+</li>
+
+<li><a id="orgd1d288e"></a>Elementos del Plan del Proyecto<br />
+<div class="outline-text-5" id="text-orgd1d288e">
+<ul class="org-ul">
+<li>Los puntos que incluye el Plan del Primer Proyecto de Software:
+
+<ul class="org-ul">
+<li>Objetivo del proyecto: basado en Planteamiento de necesidades</li>
+
+<li>Fechas: las fechas de inicio y fin del proyecto definidas en
+el Guión del Curso.</li>
+
+<li>Entregables: Descripción de lo que se entregará al final del
+proyecto, estos son los documentos resultantes de cada
+práctica del desarrollo y el código de software. (ver nombres
+de las plantillas y el Guión del Curso).</li>
+</ul></li>
+
+<li>Fechas y forma de entregar el producto</li>
+
+<li>Diagrama general de casos de uso</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org4487752"></a>Técnica para Identificar las funcionalidades del producto<br />
+<div class="outline-text-6" id="text-org4487752">
+<ul class="org-ul">
+<li>Uno de los elementos para hacer el Plan de proyecto es la
+identificación de las funcionalidades del producto de
+software.</li>
+
+<li>Esta tarea la vamos a hacer construyendo el Diagrama general
+de casos de uso.</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org727c384"></a>Pasos para identificar a los actores y los casos de uso:<br />
+<div class="outline-text-7" id="text-org727c384">
+<ul class="org-ul">
+<li>Identificar los actores del sistema. Para identificar a un
+actor se revisa el PLanteamiento de necesidades a fin de
+identificar qué tipo de usuarios interactúan con el software.</li>
+
+<li>Identificar los casos de uso para cada actor. Para cada actor
+que ya identificaste, buscas en el Planteamiento de
+necesidades, qué es lo que podrá hacer ese actor con el
+sistema.</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="orgeee4849"></a>Dibujar el Diagrama general de casos de uso<br />
+<div class="outline-text-8" id="text-orgeee4849">
+<ul class="org-ul">
+<li>Para cada actor identificado, dibujar el actor con la
+herramienta.</li>
+
+<li>Para cada caso de uso identificado, dibujar un óvalo en el
+diagrama y asignarle nombre que inicia con un verbo en
+infinitivo, tal como fue identificado el el Planteamiento
+del problema.</li>
+
+<li>Para cada actor dibujar una línea recta entre el actor y los
+casos de uso que puede ejecutar. Un actor puede ejecutar
+muchos casos de uso y un caso de uso puede ser efectuado por
+muchos actores.</li>
+
+<li>Todos los casos de uso identificados se enmarcan en un
+rectángulo para delimitar el alcance del sistema.</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li><a id="org4235015"></a>Planificar la iteración<br />
+<div class="outline-text-5" id="text-org4235015">
+<ul class="org-ul">
+<li>Los métodos ágiles de desarrollo de software proponen que el
+desarrollo sea iterativo.</li>
+
+<li>El desarrollo se divide en varias iteraciones de tiempos
+cortos.</li>
+
+<li>En cada iteración se realizan las actividades que permiten
+entregar un producto con funcionalidades parciales, que el
+cliente puede probar.</li>
+
+<li>El producto va incrementando sus funcionalidades con las
+entregas en cada iteración, hasta satisfacer completamente las
+necesidades del cliente.</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org158cc4d"></a>Definición del alcance de cada iteración<br />
+<div class="outline-text-6" id="text-org158cc4d">
+<ul class="org-ul">
+<li>Se escogen qué funcionalidades se implementarán en esa
+iteración.</li>
+
+<li>Criterios de selección de casos de uso para una iteración.
+
+<ul class="org-ul">
+<li>Seleccionar los que son prioritarios para el cliente.</li>
+
+<li>Seleccionar los que no dependen de los que no se
+seleccionaron.</li>
+
+<li>Seleccionar por lo menos un caso de uso por integrante del
+equipo.</li>
+</ul></li>
+
+<li>La duración de cada iteración depende del contexto de cada
+proyecto y las prioridades del cliente.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orga5fcb38"></a>Tablero<br />
+<div class="outline-text-6" id="text-orga5fcb38">
+<ul class="org-ul">
+<li>Para ayuda al equipo a tener visibilidad de lo que hay que
+hacer en cada iteración y permitir que se le dé seguimiento,
+usaremos un Tablero.</li>
+
+<li>Este tablero es una versión simplificada de una técnica ágil
+llamada Kanban (Anderson, 2010).</li>
+
+<li>El objetivo del Tablero es permitir la visibilidad del avance
+en las actividades de desarrollo de todos los miembros del
+equipo y poder saber quién está trabajando en cada parte del
+proyecto.</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orge187c4c" class="outline-4">
+<h4 id="orge187c4c">Pŕactica Administrativa 2. Planificar la iteración</h4>
+<div class="outline-text-4" id="text-orge187c4c">
+</div>
+<ul class="org-ul">
+<li><a id="orgecbdb9b"></a>Objetivos<br />
+<div class="outline-text-5" id="text-orgecbdb9b">
+<p>
+Planificar el alcance y preparar la iteración
+</p>
+</div>
+</li>
+
+<li><a id="orge9ff3b5"></a>Entrada<br />
+<ul class="org-ul">
+<li><a id="org100bba9"></a>Condiciones<br />
+<div class="outline-text-6" id="text-org100bba9">
+<p>
+Se iniciará una iteración
+</p>
+</div>
+</li>
+
+<li><a id="org7d9cff9"></a>Productos de trabajo<br />
+<div class="outline-text-6" id="text-org7d9cff9">
+<ul class="org-ul">
+<li>Primer proyecto de software
+<ul class="org-ul">
+<li>Repositorio compartido</li>
+</ul></li>
+<li>Plan del proyecto</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="org094f4f6"></a>Resultado<br />
+<ul class="org-ul">
+<li><a id="orged40ad1"></a>Productos de trabajo<br />
+<div class="outline-text-6" id="text-orged40ad1">
+<ul class="org-ul">
+<li>Tablero de la iteración creado para el alcance de iteración.</li>
+
+<li>Repositorio compartido incluyendo una carpeta para la
+iteración.</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="orgd58a892"></a>Actividades<br />
+<div class="outline-text-5" id="text-orgd58a892">
+<ol class="org-ol">
+<li>Construir el Tablero de la iteración</li>
+
+<li>Definir el alcance de la iteración</li>
+
+<li>Crear la carpeta de la iteración en el repositorio común para
+el resguardo de documentos de la iteración.</li>
+</ol>
+</div>
+
+<ul class="org-ul">
+<li><a id="org801996c"></a>Técnica para construir el Tablero de la iteración<br />
+<div class="outline-text-6" id="text-org801996c">
+<ul class="org-ul">
+<li>Para crear el Tablero para cada iteración existen herramientas
+en web que ayudan a automatizarlo.</li>
+
+<li>Se recomienda hacer un búsqueda de este tipo de herramientas
+para crear tableros Kanban que sea gratuitos y que se podrán
+configurar según las necesidades del curso.</li>
+</ul>
+</div>
+<ul class="org-ul">
+<li><a id="orgfabe757"></a>Contrucción del Tablero<br />
+<div class="outline-text-7" id="text-orgfabe757">
+<ul class="org-ul">
+<li>Los pasos para crear el Tablero son:
+
+<ul class="org-ul">
+<li>Si es la primera iteración, el Responsable de la
+colaboración, en conjunto con el equipo selecciona la
+herramienta para construir el Tablero y asegura que todos
+se capacitan en su uso.</li>
+
+<li>El responsable de la colaboración contruye el Tablero para
+el equipo.</li>
+
+<li>El Responsable de la colaboración pone en el tablero, en la
+columna por hacer una tarjeta.</li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="orge3b2f6a"></a>Iteraciones en el Plan del Proyecto<br />
+<div class="outline-text-6" id="text-orge3b2f6a">
+<ul class="org-ul">
+<li>El primer proyecto se va a desarrollar en dos iteraciones:
+
+<ul class="org-ul">
+<li>Primera iteración, se construirá el producto de software
+para una seleccción de funcionalidades prioritarias.</li>
+
+<li>Segunda iteración, se incluirán funcionalidades restante y
+se refinarán las funcionalidades ya implementadas.</li>
+
+<li>Para definir el alcance de cada iteración se debe generar el
+diagrama general de casos de uso.</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org97169f6"></a>Técnica para definir el alcance de la iteración<br />
+<div class="outline-text-6" id="text-org97169f6">
+<ul class="org-ul">
+<li>Al inicio de cada iteración se define su alcance como un
+sobconjunto de casos de uso del Diagrama general de casos de
+uso, por lo que se hace un diagrama específico para esa
+iteración.</li>
+
+<li>Para establecer cuáles casos de uso se incluirán en la
+iteración se deben aplicar los criterios:
+
+<ul class="org-ul">
+<li>Casos de usos que son prioritarios para el cliente</li>
+
+<li>Casos de uso independientes de otros</li>
+
+<li>Casos de uso que dependen de los que ya están implementados</li>
+
+<li>Cada miembro del equipo sea responsable de por lo menos un
+caso de uso.</li>
+</ul></li>
+
+<li>El responsable técnico convoca una reunión del equipo
+siguiendo la técnica TS6 con el objetivo de escoger los casos
+de uso para el alcance de la iteración ejecutando la técnica
+TA4.</li>
+
+<li>Cada Desarrollador coloca en el Tablero, en la columna de Por
+hacer, una tarjeta azul por cada caso de uso en el alcance de
+la iteración del cual es responsable con fecha de terminación,
+el fin de la iteración.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org19076b5"></a>Técnica para crear la carpeta de la iteración en el repositorio común para el resguardo de documentos de la iteración<br />
+<div class="outline-text-6" id="text-org19076b5">
+<ul class="org-ul">
+<li>Al inicio de cada iteración se coloca una carpeta nueva en el
+repositorio compartido, con el identificador de la iteración.</li>
+
+<li>Esta carpeta servira para resguardar todos los documentos
+generados durante la iteración.</li>
+
+<li>Si se trata de la primera iteración, se colocan en esa
+carpeta, las plantillas para todos los entregables.</li>
+
+<li>El Responsable de la calidad es el encargado de personalizar y
+asegurarse que estén correctos los productos.</li>
+
+<li>El Responsable de la colaboración se encarga de llevar el
+control de las versiones de los documentos y que estén
+resguardados en el repositorio en la carpeta correspondiente.</li>
+
+<li>El Responsable de la colaboración coloca la tarjeta de Crear
+la carpeta de la iteración en el Tablero en la columna POr
+hacer, moviendo esa tarjeta según avanza en la realización de
+esa actividad.</li>
+
+<li>El Responsable de la calidad coloca la tarjeta Inicializar los
+documentos en la carpeta de la nueva iteración en la columna
+Por hacer del Tablero, moviendo esa tarjeta según avanza en la
+realización de esa actividad.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org5a8801b"></a>Ejecutar el Plan del proyecto<br />
+<div class="outline-text-6" id="text-org5a8801b">
+<ul class="org-ul">
+<li>Dentro de la Administración de proyectos, la actividad de
+Ejecutar el proyecto tiene como objetivo asegurarse que se
+lleve a cabo el plan en tiempo y forma.</li>
+
+<li>Hay que darle seguimiento a las actividades que están
+realizando los miembros del equipo.</li>
+
+<li>Para saber si el plan se cumple, hay que dar el seguimiento a
+su ejecución:
+
+<ul class="org-ul">
+<li>Evidencia de las reuniones del equipo de trabajo</li>
+
+<li>Registro del estado del progreso actualizado</li>
+
+<li>Repositorio del proyecto actualizado y respaldado</li>
+
+<li>Solicitudes de cambios que se analizan y evalúan revisando
+los impactos a los costos, calendario y requerimientos
+técnicos que se necesitan. Si se aprueban, se documentan.</li>
+
+<li>Cuando se está trabajando de forma iterativa, en la
+ejecución se tiene el subconjunto de las actividades a
+realizar en el proyecto, restringido al alcance de la
+iteración.</li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orgcfc8328" class="outline-4">
+<h4 id="orgcfc8328">Práctica Administrativa 3. Ejecutar el plan de la iteración</h4>
+<div class="outline-text-4" id="text-orgcfc8328">
+</div>
+<ul class="org-ul">
+<li><a id="org218afd3"></a>Objetivos<br />
+<div class="outline-text-5" id="text-org218afd3">
+<p>
+Asegurarse que el <i>Plan del proyecto</i> se lleve a cabo en tiempo y
+forma según lo planeado para la iteración.
+</p>
+</div>
+</li>
+
+<li><a id="org1bf0790"></a>Entrada<br />
+<div class="outline-text-5" id="text-org1bf0790">
+<p>
+Condiciones: Iteración en ejecución
+</p>
+
+<p>
+Productos de trabajo: <i>Tablero</i> de la iteración.
+</p>
+</div>
+</li>
+
+<li><a id="org12c69e8"></a>Resultado<br />
+<div class="outline-text-5" id="text-org12c69e8">
+<p>
+Condiciones: Iteración en ejecución.
+</p>
+
+<p>
+Productos de trabajo: <i>Tablero</i> actualizado.
+</p>
+</div>
+</li>
+
+<li><a id="org00847f1"></a>Actividades<br />
+<div class="outline-text-5" id="text-org00847f1">
+<p>
+Ejecutar lo planeado para la iteración revisando y actualizando el <i>Tablero</i> (TA6)
+</p>
+</div>
+</li>
+
+<li><a id="org1a3817e"></a>Herramientas<br />
+<div class="outline-text-5" id="text-org1a3817e">
+<p>
+Herramienta para el Tablero
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="orgc368969"></a>Plan de iteración<br />
+<div class="outline-text-6" id="text-orgc368969">
+<p>
+En la reunión diaria del equipo, en 15 minutos, todos contestan
+3 preguntas y actualizan el estado del tablero de seguimiento
+según sus avences.
+</p>
+
+<p>
+Las preguntas son:
+</p>
+
+<ul class="org-ul">
+<li>¿Qué hice desde la última reunión?</li>
+<li>¿Qué haré?</li>
+<li>¿Qué dificultades encontré?</li>
+</ul>
+
+
+<p>
+Con base a las respuestas, el responsable de la colaboración actualiza el tablero moviendo las tarjetas a <i>Hecho</i> o generando nuevas.
+</p>
+</div>
+</li>
+
+<li><a id="orgccf51ed"></a>Técnica para ejecutar lo planeado para la iteración revisando y actualizando el <i>Tablero</i><br />
+<div class="outline-text-6" id="text-orgccf51ed">
+<p>
+En las reuniones diarias del equipo, cada miembro muestra su
+avance reflejado en el estado de sus tarjetas en las columnas
+del <i>Tablero</i>.
+</p>
+
+<p>
+Según su rol, de agregan nuevas tarjetas al <i>Tablero</i> de acuerdo
+con sus responsabilidades.
+</p>
+
+<p>
+El Responsable de la colaboración se asegura que todos
+actualicen el <i>Tablero</i> moviendo sus tarjetas según el estado del
+trabajo de cada día.
+</p>
+
+<p>
+De esta manera todos sabrán en qué están trabajando los demás,
+podrán establecer comunicación con quién tenga trabajo
+relacionado, o del que dependa su actividad.
+</p>
+
+<p>
+Todos pueden ver el avance de sus compañeros, notar si hay
+retrasos y tratar de resolverlos.
+</p>
+</div>
+</li>
+
+<li><a id="org92591cb"></a>Evaluar y controlar el proyecto<br />
+<div class="outline-text-6" id="text-org92591cb">
+<p>
+El objetivo de la actividad de Administración de proyectos
+llamada Evaluar y controlar el proyecto, es asegurarse que las
+actividades que se propusieron en el plan se lleven a cabo, que
+se cumplan con los compromisos establecidos y se tomen las
+acciones pertinentes ante situaciones especiales
+</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org5c30075" class="outline-4">
+<h4 id="org5c30075">Práctica Administratica 4. Evaluar y controlar la iteración</h4>
+<div class="outline-text-4" id="text-org5c30075">
+</div>
+<ul class="org-ul">
+<li><a id="orgacb2897"></a>Objetivos<br />
+<div class="outline-text-5" id="text-orgacb2897">
+<p>
+Evaluar el avance de la iteración en el Tablero y controlar las
+dificultades encontradas.
+</p>
+</div>
+</li>
+
+<li><a id="orgb779675"></a>Entrada<br />
+<div class="outline-text-5" id="text-orgb779675">
+<p>
+Condiciones: Iteración en ejecución
+</p>
+
+<p>
+Productos de trabajo: Tablero de la iteración
+</p>
+</div>
+</li>
+
+<li><a id="orgb8cb955"></a>Resultado<br />
+<div class="outline-text-5" id="text-orgb8cb955">
+<p>
+Condiciones: Iteración en ejecución.
+</p>
+
+<p>
+Productos de trabajo: <i>Tablero</i> de la iteración actualizado.
+</p>
+</div>
+</li>
+
+<li><a id="org876beb0"></a>Actividades<br />
+<div class="outline-text-5" id="text-org876beb0">
+<p>
+Evaluar el estado del progreso de la iteración a través del
+<i>Tablero</i>, identificando difucyltades y retrasos. Proponer
+soluciones para controlarlas y actualizar el <i>Tablero</i> con las
+actividades necesarias.
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="org4d7682e"></a>Técnica para evaluar y controlar el estado del progreso de la iteración a través del <i>Tablero</i><br />
+<div class="outline-text-6" id="text-org4d7682e">
+<p>
+Si al revisar el progreso de la iteración en el <i>Tablero</i> se
+detectan retrasos o dificultades, entre todos los miembros del
+equipo se analizan las razones y, de común acuerdo, se proponen
+actividades correctivas para remediarlas.
+</p>
+
+<p>
+Los retrasos y dificultades encontradas pueden ocasionar la
+creación de nuevas tarjetas con actividades para rectificarlos.
+</p>
+
+<p>
+Si las dificultades son de origen técnico, el responsable
+técnico busca la manera para apoyar a los que están atrasados,
+incorporando nuevas tarjetas en el <i>Tablero</i> con las actividades
+necesarias.
+</p>
+
+<p>
+Si el Responsable de la calidad revisando los productos
+generados por el equipo detecta defectos, crea una tarjeta de
+correción en el <i>Tablero</i> y la asigna al responsable del defecto.
+</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org947fd19" class="outline-3">
+<h3 id="org947fd19">Unidad 5. Requerimientos de software</h3>
+<div class="outline-text-3" id="text-org947fd19">
+</div>
+<div id="outline-container-org4b9f23f" class="outline-4">
+<h4 id="org4b9f23f">¿Qué es un requerimiento?</h4>
+<div class="outline-text-4" id="text-org4b9f23f">
+<p>
+"Los requerimientos de software expresan las necesidades y
+restricciones que debe tener un producto de software para que
+contribuya a la solución de un problema en el mundo real"
+(SWEBOK, 2014)
+</p>
+
+<p>
+"Los requerimientos de un producto de software son las
+descripciones de lo que hará, los servicios que proporcionará y
+las restricciones de su operación" (Sommerville I., 2011).
+</p>
+
+<p>
+Un requerimiento o necesidad es lo que el cliente o un usuario
+desean que haga el software para resolver un problema.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgedfbd2c" class="outline-4">
+<h4 id="orgedfbd2c">¿Cómo se expresan los requerimientos?</h4>
+<div class="outline-text-4" id="text-orgedfbd2c">
+<ul class="org-ul">
+<li>Lenguaje natural</li>
+
+<li>Forma gráfica</li>
+
+<li>Prototipo de interfaz de usuario</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org530e90d" class="outline-4">
+<h4 id="org530e90d">Objetivos de la especificación de requerimientos</h4>
+<div class="outline-text-4" id="text-org530e90d">
+<ul class="org-ul">
+<li>Entender le problema a resolver.</li>
+
+<li>Construir un modelos de los requerimientos</li>
+
+<li>Obtener criterios para varificar y validar el producto de
+software terminado.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org078b960" class="outline-4">
+<h4 id="org078b960">Calidad de un producto de software</h4>
+<div class="outline-text-4" id="text-org078b960">
+<p>
+La calidad de un producto de software se define como "capacidad de
+un producto de software de satisfacer las neceisdades expresas e
+implícitas en condiciones específicas".
+</p>
+
+<p>
+Al definir los requerimientos se busca claridad, precisión y no
+ambigüedad tanto para el desarrollador y para el cliente.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfc486ed" class="outline-4">
+<h4 id="orgfc486ed">¿Cómo asegurar la calidad de la especificación de los requerimientos?</h4>
+<div class="outline-text-4" id="text-orgfc486ed">
+<p>
+Que el cliente pueda evaluar la calidad de software, es revisando
+y avalando la especificación de los requerimientos.
+</p>
+
+<p>
+La validación final, de que el software cumple con los
+requerimientos especificados, se hace hasta que el software esté
+construido.
+</p>
+
+<p>
+Los requerimientos cambian constantemente.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7a2d9fc" class="outline-4">
+<h4 id="org7a2d9fc">Tipos de requerimientos</h4>
+<div class="outline-text-4" id="text-org7a2d9fc">
+</div>
+<ul class="org-ul">
+<li><a id="orgddeb176"></a>Funcionales<br />
+<div class="outline-text-5" id="text-orgddeb176">
+<p>
+Son los servicios, la forma en que el software debe reaccionar a
+entradas particulares y cómo debe comportarse en situaciones
+particulares.
+</p>
+</div>
+</li>
+
+<li><a id="org9d145a4"></a>No Funcionales<br />
+<div class="outline-text-5" id="text-org9d145a4">
+<p>
+Son restricciones que los servicios y y finciones de software
+deben cumplir.
+</p>
+
+<ul class="org-ul">
+<li>Necesidades de la interfaz externa.</li>
+<li>Cualidades del software.</li>
+<li>Restricciones del diseño.</li>
+<li>Otros.</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org18f58de" class="outline-4">
+<h4 id="org18f58de">Actividades para definir los requerimientos</h4>
+<div class="outline-text-4" id="text-org18f58de">
+<ul class="org-ul">
+<li>Obtener: Entender (desarrollador / cliente)</li>
+
+<li>Analizar: (desarrollador)</li>
+
+<li>Especificar: Documentar texto, diagramas, prototipos (desarrollador)</li>
+
+<li>Validar: (por el cliente)</li>
+
+<li>Administrar: Cambios a requerimientos (desarrollador)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbd71aa4" class="outline-4">
+<h4 id="orgbd71aa4">Caso de prueba</h4>
+<div class="outline-text-4" id="text-orgbd71aa4">
+<p>
+Para todos los casos de uso se definen casos de prueba.
+</p>
+
+<p>
+Los casos de prueba se aplicarán cuando el caso de uso ya esté
+implementado para asegurar el cumplimiento de los requerimientos
+especificados.
+</p>
+
+<p>
+Los casos de prueba confirman la verificabilidad de los
+requerimientos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc65fa5b" class="outline-4">
+<h4 id="orgc65fa5b">Práctica de desarrollo de software</h4>
+<div class="outline-text-4" id="text-orgc65fa5b">
+</div>
+<ul class="org-ul">
+<li><a id="org8416008"></a>Requerimientos de software<br />
+<ul class="org-ul">
+<li><a id="org000b3bb"></a>Objetivos<br />
+<div class="outline-text-6" id="text-org000b3bb">
+<p>
+Comprender y especificar los requerimientos del sistema de
+software, basándose en el <i>Planteamineto de necesidades</i>.
+</p>
+</div>
+</li>
+
+<li><a id="org510fc3d"></a>Entrada<br />
+<div class="outline-text-6" id="text-org510fc3d">
+<p>
+<b>Condiciones</b>: Proyecto planificado.
+</p>
+
+<p>
+<b>Productos de trabajo</b>:
+</p>
+
+<ul class="org-ul">
+<li>Plan del proyecto</li>
+<li>Planteamiento de necesidades</li>
+<li>Plantilla Especificación de Requerimientos de Software.</li>
+<li>Repositorio compartido con la carpeta para la iteración.</li>
+<li>Tablero de la iteración.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org55a3130"></a>Resultado<br />
+<div class="outline-text-6" id="text-org55a3130">
+<p>
+<b>Condiciones</b>: Requerimientos entendidos
+</p>
+
+<p>
+<b>Productos de trabajo</b>: Especificación de Requerimientos de
+ Software.
+</p>
+</div>
+</li>
+
+<li><a id="orgeb6ee9e"></a>Actividades<br />
+<div class="outline-text-6" id="text-orgeb6ee9e">
+<ol class="org-ol">
+<li>Entender el <i>Planteamiento de necesidades</i> para la iteración</li>
+<li>Analizar y especificar los requerimientos (TR2,TR3,TR4,TR5)</li>
+<li>Especificar los requerimientos no funcionales (TR6)</li>
+<li>Documentar la <i>Especificación de Requerimientos de Software</i></li>
+</ol>
+</div>
+</li>
+
+<li><a id="orgcbd51ce"></a>Herramientas<br />
+<div class="outline-text-6" id="text-orgcbd51ce">
+<ul class="org-ul">
+<li>Herramienta para hacer diagramas de UML.</li>
+<li>Herramienta para diseñar el prototipo de interfaz de usuario.</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org495ea84"></a>Entender el <i>Planteamiento de necesidades</i> para la iteración<br />
+<div class="outline-text-7" id="text-org495ea84">
+<p>
+A fin de entender el problema para poder especificar los
+requerimientos se pueden llevar a cabo estas actividades:
+</p>
+
+<ul class="org-ul">
+<li>Hacer entrevistas con posibles usuarios.</li>
+<li>Aplicar cuestionarios a los usuarios.</li>
+<li>Observar a los futuros usuarios al realizar las tareas que
+apoyará el software</li>
+<li>Revisar documentos o sistemas ya existentes que se pretenden
+mejorar.</li>
+<li>Hacer un glosario de términos.</li>
+</ul>
+
+
+<p>
+<b>Glosario de términos</b>:
+</p>
+
+<p>
+Para que todos los involucrados puedan comunicarse más
+fácilmente, se recomienda construir un Glosario de términos
+para establecer un vocabulario común.
+</p>
+
+<p>
+El glosario de términos es un pequeño diccionario, donde se
+registran los término importantes para entender el proble y su
+significado.
+</p>
+
+<p>
+EL glosario se puede ir actualizando a lo largo del proyecto.
+</p>
+
+<ul class="org-ul">
+<li>El Responsable de la colaboración, pone una tarjeta en el
+<i>Tablero</i> en la columna de por hacer, con la actividad de Hacer
+el <i>Glosario de términos</i> y lo asigna al Responsable técnico.</li>
+
+<li>El responsable técnico mueve la tarjeta a la columna de
+<i>Haciendo</i> y dirige la discusión para hacer el <i>Glosario de
+términos</i>. Al terminar el glosario, mueve la tarjeta a la
+columna <i>Hecho</i>.</li>
+
+<li>El Responsable de calidad se asegura que se ponga el glosario
+en la plantilla personalizada de <i>Especificación de
+Requerimientos de Software</i>.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org3684c79"></a>Analizar y especificar los requerimientos funcionales<br />
+<div class="outline-text-7" id="text-org3684c79">
+<p>
+Los casos de uso permiten de manera simple definir como los
+usuarios utilizarán el software.
+</p>
+
+<p>
+Servirán de hilo conductor para todo el proceso de desarrollo
+en el <i>Método Incial de Desarrollo de Software</i>.
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="orge5f3f91"></a>Hacer el diagrama de Casos de Uso para la Iteración<br />
+<div class="outline-text-8" id="text-orge5f3f91">
+<p>
+Para iniciar una iteración los desarrolladores deben de
+revisar el Plan de Proyecto, que contienen el Diagrama General
+de Casos de Uso de todo el sistema.
+</p>
+
+<p>
+Todos participan en la selección de los casos de uso para la
+iteración y hacen un diagrama general con el subconjunto de
+casos de uso que se desarrollarán en esa iteración.
+</p>
+
+<p>
+Se asigna al menos un caso de uso a cada desarrollador.
+</p>
+
+<ul class="org-ul">
+<li>El Responsable de la colaboración, pone una tarjeta en el
+Tablero en la columna de <i>Por Hacer</i>, con la actividad de
+Hacer el diagrama de casos de uso de la iteración y lo
+asigna al Responsable técnico.</li>
+
+<li>El Responsable técnico mueve la tarjeta a la columna de
+<i>Haciendo</i>, revisa con todo el equipo el <i>Diagrama General de
+Casos de Uso de todo el sistema</i> para identificar los casos
+de uso seleccionados para la iteración y dibujan el diagrama
+general de casos de uso de la iteración.</li>
+
+<li>Al terminar el diagrama, Responsable técnico mueve la
+tarjeta a la columna <i>Hecho</i>.</li>
+
+<li>El Responsable de calidad asegura que se integre en la
+plantilla personalizada de Especificación de Requerimientos
+de Software.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org7134c93"></a>Detallar los casos de uso<br />
+<div class="outline-text-8" id="text-org7134c93">
+<p>
+<b>Caso de uso</b>: El nombre deberá ser un verbo en infinitivo
+representativo de la funcionalidad del caso de uso (el mismo
+que en el diagrama general).
+</p>
+
+<p>
+<b>Diagrama del caso de uso</b>: dibujo del o los actores y el caso
+de uso en cuestión.
+</p>
+
+<p>
+<b>Descripción</b>: Texto breve describiendo la función que
+representa el caso de uso.
+</p>
+
+<p>
+<b>Precondiciones</b>: El estado en el que se encuentra el sistema
+para que el actor (o los actores) pueda iniciar el caso de
+uso.
+</p>
+
+<p>
+<b>Flujo normal de eventos</b>: Tabla que describe el flujo de
+interacciones esperadas (<i>el camino feliz</i>) entre el actor y el
+sistema durante el caso de uso.
+</p>
+
+<p>
+<b>Flujo excepcional de eventos</b>: Tabla con las acciones que
+ocurren en situaciones anormales o excepcionales.
+</p>
+
+<p>
+<b>Poscondiciones</b>: Define el estado en el que se encuentra el
+sistema después de la terminación exitosa del caso de uso.
+</p>
+
+<ul class="org-ul">
+<li>Cada miembro del equipo escoge al menos un caso de uso,
+dentro del alcance de la iteración representado en el
+<i>Diagrama de Casos de Uso</i> para la iteración, para detallarlo.</li>
+
+<li>El responsable de la colaboración, pone una tarjeta en el
+Tablero en la columna de <i>Por Hacer</i>, con la actividad de
+<i>Detallar el caso de uso</i> para cada caso de uso de la
+iteración y se lo asigna al miembro del equipo que lo
+detallará.</li>
+
+<li>Cada miembro del equipo al iniciar el detalle de su caso de
+uso, mueve su tarjeta del tablero a la columna <i>Haciendo</i> y
+usa el formato propuesto para detallar el caso de uso del
+que es responsable. Al terminar de llenar todos los campos,
+mueve su tarjeta a la columna de <i>Hecho</i>.</li>
+
+<li>El Responsable de calidad asegura que se pongan los detalles
+de todos los casos de uso en la plantilla personalizada de
+<i>Especificación de Requerimientos de Software</i>.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org43abb44"></a>Definición del prototipo de interfaz de usuario<br />
+<div class="outline-text-8" id="text-org43abb44">
+<ul class="org-ul">
+<li>Un prototipo de interfaz de usuario es una representación
+inicial de las pantallas que el software mostrará al
+usuario.</li>
+
+<li>Estas pantallas muestran la distribución de diferentes
+elementos que permitirań al usuario interactuar con el
+sistema pero que no ofrecen ninguna funcionalidad
+implementada.</li>
+</ul>
+
+
+<p>
+El Responsable de la colaboración, pone una tarjeta en el
+<i>Tablero</i> en la columna de <i>Por Hacer</i>, con la actividad de
+<i>Definir el prototipo</i> para cada caso de uso de la iteración y
+se lo asigna al miembro del equipo que definirá la interfaz.
+</p>
+
+<p>
+Todo el equipo se pone de acuerdo en lineamientos para el
+diseño de la interfaz de usuario y escoge la manera para
+realizarlo.
+</p>
+
+<p>
+Cada miembro del equipo define el prototipo de interfaz que
+corresponde al detalle de su caso de uso para los flujos
+normal, alternativos y excepcionales.
+</p>
+
+<p>
+Cada miembro del equipo al iniciar la actividad, mueve su
+tarjeta del tablero a la columna <i>Haciendo</i> y usa el formato
+propuesto para definir el prototipo para el caso de uso del
+que es responsable. Al terminar la actividad, mueve su tarjeta
+a la columna de <i>Hecho</i>.
+</p>
+
+<p>
+El responsable de calidad se asegura que los prototipos se
+integren en la plantilla personalizada de <i>Especificación de
+Requerimientos de software</i>.
+</p>
+</div>
+</li>
+
+<li><a id="orga1d336a"></a>Casos de prueba para los requerimientos funcionales<br />
+<div class="outline-text-8" id="text-orga1d336a">
+<ul class="org-ul">
+<li>Los casos de prueba para cada caso de uso se documentan en
+una tabla.</li>
+
+<li>Un caso de prueba identifica las entradas al caso de uso y
+los resultados esperados.</li>
+
+<li>Se consideran entradas para flujos normales, alternativos y
+excepcionales.</li>
+</ul>
+
+
+<p>
+El Responsable de la colaboración, pone una tarjeta en el
+Tablero en la columna de <i>Por Hacer</i>, con la actividad de
+Definir los casos de prueba para cada caso de uso de la
+iteración y se lo asigna al miembro del equipo que definirá
+sus casos de prueba.
+</p>
+
+<p>
+Cada miembro del equipo define los casos de prueba que
+corresponden al detalle de su caso de uso en los flujos
+normales, alternativos y excepcionales.
+</p>
+
+<p>
+Cada miembro del equipo al iniciar la actividad, mueve su
+tarjeta del tablero a la columna <i>Haciendo</i> y usa el formato
+propuesto para definir los casos de prueba para el caso de uso
+de los que es responsable. Al terminar la actividad, mueve su
+tarjeta a la columna de <i>Hecho</i>.
+</p>
+
+<p>
+El Responsable de calidad se asegura que se integren los casos
+de prueba en la plantilla personalizada de <i>Especificación de
+Requerimientos de software</i>.
+</p>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="org3c708df"></a>Especificar los requerimientos no funcionales.<br />
+<div class="outline-text-7" id="text-org3c708df">
+<p>
+Cuando ya se tienen entendidas las funcionalidades que deberá
+ofrecer el sistema de software, se especifican las
+características o requerimientos no funcionales que deberá
+cumplir.
+</p>
+
+<ul class="org-ul">
+<li>El Responsable de la colaboración, pone una tarjeta en el
+Tablero en la columna de <i>Por Hacer</i>, con la actividad de
+Especificar los requerimientos no funcionales y la asigna al
+Responsable técnico.</li>
+
+<li>Todos los miembros del equipo revisan el <i>Planteamiento de
+Necesidades</i> para la iteración e identifican los
+requerimientos no funcionales en la sección de
+Resctricciones.</li>
+
+<li>El Responsable Técnico redacta el texto con los
+requerimientos no funcionales.</li>
+
+<li>El Responsable de calidad redacta el texto con los
+requerimientos no funcionales.</li>
+
+<li>EL Responsable de calidad s easegura que se integren los
+requerimientos no funcionales en la plantilla personalizada
+de <i>Especificación de Requerimientos de Software</i>.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org052ea58"></a>Documentar la Especificación de Requerimientos de Software<br />
+<div class="outline-text-7" id="text-org052ea58">
+<p>
+Una vez aplicadas todas las técnicas anteriores, se han
+generado una serie de resultados que al juntarlos conforman la
+<i>Especificación de Requerimientos de Software</i>.
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="orga72ebed"></a>Documentar la Especificación de Requerimientos de Software<br />
+<div class="outline-text-8" id="text-orga72ebed">
+<p>
+La labor del Responsable de calidad es asegurar que fueron
+integrados todos los elementos generados en esta práctica en
+la plantilla personalizada del documento.
+</p>
+
+<p>
+El Responsable de Calidad asegura la integración de todos los
+elementos en el documento de Especificación de Requerimientos
+de Software siguiendo la plantilla.
+</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd343557" class="outline-3">
+<h3 id="orgd343557">Unidad 6. Diseño de Software</h3>
+<div class="outline-text-3" id="text-orgd343557">
+</div>
+<div id="outline-container-org0edd5c7" class="outline-4">
+<h4 id="org0edd5c7">Diseño de Software</h4>
+<div class="outline-text-4" id="text-org0edd5c7">
+<p>
+Diseño de cualquier producto consiste en crear un modelo o
+representación delo que se construirá más adelante.
+</p>
+
+<p>
+Diseño de software es el conjunto de actividades creativas
+mediante las cuales los requerimientos se traducen en una
+representación del software.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgebb6a0e" class="outline-4">
+<h4 id="orgebb6a0e">Objetivos del diseño</h4>
+<div class="outline-text-4" id="text-orgebb6a0e">
+<p>
+Identificar y caracterizar las partes o componentes principales
+sel software.
+</p>
+
+<p>
+Definir su interacción e integración en el producto, para llegar
+al nivel de detalle que permita su mapeo al código en algún
+lenguaje de programación.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3366e49" class="outline-4">
+<h4 id="org3366e49">Niveles de abstracción.</h4>
+<div class="outline-text-4" id="text-org3366e49">
+<p>
+<b>Diseño arquitectónico</b>: Describe cómo se descompone y organiza el
+software en componentes abstractos partiendo de la especificación
+de requerimientos.
+</p>
+
+<p>
+<b>Diseño detallado</b>: Describe el comportamiento específico de esos
+componentes tomando en cuenta el ambiente en el cual se
+codificará.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc1828ac" class="outline-4">
+<h4 id="orgc1828ac">Principios para el Diseño</h4>
+<div class="outline-text-4" id="text-orgc1828ac">
+<p>
+<b>Abstracción</b>: Es una vista de un objeto qu se centra en la
+información relevante para un propósito particular e ignora el
+resto de la información. Para el diseño de software inicialmente
+se abstraen las propiedades más generales que deberán tener los
+componentes del software a construir.
+</p>
+
+<p>
+La sbtracción se refiere a identificar y modelar de forma
+estructurada propiedades esenciales de un conjunto de objetos
+omieitndo detalles no esenciales, según sea el caso.
+</p>
+
+<p>
+La abtracción segmentada se puede referir a dividir en múltiples
+elementos que permitan manejar fácilmente un sistema en su
+conjunto.
+</p>
+
+<p>
+<b>Separación de conceptos</b>: Una preocupaciń de diseño es la
+separación de elementos relevantes para uno o más de sus
+involucrados. Cada vista de arquitectura refleja uno o más
+intereses. Separar los conceptos por vistas permite a los
+interesados centrarse en cosas a la vez y de esta manera manejar
+la complejidad.
+</p>
+
+<p>
+La abtracción modular se refiere a que cada elemento cumpla
+funcionalidades que lo hagan un componente individual.
+</p>
+
+<p>
+<b>Descomposición y modularización</b>: Descomponer y modularizar el
+software significa dividirlo en una serie de pequeños componentes,
+que tienen bien definidos interfaces y que describen las
+interacciones de los componentes. Por lo general, el objetivo es
+colocar diferentes funcionalidades y responsabilidades en
+diferentes componentes.
+</p>
+
+<p>
+<b>Acoplamiento y cohesión</b>: El acoplamiento está definido como "una
+medida de la interdependencia entre módulos en un programa de
+computadora", mientras que cohesión se define como "una medida de
+la fuerza de asociación de los elementos dentro de un módulo".
+</p>
+
+<p>
+Un buen diseño busca la cohesión de módulos alta y el acoplamiento
+débil.
+</p>
+
+<p>
+<b>Encapsulamiento y ocultamiento de la información</b>: Propone agrupar
+y empaquetar los detalles internos de una abstracción y hacer esos
+detalles inaccesibles a entidades externas.
+</p>
+
+<p>
+<b>Separación de la interfaz y la implementación</b>: Significa definir
+un componente especificando una interfaz pública la cual está
+separada de los detalles de cómo el componente se realiza.
+</p>
+
+<p>
+<b>Refinamiento sucesivo</b>: Es extender deductivamente el modelo
+conceptual de requerimientos en una serie de incrementos
+precisando cada vez especificacions que aumentan el nivel de
+detalle.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9ee9bd2" class="outline-4">
+<h4 id="org9ee9bd2">Otros principios</h4>
+<div class="outline-text-4" id="text-org9ee9bd2">
+<p>
+<b>Diseñar para el cambio</b> significa que el diseño debe ser flexible
+para permitir cambios con relativa facilidad.
+</p>
+
+<p>
+<b>Diseñar para facilitar el uso del software</b> considera algunos
+escenarios del uso del software y su interfaz puede ayudar en el
+diseño de los componentes apropiados.
+</p>
+
+<p>
+<b>Diseñar para facilitar la prueba</b>. Los componente del sistema deben
+estar diseñados como unidades que se pueden probar sin depender de
+la implementación de otros componentes.
+</p>
+
+<p>
+<b>Diseñar para la reutilización</b>. Consiste en definir partes
+generićas que puedan volver a usarse. Para aplicar este principio
+se deben identificar los componente comunes que se podrán
+reutilizar. El reuso incluye no solo el niver del diseño, sino de
+código, casos de prueba, modelos o diagramas.
+</p>
+
+<p>
+El diseño es una actividad creativa por lo que no existe "el
+mejor"diseño.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge4d7872" class="outline-4">
+<h4 id="orge4d7872">Cualidades del software</h4>
+<div class="outline-text-4" id="text-orge4d7872">
+<p>
+Al diseñar se deben considerar las cualidades que deberá tener,
+como:
+</p>
+
+<ul class="org-ul">
+<li>La arquitectura: integridad, corrección, facilidad de
+construcción y completitud.</li>
+
+<li>De uso: seguridad, eficiencia, funcionalidad y usabilidad.</li>
+
+<li>De ejecución: facilidad de modificación, de prueba, reusabilidad
+y portabilidad.</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="orgfc80a62"></a>Arquitectura de software<br />
+<div class="outline-text-5" id="text-orgfc80a62">
+<p>
+Cualidades que debe tener la arquitectura:
+</p>
+
+<ul class="org-ul">
+<li>Sencillez. Fácil de comprender y de implementar.</li>
+
+<li>Extensión. La posibilidad de agregar nuevos componentes.</li>
+
+<li>Cambio. Los cambios en los requerimientos no afecten mucho a la
+arquitectura.</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org42d58fc"></a>Actividades para definir la arquitectura<br />
+<div class="outline-text-6" id="text-org42d58fc">
+<ul class="org-ul">
+<li>Seleccionar el tipo de arquitectura del software según el tipo
+de la aplicaciónp a desarrollar.</li>
+
+<li>Identificar los componentes que conformarán la arquitectura
+del software según el tipo de la aplicación a desarrollar.</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org016a04c" class="outline-2">
+<h2 id="org016a04c">Tareas</h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Erik Rangel Limón</p>
+<p class="date">Created: 2023-08-17 Thu 15:56</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1 (<a href="https://orgmode.org">Org</a> mode 9.6.6)</p>
+</div>
+</body>
+</html>

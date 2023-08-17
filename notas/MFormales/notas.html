@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-08-17 Thu 15:56 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Métodos Formales</title>
+<meta name="author" content="Erik Rangel Limón" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">/* Base */html,body {    background-color: #222;    min-height: 100%;    line-height: 1.5;}body {    color: #fafafa;    font-family: "Courier New";}::selection {    background-color:  #2ecc40;    color: white;}/* Responsive content positioning */@media only screen and (min-width: 1020px) /* Large screens */{    body{        padding: 10vh 25vw;    }}@media only screen and (max-width: 1020px) and (min-width: 750px) /* Small screens */{    body{        padding: 5vh 10vw;    }}@media only screen and (max-width: 750px) /* Small screens */{    body{        padding: 2vh 5vw;    }}/* Headers */h1{font-size: 2.5rem;}h2{font-size: 1.7rem;}h1 > .subtitle, h3, h4, h5, h6{font-size: 1.3rem;}.title{    margin-bottom: 2.5rem;}/* Padding & Margin */* {margin: 0; padding: 0;}pre, blockquote, ul, ol, p, table{    margin: 1rem 0;}h1, h2{margin-top: 2rem; line-height: 2rem;}h3, h4, h5, h6{margin-top: 1rem;}/* Links  */a, a:visited {    color: #01ff70;    text-decoration: underline;}a:hover, a:focus, a:active {    color: #2ecc40;}/* Code */pre {    font-family: "Courier New";    padding: .5rem;    background-color: #333;    padding: 0.5rem;    border-radius: 0.2rem;    font-size: 0.9rem;    color: #EEE;    overflow-x: auto;}.org-keyword{    color: #01ff70;}.org-rainbow-delimiters-depth-1{    color: #2ecc40;}.org-rainbow-delimiters-depth-2{    color: #01ff70;}/* Blockquotes */blockquote {    border-left: 3px solid #01ff70;    padding-left: 1rem;}li{    list-style-position: inside;}/* Tags */.tag{    margin-top: 0.5rem;    display: block;    color: white;    font-size: var(--font-size-xsmall);}.tag > span{		font-weight: 400;    font-size: 0.8rem;    background-color: #444;    text-transform: uppercase;    border-radius: 2px;    width: fit-content;    height: auto;    padding: 1px 5px;}/* Keywords */.todo{    color: #2ecc40;}.done{    color: #444;}/* Overflows */.outline-text-2, .outline-text-3, .outline-text-4{	  max-width: 100%;	  overflow-x: auto;}/* Table */tr:nth-child(even) {    background-color: #333;}th, td{    padding: 0.5rem;    text-align: center;}.underline{    text-decoration: underline;}img{    max-width: 100%;    height: auto;}</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Métodos Formales</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgcd48644">Contacto</a></li>
+<li><a href="#orgcb31216">Rubros</a></li>
+<li><a href="#org5a671ef">Notas</a>
+<ul>
+<li><a href="#orgbf24b12">14 / 08 / 23</a>
+<ul>
+<li><a href="#orgc392fda">Herramientas para verificar programas</a></li>
+<li><a href="#org33d2398">¿Qué son los Métodos Formales?</a></li>
+</ul>
+</li>
+<li><a href="#orgf9e6ae7">16 / 08 / 23</a>
+<ul>
+<li><a href="#org52c90fd">Métodos Formales</a></li>
+<li><a href="#org0359503">Desarrollo de Software</a></li>
+<li><a href="#orgd431bd4">Herramientas de Verificación</a></li>
+<li><a href="#orge224f8f">Sistemas de deducción</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgde2273d">Bibliografía</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcd48644" class="outline-2">
+<h2 id="orgcd48644">Contacto</h2>
+<div class="outline-text-2" id="text-orgcd48644">
+<ul class="org-ul">
+<li><p>
+Lourdes
+</p>
+
+<p>
+lug1zhuezca@ciencias.unam.mx
+</p>
+
+<p>
+Cubículo 19 Depto Mate.
+</p></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcb31216" class="outline-2">
+<h2 id="orgcb31216">Rubros</h2>
+<div class="outline-text-2" id="text-orgcb31216">
+<ul class="org-ul">
+<li>Prácticas 30%</li>
+<li>Tareas 40%</li>
+<li>Proyecto 30%</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5a671ef" class="outline-2">
+<h2 id="org5a671ef">Notas</h2>
+<div class="outline-text-2" id="text-org5a671ef">
+</div>
+<div id="outline-container-orgbf24b12" class="outline-3">
+<h3 id="orgbf24b12">14 / 08 / 23</h3>
+<div class="outline-text-3" id="text-orgbf24b12">
+</div>
+<div id="outline-container-orgc392fda" class="outline-4">
+<h4 id="orgc392fda">Herramientas para verificar programas</h4>
+<div class="outline-text-4" id="text-orgc392fda">
+<ul class="org-ul">
+<li>Haskell: Quick Check</li>
+<li>C: Frama-C (Ocaml)</li>
+<li>General: Coq (Ocaml)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org33d2398" class="outline-4">
+<h4 id="org33d2398">¿Qué son los Métodos Formales?</h4>
+<div class="outline-text-4" id="text-org33d2398">
+<p>
+Engloba las herramientas computacionales o matemáticas para
+verificar (demostrar) sistemas computacionales (tanto de <i>hardware</i>
+como de <i>software</i>).
+</p>
+
+<p>
+Éstas aseguran que una implementación cumple una <b>especificación</b>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf9e6ae7" class="outline-3">
+<h3 id="orgf9e6ae7">16 / 08 / 23</h3>
+<div class="outline-text-3" id="text-orgf9e6ae7">
+</div>
+<div id="outline-container-org52c90fd" class="outline-4">
+<h4 id="org52c90fd">Métodos Formales</h4>
+<div class="outline-text-4" id="text-org52c90fd">
+<p>
+Herramientas computacionales / matemáticas para la <b>verificación</b> de
+sistemas computacionales.
+</p>
+
+<p>
+<b>Verificación</b>: Asegurar que una especificación se cumple en una
+implementación.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0359503" class="outline-4">
+<h4 id="org0359503">Desarrollo de Software</h4>
+<div class="outline-text-4" id="text-org0359503">
+<p>
+El desarrollo de Software consiste de 4 fases.
+</p>
+
+<ul class="org-ul">
+<li>Análisis</li>
+<li>Especificación</li>
+<li>Desarrollo (implementación)</li>
+<li><i>Verificación</i></li>
+<li>Mantenimiento</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="orge16e119"></a>Métodos Formales<br />
+<div class="outline-text-5" id="text-orge16e119">
+<p>
+Durante todo este proceso de desarrollo se pueden incluir métodos
+formales; entre ellos incluidos, pero no limitadas:
+</p>
+
+<ul class="org-ul">
+<li>Casos de uso</li>
+<li>Contratos / firmas / interfaces</li>
+<li>Tipos o verificación de tipos</li>
+<li>Ejecución simbólica</li>
+<li>Pruebas unitarias</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org1c70853"></a>Propiedades a verificar<br />
+<div class="outline-text-5" id="text-org1c70853">
+<ul class="org-ul">
+<li>Alto nivel: Propiedades dadas en la especificación.</li>
+
+<li>Bajo nivel: Propiedades a nivel de hardware o software para
+verificar que el sistema se instaló correctamente (por ejemplo,
+los sensores).</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orgd431bd4" class="outline-4">
+<h4 id="orgd431bd4">Herramientas de Verificación</h4>
+<div class="outline-text-4" id="text-orgd431bd4">
+<p>
+Una de las más conocidas son:
+</p>
+
+<ul class="org-ul">
+<li>Los sistemas de tipos de un lenguaje de programación</li>
+
+<li>Lógica de Hoare: Se analizan las propiedades que se deben
+cumplir antes de ejecutar un sistema (precondiciones) y las
+propiedades que se deben cumplir después de la ejecución
+(postcondiciones).</li>
+
+<li><b>Pruebas unitarias</b></li>
+
+<li>Lógicas temporales (LTL <i>Linear tree logic</i> y CTL <i>Computational
+tree logic</i>)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge224f8f" class="outline-4">
+<h4 id="orge224f8f">Sistemas de deducción</h4>
+<div class="outline-text-4" id="text-orge224f8f">
+<p>
+\[\infer{0\in\mathbb{N}}{}\]
+</p>
+
+<p>
+\[\infer{Suc\ n \in \mathbb{N}}{n \in \mathbb{N}}\]
+</p>
+
+<p>
+Para demostrar que \(Suc\ n\) es Natural, basta demostrar que \(n\) es
+un Natural.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgde2273d" class="outline-2">
+<h2 id="orgde2273d">Bibliografía</h2>
+<div class="outline-text-2" id="text-orgde2273d">
+<ul class="org-ul">
+<li>Formal Methods, an Appetizer. Springer.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Erik Rangel Limón</p>
+<p class="date">Created: 2023-08-17 Thu 15:56</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1 (<a href="https://orgmode.org">Org</a> mode 9.6.6)</p>
+</div>
+</body>
+</html>

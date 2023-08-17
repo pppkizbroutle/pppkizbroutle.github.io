@@ -1,0 +1,2265 @@
+#+title: Ingeniería de Software
+#+author: Erik Rangel Limón
+#+startup: content
+#+startup: latexpreview
+
+- Código de classroom: 3xjcc6g
+- Link de meet: https://meet.google.com/xgj-xgwi-urj
+
+* Bibliografía
+
+  Guadalupe Ibargüengoitia G. Hanna Oktaba. Introducción a la
+  Ingeniería de Software
+
+* Evaluación
+  
+** Clases teóricas:
+
+   - Participación activa en las discusiones sobre temas teóricos
+
+   - Presentación de los productos de trabajo desarrollados
+     individualmente y por el equipo.
+
+
+   Examen teórico individual al final de la primera iteración
+
+** Ayudantía:
+
+   - Participación equitativa de los alumnos en el trabajo del equipo
+     al generar los documentos
+
+
+   Entrega puntual de documentos y del código por equipo.
+
+** Laboratorio:
+
+   - Evaluaciones individuales a cada alumno de su aprovechamiento en
+     el aprendizaje de las herramientas.
+
+   - Examen.
+
+** Calificación final
+
+   - 40% calificación del equipo documentación y funcionamiento del
+     sistema, desempeño del equipo. *Calificación individual*.
+     
+   - 20% calificación individual por examen teórico, participación y
+     asistencia a las clases teóricas.
+     
+   - 20% calificación individual de la ayudantía, desempeño individual
+     en el rol asignado, uso del tablero de tarjetas de trabajo y
+     asistencia.
+     
+   - 20% calificación individual del laboratorio, evaluaciones de la
+     implementación de los casos de uso asignados, examen del
+     laboratorio y asistencia.
+
+
+   Al empezar a recibir calificaciones ya no se tendrá derecho a NP.
+
+* Notas de Clase
+
+** Clase 1
+
+*** Objetivo
+
+    Aprender las mejores prácticas de la ingeniería de software para
+    el trabajo en equipo.
+    
+*** Temario
+
+    1. Introducción a la Ingeniería de Software.
+
+    2. Cómo y con qué vamos a trabajar. Método del curso.
+
+    3. Pacticas sociales: Trabajo en equipo.
+
+    4. Prácticas administrativas: Administración de proyectos.
+
+    5. Requerimientos de software.
+
+    6. Diseño de software.
+
+    7. Construcción de software.
+
+    8. Integración y prueba de software.
+
+    9. Cierre del proyecto.
+
+    10. Temas avanzados de ingeniería de software:
+
+	* Métodos ágiles.
+
+	* Estándares de desarrollo de software
+
+	* Código de ética.
+  
+** Clase 2
+
+*** Diferencia entre programación e ingeniería de software
+
+    * La ingeniería de Software es una disciplina reciente, comparada
+      con otras ingenierías.
+
+    * Sus inicios datan de finales de los años sesenta del siglo
+      pasado, mientras que, por ejemplo, ingeniería civil tiene
+      antigüedad milenaria.
+
+    * Mientras que la programación es la capacidad de poder dar
+      órdenes a una computadora para crear un algoritmo y resolver un
+      problema determinado.
+
+*** Definiciones de la Ingeniería de Software
+
+    * La Ingeniería de software es la aplicación de un enfoque
+      sistemáticos, discriplinado y cuantificable al desarrollo, la
+      operación y el mantenimiento de software (SEVOCAB, 2017).
+
+    * La Ingeniería de Software es una disciplina de la ingeniería que
+      se ocupa de todos los aspectos de la producción del software,
+      desde sus pasos iniciales de la especificación del sistema,
+      hasta el mantenimiento cuando está en uso (Sommerville I., 2011).
+
+    * La aplicación de un enfoque sistemático, disciplinado,
+      cuantificable para el desarrollo, operación y el mantenimiento
+      del software (IEEE, 1990).
+
+    * La ingeniería de Software es la construcción de _productos de
+      software_ por grupos de personas, para que san usadas por otras.
+
+    * El _cliente_ es quien solicita el desarrollo del producto y
+      plantea el problema a resolver.
+
+    * El _equipo de desarrollo construye y entrega_ el producto
+      solicitado.
+
+*** Objetivo de la Ingeniería de Software
+
+    El objetivo según se estableció en la primera conferencia
+    importate de Ingeniería de Software en 1968 fue: /"el/
+    /establecimiento y uso de principios robustos, orientados a obtener/
+    /software *económico* que sea *fiable* y funcione de manera *eficiente*
+    sobre máquinas reales"/ (Naur P., 1968).
+
+*** Campo de acción de la Ingeniería de Software
+
+    El campo de acción de la Ingeniería de Software está en el
+    desarrollo de producto de software de calidad, apoyándose en
+    principios aplicados en los procesos de desarrollo.
+
+*** Relación entre las Matemáticas, Ciencias de la Computación e Ingeniería de Software
+
+    * Las *matemáticas* te facilitasn, a través de la formación mental,
+      la bastracción de conceptos, expresión de algoritmo y
+      construcción de modelos.
+
+    * Las *Ciencias de la Computación* te proporcionan conocimientos y
+      herramientas para hacer programas y fundamentos computacionales
+      tales como: conceptos de lenguajes de programación, análisis de
+      algoritmos, sistemas operativos, aqrquitectura de computadoras,
+      entre otros.
+
+    * Las prácticas de la Ingeniería que ha incorporado la *Ingeniería*
+      *de Software* son: especificación de requisitos, diseño y
+      organización del trabajo en equipos, entre otros.
+
+*** Software
+
+    * Es el conjunto de programas de cómputo, procedimientos, reglas,
+      documentación y datos asociados, que forman parte de las
+      operaciones de un sistema de computación. (SECOVAB, 2017)
+
+    * Un producto de software es la suma total de: programas de
+      computadora, procedimientos, reglas, documentación asociada y
+      datos necesarios para la operación de un sistema
+      computarizado. (ISO/IEC 12207, 2008)
+
+
+    El software hace que el hardware funcione e interactúe con
+    nosotros.
+
+** Clase 3
+
+*** Características del software
+
+    - Es abstracto e intangible. No está restringido por las
+      propiedades de los materiales, ni las leyes físicas, ni las
+      reglas de manufactura. (Sommerville I., 2011)
+
+    - El software se desarrolla, no se fabrica en un sentido clásico
+      (Pressman R.S.).
+
+    - Es fácilmente modificable y por lo tanto se puede corromper.
+
+    - Está hecho para evolucionar, pues cambiará según las necesidades
+      de sus usuarios.
+
+    - El software no se desgasta con el paso del tiempo pero se ouede
+      deteriorar si al mantenerlo se le incorporan nuevos
+      defectos. (Pressman R.S.)
+
+*** Tipos de software
+
+    - Sistemas de entretenimiento.
+    - Software científico y de simulación de procesos reales.
+    - Aplicaciones de red y móviles.
+    - Software de almacenamiento de datos.
+    - Sistemas de sistemas.
+    - Software interactivo.
+    - Sistemas de entretenimiento.
+
+*** Calidad de software
+
+    - /Calidad/ de un producto de software es el "grado en que satisface
+      las necesidades y expectativas del usuario cuando se usa en
+      condiciones específicas". (ISO/IEC 25010, 2009)
+      
+    - Para obtener software de calidad es necesario que todos los
+      productos que se generen en el desarrollo sean consistentes y no
+      tengan defectos.
+
+    - Un /defecto/ es resultado de un error cometito por un
+      desorrollador al generar un producto.
+
+    - "Los defectos aún pequeños como faltas de ortografía o de ddedo,
+      puede cosaionar problemas severos en el software al presentar
+      inconsistencias o respuestas impredecibles" (Humphrey W., 1996).
+
+*** Prácticas de calidad
+
+    Se utilizan dos:
+
+    - Verificar un producto de software tiene por objetivo revisar que
+      no tenga defectos introducidos por el desarrollador.
+
+    - Validad el software es asegurarse que hace lo que el usuario
+      espera que haga.
+
+** Laboratorio 1
+
+*** Glosario de Bases de Datos (MySQL)
+
+    - MySQL: Es un manejador de bases de datos
+
+      + Crear tablas:
+
+	#+begin_src sql
+  CREATE TABLE <Nombre_Tabla> (<id> <tipo> [restricciones], <id2> <tipo> [restricciones], ...., [PRIMARY KEY(<id_n>)]);
+	#+end_src
+
+      + Borrar tabla:
+
+	#+begin_src sql
+  DROP TABLE <Nombre_tabla>;
+	#+end_src
+
+      + Actualiza tabla:
+
+	#+begin_src sql
+  UPDATE TABLE <Nombre_tabla> (<idx> <tipo>, ...);
+	#+end_src
+
+      + Ver tablas:
+
+	#+begin_src sql
+  DESCRIBE <Nombre_tabla>;
+	#+end_src
+
+      + Insertar
+
+	#+begin_src sql
+  INSERT INTO <Nombre_Tabla> VALUES (va1,val2,...);
+	#+end_src
+
+      + Update
+
+	#+begin_src sql
+  UPDATE <Nombre_Tabla> SET <colx> = <valx>, <coly> = <valy>, ... (WHERE <condicion_booleana>);
+	#+end_src
+
+      + Select
+
+	#+begin_src sql
+
+SELECT col1 (AS <nom_sim>), col2, ..., coln FROM <Nombre_tabla> (WHERE <condicion_booleana>);
+	#+end_src
+
+      + Delete
+
+	#+begin_src sql
+  DELETE FROM <Nombre_tabla> (WHERE <condicion_booleana>);
+	#+end_src
+    
+    - Puertos: Identificador donde se responden o atienden servicios
+      (MySQL utiliza el puerto 3306)
+      
+    - View:
+    - ORM
+
+** Clase 4
+
+*** Cualidades del software
+
+    - *Adecuación funcional*. (Functional suitability) Representa la
+      capacidad del producto de software para proporcionar funciones
+      que satisfacen las necesidades declaradas e implícitas, cuando
+      el producto se usa en las condiciones especificadas.
+
+    - *Eficiencia de Desempeño* (Performance efficiency). Representa el
+      desempeño relativo a la cantidad de recursos utilizados, bajo
+      determinadas condiciones.
+
+    - *Compatibilidad* (COmpatibility). Capacidad de dos o más sistemas
+      o componentes para intercambiar información y/o llevar a cabo
+      sus funciones requeridas cuando comparten el mismo entorno de
+      hardware o software.
+
+    - *Usabilidad* (Usability). Capacidad del producto de software para
+      ser entendido, aprendido, usado y resultar atractivo para el
+      usuario, cuando se usa bajo determinadas condiciones.
+
+    - *Fiabilidad* (Reliability). Capacidad de un sistema o componente
+      para desempeñar las funciones especificadas, cuando se usa bajo
+      unas condiciones y periodo de tiempo determinados.
+
+    - *Seguridad* (Security). Capacidad de protección de la información
+      y los datos de manera, que personas o sistemas no autorizados no
+      puedan leerlos o modificarlos.
+
+    - *Mantenibilidad* (Mantainabilty). Capacidad del producto de
+      software para ser modificado efectiva y eficientemente, debido a
+      necesidades evolutivas.
+
+*** Definición de cliente y equipo de desarrollo
+
+    - En la Ingeniería de Software el /cliente/ es quien solicita el
+      software. Ese cliente podrías ser tú mismo, otra persona que
+      requiere el desarrollo de software, alguien que está dispuesto a
+      pagarte para que le construyas un software, etc.
+
+    - El /equipo de desarrollo/ es otro término importante y puede ser
+      una sola persona, 2 o 3 o muchas, que se encargan de desarrollar
+      y entregal el software al cliente que lo solicitó.
+
+*** Ciclo de vida de software
+
+    - "La evolución que va sufriendo el software desde el momento en
+      que se plantea su construcción, el tiempo que lleva su
+      desarrollo, la evolución donde se le agregan y modifican
+      funcionalidades, hasta su retiro de uso." (IEEE, 1990).
+
+** Clase 5
+
+*** Roles
+
+   - Azul: líder del equipo
+   - Rojo: Técnico, ayudar a los integrantes a los demás.
+   - Verde: Me la muerde asjjsa
+   - Amarillo: Documentos, calidad
+
+** Clase 6
+
+*** Etapa de desarrollo
+
+    - Análisis de requisitos:
+
+      Es el paso en el qie el cliente expresa sus necesidades para
+      crear el software y el equipo de desarrollo, al analizarlas, las
+      convierte en la especificación de requerimientos del producto de
+      software.
+      
+    - Diseño:
+
+      El equipo de desarrollo, en gunción de la especificación de
+      requerimientos establece la estructura del software,
+      identificando sus componentes principales con sus relaciones y
+      especifica cada componente a detalle.
+      
+    - Construcción:
+
+      Se genera el código de cada componente siguiente el diseño.
+      
+    - Integración:
+
+      Se asegura que todos los componentes trabajen adecuadamente
+      juntos, haciendo las pruebas.
+      
+    - Pruebas:
+    - Entrega:
+
+*** Principios de la Ingeniería de Software
+
+**** Generalidad
+
+     Descubrir los aspectos más generales que existe en la necesidades
+     del software para desarrollar el producto de software más general
+     que los cumpla. Este principio es fundamental para desarrollar
+     herramientas y paquetes genéricos.
+
+**** Abstracción.
+
+     Identificar los aspectos más importantes e ir cincorporando los
+     detalles gradualmente.
+
+**** Modularidad
+
+     Dividir el problema en subproblemas menos complejos. Incluye los
+     conceptos de cohesión y acoplamiento: Los subproblemas deben ser
+     internamente cohesivos y, en relación a otros, débilmente
+     acoplados.
+
+**** Incrementabilidad
+
+     Consiste en obtener el producto de software incrementando la
+     funcionalidad a través de varias iteraciones de desarrollo.
+
+**** Anticipación al cambio
+
+     Es diseñar el software para que pueda evolucionar a nuevas
+     versiones.
+
+**** Separación de conceptos
+
+     Es manejar diferentas aaspectos de un problema concentrándose en
+     cada un por separado.
+
+*** Historia de la Ingeniería de Software
+
+**** La Ingeniería de Software en los 70's
+
+     - A fines de los 60's desarrollar software consistía
+       principalmente en codificar y corregir errores (code&fix).
+
+     - Surge la llamada crisis del software, debido a que la mayor
+       parte de sistemas de software:
+
+     - No respondía a las necesidades de los clientes.
+
+     - Costaba mucho más caro de lo contratado.
+
+     - No se entregaba en el tiempo planeado.
+
+**** La Ingeniería de Software en los 80's
+
+     - Surgen las Metodologías de desarrollo de software estructuradas.
+
+     - Su objetivo es desarrollar software siguiendo el ciclo de vida
+       del software, que consiste en una serie de pasos:
+
+       + Definir los requerimientos para el software
+
+       + Analizarlos
+
+       + Diseñar el software
+
+       + Implementarlo
+
+       + Probarlo
+
+       + Ponerlo a disposición de los usuarios.
+
+     - Entregado al cliente, se le daba mantenimiento:
+
+       - Correcivo: Para eliminar los defectos
+
+       - Adaptativo: Para adecuarlo a las necesidades del usuario.
+
+       - Perfectivo: Para mejorarlo
+
+**** La Ingeniería de Software en los 90's
+
+     - En el 97 se desarrolla el UML
+       
+     - UML sigue siento el estándar de modelado vigente y el más
+       utilizado en la industria de software.
+       
+     - Modelos de procesos como estándares internacionales.
+
+       - Modelo de Madurez de Capacidades
+       - ISO/IEC 12207 y 15504
+	 
+     - El CMM evolucionó en la siguiente década a CMMI, máximo
+       referente en las empresas de desarrollo de software.
+
+
+     Actualmente CMMI tiene prácticas para el desarrollo de software.
+
+** Clase 7
+*** Historia de la Ingeniería de Software
+
+    - Procesos de software: "Un proceso de ingeniería consiste en un
+      conjunto de actividades interrelacionadas que transforman una o
+      más entradas en salidas. Al realizar la transformación se
+      consumen recursos" (SWEBOK 3.0, 2014).
+
+    - Watts Humphrey propuso dos modelos de procesos de apoyo al
+      desarrollo de software.
+      
+**** La ingeniería de Software en los 2000's
+
+     - Movimiento ágil que publica el Manifiesto por el desarrollo ágil de software
+
+       - Individuos y sus interacciones sobre procesos y herramientas
+
+       - Software funcionando sobre documentación extensiva.
+
+       - Colaboración con el cliente sobre negociación contractual.
+
+       - Respuesta ante el cambio sobre seguir un plan.
+
+     - Ejemplos de metodos ágiles más populares:
+
+       - eXtreme Programming (XP)
+
+       - SCRUM
+
+     - Evolucionan los procesos y estándare internacionales para
+       aplicarse a empresas pequeñas surgiendo estándares nacionales
+       como:
+
+       - el estándar mexicano MoProSoft (MoProSoft, 2005)
+
+       - ISO/IEC 29110 Basic Profile for VSEs basado en MoProSoft.
+
+     - Tendencia para balancear de los procesos con los métodos
+       ágiles. (Bohem, 2004).
+
+**** La ingeniería en el 2010
+
+     Cuerpo de Conocimientos de la Ingeniería de Software (Software ENgineering Body of Knowlegde).
+
+** Clase 8
+*** Cuerpo de Conociemientos de la Ingeniería de Software
+
+    Cuerpo de Conociemientos de la Ingeniería de Software (Software
+    Engineering Body of Knowledge)
+
+    - Es un compendio recogido por académicos y profesionales, que la
+      ejercen en todo el mundo, para ser utilizado en la educación y
+      en la práctica.
+      
+*** Ingeniería de Software como profesión
+
+    La Ingeniería de Software ha crecido tanto que actualmente se han
+    reconocido como una actividad profesional y existen carreras
+    profesionales completas dentro del área de la Computación que se
+    llaman Ingniería de Software.
+
+*** Estándares
+
+**** ¿Qué son?
+
+     Se crean como acuerdos entre grupos de personas, empresas,
+     organismos o países para resolver o aminorar algún problema en
+     común.
+
+**** ¿De qué sirven?
+
+     Introducen reglas de comportamiento para el bien de las
+     comunidades, como por ejemplo, el reglamento de tránsito
+     (semáforos, pasos peatonales, multas, ...)
+
+     Lograr ciertos objetivos siguiendo formas de trabajar sugeridas.
+
+     Generar productos, como el estándar USB para conectar y alimentas
+     los dispositivos electrónicos.
+
+**** ¿Cómo se nombran?
+
+     Los estándares tienen distintos nombre: normas, procesos,
+     modelos, reglamentos o protocolos.
+
+**** SWEBOK 3.0
+
+     Es un cuerpo de conocimiento sobre la Ingeniería de SOftware
+     recopilado por la comunidad del os progesionales y académicos,
+     con el objetivo principal de integrar y sistematizar los
+     contenidos de la Ingeniería de Software y hacerlos disponibles a
+     la comunidad mundial.
+
+**** ISO/IEC 19110
+
+     Es un estándar internacional, que contiene la descripción de dos
+     procesos: Administración de Proyecto e Impleentación de Software.
+
+     Estos procesos recogen las buenas prácticas ára el desarrollo de
+     proyectos de software por organizaciones pequeñas de hasta 25
+     personas.
+
+     Está basado en los procesos correspondientes de la norma mexicana
+     NMX-059-NYC que es el modelo de procesos MoProSoft.
+
+*** Administración de Proyecto
+
+    Tiene el propósito de organizar el trabajo del equipo de
+    desarrollo y vigilar el cumplimiento de las necesidades del
+    cliente.
+
+    Contiene las actividades que permiten guiar la colaboración del
+    equipo involucrado en el proceso de implementación.
+
+*** Implementación de Software
+
+    Se empieza por entender las necesidades del cliente, analizar
+    estas necesidades u expresarlas en forma de reuerimientos para el
+    software.
+
+    Una vez entendidos los requerimientos hay que idear el diseño
+    arquitectónico de los componentes del sistema, sus relaciones y,
+    luego detallarolos asegurándose que se cumplen los requerimientos.
+
+    A partir del diseño se construyen los componentes de software y se
+    prueban de manera individual.
+
+    La siguiente actividad es la integración de los componentes y
+    probal el sistema integrado, además incluye la correción de
+    defectos encontrados.
+
+    Finalmente, se entrega el software funcional acompañado de la
+    documentación, que ayuda al cliente a operarlo y a comprenderlo
+    para las futuras modificaciones.
+
+*** SCRUM prácticas ágiles
+
+    Es un marco de trabajo que define un conjunto de prácticas y roles
+    para organizar el trabajo de desarrollo de software en equipos.
+
+** Clase 9
+*** Kuali-Beh
+
+    Una práctica "porporciona una guía del tabajo a realizar, tiene un
+    objetivo específico y proporciona una orientación de cómo producir
+    un resultado a partir de una entrada. La guía ofrece un conjunto
+    de actividades sistemáticas y repetibles, enfocadas alograr el
+    objetivo de la práctica y su resultado. Se requieren habilidades y
+    conocimientos particulares para seguir la guía de práctica y
+    algunas herramientas pueden facilitar su realización" (OMG, 2013)
+
+    Un método es "la articulación de un conjunto coherente,
+    consistente y completo de prácticas que tiene el propósito de
+    satisfacer las necesidades del cliente, bajo condiciones
+    específicas" (OMG, 2013).
+
+    KUALI-BEH describe los conceptos comunes y sus relaciones
+    presentes en cualquier proyecto de softwware. Se trata de una
+    propuesta mexicana a la solicitud del Object Management Group, la
+    cual se fundamenta en el conocimiento y experiencia obtenidos en
+    múltiples proyectos, incluyendo la definición de estándares de
+    desarrollo de software.
+
+    KUALI-BEH se compone de dos vistas:
+
+    - Vista estática:
+
+      La cual proporciona un marco de trabajo para la definición de
+      las diferentes formas de trabajo de los practicantes. Estas
+      formas de trabajo son organizadas en métodos compuestos por
+      prácticas. Este conocimiento se estructura en una
+      infraestructura de método y prácitcas que pueden ser aplicadas
+      por los practicantes.
+
+    - Vista operacional:
+
+      Está relacionada con la ejecución de proyecto de software. Esta
+      vista proporciona a los practicantes mecanismos para ejecutar y
+      adaptar un método con sus prácticas de acuerdo a las necesidades
+      de los principales interesados y a un contexto específico.
+
+
+    Los conceptos de KUELI-BEH se pueden aplicar para definir métodos
+    y prácticas de cualquier proyecto de software, independientemente
+    del tamaño, complejidad, modelo de ciclo de visa utilzado o
+    tecnología.
+    
+*** UML
+
+    - Lenguaje de Modelado Unificado tiene como proósito visualizar,
+      especificar, facilitar la construcción y documentar software
+      para su construcción y mantenimiento.
+      
+    - Uitliza símbolos gráficos para representar conceptos y sus
+      relaciones siguiendo una sintaxis de lenguaje gráfico.
+
+    - Ofrece a los desarrolladores varios tipos de diagramas para
+      modelar diferentes aspectos y etapas del desarrollo de software.
+
+    - Estos diagramas están clasificados en diagramas de estructura y
+      del comportamiento.
+
+**** Diagramas de estructura      
+
+     Los diagramas de estructura muestran los elementos de los que se
+     compone el software y sus relaciones en diferentes niveles de
+     abstracción.
+
+     - Clases son bloques de construcción básicos (Diagrama de clases).
+     - Paquetes es un mecasimo para agrupar a los diagramas de clases
+       en una estructura más abstracta (Diagrama de paquetes).
+     - Distribución sirven para visualizar como el software va a ser
+       distribuido entre los elementos físicos (/hardware/) del sistema
+       de software. (Diagrama de distribución)
+
+**** Diagramas del comportamiento
+
+     Éstos muestran como interaccionan estos elementos a los largo del
+     tiempo para proporcionar una funcionalidad.
+
+     - Casos de uso especifican el resultado de la interacción entre
+       un actor (usuario u otro sistema) y el sistema de software
+       mismo. (Diagrama de casos de uso).
+     - Secuencia muestran la interacción de envío de mensajes entre
+       los objetos de las clases del sistema. (Diagrama de secuencia)
+     - Estados representan las máquinas de estados finitos que ayudan
+       a modelar diferentes aspectos del comportamiento dinámico del
+       sistema badado en cambio de estados a raíz de eventos (Diagrama
+       de navegación).
+
+** Clase 10
+*** Métodos y prácticas a utilizar
+    
+**** /Método Inicial de Desarrollo de Software/ *(MIDS)*
+
+     - Para este curso, hemos definido el método que se llama Método
+       Inicial de Desarrollo de Software (MIDS). Este método está
+       basado en el estándar *ISO/IEC 29110 Perfil Básico* porlo que
+       sigue de los dos procesos de desarrollo que se definen para
+       este perfil.
+       
+     - Los nombres de las prácticas que conformal el método
+       corresponden a las actividades de estos dos procesos y se
+       agregaron unas prácticas sociales para facilitar el trabajo en
+       equipo.
+
+***** Prácticas del MIDS
+
+****** Practicas Sociales
+
+       - Conformar el equipo
+
+       - Definir la comunicación en el equipo
+
+       - Crear el repositorio commún de documentos
+
+       - Retrospectiva de la iteración
+
+****** Prácticas Administrativas
+
+       Éstas están basadas en el proceso de /Administración de Proyecto/
+       de la ISO/IEC 29110 y se aplican algunos de los conceptos ágiles
+       de SCRUM.
+
+       - Planificar el proyecto
+
+       - Planificar la iteración
+
+       - Ejecutar el plan de iteración
+
+       - Evaluar y controlar la iteración
+
+       - Cerrar la iteración
+
+       - Cerrar el proyecto
+
+****** Prácticas para el Desarrollo
+
+       Están basadas en el proceso de /Implementación de Software/ de la
+       ISO/IEC 29110.
+
+       - Requerimientos de software
+	
+       - Diseño de software
+
+       - Integración y pruebas de software
+
+       - Prueba de Aceptación del Software
+
+***** Apoyos al MIDS
+
+      - Presentaciones
+      - Guión del curso
+      - Planteamineto de Necesidades
+      - Plantillas
+
+***** Roles para miembros del equipo
+
+      - Las prácticas tiene actividades que los miembros del equipo
+        tendrán que ejecutar, a veces en equipo y a veces de manera
+        individual.
+
+      - Para saber quién va a ser responsable por ejecutar qué
+        actividad vamos a definir cinco roles que se asignarán a los
+        miembros del equipo. Cada rol tiene definido su objetivo, las
+        habilidades que se requieren para desempeñarlo y sus
+        responsabilidades.
+
+****** Desarrollador
+******* Objetivo
+
+	- Participar en la ejecución de todas las prácticas del
+          desarrollo de software.
+	  
+******* Habilidades
+
+	- Tener conocimientos y experiencia en programación,
+          estructuras de datos y bases de datos.
+
+******* Responsabilidades
+
+	- Entender los requisitos del software, participar en la
+          especificación de requerimientos, el diseño, la
+          construcción, integración y pruebas del software.
+	  
+	- Participar en las reuniones de trabajo.
+
+	- Revisar y corregir los productos de los que sea
+          resoponsable.
+
+	- Aplicar los estándares solicitados.
+
+****** Responsable del equipo
+******* Objetivo
+
+	- Mantener motivados a todos los miembros del equipo para que
+          participen activamente en el proyecto y trabajen en armonía.
+	  
+******* Habilidades
+
+	- Sociable y amistoso
+	- Es un líder natural en los grupos
+	- No conflictivo, sabe motiva a los demás.
+	- No es impositivo sino conciliador, pero intolerante a faltas
+          de compromiso.
+
+******* Responsabilidades
+
+	- Construye y mantiene la cohesión del equipo y su efectividad.
+	- Motiva a los miembros a trabajar en equipo y cumplir sus compromisos.
+	- Ayuda a resolver los conflicto que se presenten en el
+          equipo. Si no lo logra, los comunica al docente de manera
+          oportuna para que ayude a resolverlos.
+	- Convoca y dirife las reuniones del equipo.
+	- Coordina la retrospectiva de la iteración.
+
+****** Responsable técnico
+******* Objetivo
+
+	- Lograr que los resultados del equipo sean de la mejor calidad técnica.
+	  
+******* Habilidades
+
+	- Experiencia en programación.
+	- Reconocimiento del equipo por sus habilidades técnicas.
+	- Conocimientos de lenguajes de programación, ambientes de
+          programación y herramientas de apoyo.
+
+******* Responsabilidades
+
+	- Dirigir al equipo en la toma de decisiones en las
+          actividades técnicas de desarrollo.
+	- Aprovechar al máximo las habilidades y los conocimientos en
+          programación de los miembros del equipo.
+	- Ayudar a los miembros del equipo en la solución de problemas
+          técnicos.
+	- Seleccionar las herramientas necesarias para el trabajo.
+	- Entrenar a los miembros del equipo en el uso de las
+          herramientas que trabajarán.
+	- Coordinar la integración del código de los desarrolladores.
+
+****** Responsable de la calidad
+******* Objetivos
+
+	- Asegurar que se sigan los estándares establecidos para cada
+          producto.
+	  
+******* Habilidades
+
+	- Persona ordenada e interesada en la calidad del software.
+	- Saber hacer buenas revisiones y pruebas a los productos.
+
+******* Responsabilidades
+
+	- Coordinar la integración de los documentos de todas las
+          actividades del desarrollo apoyado por los demás roles.
+	- Encontrar los defectos y vigilar a que se corrijan.
+	- No permitir que se hagan cambios no autorizados a productos
+          ya aprobados.
+	- Coordinar las pruebas y revisiones del producto de software.
+
+****** Responsable de la colaboración
+******* Objetivo
+
+	- Apoyar el trabajo colaborativo del equipo mediante uso de
+          herramientas para la comunicación, la coordinación del
+          trabajo y los repositorios comparitdos de documentos y del
+          código.
+	  
+******* Habilidades
+
+	- Conocedor de redes sociales y repositorios compartidos.
+	- Entrusiasmo en aprender el uso de repositorios y explicar al
+          equipo su uso.
+	- Disciplinado en el manejo de repositorios comunes de
+          documentos y del código para facilitar la comunicación
+          asíncrona del equipo.
+
+******* Responsabilidades
+
+	- Seleccionar las herramientas necesarias para apoyar al
+          equipo en la comunicación y coordinación.
+	- Crear y mantener los repositorios comunes de documentos y de
+          código.
+	- Ayudar en la coordinación de la realización de las
+          actividades de administración del proyecto manteniendo
+          actualizando el contenido de la herramienta de coordinación
+          según las actividades realizadas por el equipo.
+
+** Clase 11
+*** Concepto de equipo
+
+    - Es "un número reducido de personas con habilidades
+      complementarias que están comprometidas con un propósito común,
+      tienen metas de desmpeño y un enfoque común del que son
+      mutuamente responsables".
+
+    - En Ingeniería de Software, un "equipo de trabajo es un grupo de
+      practicantes que trabajan juntos de manera colaborativa durante
+      un periodo de tiempo, para obtener el objetivo específico de
+      construir un producto de software".
+      
+*** Tamaño de un equipo
+
+    - SCRUM para el desarrollo de software el tamaño ideal del equipo
+      es entre 3 y 9 personas.
+
+** Clase 12
+*** Práctoca Social 1. Conformación del equipo
+    
+**** Objetivos
+
+     - Dar la identidad al equipo con un nombre y logo.
+     - Repartir los roles entre los miembros del equipo según sus habilidades.
+     - Entender las características del producto de software a
+       desarrollar y asignarle un nombre.
+
+**** Entrada
+
+***** Condiciones
+
+      - Grupo de 3 a 5 alumnos del curso de Ingeniería de Software que
+        conformará el equipo de trabajo.
+      - Todos han entendido el método MIDS que se va a seguir en el
+        curso.
+
+***** Productos de trabajo
+
+      - Plantemiento de Necesidades
+      - Guión del Curso
+      - Plantillas
+
+**** Resultado
+
+***** Condiciones
+
+      - Equipo conformado
+	
+	- Identificado con nombre y logo.
+
+	- Cada participante del equipo conoce su rol y sus responsabilidades.
+
+	- Todos entienden las características del producto de software
+          a desarrollar y eligieron su nombre.
+
+***** Productos de trabajo
+
+      - Primer proyecto de software
+	
+	- Plantilla personalizada con los daros del equipo y proyecto.
+
+***** Actividades
+
+      1. Definir el nombre y logo del equipo.
+      2. Repartir los roles.
+      3. Prpponer el nombre al producto de software en función de su
+         objetivo.
+      4. Generar la plantilla personalizada del /Primer proyecto de
+         software/ con los datos del proyecto.
+
+****** Técnica para definir el nombre y logo del equipo.
+       - Una primera reunión de todo el equipo. Al llegar a la reunión
+         cada persona deberá tener:
+
+	 - Por lo menos una propuesta de nombre para el equipo.
+
+	 - Por lo menos una propuesta de dibujo para el logo que
+           corresponde al nombre.
+
+       - Al llegar a la reunión, cada alumno propone sus nombres y
+         logos explicándolos a sus compañeros.
+
+       - Todos votan por una de las propuestas nombre-logo.
+
+       - La que tenga más votos gana.
+
+       - Si hay empate entre 2 propuestas, se explican los votos a
+         favor de ambas propuestas y se repite el procedimiento. Si no
+         se logra desempate, se puede echar un volado.
+
+       - La persona cuya propuesta ganó refina la representación
+         gráfica del logo con el nombre utilizando una herramienta
+         gráfica e incorporando las sugerencias de sus compañeros
+         acordadas por todos.
+
+****** Técnica para repartir los roles
+       - Hay cinco roles:
+
+	 - Desarrollador, que serán todos los miembros del equipo.
+
+	 - Responsable del equipo
+
+	 - Responsable técnico
+
+	 - Responsable de la calidad
+
+	 - Responsable de la colaboración
+
+       - Para repartir los roles se toman en cuenta las habilidades e
+         intereses de los miembros del equipo.
+
+       - Reunión del equipo:
+
+	 - Cada alumno se presenta con su nombre, pasatiempos
+           favoritos y una pequeña descripción de su personalidad.
+
+	 - Luego, cada uno expone su lista de preferencias de roles y
+           argumenta las razones por las que le gustaría jugar su rol
+           preferente.
+
+	 - Cuando dos miembros del equipo quieran jugar un mismo rol,
+           tratar de convencer al equipo.
+
+	 - Si se mantiene el empate, se puede resolver con un volado.
+
+       - Si el equipo tiene 5 personas la comunicación y la
+         coordinación entre ellas se complica.
+
+       - Se reparten en dos los roles de colaboración:
+
+	 - Uno se encarga del seguimiento del Tablero
+
+	 - Otro se encarga del manejo de repositorios y las versiones
+           de los documentos y código.
+
+****** Técnica para proponer el nombre al producto de software
+
+       - Todos los miembros del equipo deben leer el documento de
+         Planteamiento de Necesidades y comentarlo entre ellos. En
+         caso de dudas deben solicitar las aclaraciones al docente.
+	 
+       - Una vez entendido el objetivo del software todos proponen el
+         nombre al sistema a desarrollar y lo seleccionan en votación.
+
+****** Técnica para generar la plantilla personalizada del Primer proyecto de software
+       - El responsable de la calidad personaliza e integra la
+         plantilla de la Portada de los documentos y la plantilla del
+         /Primer proyecto de software/ colocando el logo y el nombre del
+         equipo. En todas las plantillas los textos marcados en azul
+         son los que tendrán que sustituirse por información generada
+         por el equipo.
+
+       - El responsable de la calidad documenta los nombres de los
+         miembros del equpo con sus roles seleccionados y el nombre
+         del docente en la plantilla personalizada para el /Primer
+         proyecto de software/. En el mismo documento pone las
+         referencias al documento de /Planteamiento de Necesidades/ y al
+         Guion del curso, así como las fechas de inicio y del fin del
+         proyecto indicadas en el guion.
+
+*** Práctica Social 2. Definición de la comunicación en el equipo
+
+**** Objetivos
+
+     - Establecer las formas de comunicación síncrona del equipo para el proyecto.
+
+**** Entrada
+
+***** Condiciones
+
+      - Equipo conformado
+
+***** Productos de trabajo
+
+      - Primer proyecto de software
+
+	- Plantilla personalizada con los datos del equipo y proyecto.
+
+**** Resultado
+     
+***** Condiciones
+
+      - Equipo conformado
+	
+	- Con canales y formas de comunicación síncrona definidos.
+
+***** Productos de trabajo
+
+      - Primer proyecto de software
+	
+	- Plantilla personalizada con los datos del equipo, proyecto y
+          comunicación.
+
+***** Actividades
+
+      1. Establecer reuniones diarias y completar la plantilla del
+         /Primer proyecto de software/ con acuerdo de cómo se llevarán a
+         cabo.
+	 
+      2. Establecer reuniones de toma de decisiones.
+
+****** Técnica para establecer las reuniones diarias
+       - El responsable del equipo es quien coordina la reunión
+         diaria.
+	 
+       - La reunión dura 15 minutos. Cada miembro del equipo reporta
+         los avancer contestando las siguientes preguntas:
+
+	 - ¿Qué hiciste desde la última reunión?
+
+	 - ¿Qué dificultades encontraste?
+
+	 - ¿Qué harás antes de la siguiente reunión?
+
+       - Al final de la reunión se acuerdan nuevos compromisos
+         repartiendo el trabajo de manera equitativa y en consenso.
+
+       - El equipo tiene que reunirse para acordar la fomra
+         (presencial, virtual o mixta) y la hora de las reuniones
+         diarias. En el caso de reuniones presenciales se define el
+         lugar y en el caso de las virtuales se escoge el canal de
+         comunicación.
+
+       - La versión mixta significa que unos se juntan de manera
+         presencial y otros se conectan virtualmente en la misma
+         reunión. Se complementa la plantilla del /Primer proyecto de
+         software/ con acuerdo de cómo se llevarán a cabo.
+
+****** Técnica para establecer las reuniones de toma de decisiones
+       Durante desarrollo de un proyecto se necesitan también
+       reuniones del equipo para tratar asuntos en los cuales todos
+       tienen que ponerse de acuerdo o tomar decisiones. Para este
+       tipo de reuniones, se proponen los siguientes pasos:
+
+       - CUalquier miembro del equipo envía invitaciones a la reunión
+         a todos los miembros, estableciendo claramente día, hora,
+         canal de reunión, si es virtual, o lugar, si es presencial.
+       - Se definen los objetivos de la reunión.
+       - Se establece si hay trabajo previo que deberá hacer cada
+         miembro del equipo antes de llegar a la reunión.
+       - Todos los miembros del equipo llegan a la reunión con el
+         trabajo solicitado.
+       - Se inicia el trabajo y se abre a la discusión para lograr los
+         objetivos y se llegan a acuerdos.
+       - El responsable de la colaboración registra los puntos y los
+         acuerdos, resguardándolos en el repositorio común para que
+         todos puedan consultarlos.
+
+****** Repositorio común de documentos
+       - Durante el desarrollo de software se feneran diversos
+         documentos que plasman el trabajo.
+
+	 Todos estos documentos deben estar accesibles a los miembros
+         del equipo y demás interesados. Por esto se guardan en un
+         repositorio común de documentos asignado para cada proyecto.
+
+       - El repositorio ayuda a establecer una comunicación asíncrona
+         del equipo porque permite a todos los miembros consultar en
+         cualquier momento los documentos y acuerdos generados, lo que
+         ayuda a tener una visibilidad del avance del trabajo.
+
+       - Google Drive o Dropbox son ejemplos de las herramientas que
+         sirven para crear los repositorios de documentos.
+
+*** Práctica Social 3. Creación del repositorio común de documentos
+
+**** Objetivos
+
+     Tener un repositorio común de documentos del equipo para
+     facilitar la colaboración.
+
+**** Entrada
+     
+***** Condiciones
+
+      - Equipo conformado
+	
+	- Con canales y formas de comunicación síncrona definidos.
+
+***** Productos de trabajo
+
+      - Primer proyecto de software
+
+	- Plantilla personalidzada con los datos del equipo, proyecto
+          y comunicación.
+
+**** Resultado
+
+***** Condiciones
+
+      - Equipo conformado
+
+	- Con canales y formas de comunicación síncrona definidos.
+
+	- Con repositorio com+un de documentos.
+
+***** Productos de trabajo
+
+      - Primer proyecto de software
+	
+	- Plantilla personalizada con los datos del equipo, proyecto,
+          comunicación y repositorio.
+
+***** Actividades
+
+      1. Seleccionar el repositorio común de documentos
+      2. Crear el repositorio común de documentos y registrarlo en la plantilla del /Primer proyecto de software/.
+
+****** Técnica para seleccionar el repositorio común de documentos
+       El equipo puede seguir estos pasos para seleccionar la
+       herramienta para el repositorio común de documentos:
+
+       - El responsable de la colaboración busca en Internet las
+         herramientas gratuitas para repositorios de documentos.
+
+       - En una reunión con el equipo el Responsable de la
+         colaboración presenta las ventajas y desventajas de las
+         herramientas.
+
+       - El equipo selecciona de común acuerdo una de las herramientas
+         que les convenga más.
+
+       - El responsable de la colaboración crea el repositorio común
+         en una carpeta y propone una estructura de carpetas inicial.
+
+       - Da los permisos de acceso a todos los demás miembros del
+         equipo incluyendo al docente.
+
+       - Capacita a los demás miembros del equipo en el uso de la
+         herramienta, si sea necesario.
+
+       - El responsable de la calidad introduce el nombre de la
+         carpeta que contendrá al repositorio, en la plantilla del
+         /Primer proyecto de software/, incluyendo la liga al mismo y
+         guarda la plantilla completa en el repositorio.
+
+** Unidad 4
+*** Concepto de Proyecto
+
+    Un proyecto se puede definir como el esfuerzo de una organización
+    para desarrollar, introudico o evaluar un resultado único.
+
+    Es un esfuerzo que se lleva a cabo durante un periodo de tiempo
+    delimitado, con un equipo de trabajo asignado y con recursos
+    disponibles para producirlo.
+    
+*** Administración de Proyecto
+
+    La "Administracion de proyectos es la aplicación de conocimientos,
+    habilidades, herraminetas y técnicas a las actividades de un
+    rpoyecto para satisfacer su requisitos." (PMBOK, 2013)
+
+    Los requisitos principales de un proyecto son: calida, tiempo y
+    costo.
+
+    Tiene por objetivo establecer y lleavar a cabo sistemáticamente un
+    conjunto de actividades a fin de lograr el objetivo del proyecto
+    de software en calidad, tiempo y costo. (ISO/IEC 29110)
+
+**** Entrada
+
+     El planteamiento de necesidades
+
+**** Salida
+
+     El Plan del proyecto
+
+**** Actividades principales
+
+     - Planificar el proyecto
+       
+     - Ejecutar el Plan del proyecto
+
+     - Evaluar y controlar el proyecto
+
+     - Cerrar el proyecto
+
+*** Planificar el proyecto
+
+    - La planificación del proyecto se inicia con el entendimiento de
+      sus objetivos y restricciones.
+      
+    - Se definen qué actividades se deben llevar a cabo en un
+      proyecto, quién las debe hacer y cuándo.
+      
+    - El resultado de la actividad de planificar el proyecto es el
+      documento llamado Plan de proyecto.
+
+    - Los objetivos del proyecto acordes con las necesidades del cliente.
+
+    - Las fechas de inicio y fin del proyecto
+
+    - La lista de los entregables, que son los documentos que serán
+      entregados al cliente, junto con el código del producto de
+      software.
+
+    - La fecha y forma de cómo se entregará el producto de software
+      acordadas con el cliente.
+
+    - La identificación de las funcionalidades que tendrá el sistema o
+      producto de software.
+
+    - Restricciones no funcionales (por ejemplo: uso de cierto
+      lenguaje de programación o base de datos, entre otros).
+
+*** Diagrama general de casos de uso
+
+    - Una de las técnicas para identificar las funcionalidades de un
+      producto de software, se llama casos de uso.
+
+    - Es una vista gráfica más general y abstracta del sistema de
+      software.
+
+    - Representa las funcionalidades generales del software.
+
+    - Define qué tipo de usuarios utilizarán el software.
+
+    - El diagrama es un conjunto de casos de uso.
+
+    - Ésta técnica se utiliza para comprender las necesidades o los
+      requerimientos funcionales y a partir de ellos se diseña,
+      implementa y prueba el software.
+
+    - La importancia del Diagrama general de casos de uso reside en
+      que las prácticas de desarrollo se pueden guiar por los casos de
+      uso. (Rosenberg Doug, 2001).
+
+*** Práctica Administrativa 1. Planificar el proyecto
+
+**** Objetivos
+
+     Generar el Plan del proyecto
+
+**** Entrada
+
+***** Condiciones
+
+      Equipo de trabajo conformado
+
+***** Productos de trabajo
+
+      - Primer proyecto de software
+
+	- Planteamiento de necesidades
+
+	- Guion del curso
+
+**** Resultado
+
+***** Condiciones
+
+      Proyecto planificado
+
+***** Productos de trabajo
+
+      - Plan del proyecto
+
+	- Nombre del proyecto
+
+	- Objetivo del proyecto
+
+	- Fecha de inicio y fin
+
+	- Entregables
+
+	- Fecha y forma de entrega del producto de software
+
+	- Identificación de las funcionalidades del producto de software
+
+**** Actividades
+
+     1. Identificar las funcionalidades del producto.
+     2. Hacer el Plan del proyecto
+
+**** Elementos del Plan del Proyecto
+
+     - Los puntos que incluye el Plan del Primer Proyecto de Software:
+
+       - Objetivo del proyecto: basado en Planteamiento de necesidades
+
+       - Fechas: las fechas de inicio y fin del proyecto definidas en
+         el Guión del Curso.
+
+       - Entregables: Descripción de lo que se entregará al final del
+         proyecto, estos son los documentos resultantes de cada
+         práctica del desarrollo y el código de software. (ver nombres
+         de las plantillas y el Guión del Curso).
+
+     - Fechas y forma de entregar el producto
+
+     - Diagrama general de casos de uso
+
+***** Técnica para Identificar las funcionalidades del producto
+
+      - Uno de los elementos para hacer el Plan de proyecto es la
+        identificación de las funcionalidades del producto de
+        software.
+	
+      - Esta tarea la vamos a hacer construyendo el Diagrama general
+        de casos de uso.
+
+****** Pasos para identificar a los actores y los casos de uso:
+       - Identificar los actores del sistema. Para identificar a un
+         actor se revisa el PLanteamiento de necesidades a fin de
+         identificar qué tipo de usuarios interactúan con el software.
+
+       - Identificar los casos de uso para cada actor. Para cada actor
+         que ya identificaste, buscas en el Planteamiento de
+         necesidades, qué es lo que podrá hacer ese actor con el
+         sistema.
+
+******* Dibujar el Diagrama general de casos de uso
+
+	- Para cada actor identificado, dibujar el actor con la
+          herramienta.
+
+	- Para cada caso de uso identificado, dibujar un óvalo en el
+          diagrama y asignarle nombre que inicia con un verbo en
+          infinitivo, tal como fue identificado el el Planteamiento
+          del problema.
+
+	- Para cada actor dibujar una línea recta entre el actor y los
+          casos de uso que puede ejecutar. Un actor puede ejecutar
+          muchos casos de uso y un caso de uso puede ser efectuado por
+          muchos actores.
+
+	- Todos los casos de uso identificados se enmarcan en un
+          rectángulo para delimitar el alcance del sistema.
+
+**** Planificar la iteración
+
+     - Los métodos ágiles de desarrollo de software proponen que el
+       desarrollo sea iterativo.
+
+     - El desarrollo se divide en varias iteraciones de tiempos
+       cortos.
+
+     - En cada iteración se realizan las actividades que permiten
+       entregar un producto con funcionalidades parciales, que el
+       cliente puede probar.
+
+     - El producto va incrementando sus funcionalidades con las
+       entregas en cada iteración, hasta satisfacer completamente las
+       necesidades del cliente.
+
+***** Definición del alcance de cada iteración
+
+      - Se escogen qué funcionalidades se implementarán en esa
+        iteración.
+
+      - Criterios de selección de casos de uso para una iteración.
+
+	- Seleccionar los que son prioritarios para el cliente.
+
+	- Seleccionar los que no dependen de los que no se
+          seleccionaron.
+
+	- Seleccionar por lo menos un caso de uso por integrante del
+          equipo.
+
+      - La duración de cada iteración depende del contexto de cada
+        proyecto y las prioridades del cliente.
+
+***** Tablero
+
+      - Para ayuda al equipo a tener visibilidad de lo que hay que
+        hacer en cada iteración y permitir que se le dé seguimiento,
+        usaremos un Tablero.
+
+      - Este tablero es una versión simplificada de una técnica ágil
+        llamada Kanban (Anderson, 2010).
+
+      - El objetivo del Tablero es permitir la visibilidad del avance
+        en las actividades de desarrollo de todos los miembros del
+        equipo y poder saber quién está trabajando en cada parte del
+        proyecto.
+
+*** Pŕactica Administrativa 2. Planificar la iteración
+
+**** Objetivos
+
+     Planificar el alcance y preparar la iteración
+
+**** Entrada
+
+***** Condiciones
+
+      Se iniciará una iteración
+
+***** Productos de trabajo
+
+      - Primer proyecto de software
+	- Repositorio compartido
+      - Plan del proyecto
+
+**** Resultado
+
+***** Productos de trabajo
+
+      - Tablero de la iteración creado para el alcance de iteración.
+
+      - Repositorio compartido incluyendo una carpeta para la
+        iteración.
+
+**** Actividades
+
+     1. Construir el Tablero de la iteración
+
+     2. Definir el alcance de la iteración
+
+     3. Crear la carpeta de la iteración en el repositorio común para
+        el resguardo de documentos de la iteración.
+
+***** Técnica para construir el Tablero de la iteración
+
+      - Para crear el Tablero para cada iteración existen herramientas
+        en web que ayudan a automatizarlo.
+
+      - Se recomienda hacer un búsqueda de este tipo de herramientas
+        para crear tableros Kanban que sea gratuitos y que se podrán
+        configurar según las necesidades del curso.
+****** Contrucción del Tablero
+       - Los pasos para crear el Tablero son:
+
+	 - Si es la primera iteración, el Responsable de la
+           colaboración, en conjunto con el equipo selecciona la
+           herramienta para construir el Tablero y asegura que todos
+           se capacitan en su uso.
+
+	 - El responsable de la colaboración contruye el Tablero para
+           el equipo.
+
+	 - El Responsable de la colaboración pone en el tablero, en la
+           columna por hacer una tarjeta.
+	   
+***** Iteraciones en el Plan del Proyecto
+
+      - El primer proyecto se va a desarrollar en dos iteraciones:
+
+	- Primera iteración, se construirá el producto de software
+          para una seleccción de funcionalidades prioritarias.
+
+	- Segunda iteración, se incluirán funcionalidades restante y
+          se refinarán las funcionalidades ya implementadas.
+
+	- Para definir el alcance de cada iteración se debe generar el
+          diagrama general de casos de uso.
+
+***** Técnica para definir el alcance de la iteración
+
+      - Al inicio de cada iteración se define su alcance como un
+        sobconjunto de casos de uso del Diagrama general de casos de
+        uso, por lo que se hace un diagrama específico para esa
+        iteración.
+
+      - Para establecer cuáles casos de uso se incluirán en la
+        iteración se deben aplicar los criterios:
+
+	- Casos de usos que son prioritarios para el cliente
+
+	- Casos de uso independientes de otros
+
+	- Casos de uso que dependen de los que ya están implementados
+
+	- Cada miembro del equipo sea responsable de por lo menos un
+          caso de uso.
+
+      - El responsable técnico convoca una reunión del equipo
+        siguiendo la técnica TS6 con el objetivo de escoger los casos
+        de uso para el alcance de la iteración ejecutando la técnica
+        TA4.
+
+      - Cada Desarrollador coloca en el Tablero, en la columna de Por
+        hacer, una tarjeta azul por cada caso de uso en el alcance de
+        la iteración del cual es responsable con fecha de terminación,
+        el fin de la iteración.
+
+***** Técnica para crear la carpeta de la iteración en el repositorio común para el resguardo de documentos de la iteración
+
+      - Al inicio de cada iteración se coloca una carpeta nueva en el
+        repositorio compartido, con el identificador de la iteración.
+
+      - Esta carpeta servira para resguardar todos los documentos
+        generados durante la iteración.
+
+      - Si se trata de la primera iteración, se colocan en esa
+        carpeta, las plantillas para todos los entregables.
+
+      - El Responsable de la calidad es el encargado de personalizar y
+        asegurarse que estén correctos los productos.
+
+      - El Responsable de la colaboración se encarga de llevar el
+        control de las versiones de los documentos y que estén
+        resguardados en el repositorio en la carpeta correspondiente.
+
+      - El Responsable de la colaboración coloca la tarjeta de Crear
+        la carpeta de la iteración en el Tablero en la columna POr
+        hacer, moviendo esa tarjeta según avanza en la realización de
+        esa actividad.
+
+      - El Responsable de la calidad coloca la tarjeta Inicializar los
+        documentos en la carpeta de la nueva iteración en la columna
+        Por hacer del Tablero, moviendo esa tarjeta según avanza en la
+        realización de esa actividad.
+
+***** Ejecutar el Plan del proyecto
+
+      - Dentro de la Administración de proyectos, la actividad de
+        Ejecutar el proyecto tiene como objetivo asegurarse que se
+        lleve a cabo el plan en tiempo y forma.
+
+      - Hay que darle seguimiento a las actividades que están
+        realizando los miembros del equipo.
+
+      - Para saber si el plan se cumple, hay que dar el seguimiento a
+        su ejecución:
+
+	- Evidencia de las reuniones del equipo de trabajo
+
+	- Registro del estado del progreso actualizado
+
+	- Repositorio del proyecto actualizado y respaldado
+
+	- Solicitudes de cambios que se analizan y evalúan revisando
+          los impactos a los costos, calendario y requerimientos
+          técnicos que se necesitan. Si se aprueban, se documentan.
+
+	- Cuando se está trabajando de forma iterativa, en la
+          ejecución se tiene el subconjunto de las actividades a
+          realizar en el proyecto, restringido al alcance de la
+          iteración.
+
+*** Práctica Administrativa 3. Ejecutar el plan de la iteración
+
+**** Objetivos
+
+     Asegurarse que el /Plan del proyecto/ se lleve a cabo en tiempo y
+     forma según lo planeado para la iteración.
+
+**** Entrada
+
+     Condiciones: Iteración en ejecución
+
+     Productos de trabajo: /Tablero/ de la iteración.
+
+**** Resultado
+
+     Condiciones: Iteración en ejecución.
+
+     Productos de trabajo: /Tablero/ actualizado.
+
+**** Actividades
+
+     Ejecutar lo planeado para la iteración revisando y actualizando el /Tablero/ (TA6)
+
+**** Herramientas
+
+     Herramienta para el Tablero
+
+***** Plan de iteración
+
+      En la reunión diaria del equipo, en 15 minutos, todos contestan
+      3 preguntas y actualizan el estado del tablero de seguimiento
+      según sus avences.
+
+      Las preguntas son:
+
+      - ¿Qué hice desde la última reunión?
+      - ¿Qué haré?
+      - ¿Qué dificultades encontré?
+
+
+      Con base a las respuestas, el responsable de la colaboración actualiza el tablero moviendo las tarjetas a /Hecho/ o generando nuevas.
+
+***** Técnica para ejecutar lo planeado para la iteración revisando y actualizando el /Tablero/
+
+      En las reuniones diarias del equipo, cada miembro muestra su
+      avance reflejado en el estado de sus tarjetas en las columnas
+      del /Tablero/.
+
+      Según su rol, de agregan nuevas tarjetas al /Tablero/ de acuerdo
+      con sus responsabilidades.
+
+      El Responsable de la colaboración se asegura que todos
+      actualicen el /Tablero/ moviendo sus tarjetas según el estado del
+      trabajo de cada día.
+
+      De esta manera todos sabrán en qué están trabajando los demás,
+      podrán establecer comunicación con quién tenga trabajo
+      relacionado, o del que dependa su actividad.
+
+      Todos pueden ver el avance de sus compañeros, notar si hay
+      retrasos y tratar de resolverlos.
+
+***** Evaluar y controlar el proyecto
+
+      El objetivo de la actividad de Administración de proyectos
+      llamada Evaluar y controlar el proyecto, es asegurarse que las
+      actividades que se propusieron en el plan se lleven a cabo, que
+      se cumplan con los compromisos establecidos y se tomen las
+      acciones pertinentes ante situaciones especiales
+
+*** Práctica Administratica 4. Evaluar y controlar la iteración
+
+**** Objetivos
+
+     Evaluar el avance de la iteración en el Tablero y controlar las
+     dificultades encontradas.
+
+**** Entrada
+
+     Condiciones: Iteración en ejecución
+
+     Productos de trabajo: Tablero de la iteración
+
+**** Resultado
+
+     Condiciones: Iteración en ejecución.
+
+     Productos de trabajo: /Tablero/ de la iteración actualizado.
+
+**** Actividades
+
+     Evaluar el estado del progreso de la iteración a través del
+     /Tablero/, identificando difucyltades y retrasos. Proponer
+     soluciones para controlarlas y actualizar el /Tablero/ con las
+     actividades necesarias.
+
+***** Técnica para evaluar y controlar el estado del progreso de la iteración a través del /Tablero/
+
+      Si al revisar el progreso de la iteración en el /Tablero/ se
+      detectan retrasos o dificultades, entre todos los miembros del
+      equipo se analizan las razones y, de común acuerdo, se proponen
+      actividades correctivas para remediarlas.
+
+      Los retrasos y dificultades encontradas pueden ocasionar la
+      creación de nuevas tarjetas con actividades para rectificarlos.
+
+      Si las dificultades son de origen técnico, el responsable
+      técnico busca la manera para apoyar a los que están atrasados,
+      incorporando nuevas tarjetas en el /Tablero/ con las actividades
+      necesarias.
+
+      Si el Responsable de la calidad revisando los productos
+      generados por el equipo detecta defectos, crea una tarjeta de
+      correción en el /Tablero/ y la asigna al responsable del defecto.
+
+** Unidad 5. Requerimientos de software
+*** ¿Qué es un requerimiento?
+
+    "Los requerimientos de software expresan las necesidades y
+    restricciones que debe tener un producto de software para que
+    contribuya a la solución de un problema en el mundo real"
+    (SWEBOK, 2014)
+
+    "Los requerimientos de un producto de software son las
+    descripciones de lo que hará, los servicios que proporcionará y
+    las restricciones de su operación" (Sommerville I., 2011).
+
+    Un requerimiento o necesidad es lo que el cliente o un usuario
+    desean que haga el software para resolver un problema.
+    
+*** ¿Cómo se expresan los requerimientos?
+
+    - Lenguaje natural
+
+    - Forma gráfica
+
+    - Prototipo de interfaz de usuario
+
+*** Objetivos de la especificación de requerimientos
+
+    - Entender le problema a resolver.
+
+    - Construir un modelos de los requerimientos
+
+    - Obtener criterios para varificar y validar el producto de
+      software terminado.
+
+*** Calidad de un producto de software
+    
+    La calidad de un producto de software se define como "capacidad de
+    un producto de software de satisfacer las neceisdades expresas e
+    implícitas en condiciones específicas".
+
+    Al definir los requerimientos se busca claridad, precisión y no
+    ambigüedad tanto para el desarrollador y para el cliente.
+
+*** ¿Cómo asegurar la calidad de la especificación de los requerimientos?
+    
+    Que el cliente pueda evaluar la calidad de software, es revisando
+    y avalando la especificación de los requerimientos.
+
+    La validación final, de que el software cumple con los
+    requerimientos especificados, se hace hasta que el software esté
+    construido.
+
+    Los requerimientos cambian constantemente.
+
+*** Tipos de requerimientos
+
+**** Funcionales
+
+     Son los servicios, la forma en que el software debe reaccionar a
+     entradas particulares y cómo debe comportarse en situaciones
+     particulares.
+
+**** No Funcionales
+
+     Son restricciones que los servicios y y finciones de software
+     deben cumplir.
+
+     - Necesidades de la interfaz externa.
+     - Cualidades del software.
+     - Restricciones del diseño.
+     - Otros.
+
+*** Actividades para definir los requerimientos
+
+    - Obtener: Entender (desarrollador / cliente)
+
+    - Analizar: (desarrollador)
+
+    - Especificar: Documentar texto, diagramas, prototipos (desarrollador)
+
+    - Validar: (por el cliente)
+
+    - Administrar: Cambios a requerimientos (desarrollador)
+
+*** Caso de prueba
+
+    Para todos los casos de uso se definen casos de prueba.
+
+    Los casos de prueba se aplicarán cuando el caso de uso ya esté
+    implementado para asegurar el cumplimiento de los requerimientos
+    especificados.
+
+    Los casos de prueba confirman la verificabilidad de los
+    requerimientos.
+
+*** Práctica de desarrollo de software
+
+**** Requerimientos de software
+
+***** Objetivos
+
+      Comprender y especificar los requerimientos del sistema de
+      software, basándose en el /Planteamineto de necesidades/.
+
+***** Entrada
+
+      *Condiciones*: Proyecto planificado.
+
+      *Productos de trabajo*:
+
+      - Plan del proyecto
+      - Planteamiento de necesidades
+      - Plantilla Especificación de Requerimientos de Software.
+      - Repositorio compartido con la carpeta para la iteración.
+      - Tablero de la iteración.
+
+***** Resultado
+
+      *Condiciones*: Requerimientos entendidos
+
+      *Productos de trabajo*: Especificación de Requerimientos de
+       Software.
+
+***** Actividades
+
+      1. Entender el /Planteamiento de necesidades/ para la iteración
+      2. Analizar y especificar los requerimientos (TR2,TR3,TR4,TR5)
+      3. Especificar los requerimientos no funcionales (TR6)
+      4. Documentar la /Especificación de Requerimientos de Software/
+
+***** Herramientas
+
+      - Herramienta para hacer diagramas de UML.
+      - Herramienta para diseñar el prototipo de interfaz de usuario.
+
+****** Entender el /Planteamiento de necesidades/ para la iteración
+       A fin de entender el problema para poder especificar los
+       requerimientos se pueden llevar a cabo estas actividades:
+
+       - Hacer entrevistas con posibles usuarios.
+       - Aplicar cuestionarios a los usuarios.
+       - Observar a los futuros usuarios al realizar las tareas que
+         apoyará el software
+       - Revisar documentos o sistemas ya existentes que se pretenden
+         mejorar.
+       - Hacer un glosario de términos.
+
+
+       *Glosario de términos*:
+
+       Para que todos los involucrados puedan comunicarse más
+       fácilmente, se recomienda construir un Glosario de términos
+       para establecer un vocabulario común.
+
+       El glosario de términos es un pequeño diccionario, donde se
+       registran los término importantes para entender el proble y su
+       significado.
+
+       EL glosario se puede ir actualizando a lo largo del proyecto.
+
+       - El Responsable de la colaboración, pone una tarjeta en el
+         /Tablero/ en la columna de por hacer, con la actividad de Hacer
+         el /Glosario de términos/ y lo asigna al Responsable técnico.
+
+       - El responsable técnico mueve la tarjeta a la columna de
+         /Haciendo/ y dirige la discusión para hacer el /Glosario de
+         términos/. Al terminar el glosario, mueve la tarjeta a la
+         columna /Hecho/.
+
+       - El Responsable de calidad se asegura que se ponga el glosario
+         en la plantilla personalizada de /Especificación de
+         Requerimientos de Software/.
+       
+****** Analizar y especificar los requerimientos funcionales
+       Los casos de uso permiten de manera simple definir como los
+       usuarios utilizarán el software.
+
+       Servirán de hilo conductor para todo el proceso de desarrollo
+       en el /Método Incial de Desarrollo de Software/.
+
+******* Hacer el diagrama de Casos de Uso para la Iteración
+
+	Para iniciar una iteración los desarrolladores deben de
+	revisar el Plan de Proyecto, que contienen el Diagrama General
+	de Casos de Uso de todo el sistema.
+
+	Todos participan en la selección de los casos de uso para la
+	iteración y hacen un diagrama general con el subconjunto de
+	casos de uso que se desarrollarán en esa iteración.
+
+	Se asigna al menos un caso de uso a cada desarrollador.
+
+	- El Responsable de la colaboración, pone una tarjeta en el
+          Tablero en la columna de /Por Hacer/, con la actividad de
+          Hacer el diagrama de casos de uso de la iteración y lo
+          asigna al Responsable técnico.
+
+	- El Responsable técnico mueve la tarjeta a la columna de
+          /Haciendo/, revisa con todo el equipo el /Diagrama General de
+          Casos de Uso de todo el sistema/ para identificar los casos
+          de uso seleccionados para la iteración y dibujan el diagrama
+          general de casos de uso de la iteración.
+
+	- Al terminar el diagrama, Responsable técnico mueve la
+          tarjeta a la columna /Hecho/.
+
+	- El Responsable de calidad asegura que se integre en la
+          plantilla personalizada de Especificación de Requerimientos
+          de Software.
+	  
+******* Detallar los casos de uso
+
+	*Caso de uso*: El nombre deberá ser un verbo en infinitivo
+	representativo de la funcionalidad del caso de uso (el mismo
+	que en el diagrama general).
+
+	*Diagrama del caso de uso*: dibujo del o los actores y el caso
+	de uso en cuestión.
+
+	*Descripción*: Texto breve describiendo la función que
+	representa el caso de uso.
+
+	*Precondiciones*: El estado en el que se encuentra el sistema
+	para que el actor (o los actores) pueda iniciar el caso de
+	uso.
+
+	*Flujo normal de eventos*: Tabla que describe el flujo de
+	interacciones esperadas (/el camino feliz/) entre el actor y el
+	sistema durante el caso de uso.
+
+	*Flujo excepcional de eventos*: Tabla con las acciones que
+	ocurren en situaciones anormales o excepcionales.
+
+	*Poscondiciones*: Define el estado en el que se encuentra el
+	sistema después de la terminación exitosa del caso de uso.
+
+	- Cada miembro del equipo escoge al menos un caso de uso,
+          dentro del alcance de la iteración representado en el
+          /Diagrama de Casos de Uso/ para la iteración, para detallarlo.
+
+	- El responsable de la colaboración, pone una tarjeta en el
+          Tablero en la columna de /Por Hacer/, con la actividad de
+          /Detallar el caso de uso/ para cada caso de uso de la
+          iteración y se lo asigna al miembro del equipo que lo
+          detallará.
+
+	- Cada miembro del equipo al iniciar el detalle de su caso de
+          uso, mueve su tarjeta del tablero a la columna /Haciendo/ y
+          usa el formato propuesto para detallar el caso de uso del
+          que es responsable. Al terminar de llenar todos los campos,
+          mueve su tarjeta a la columna de /Hecho/.
+
+	- El Responsable de calidad asegura que se pongan los detalles
+          de todos los casos de uso en la plantilla personalizada de
+          /Especificación de Requerimientos de Software/.
+	
+******* Definición del prototipo de interfaz de usuario
+
+	- Un prototipo de interfaz de usuario es una representación
+          inicial de las pantallas que el software mostrará al
+          usuario.
+
+	- Estas pantallas muestran la distribución de diferentes
+          elementos que permitirań al usuario interactuar con el
+          sistema pero que no ofrecen ninguna funcionalidad
+          implementada.
+
+
+	El Responsable de la colaboración, pone una tarjeta en el
+	/Tablero/ en la columna de /Por Hacer/, con la actividad de
+	/Definir el prototipo/ para cada caso de uso de la iteración y
+	se lo asigna al miembro del equipo que definirá la interfaz.
+
+	Todo el equipo se pone de acuerdo en lineamientos para el
+	diseño de la interfaz de usuario y escoge la manera para
+	realizarlo.
+
+	Cada miembro del equipo define el prototipo de interfaz que
+	corresponde al detalle de su caso de uso para los flujos
+	normal, alternativos y excepcionales.
+
+	Cada miembro del equipo al iniciar la actividad, mueve su
+	tarjeta del tablero a la columna /Haciendo/ y usa el formato
+	propuesto para definir el prototipo para el caso de uso del
+	que es responsable. Al terminar la actividad, mueve su tarjeta
+	a la columna de /Hecho/.
+
+	El responsable de calidad se asegura que los prototipos se
+	integren en la plantilla personalizada de /Especificación de
+	Requerimientos de software/.
+
+******* Casos de prueba para los requerimientos funcionales
+
+	- Los casos de prueba para cada caso de uso se documentan en
+          una tabla.
+
+	- Un caso de prueba identifica las entradas al caso de uso y
+          los resultados esperados.
+
+	- Se consideran entradas para flujos normales, alternativos y
+          excepcionales.
+
+
+	El Responsable de la colaboración, pone una tarjeta en el
+	Tablero en la columna de /Por Hacer/, con la actividad de
+	Definir los casos de prueba para cada caso de uso de la
+	iteración y se lo asigna al miembro del equipo que definirá
+	sus casos de prueba.
+
+	Cada miembro del equipo define los casos de prueba que
+	corresponden al detalle de su caso de uso en los flujos
+	normales, alternativos y excepcionales.
+
+	Cada miembro del equipo al iniciar la actividad, mueve su
+	tarjeta del tablero a la columna /Haciendo/ y usa el formato
+	propuesto para definir los casos de prueba para el caso de uso
+	de los que es responsable. Al terminar la actividad, mueve su
+	tarjeta a la columna de /Hecho/.
+
+	El Responsable de calidad se asegura que se integren los casos
+	de prueba en la plantilla personalizada de /Especificación de
+	Requerimientos de software/.
+	
+****** Especificar los requerimientos no funcionales.
+
+       Cuando ya se tienen entendidas las funcionalidades que deberá
+       ofrecer el sistema de software, se especifican las
+       características o requerimientos no funcionales que deberá
+       cumplir.
+
+       - El Responsable de la colaboración, pone una tarjeta en el
+         Tablero en la columna de /Por Hacer/, con la actividad de
+         Especificar los requerimientos no funcionales y la asigna al
+         Responsable técnico.
+
+       - Todos los miembros del equipo revisan el /Planteamiento de
+         Necesidades/ para la iteración e identifican los
+         requerimientos no funcionales en la sección de
+         Resctricciones.
+
+       - El Responsable Técnico redacta el texto con los
+         requerimientos no funcionales.
+
+       - El Responsable de calidad redacta el texto con los
+         requerimientos no funcionales.
+
+       - EL Responsable de calidad s easegura que se integren los
+         requerimientos no funcionales en la plantilla personalizada
+         de /Especificación de Requerimientos de Software/.
+
+****** Documentar la Especificación de Requerimientos de Software
+       Una vez aplicadas todas las técnicas anteriores, se han
+       generado una serie de resultados que al juntarlos conforman la
+       /Especificación de Requerimientos de Software/.
+
+******* Documentar la Especificación de Requerimientos de Software
+
+	La labor del Responsable de calidad es asegurar que fueron
+	integrados todos los elementos generados en esta práctica en
+	la plantilla personalizada del documento.
+
+	El Responsable de Calidad asegura la integración de todos los
+	elementos en el documento de Especificación de Requerimientos
+	de Software siguiendo la plantilla.
+
+** Unidad 6. Diseño de Software
+
+*** Diseño de Software
+
+    Diseño de cualquier producto consiste en crear un modelo o
+    representación delo que se construirá más adelante.
+
+    Diseño de software es el conjunto de actividades creativas
+    mediante las cuales los requerimientos se traducen en una
+    representación del software.
+
+*** Objetivos del diseño
+
+    Identificar y caracterizar las partes o componentes principales
+    sel software.
+
+    Definir su interacción e integración en el producto, para llegar
+    al nivel de detalle que permita su mapeo al código en algún
+    lenguaje de programación.
+
+*** Niveles de abstracción.
+
+    *Diseño arquitectónico*: Describe cómo se descompone y organiza el
+    software en componentes abstractos partiendo de la especificación
+    de requerimientos.
+
+    *Diseño detallado*: Describe el comportamiento específico de esos
+    componentes tomando en cuenta el ambiente en el cual se
+    codificará.
+ 
+*** Principios para el Diseño
+
+    *Abstracción*: Es una vista de un objeto qu se centra en la
+    información relevante para un propósito particular e ignora el
+    resto de la información. Para el diseño de software inicialmente
+    se abstraen las propiedades más generales que deberán tener los
+    componentes del software a construir.
+
+    La sbtracción se refiere a identificar y modelar de forma
+    estructurada propiedades esenciales de un conjunto de objetos
+    omieitndo detalles no esenciales, según sea el caso.
+
+    La abtracción segmentada se puede referir a dividir en múltiples
+    elementos que permitan manejar fácilmente un sistema en su
+    conjunto.
+
+    *Separación de conceptos*: Una preocupaciń de diseño es la
+    separación de elementos relevantes para uno o más de sus
+    involucrados. Cada vista de arquitectura refleja uno o más
+    intereses. Separar los conceptos por vistas permite a los
+    interesados centrarse en cosas a la vez y de esta manera manejar
+    la complejidad.
+
+    La abtracción modular se refiere a que cada elemento cumpla
+    funcionalidades que lo hagan un componente individual.
+
+    *Descomposición y modularización*: Descomponer y modularizar el
+    software significa dividirlo en una serie de pequeños componentes,
+    que tienen bien definidos interfaces y que describen las
+    interacciones de los componentes. Por lo general, el objetivo es
+    colocar diferentes funcionalidades y responsabilidades en
+    diferentes componentes.
+
+    *Acoplamiento y cohesión*: El acoplamiento está definido como "una
+    medida de la interdependencia entre módulos en un programa de
+    computadora", mientras que cohesión se define como "una medida de
+    la fuerza de asociación de los elementos dentro de un módulo".
+
+    Un buen diseño busca la cohesión de módulos alta y el acoplamiento
+    débil.
+
+    *Encapsulamiento y ocultamiento de la información*: Propone agrupar
+    y empaquetar los detalles internos de una abstracción y hacer esos
+    detalles inaccesibles a entidades externas.
+
+    *Separación de la interfaz y la implementación*: Significa definir
+    un componente especificando una interfaz pública la cual está
+    separada de los detalles de cómo el componente se realiza.
+
+    *Refinamiento sucesivo*: Es extender deductivamente el modelo
+    conceptual de requerimientos en una serie de incrementos
+    precisando cada vez especificacions que aumentan el nivel de
+    detalle.
+
+*** Otros principios
+
+    *Diseñar para el cambio* significa que el diseño debe ser flexible
+    para permitir cambios con relativa facilidad.
+
+    *Diseñar para facilitar el uso del software* considera algunos
+    escenarios del uso del software y su interfaz puede ayudar en el
+    diseño de los componentes apropiados.
+
+    *Diseñar para facilitar la prueba*. Los componente del sistema deben
+    estar diseñados como unidades que se pueden probar sin depender de
+    la implementación de otros componentes.
+
+    *Diseñar para la reutilización*. Consiste en definir partes
+    generićas que puedan volver a usarse. Para aplicar este principio
+    se deben identificar los componente comunes que se podrán
+    reutilizar. El reuso incluye no solo el niver del diseño, sino de
+    código, casos de prueba, modelos o diagramas.
+
+    El diseño es una actividad creativa por lo que no existe "el
+    mejor"diseño.
+
+*** Cualidades del software
+
+    Al diseñar se deben considerar las cualidades que deberá tener,
+    como:
+
+    - La arquitectura: integridad, corrección, facilidad de
+      construcción y completitud.
+
+    - De uso: seguridad, eficiencia, funcionalidad y usabilidad.
+
+    - De ejecución: facilidad de modificación, de prueba, reusabilidad
+      y portabilidad.
+
+**** Arquitectura de software
+
+     Cualidades que debe tener la arquitectura:
+
+     - Sencillez. Fácil de comprender y de implementar.
+
+     - Extensión. La posibilidad de agregar nuevos componentes.
+
+     - Cambio. Los cambios en los requerimientos no afecten mucho a la
+       arquitectura.
+
+***** Actividades para definir la arquitectura
+
+      - Seleccionar el tipo de arquitectura del software según el tipo
+	de la aplicaciónp a desarrollar.
+
+      - Identificar los componentes que conformarán la arquitectura
+        del software según el tipo de la aplicación a desarrollar.
+
+* Tareas

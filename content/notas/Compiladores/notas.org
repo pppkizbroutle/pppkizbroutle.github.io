@@ -1,0 +1,293 @@
+#+title: Compiladores
+#+author: Erik Rangel Limón
+#+startup: latexpreview
+
+* Rubros
+
+  - Prácticas 20%
+  - Proyecto final 30%
+  - Exámenes parciales 30%
+  - Exámenes semanales 20%
+  
+* Notas
+
+** Temario ( 15 / 08 / 23 )
+
+   1. Introducción
+
+   2. Análisis léxico y sintáctico
+
+   3. Análisis sintáctico descendente
+
+   4. Análisis sintáctico ascendente
+
+   5. Análisis semántico
+
+   6. Ambientes de ejecución
+
+   7. Generación de código
+
+** Autómatas (repaso)
+
+   - Lenguaje: Es un conjunto de cadenas sobre un alfabeto $\Sigma$.
+
+     - $\Sigma = \{a,b\}$
+
+     - $\mathcal{L}=\{ab,ba\}$
+
+     - $\mathcal{L}=\textit{todos las cadenas que tienen al menos 2 a's}$
+
+
+   Existen varias categorías de los lenguajes
+
+   - Lenguajes Regulares
+     
+   - Lenguajes Libres del Contexto
+     
+   - Lenguajes Dependientes del Contexto
+
+
+   Un lenguaje puede tener la cadena vacía.
+   
+   - $\varepsilon$: La cadena vacía; una palabra sin ningún símbolo.
+     
+   - $\emptyset\neq\{\varepsilon\}$
+
+
+   Existen operaciones que se pueden hacer entre los lenguajes
+
+   - Unión ($\mathcal{L}\cup\mathcal{M}$): Contiene todas las palabras
+     de $\mathcal{L}$ y todas las palabras de $\mathcal{M}$.
+     
+   - Concatenación ($\mathcal{L}\mathcal{M}$): Todas las posibles
+     concatenaciones de palabras de $\mathcal{L}$ con $\mathcal{M}$
+     
+   - Cerradura de Kleene:
+     - $\mathcal{L}^n=\mathcal{L}\mathcal{L}\cdots\mathcal{L}$ (n veces)
+     - $\mathcal{L}^0=\{\varepsilon\}$
+     - $\mathcal{L}^*=\{\mathcal{L}^n\ |\ n}\geq 0\}$
+       
+   - Cerradura positiva: $\mathcal{L}^+=\{L^n\ |\ n>0\}$
+
+** 16 / 08 / 23
+
+*** Compilador
+
+    Un compilador es un programa que traduce de un lenguaje a
+    otro. Toma como entrada un programa escrito en un lenguaje fuente
+    (.java, .c) y produce un programa equivalente escrito en un
+    lenguaje objetivo (.class, .out, .exe).
+
+    - El lenguaje fuente es un lenguaje de alto nivel.
+
+    - El lenguaje objetivo es código objeto (máquina)
+
+
+    /No tomar a la ligera la palabra programa pues no es para nada/
+    /sencillo. La mayoría de computólogos nunca han escrito un/
+    /compilador completo/.
+
+*** Jerarquía de Chomsky
+
+    - Los estudios de /Noam Chomsky/ condujeron a la clasificación de
+      los lenguajes de acuerdo a la complejidad de sus gramáticas y la
+      potencia de los algoritmos necesarios para reconocerlas.
+
+    - La jerarquía se compone de cuatro niveles de gramáticas,
+      denominadas tipo 0, tipo 1, tipo 2 y tipo 3, cada una de las
+      cuales es una especialización de la anterior.
+
+      - Tipo 0: Lenguajes sin restricciones
+
+      - Tipo 1: Lenguajes dependientes de Contexto
+
+      - Tipo 2: Lenguajes Libres de Contexto
+
+      - Tipo 3: Lenguajes Regulares
+
+**** Gramáticas libres de contexto
+
+     - Las gramáticas de tipo 2, mejor conocidas como gramáticas
+       libres de contexto, han demostrado ser las más útiles para
+       especificar lenguajes de programación.
+       
+     - El problema de análisis sintáctico consiste en encontrar
+       algoritmos eficientes que reconozcan lenguajes libres de
+       contexto.
+       
+     - El estudio de este problema conduja al desarrollo de programas
+       que automatizan solución mediante los llamados compiladores de
+       compilador hoy llamados generadores de analizadores
+       sintácticos.
+       
+     - El más conocido de los programas es Yacc. Fue escrito por Steve
+       Johnson en 1975 para el sistema Unix.
+
+*** Autómatas finitos y expresiones regulares
+
+    - Estas técnicas, corresponden a las gramáticas tipo 3 y se
+      encuentran relacionadas con las gramáticas libres de contexto.
+
+    - Su estudio condujo a métodos simbólicos para expresar la
+      estructura de las palabras o tokens de un lenguaje de
+      programación.
+
+    - Esto llevó al desarrollo de otra herramienta denominada
+      generador de analizadores léxicos, cuyo representante más
+      conocido es Lex.
+
+*** Técnicas de optimización
+
+    - Otro aspecto destacable en el área ha sido el desarrollo de
+      métodos para la generación de código objeto eficaz.
+
+    - Estas técnicas suelen denominarse incorrectamente técnicas de
+      optimización, pero en realidad debería llamarse técnicas de
+      mejoramiento de código, pues casi nunca producen un código
+      objeto verdaderamente óptimo.
+
+*** Otros avances
+
+    - Algoritmos para inferir y / o simplificar la información
+      contenida en un programa, por ejemplo el algoritmo de
+      unificación de tipos de /Hindley-Milner/.
+
+    - Integración con los llamados entornos de desarrollo integrados.
+
+*** Intérpretes
+
+    - A diferencia de un compilador, un intérprete ejecuta un programa
+      fuente inmediatamente.
+
+    - Cualquier lenguaje de programación se puede interpretar o
+      compilar, pero se puede preferir un intérprete a un compilador
+      dependiendo del lenguaje y del contexto.
+
+    - Es un error hablar de un lenguaje compilado o lenguaje
+      interpretado pues existes lenguajes que tienen ambos tipos de
+      traductor.
+
+    - Los compiladores comparten muchas de sus operaciones con los
+      intérpretes y existen incluso traductores híbridos.
+
+*** Ensambladores
+
+    - Un ensamblador es un traductor para el lenguaje ensamblador.
+
+    - Muchos compiladores generan lenguaje ensamblador como lenguaje
+      objetivo y por lo tanto depende de un ensamblador para terminar
+      la traducción a código objeto.
+
+*** Enlazador
+
+    - Es un programa que combina los códigos objeto generados por el
+      compilador o ensamblador así como otras piezas de código para
+      generar un archivo ejecutable.
+    - En los códigos objeto, el enlazador busca y agrega todas las
+      bibliotecas necesarias para la ejecución del archivo.
+    - Regulan el espacio de memoria que guardará el código de cada
+      módulo.
+    - Fusiona dos o más programas de códigos separados y establece un
+      vínculo entre ellos.
+
+*** Preprocesadores
+
+    - Son programas separados que son invocados por el compilador
+      antes de que comience la traducción real.
+    - Eliminan los comentarios, incluyen otros archivos y ejecutan
+      sustituciones de macros.
+    - Pueden ser requeridos por el lenguaje (como en C) o pueden ser
+      agregados posteriormente para que proporcionen facilidades
+      adicionales.
+
+*** Editores
+
+    - Los compiladores aceptan programas fuente escritos usando
+      cualquier editor.
+
+    - Recientemente los compiladores han sido integrados junto a
+      editores y otros programas en los IDEs de forma que puedan ser
+      orientados hacia el formato o estructura del lenguaje de
+      programación.
+
+    - Se denominan basados en la estructura e icluyen alguna
+      operaciones de un compilador, de manera que, por eemplo, pueda
+      informarse a los programadores sobre los errores a medida que el
+      programa se vaya escribiendo.
+
+*** Depuradores
+
+    - Son programas que se usan para determinar los errores de
+      ejecución en un programa.
+
+    - La ejecución de un programa con un depurador se diferencia de la
+      ejeción directa en que el depurador mantiene al tanto de la
+      mayoría o la totalidad de la información sobre el código fuente,
+      tal como los números de línea y los nombres de variables y
+      funciones.
+
+    - También puede determinar la ejecución en puntos previamente
+      especificados.
+  
+*** Perfiladores
+
+    - Un perfilador es un programa que recolecta estadísticas sobre el
+      comportamienbto de un programa objeto durante la ejecución.
+
+    - Las estadísticas típicas que pueden ser de interés para los
+      programadores son el número de veces que se llama cada función y
+      el porcentaje de tiempo de ejecución que se ocupa en cada uno de
+      ellos.
+
+*** Administradores de proyecto
+
+    - Los proyecto de software por lo general son tan grandes que
+      tienen que ser realizados por grupos de programadores en lugar
+      de por una sola persona.
+
+    - En tales casos es importante que los archivos y éste es el
+      trabajo de un programa de administración de proyecto.
+
+    - Por ejemplo, un administrador de proyecto debería coordinar la
+      combinación de diferentes versiones del mismo archivo producido
+      por programadores diferentes.
+
+** 17 / 08 / 23
+
+*** Lenguajes Regulares
+
+    Un lenguaje $\mathcal{L}$ bajo un alfabeto $\Sigma$ es regular si
+    se puede generar a partir de lenguajes básicos ($\{\varepsilon\}$,
+    $\emptyset$, $\{a\}$).
+
+    - $\emptyset$ es regular
+
+    - $\{\varepsilon\}$ es regular
+
+    - Si $a\in\Sigma$, entonces $\{a\}$ es un lenguaje regular.
+
+    - Si $\mathcal{L}$ es regular, entonces $\mathcal{L}^*$ también es
+      regular.
+
+    - Si $\mathcal{L}$ y $\mathcal{M}$ son lenguajes regulares,
+      entonces $\mathcal{L}\cup\mathcal{M}$ y $\mathcal{LM}$ son
+      regulares.
+
+    - Son todas
+
+*** Regex
+
+    - $\emptyset$ es un regex
+
+    - $\varepsilon$ es un regex
+
+    - Si $a\in\Sigma$, entonces $a$ es un regex
+
+    - Si $\alpha$ es un regex, entonces $\alpha^*$ es un regex
+
+    - Si $\alpha$, $\beta$ son regex, entonces $\alpha+\beta$ y
+      $\alpha\beta$ son regex.
+
+      
+
+* Bibliografía

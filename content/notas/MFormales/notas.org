@@ -1,0 +1,102 @@
+#+title: Métodos Formales
+#+author: Erik Rangel Limón
+
+* Contacto
+
+  - Lourdes
+
+    lug1zhuezca@ciencias.unam.mx
+
+    Cubículo 19 Depto Mate.
+
+* Rubros
+
+  - Prácticas 30%
+  - Tareas 40%
+  - Proyecto 30%
+
+* Notas
+
+** 14 / 08 / 23
+
+*** Herramientas para verificar programas
+
+    - Haskell: Quick Check
+    - C: Frama-C (Ocaml)
+    - General: Coq (Ocaml)
+
+*** ¿Qué son los Métodos Formales?
+
+    Engloba las herramientas computacionales o matemáticas para
+    verificar (demostrar) sistemas computacionales (tanto de /hardware/
+    como de /software/).
+
+    Éstas aseguran que una implementación cumple una *especificación*.
+
+** 16 / 08 / 23
+
+*** Métodos Formales
+
+    Herramientas computacionales / matemáticas para la *verificación* de
+    sistemas computacionales.
+
+    *Verificación*: Asegurar que una especificación se cumple en una
+    implementación.
+
+*** Desarrollo de Software
+
+    El desarrollo de Software consiste de 4 fases.
+
+    - Análisis
+    - Especificación
+    - Desarrollo (implementación)
+    - /Verificación/
+    - Mantenimiento
+
+**** Métodos Formales
+
+     Durante todo este proceso de desarrollo se pueden incluir métodos
+     formales; entre ellos incluidos, pero no limitadas:
+
+     - Casos de uso
+     - Contratos / firmas / interfaces
+     - Tipos o verificación de tipos
+     - Ejecución simbólica
+     - Pruebas unitarias
+
+**** Propiedades a verificar
+
+     - Alto nivel: Propiedades dadas en la especificación.
+       
+     - Bajo nivel: Propiedades a nivel de hardware o software para
+       verificar que el sistema se instaló correctamente (por ejemplo,
+       los sensores).
+
+*** Herramientas de Verificación
+
+    Una de las más conocidas son:
+
+    - Los sistemas de tipos de un lenguaje de programación
+
+    - Lógica de Hoare: Se analizan las propiedades que se deben
+      cumplir antes de ejecutar un sistema (precondiciones) y las
+      propiedades que se deben cumplir después de la ejecución
+      (postcondiciones).
+
+    - *Pruebas unitarias*
+
+    - Lógicas temporales (LTL /Linear tree logic/ y CTL /Computational
+      tree logic/)
+
+*** Sistemas de deducción
+
+    \[\infer{0\in\mathbb{N}}{}\]
+
+    \[\infer{Suc\ n \in \mathbb{N}}{n \in \mathbb{N}}\]
+
+    Para demostrar que $Suc\ n$ es Natural, basta demostrar que $n$ es
+    un Natural.
+
+* Bibliografía
+
+  - Formal Methods, an Appetizer. Springer.

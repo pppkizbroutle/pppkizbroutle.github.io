@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-08-17 Thu 15:56 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Reconocimiento de Patrones y Aprendizaje Automatizado</title>
+<meta name="author" content="Erik Rangel Limón" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">/* Base */html,body {    background-color: #222;    min-height: 100%;    line-height: 1.5;}body {    color: #fafafa;    font-family: "Courier New";}::selection {    background-color:  #2ecc40;    color: white;}/* Responsive content positioning */@media only screen and (min-width: 1020px) /* Large screens */{    body{        padding: 10vh 25vw;    }}@media only screen and (max-width: 1020px) and (min-width: 750px) /* Small screens */{    body{        padding: 5vh 10vw;    }}@media only screen and (max-width: 750px) /* Small screens */{    body{        padding: 2vh 5vw;    }}/* Headers */h1{font-size: 2.5rem;}h2{font-size: 1.7rem;}h1 > .subtitle, h3, h4, h5, h6{font-size: 1.3rem;}.title{    margin-bottom: 2.5rem;}/* Padding & Margin */* {margin: 0; padding: 0;}pre, blockquote, ul, ol, p, table{    margin: 1rem 0;}h1, h2{margin-top: 2rem; line-height: 2rem;}h3, h4, h5, h6{margin-top: 1rem;}/* Links  */a, a:visited {    color: #01ff70;    text-decoration: underline;}a:hover, a:focus, a:active {    color: #2ecc40;}/* Code */pre {    font-family: "Courier New";    padding: .5rem;    background-color: #333;    padding: 0.5rem;    border-radius: 0.2rem;    font-size: 0.9rem;    color: #EEE;    overflow-x: auto;}.org-keyword{    color: #01ff70;}.org-rainbow-delimiters-depth-1{    color: #2ecc40;}.org-rainbow-delimiters-depth-2{    color: #01ff70;}/* Blockquotes */blockquote {    border-left: 3px solid #01ff70;    padding-left: 1rem;}li{    list-style-position: inside;}/* Tags */.tag{    margin-top: 0.5rem;    display: block;    color: white;    font-size: var(--font-size-xsmall);}.tag > span{		font-weight: 400;    font-size: 0.8rem;    background-color: #444;    text-transform: uppercase;    border-radius: 2px;    width: fit-content;    height: auto;    padding: 1px 5px;}/* Keywords */.todo{    color: #2ecc40;}.done{    color: #444;}/* Overflows */.outline-text-2, .outline-text-3, .outline-text-4{	  max-width: 100%;	  overflow-x: auto;}/* Table */tr:nth-child(even) {    background-color: #333;}th, td{    padding: 0.5rem;    text-align: center;}.underline{    text-decoration: underline;}img{    max-width: 100%;    height: auto;}</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Reconocimiento de Patrones y Aprendizaje Automatizado</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org4360c55">Rubros</a></li>
+<li><a href="#org0c8a92a">Notas</a>
+<ul>
+<li><a href="#orgdf52b3f">14 / 08 / 23</a>
+<ul>
+<li><a href="#org4486207">Temario</a></li>
+</ul>
+</li>
+<li><a href="#orgc690e51">16 / 08 / 23</a>
+<ul>
+<li><a href="#orgcb3a1e5">Breve historia de la Inteligencia Artificial</a></li>
+<li><a href="#org8455d00">NLP</a></li>
+<li><a href="#org28ce5d9">¿Por qué es importante?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orge454144">Bibliografía</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4360c55" class="outline-2">
+<h2 id="org4360c55">Rubros</h2>
+<div class="outline-text-2" id="text-org4360c55">
+<ul class="org-ul">
+<li>Proyecto final 40%</li>
+<li>Tareas y laboratorio 60%</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0c8a92a" class="outline-2">
+<h2 id="org0c8a92a">Notas</h2>
+<div class="outline-text-2" id="text-org0c8a92a">
+</div>
+<div id="outline-container-orgdf52b3f" class="outline-3">
+<h3 id="orgdf52b3f">14 / 08 / 23</h3>
+<div class="outline-text-3" id="text-orgdf52b3f">
+</div>
+<div id="outline-container-org4486207" class="outline-4">
+<h4 id="org4486207">Temario</h4>
+<div class="outline-text-4" id="text-org4486207">
+<ol class="org-ol">
+<li>Introducción y bases matemáticas ¿Qué es el reconocimiento de
+patrones? Paradigma probabilístico</li>
+
+<li>Paradigma y práctica común del aprendizaje
+automatizado. Regresiones lineal y estadística. Métricas de
+evaluación. kNN. Paradigma bayesiano.</li>
+
+<li>Algoritmos no supervisados y agrupamientos
+k-Means. EM. Hierarchical. Métricas de pureza de
+grupos. Reducción de dimensión: PCA / SVD. ICA.</li>
+
+<li>Boosting, algoritmos de ensamble y árboles de decisión
+(tentativo).</li>
+
+<li>Paradigma neuronal: Funciones de
+activación. Retropropagación. MLP y RBN. ConvNets.</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc690e51" class="outline-3">
+<h3 id="orgc690e51">16 / 08 / 23</h3>
+<div class="outline-text-3" id="text-orgc690e51">
+</div>
+<div id="outline-container-orgcb3a1e5" class="outline-4">
+<h4 id="orgcb3a1e5">Breve historia de la Inteligencia Artificial</h4>
+<div class="outline-text-4" id="text-orgcb3a1e5">
+<ul class="org-ul">
+<li>1931 - Gödel: Decidibilidad de las matemáticas</li>
+
+<li>1936 - Alan Turing: <i>Universal Turin Machine</i></li>
+
+<li>1943 - McCullog &amp; Pitts: "<i>A logical Calculus of the Ideas
+Immanent in Nervous Activity</i>"</li>
+
+<li>1943 - Rosenblueth, Wiener &amp; Rigelow: acuñan el término de
+cibernética</li>
+
+<li>1943 - Post: Reglas de producción como sistema computacional</li>
+
+<li>1945 - Polya: Acuña el término "<i>heurística</i>"</li>
+
+<li>1950 - Turing: "<i>Computing Machinery and Intelligence</i>"</li>
+
+<li>1950 - Claude Shannon: "<i>Programming a computer to play chess</i>"</li>
+
+<li>1950 - McCarthy propone el témrino "inteligencia artificial"</li>
+
+<li>1957 - Newell, Shaw &amp; Simon: The Geeral Problem Solver.</li>
+
+<li>1958 - McCarthy: propone usar el cálculo de predicados como
+lenguaje para representar y usal el conocimiento: LISP.</li>
+
+<li>1950 - Slagle: Programa para damas chinas.</li>
+
+<li>1961 - Unimation: Primer empresa que fabrica un robot en el
+munod (Unimate)</li>
+
+<li>1961 / 1964 - Slagle: Integración simbólica (Lisp), Evans:
+ANALOGY</li>
+
+<li>1963 - Lorenz: <i>Deterministic Non periodic flow</i></li>
+
+<li>1965 - Chomsky: Lingüística, Weizenbaum: ELIZA.</li>
+
+<li>1968 - Minsky &amp; Papert: Limtaciones del perceptrón.</li>
+
+<li>(Invierno neuronal)</li>
+
+<li>2021 - Desarrolo de aprendizaje estadístico, matemáticas y redes
+neuronales para procesamiento de imágenes y procesamiento del
+lenguaje natural.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8455d00" class="outline-4">
+<h4 id="org8455d00">NLP</h4>
+<div class="outline-text-4" id="text-org8455d00">
+<p>
+Completar un crucigrama de 2 x 2, de forma correcta puede
+significar encontrar la combinación correcta que puede tener.
+</p>
+
+<p>
+\(27^4\) operaciones
+</p>
+
+<p>
+De las cuales no todas serán posibles. Pero todo el punto es
+satisface mediante una búsqueda la combincaión correcta. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org28ce5d9" class="outline-4">
+<h4 id="org28ce5d9">¿Por qué es importante?</h4>
+<div class="outline-text-4" id="text-org28ce5d9">
+<p>
+Nuestro problema se transformó en la necesidad de construir un
+algoritmo que reconozca patrones.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge454144" class="outline-2">
+<h2 id="orge454144">Bibliografía</h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Erik Rangel Limón</p>
+<p class="date">Created: 2023-08-17 Thu 15:56</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1 (<a href="https://orgmode.org">Org</a> mode 9.6.6)</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,400 @@
+#+title: Redes de Computadoras
+#+author: Erik Rangel Limón
+
+* Rubros
+
+* Notas
+
+** 15 / 08 / 23
+
+*** Introducción a las redes de las computadoras
+
+    Las redes permiten la interconexión de dispositivos electrónicos,
+    con los cuales se han podido compartir información y recursos.
+
+    Con la aparición de las redes, hemos pasado de compartir recursos
+    e información de manera colaborativa.
+
+    También existen desafíos relacionados con redes de computadoras, y
+    una de las principales preocupaciones son la seguridad de la
+    información y la protección de datos sensibles. Las redes deben de
+    estar protegidas contra amenazas de robo de datos, acceso no
+    autorizado y ataques cibernéticos.
+
+*** Breve historia de las redes de computadoras
+
+    Comienza con los primeros sistemas de conmutación de circuitos,
+    utilizados en la década de 1960. Se basaban en la conmutación de
+    circuitos telefónicos y se utilizaban para establecer conexiones
+    dedicadas entre dos puntos de comunicación. Estos sistemas eran
+    costosos y poco flexibles, ya que requerían una conexión física
+    directa entre los dispositivos.
+
+    Debido a la demanda de comunicación entre computdoras, se
+    desarrollan sistemas de conmutación de paquetes en la década de
+    1970, y en lugar de establecer conexiones dedicadas, los datos se
+    dividían en paquetes más pequeños y se enviaban de manera
+    independiente a través de la red. Los paquetes podían seguir rutas
+    diferentes y llegar al destino de manera más rápida y eficiente.
+
+    Uno de los hitos más importantes en la historia de las redes de
+    computadoras fue el desarrollo de ARPANET (Advanced Research
+    Projects Agency Network) en la década de 1960. ARPANET fue una red
+    experimental creada por el Departamento de Defensa de los Estados
+    Unidos y se considera el primer precursor de Internet. Fue la
+    primera red en utilizar conmutación de paquetes y se enviaban de
+    manera independiente a través de la red. Los paquetes podían
+    seguir rutas diferentes y sentó las bases para el intercambio de
+    información y recursos entre computadoras en diferentes
+    ubicaciones geográficas.
+
+    A medida que las redes de coomputadoras se expandieron y se hizo
+    evidente la necesidad de un estándar común, surgieron protocolos
+    como TCP/IP (Transmission Control Protocol / Internet
+    Protocol). TCP/IP se convirtió en el protocolo principal utilizado
+    en internet, permitiendo la comunicación entre diferentes redes y
+    estableciendo las bases para la conectividad global.
+
+    Con el tiempo, las redes de computadoras evolucionaron para
+    adaptarse a las crecientes demandas de conectividad y ancho de
+    banda. Surgieron tecnología como Ethernet, que permitieron la
+    transmisión de datos a alta velocidad a través de cables de
+    cobre. Luego, la fibra óptica revolucionó la capacidad de
+    transmisión de datos, permitiendo velocidades aún mayores y
+    distancias más largas.
+
+    Hoy en día, las redes de computadoras se han vuelto omnipresentes
+    en nuestra vida diaria. Las redes inalámbricas, como Wi-Fi, han
+    permitido la conectividad en cualquier lugar y han facilitado la
+    movilidad de los dispositivos. Además el avance de la tecnología
+    ha llevado al surgimiento del Internet de las cosas (IoT), donde
+    los dispositivos y sensores están interconectados para recopilar y
+    compartir datos.
+
+    En resumen, la historia de las redes de computadoras ha sido una
+    de constante evolución y avances tecnológicos.
+
+*** Importancia de las redes de computadoras en el mundo actual
+
+    En el mundo actual, prácticamente todos los aspectos de nuestras
+    vidas están influenciados por las redes de computadoras. Desde la
+    forma en que accedemos a la información hasta cómo nos comunicamos
+    con otras personas en diferentes partes del mundo, las redes de
+    computadoras son la columna vertebral de la sociedad digital.
+
+    Además, las redes de computadoras han facilitado la comunicación y
+    la colaboración a distancia, Con herramientas de comunicación como
+    el correo electrónico, las videollamadas y las aplicaciones de
+    mensajería instantánea, podemos estar conectados y trabajar con
+    personas en diferentes partes del mundo de manera instantánea y
+    eficiente.
+
+    Las redes de computadoras también han impulsado el crecimiento y
+    la expansión de Internet, una red global que conecta a millones de
+    personas y dispositivos en todo el mundo. Internet ha
+    democratizado el acceso a la información y ha transformado
+    industrias enteras, como la educación, el comercio, los medios de
+    comunicación y el entretenimiento.
+
+    Además de su impacto en la sociedad, las redes de computadoras
+    también han desmpeñado un papel crucial en el avance de la
+    tecnología. Han permitido el desarrollo de aplicaciones y
+    servicios innovadores, como el almacenamiento en la nube, la
+    inteligencia artificial, el internet de las cosas y la realidad
+    virtual.
+
+*** Uso de las redes de computadoras
+
+    Las redes de computadoras se han convertido en una parte integral
+    de nuestras vidas, ofreciendo una amplia gama de usos y
+    aplicaciones en diferentes ámbitos, transformando nuestra forma de
+    trabajar, comunicarnos e interactuar en el mundo moderno.
+
+    Una de las principales áreas en las quese utilizan las redes de
+    computadoras en en el ámbito empresarial. Las organizaciones
+    utilizan redes locales (LAN) y redes de área amplia (WAN) para
+    compartir recursos y facilitar la comunicación entre los
+    empleados. Esto permite el intercambio eficiente de información,
+    la colaboración en proyectos y el acceso a aplicaciones y bases de
+    datos compartidas. Las redes empresariales también brindan la
+    capacidad de realizar videoconferencias, lo que facilita la
+    comunicación entre equipos y sucursales dispersas geográficamente.
+
+    En el ámbito académico, las redes de computadoras son
+    fundamentales para la investigación, el aprendizaje y la
+    colaboración. Las instituciones educativas utilizan redes para
+    proporcional acceso a bibliotecas digitales, recursos en línea y
+    plataformas de aprendizaje electrónico. Además, las redes
+    facilitan la comunicación entre estudiantes y profesores a travé
+    de foros en línea, videoconferencias y herramientas de mensajería,
+    lo que fomenta la colaboración y el intercambio de conocimientos.
+
+    Las redes de computadoras también han transformado la forma en que
+    nos comunicamos en nuestra vida diaria. Las redes sociales, como
+    Facebook, Twitter e Instagram, aprovechan la conectividad en línea
+    par permitir la interacción social y el iuntercambio de contenido
+    multimendia. Además, los servicios de mensajería instantánea, como
+    WhatsAṕp y Telegram, utilizan redes para permitir la comunicación
+    en tiempo real entre personas en diferentes ubicaciones.
+
+    En el ámbito de la medicina, las redes de computadoras han
+    desempeñado un papel fundamental en el avance de la atención
+    médica. Las redes permiten la transmisión segura de información de
+    pacientes, la consulta remota de pacientes, la consilta remota de
+    expertos y la recopilación de datos para la investigación
+    médica. Además, las tecnologías de telemedicina, impulsadas por
+    las redes de computadoras, permiten la prestación de servicios
+    médicos a distancia, lo que facilita el acceso a la atención
+    médica en áreas remotas o con recursos limitados.
+
+    Otro uso importante de las redes de computadoras se encuentra en
+    el ámbito del entretenimiento y los medios de comunicación. Las
+    redes permiten la transmisión de contenido multimedia, como
+    música, películas y programas de televisión, a través de servicios
+    de transmisión en línea. Además, las redes de computadoras han
+    impulsado el crecimiento de los juegos en línea, permitiendo la
+    interacción y competencia entre jugadores de todo el mundo.
+
+    En resumen, el uso de las redes de computadoras es amplio y
+    diverso, abarcando áreas como el ámbito empresarial, acadeḿico,
+    comunicación, medicia y entretenimiento. Estas redes han
+    transformado la forma en que trabajamos, aprendemos, nos
+    comunicamos y nos entretenemos. A medida que la tecnología
+    continúa avanzando, se espera que las redes de computadoras sigan
+    evolucionando y desempeñando un papel aún más importante en
+    nuestras vidas.
+
+*** Internet
+
+    Internet es una red global (conjunto de redes) que ha transformado
+    la forma en que nos comunicamos, accedemos a la información y
+    realizamos transacciones en el mundo moderno. A través de su
+    arquitectura descentralizada y su capacidad para interconectar
+    dispositivos en todo el mundo, internet ha revolucionado la
+    conectividad global.
+
+    Internet comenzó como un proyecto de investigación llamado /ARPANET/
+    en la década de 1960, desarrollado por el Departamento de Defensa
+    de los Estados Unidos. Sin embargo, su evolución y crecimiento
+    masivo en las décadas siguientes han superado con creces sus
+    objetivos iniciales. Hoy ewn día, Internet es una red global que
+    conecta miles de millones de dispositivos, incluyendo
+    computadoras, servidores, teléfonos intligentes, dispositivos IoT
+    y mucho más.
+
+    Una de las características clave de Internet es su arquitectura
+    basada en el conjunto de protocolos TCP/IP (/Transmission Control
+    Protocol / Internet Protocol/). TCP/IP proporciona la base para la
+    comunicación y el intercambio de datos en internet. El protocolo
+    IP permite el enrutamiento de paquetes a travé de redes
+    interconectadas, mientras que el protocolo TCP garantiza una
+    transmisión confiable de datos mediante la división y reensamblaje
+    de paquetes.
+
+    Internet ha transformado la forma en que accedemos a la
+    información y nos comunicamos. A travé s de la Wold Wide Web
+    (WWW), los usuarios pueden navegar por páginas web, acceder a
+    recursos en línea, compartir contenido y participar en redes
+    sociales. Los motores de búsqueda como Google, facilitan la
+    búsqueda de información y recursos específicos en la vasta
+    cantidad de contenido disponible en internet.
+
+    Además, Internet ha impulsado el comercio electrónico, permitiendo
+    transacciones en línea seguras y el crecimiento de plataformas de
+    venta al por menor en línea. Las empresas pueden llegar a un
+    mercado global y los consumidores tienen acceso a una amplia
+    variedad de productos y servicios desde la comodidad de sus
+    hogares. Los sevicios de banca en líne también han ganado
+    popularidad, brindando a los usuarios la capacidad de realizar
+    transacciones financieras y administrar sus cuentas sin tener que
+    visitar una sucursal física.
+
+    La conectividad a Internet se ha vuelto cada vez más ubicua,
+    gracias a tecnologías como Wi-Fi, que permiten la conexión
+    inalámbrica a la red. Los proveedores de servicios de Internet
+    (ISP) ofrecen acceso a Internet a través de la tecnología como
+    DSL, cable, fibra, óptica y satélite. Además, el avance de las
+    redes móviles ha llevado a la proliferación de servicios de
+    Internet en dispositvos móviles, brindando conectividad en
+    cualquier lugar y en cualquier momento.
+
+*** Conectividad: La influencia de los medios de comunicación
+
+    A medida que las redes de computradoras se han vuelto
+    omnipresentes, los medios de comuncación han experimentadxo una
+    transformación significativa, permitiendo una mayor interacción,
+    acceso a información y colaboración a nivel global.
+
+    La conectividad ha revolucionado la forma en que nos comunicamos,
+    permitiendo una mayor velocidad y alcance en el transmisión de
+    información. Los medios de comunicación tradicionales, como la
+    televisión, la radio y la prensa implesa, han evolucionado para
+    adaptarse a las redes de computadoras y .ofrecer contenido en
+    línea a través de plataformas digitales.
+
+    La influencia de los medios de comuncación en la conectividad se
+    ha visto acentuada por la aparición de Internet. La World Wide Web
+    (WWW) ha permitido el acceso a una amplia gama de contenido
+    multimedia, como videos, música, noticias, blogs y redes
+    sociales. Los usuarios hasta ahora tienen la capacidad de acceder
+    a información actualizada en tiempo realm compartir opiniones y
+    conectarse con personas de todo el mundo.
+
+    La conectividad también ha impactado la forma en que consumimos y
+    compartimos contenido. La aparición de plataformas de streaming
+    aha transformado la forma en que cemos películas, series de
+    televisión y escuchamos música, permitiendo a los usuarios acceder
+    al contenido de maner instantánea y a la carta. Las redes sociales
+    han facilitado la comunicación y la creación de comunidades en
+    línea, donde las personas pueden compartir ideas, experiencias y
+    colaborar en proyectos.
+
+    Además, la conectividad ha influido en la forma en que se lleva a
+    cabo la educación. Las instituciones educativas han adoptado el
+    aprendizaje en línea, lo que ha permitido a los estudiantes
+    acceder a cursos y recursos educatiuvos desde cualquier lugar y en
+    cualquier momento. La conectividad también ha facilitado la
+    colaboración entre investigadores y académicos de todo el mundo,
+    lo que ha impulsado el avance del conocimiento en diversas
+    disciplinas.
+
+    Sin embargo, junto con los beneficios de la conectividad y los
+    medios de comunicación, también surgen desafíos y
+    preocupaciones. La desinformación y las noticias falsas se han
+    envuelto más prevalentes en la era digital, y es importante que
+    los usuario sean críticos y evalúen la veracidad de la información
+    que encuentran en línea. Además, la privacidad en línea y la
+    protección de datos personales se han convertido en temas de
+    preocupación, y es necesario tomar medidas para proteger la
+    infgormación personal en un entorno conectado.
+
+    En resume, la conectividad ha tenido un impacto significativo en
+    los medios de comunicación y en la forma en que nos comunicamos,
+    accedemos a la información y colaboramos en la sociedad actual. A
+    medida que las redes de computadoras continúan evolucionando, es
+    importante comprender cómo la conectividad y los medios de
+    comuicación influyen en nuestras vidad y cómo podemos aprovechar
+    sus beficios mientras abordamos los desafíos que siguen.
+
+*** Clasificación de las redes de computadoras
+
+    Las redes de computradoras se pueden clasificar de diversas formas
+    según su tamaño, su alcance geográfico y su estructura. Estas
+    clasificaciones proporcionan una complensión más clara de las
+    características y aplicaciones de diferentes tipos de redes.
+
+    La clasificación de las redes de computadoras es fundamental para
+    comprender sus características y aplicaciones específicas. Cada
+    tipo de red tiene sus ventajas y desventajas, y su elección
+    depende de los requisitos de comuncación y las necesidades de la
+    organización o los usuarios involucrados.
+
+**** Según su tamaño
+
+     - Redes de área personal (PAN): Son redes de pequeña escala
+       diseñadas para la comunicación entre dispositivos personales,
+       como computadores portátiles, teléfonos inteligentes y
+       dispositivos wearables. Los PAN se utilizan generalmente para
+       transferir datos personales y sincronizar dispositivos.
+
+     - Redes de área local (LAN): Son redes que abarcan un área
+       geográfica limitada, como una casa, una oficia o un campus
+       universitario. Las LAN están diseñadas para permitir la
+       comunicación y el intercambio de recursos entre dispositicvos
+       ubicados en el mismo lugar físico.
+
+     - Redes de área metropolitana (MAN): Son redes que cubren una
+       ciudad o una regió geográfica más amplica. Las MAN proporcionan
+       conectividad de alta velocidad para organizaciones y empresas
+       que operar en un área metropolitana determinada.
+
+     - Redes de área amplia (WAN): Son redes que cubren grandes áreas
+       geográficas, como países o incluso continentes. Las WAN se
+       utilizan para conectar diferentes ubicaciones geográficas y
+       permitir la comunicación y el intercambio de datos a larga
+       distancia.
+
+**** Según su rol o acceso
+
+     - Redes privadas: Son redes de computadoras que son propiedad y
+       están controladas por una organización o empresa
+       específica. Estas redes se utilizan para facilitar la
+       comunicación interna y el intercabio de información dentro de
+       la organización.
+
+     - Redes públicas: Son redes de computadoras que están disponibles
+       para uso público y generalmente se basan en infraestructuras
+       compartidas. Un ejemplo común de red pública es Internet, donde
+       múltiples usuarios pueden acceder y comunicarse a través de la
+       red.
+
+**** Según su estructura
+
+     - Redes punto a punto: En este tipo de redes, los dispositivos
+       está conectados directamente entre sí y pueden comunicarse de
+       manera bidireccional. Cada dispositivo en la red puede actuar
+       tanto como cliente como servidor, lo que permite una
+       comunicación directa entre pares.
+
+     - Redes cliente-sservidor: En este tipo de redes, los
+       dispositivos están organizados en una estructura
+       cliente-servidor, donde los clientes solicitan servicios o
+       recursos al servidor central. El servidor central es
+       responsable de proporcionar los recursos y gestionar la
+       comunicación entre los clientes.
+
+     - Redes en anillo: En este tipo de redes, los dispositivos están
+       conectados en un bucle cerrado, donde cada dispositivo se
+       comunica directamente con sus vecinos más cercanos. Los datos
+       se transmiten en un solo sentido alrededor del anillo, y cada
+       dispositivo actúa como un repetidor para amplificar la señal y
+       mantener la integridad de la comunicación.
+
+** 16 / 08 / 23
+
+*** Estándares y Arquitecturas
+
+    - Un estándar es un proceso o protocolo que ha sido certificado
+      por especialistas de las redes y ratificado por una organización
+      de estándares.
+
+    - ISO (Organización Internacional para la estandarización).
+
+    - Se encarga de promover el desarrollo de las normas de
+      fabricación internacionalmente. Promueve el comercio y
+      comunicación para todas las ramas industriales a excepción de la
+      eléctrica y electrónica.
+
+    - [[https://www.iso.org/home.html]]
+
+*** IEEE (Instituto de Ingenieros Eléctricos Electrónicos)
+
+    - Sociedad mundial profesional de ingeniería
+
+    - *Objetivos*: Desarrollo, creatividad, calidad de productos en el
+      campo de la ingeniería eléctrica, electrónica y radio.
+
+    - Se encarga de impulsar el desarrollo y adopción de estándares
+      internacionales para la computación y comunicación.
+
+    - [[https://www.ieee.org]]
+
+*** NOM (Normas Oficiales Mexicanas)
+
+    - Establece reglas, especificaciones, atributos, directrices,
+      características como prescripciones aplicables a un producto,
+      proceso, instalación, sistema, servicio o método de producción y
+      operación.
+
+    - [[https://www.sinec.gob.mx]]
+
+*** ANSI (American National Standards Institute)
+
+    - Es la organización que supera el desarrollo de estándares para
+      productos servicios, procesos y sistemas en EU, adicionalmente
+      es miembro de la ISO y de la Comisión Electrotécnica
+      Internacional.
+
+    - [[https://www.ansi.org/]]
+
+* Bibliografía

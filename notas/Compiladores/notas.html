@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-08-17 Thu 15:56 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Compiladores</title>
+<meta name="author" content="Erik Rangel Limón" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">/* Base */html,body {    background-color: #222;    min-height: 100%;    line-height: 1.5;}body {    color: #fafafa;    font-family: "Courier New";}::selection {    background-color:  #2ecc40;    color: white;}/* Responsive content positioning */@media only screen and (min-width: 1020px) /* Large screens */{    body{        padding: 10vh 25vw;    }}@media only screen and (max-width: 1020px) and (min-width: 750px) /* Small screens */{    body{        padding: 5vh 10vw;    }}@media only screen and (max-width: 750px) /* Small screens */{    body{        padding: 2vh 5vw;    }}/* Headers */h1{font-size: 2.5rem;}h2{font-size: 1.7rem;}h1 > .subtitle, h3, h4, h5, h6{font-size: 1.3rem;}.title{    margin-bottom: 2.5rem;}/* Padding & Margin */* {margin: 0; padding: 0;}pre, blockquote, ul, ol, p, table{    margin: 1rem 0;}h1, h2{margin-top: 2rem; line-height: 2rem;}h3, h4, h5, h6{margin-top: 1rem;}/* Links  */a, a:visited {    color: #01ff70;    text-decoration: underline;}a:hover, a:focus, a:active {    color: #2ecc40;}/* Code */pre {    font-family: "Courier New";    padding: .5rem;    background-color: #333;    padding: 0.5rem;    border-radius: 0.2rem;    font-size: 0.9rem;    color: #EEE;    overflow-x: auto;}.org-keyword{    color: #01ff70;}.org-rainbow-delimiters-depth-1{    color: #2ecc40;}.org-rainbow-delimiters-depth-2{    color: #01ff70;}/* Blockquotes */blockquote {    border-left: 3px solid #01ff70;    padding-left: 1rem;}li{    list-style-position: inside;}/* Tags */.tag{    margin-top: 0.5rem;    display: block;    color: white;    font-size: var(--font-size-xsmall);}.tag > span{		font-weight: 400;    font-size: 0.8rem;    background-color: #444;    text-transform: uppercase;    border-radius: 2px;    width: fit-content;    height: auto;    padding: 1px 5px;}/* Keywords */.todo{    color: #2ecc40;}.done{    color: #444;}/* Overflows */.outline-text-2, .outline-text-3, .outline-text-4{	  max-width: 100%;	  overflow-x: auto;}/* Table */tr:nth-child(even) {    background-color: #333;}th, td{    padding: 0.5rem;    text-align: center;}.underline{    text-decoration: underline;}img{    max-width: 100%;    height: auto;}</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Compiladores</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org033b81b">Rubros</a></li>
+<li><a href="#org13af4c0">Notas</a>
+<ul>
+<li><a href="#org2985d1b">Temario ( 15 / 08 / 23 )</a></li>
+<li><a href="#orgd8f54b9">Autómatas (repaso)</a></li>
+<li><a href="#org9e9b0c4">16 / 08 / 23</a>
+<ul>
+<li><a href="#orgd46b85f">Compilador</a></li>
+<li><a href="#orgfccceb4">Jerarquía de Chomsky</a></li>
+<li><a href="#orga0cf590">Autómatas finitos y expresiones regulares</a></li>
+<li><a href="#org98f1b9b">Técnicas de optimización</a></li>
+<li><a href="#org12386a1">Otros avances</a></li>
+<li><a href="#orgd8e91dd">Intérpretes</a></li>
+<li><a href="#orga060c5d">Ensambladores</a></li>
+<li><a href="#org5c92ae2">Enlazador</a></li>
+<li><a href="#org3525309">Preprocesadores</a></li>
+<li><a href="#org3a9ba08">Editores</a></li>
+<li><a href="#orgdee3a09">Depuradores</a></li>
+<li><a href="#org54d2f4b">Perfiladores</a></li>
+<li><a href="#org7f6c00d">Administradores de proyecto</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgfb3972d">Bibliografía</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org033b81b" class="outline-2">
+<h2 id="org033b81b">Rubros</h2>
+<div class="outline-text-2" id="text-org033b81b">
+<ul class="org-ul">
+<li>Prácticas 20%</li>
+<li>Proyecto final 30%</li>
+<li>Exámenes parciales 30%</li>
+<li>Exámenes semanales 20%</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org13af4c0" class="outline-2">
+<h2 id="org13af4c0">Notas</h2>
+<div class="outline-text-2" id="text-org13af4c0">
+</div>
+<div id="outline-container-org2985d1b" class="outline-3">
+<h3 id="org2985d1b">Temario ( 15 / 08 / 23 )</h3>
+<div class="outline-text-3" id="text-org2985d1b">
+<ol class="org-ol">
+<li>Introducción</li>
+
+<li>Análisis léxico y sintáctico</li>
+
+<li>Análisis sintáctico descendente</li>
+
+<li>Análisis sintáctico ascendente</li>
+
+<li>Análisis semántico</li>
+
+<li>Ambientes de ejecución</li>
+
+<li>Generación de código</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgd8f54b9" class="outline-3">
+<h3 id="orgd8f54b9">Autómatas (repaso)</h3>
+<div class="outline-text-3" id="text-orgd8f54b9">
+<ul class="org-ul">
+<li>Lenguaje: Es un conjunto de cadenas sobre un alfabeto \(\Sigma\).
+
+<ul class="org-ul">
+<li>\(\Sigma = \{a,b\}\)</li>
+
+<li>\(\mathcal{L}=\{ab,ba\}\)</li>
+
+<li>\(\mathcal{L}=\textit{todos las cadenas que tienen al menos 2 a's}\)</li>
+</ul></li>
+</ul>
+
+
+<p>
+Existen varias categorías de los lenguajes
+</p>
+
+<ul class="org-ul">
+<li>Lenguajes Regulares</li>
+
+<li>Lenguajes Libres del Contexto</li>
+
+<li>Lenguajes Dependientes del Contexto</li>
+</ul>
+
+
+<p>
+Un lenguaje puede tener la cadena vacía.
+</p>
+
+<ul class="org-ul">
+<li>\(\varepsilon\): La cadena vacía; una palabra sin ningún símbolo.</li>
+
+<li>\(\emptyset\neq\{\varepsilon\}\)</li>
+</ul>
+
+
+<p>
+Existen operaciones que se pueden hacer entre los lenguajes
+</p>
+
+<ul class="org-ul">
+<li>Unión (\(\mathcal{L}\cup\mathcal{M}\)): Contiene todas las palabras
+de \(\mathcal{L}\) y todas las palabras de \(\mathcal{M}\).</li>
+
+<li>Concatenación (\(\mathcal{L}\mathcal{M}\)): Todas las posibles
+concatenaciones de palabras de \(\mathcal{L}\) con \(\mathcal{M}\)</li>
+
+<li>Cerradura de Kleene:
+<ul class="org-ul">
+<li>\(\mathcal{L}^n=\mathcal{L}\mathcal{L}\cdots\mathcal{L}\) (n veces)</li>
+<li>\(\mathcal{L}^0=\{\varepsilon\}\)</li>
+<li>\(\mathcal{L}^*=\{\mathcal{L}^n\ |\ n}\geq 0\}\)</li>
+</ul></li>
+
+<li>Cerradura positiva: \(\mathcal{L}^+=\{L^n\ |\ n>0\}\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9e9b0c4" class="outline-3">
+<h3 id="org9e9b0c4">16 / 08 / 23</h3>
+<div class="outline-text-3" id="text-org9e9b0c4">
+</div>
+<div id="outline-container-orgd46b85f" class="outline-4">
+<h4 id="orgd46b85f">Compilador</h4>
+<div class="outline-text-4" id="text-orgd46b85f">
+<p>
+Un compilador es un programa que traduce de un lenguaje a
+otro. Toma como entrada un programa escrito en un lenguaje fuente
+(.java, .c) y produce un programa equivalente escrito en un
+lenguaje objetivo (.class, .out, .exe).
+</p>
+
+<ul class="org-ul">
+<li>El lenguaje fuente es un lenguaje de alto nivel.</li>
+
+<li>El lenguaje objetivo es código objeto (máquina)</li>
+</ul>
+
+
+<p>
+<i>No tomar a la ligera la palabra programa pues no es para nada</i>
+<i>sencillo. La mayoría de computólogos nunca han escrito un</i>
+<i>compilador completo</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfccceb4" class="outline-4">
+<h4 id="orgfccceb4">Jerarquía de Chomsky</h4>
+<div class="outline-text-4" id="text-orgfccceb4">
+<ul class="org-ul">
+<li>Los estudios de <i>Noam Chomsky</i> condujeron a la clasificación de
+los lenguajes de acuerdo a la complejidad de sus gramáticas y la
+potencia de los algoritmos necesarios para reconocerlas.</li>
+
+<li>La jerarquía se compone de cuatro niveles de gramáticas,
+denominadas tipo 0, tipo 1, tipo 2 y tipo 3, cada una de las
+cuales es una especialización de la anterior.
+
+<ul class="org-ul">
+<li>Tipo 0: Lenguajes sin restricciones</li>
+
+<li>Tipo 1: Lenguajes dependientes de Contexto</li>
+
+<li>Tipo 2: Lenguajes Libres de Contexto</li>
+
+<li>Tipo 3: Lenguajes Regulares</li>
+</ul></li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org8ca1bd0"></a>Gramáticas libres de contexto<br />
+<div class="outline-text-5" id="text-org8ca1bd0">
+<ul class="org-ul">
+<li>Las gramáticas de tipo 2, mejor conocidas como gramáticas
+libres de contexto, han demostrado ser las más útiles para
+especificar lenguajes de programación.</li>
+
+<li>El problema de análisis sintáctico consiste en encontrar
+algoritmos eficientes que reconozcan lenguajes libres de
+contexto.</li>
+
+<li>El estudio de este problema conduja al desarrollo de programas
+que automatizan solución mediante los llamados compiladores de
+compilador hoy llamados generadores de analizadores
+sintácticos.</li>
+
+<li>El más conocido de los programas es Yacc. Fue escrito por Steve
+Johnson en 1975 para el sistema Unix.</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orga0cf590" class="outline-4">
+<h4 id="orga0cf590">Autómatas finitos y expresiones regulares</h4>
+<div class="outline-text-4" id="text-orga0cf590">
+<ul class="org-ul">
+<li>Estas técnicas, corresponden a las gramáticas tipo 3 y se
+encuentran relacionadas con las gramáticas libres de contexto.</li>
+
+<li>Su estudio condujo a métodos simbólicos para expresar la
+estructura de las palabras o tokens de un lenguaje de
+programación.</li>
+
+<li>Esto llevó al desarrollo de otra herramienta denominada
+generador de analizadores léxicos, cuyo representante más
+conocido es Lex.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org98f1b9b" class="outline-4">
+<h4 id="org98f1b9b">Técnicas de optimización</h4>
+<div class="outline-text-4" id="text-org98f1b9b">
+<ul class="org-ul">
+<li>Otro aspecto destacable en el área ha sido el desarrollo de
+métodos para la generación de código objeto eficaz.</li>
+
+<li>Estas técnicas suelen denominarse incorrectamente técnicas de
+optimización, pero en realidad debería llamarse técnicas de
+mejoramiento de código, pues casi nunca producen un código
+objeto verdaderamente óptimo.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org12386a1" class="outline-4">
+<h4 id="org12386a1">Otros avances</h4>
+<div class="outline-text-4" id="text-org12386a1">
+<ul class="org-ul">
+<li>Algoritmos para inferir y / o simplificar la información
+contenida en un programa, por ejemplo el algoritmo de
+unificación de tipos de <i>Hindley-Milner</i>.</li>
+
+<li>Integración con los llamados entornos de desarrollo integrados.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd8e91dd" class="outline-4">
+<h4 id="orgd8e91dd">Intérpretes</h4>
+<div class="outline-text-4" id="text-orgd8e91dd">
+<ul class="org-ul">
+<li>A diferencia de un compilador, un intérprete ejecuta un programa
+fuente inmediatamente.</li>
+
+<li>Cualquier lenguaje de programación se puede interpretar o
+compilar, pero se puede preferir un intérprete a un compilador
+dependiendo del lenguaje y del contexto.</li>
+
+<li>Es un error hablar de un lenguaje compilado o lenguaje
+interpretado pues existes lenguajes que tienen ambos tipos de
+traductor.</li>
+
+<li>Los compiladores comparten muchas de sus operaciones con los
+intérpretes y existen incluso traductores híbridos.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga060c5d" class="outline-4">
+<h4 id="orga060c5d">Ensambladores</h4>
+<div class="outline-text-4" id="text-orga060c5d">
+<ul class="org-ul">
+<li>Un ensamblador es un traductor para el lenguaje ensamblador.</li>
+
+<li>Muchos compiladores generan lenguaje ensamblador como lenguaje
+objetivo y por lo tanto depende de un ensamblador para terminar
+la traducción a código objeto.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5c92ae2" class="outline-4">
+<h4 id="org5c92ae2">Enlazador</h4>
+<div class="outline-text-4" id="text-org5c92ae2">
+<ul class="org-ul">
+<li>Es un programa que combina los códigos objeto generados por el
+compilador o ensamblador así como otras piezas de código para
+generar un archivo ejecutable.</li>
+<li>En los códigos objeto, el enlazador busca y agrega todas las
+bibliotecas necesarias para la ejecución del archivo.</li>
+<li>Regulan el espacio de memoria que guardará el código de cada
+módulo.</li>
+<li>Fusiona dos o más programas de códigos separados y establece un
+vínculo entre ellos.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3525309" class="outline-4">
+<h4 id="org3525309">Preprocesadores</h4>
+<div class="outline-text-4" id="text-org3525309">
+<ul class="org-ul">
+<li>Son programas separados que son invocados por el compilador
+antes de que comience la traducción real.</li>
+<li>Eliminan los comentarios, incluyen otros archivos y ejecutan
+sustituciones de macros.</li>
+<li>Pueden ser requeridos por el lenguaje (como en C) o pueden ser
+agregados posteriormente para que proporcionen facilidades
+adicionales.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3a9ba08" class="outline-4">
+<h4 id="org3a9ba08">Editores</h4>
+<div class="outline-text-4" id="text-org3a9ba08">
+<ul class="org-ul">
+<li>Los compiladores aceptan programas fuente escritos usando
+cualquier editor.</li>
+
+<li>Recientemente los compiladores han sido integrados junto a
+editores y otros programas en los IDEs de forma que puedan ser
+orientados hacia el formato o estructura del lenguaje de
+programación.</li>
+
+<li>Se denominan basados en la estructura e icluyen alguna
+operaciones de un compilador, de manera que, por eemplo, pueda
+informarse a los programadores sobre los errores a medida que el
+programa se vaya escribiendo.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgdee3a09" class="outline-4">
+<h4 id="orgdee3a09">Depuradores</h4>
+<div class="outline-text-4" id="text-orgdee3a09">
+<ul class="org-ul">
+<li>Son programas que se usan para determinar los errores de
+ejecución en un programa.</li>
+
+<li>La ejecución de un programa con un depurador se diferencia de la
+ejeción directa en que el depurador mantiene al tanto de la
+mayoría o la totalidad de la información sobre el código fuente,
+tal como los números de línea y los nombres de variables y
+funciones.</li>
+
+<li>También puede determinar la ejecución en puntos previamente
+especificados.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org54d2f4b" class="outline-4">
+<h4 id="org54d2f4b">Perfiladores</h4>
+<div class="outline-text-4" id="text-org54d2f4b">
+<ul class="org-ul">
+<li>Un perfilador es un programa que recolecta estadísticas sobre el
+comportamienbto de un programa objeto durante la ejecución.</li>
+
+<li>Las estadísticas típicas que pueden ser de interés para los
+programadores son el número de veces que se llama cada función y
+el porcentaje de tiempo de ejecución que se ocupa en cada uno de
+ellos.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7f6c00d" class="outline-4">
+<h4 id="org7f6c00d">Administradores de proyecto</h4>
+<div class="outline-text-4" id="text-org7f6c00d">
+<ul class="org-ul">
+<li>Los proyecto de software por lo general son tan grandes que
+tienen que ser realizados por grupos de programadores en lugar
+de por una sola persona.</li>
+
+<li>En tales casos es importante que los archivos y éste es el
+trabajo de un programa de administración de proyecto.</li>
+
+<li>Por ejemplo, un administrador de proyecto debería coordinar la
+combinación de diferentes versiones del mismo archivo producido
+por programadores diferentes.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfb3972d" class="outline-2">
+<h2 id="orgfb3972d">Bibliografía</h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Erik Rangel Limón</p>
+<p class="date">Created: 2023-08-17 Thu 15:56</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1 (<a href="https://orgmode.org">Org</a> mode 9.6.6)</p>
+</div>
+</body>
+</html>

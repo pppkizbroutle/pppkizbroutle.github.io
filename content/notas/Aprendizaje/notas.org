@@ -1,0 +1,96 @@
+#+title: Reconocimiento de Patrones y Aprendizaje Automatizado
+#+author: Erik Rangel Limón
+
+* Rubros
+
+  - Proyecto final 40%
+  - Tareas y laboratorio 60%
+
+* Notas
+
+** 14 / 08 / 23
+
+*** Temario
+
+    1. Introducción y bases matemáticas ¿Qué es el reconocimiento de
+       patrones? Paradigma probabilístico
+
+    2. Paradigma y práctica común del aprendizaje
+       automatizado. Regresiones lineal y estadística. Métricas de
+       evaluación. kNN. Paradigma bayesiano.
+
+    3. Algoritmos no supervisados y agrupamientos
+       k-Means. EM. Hierarchical. Métricas de pureza de
+       grupos. Reducción de dimensión: PCA / SVD. ICA.
+
+    4. Boosting, algoritmos de ensamble y árboles de decisión
+       (tentativo).
+
+    5. Paradigma neuronal: Funciones de
+       activación. Retropropagación. MLP y RBN. ConvNets.
+
+** 16 / 08 / 23
+
+*** Breve historia de la Inteligencia Artificial
+
+    - 1931 - Gödel: Decidibilidad de las matemáticas
+
+    - 1936 - Alan Turing: /Universal Turin Machine/
+
+    - 1943 - McCullog & Pitts: "/A logical Calculus of the Ideas
+      Immanent in Nervous Activity/"
+
+    - 1943 - Rosenblueth, Wiener & Rigelow: acuñan el término de
+      cibernética
+
+    - 1943 - Post: Reglas de producción como sistema computacional
+
+    - 1945 - Polya: Acuña el término "/heurística/"
+
+    - 1950 - Turing: "/Computing Machinery and Intelligence/"
+
+    - 1950 - Claude Shannon: "/Programming a computer to play chess/"
+
+    - 1950 - McCarthy propone el témrino "inteligencia artificial"
+
+    - 1957 - Newell, Shaw & Simon: The Geeral Problem Solver.
+
+    - 1958 - McCarthy: propone usar el cálculo de predicados como
+      lenguaje para representar y usal el conocimiento: LISP.
+
+    - 1950 - Slagle: Programa para damas chinas.
+
+    - 1961 - Unimation: Primer empresa que fabrica un robot en el
+      munod (Unimate)
+
+    - 1961 / 1964 - Slagle: Integración simbólica (Lisp), Evans:
+      ANALOGY
+
+    - 1963 - Lorenz: /Deterministic Non periodic flow/
+
+    - 1965 - Chomsky: Lingüística, Weizenbaum: ELIZA.
+
+    - 1968 - Minsky & Papert: Limtaciones del perceptrón.
+
+    - (Invierno neuronal)
+
+    - 2021 - Desarrolo de aprendizaje estadístico, matemáticas y redes
+      neuronales para procesamiento de imágenes y procesamiento del
+      lenguaje natural.
+
+*** NLP
+
+    Completar un crucigrama de 2 x 2, de forma correcta puede
+    significar encontrar la combinación correcta que puede tener.
+
+    $27^4$ operaciones
+
+    De las cuales no todas serán posibles. Pero todo el punto es
+    satisface mediante una búsqueda la combincaión correcta. 
+
+*** ¿Por qué es importante?
+
+    Nuestro problema se transformó en la necesidad de construir un
+    algoritmo que reconozca patrones.
+
+* Bibliografía
