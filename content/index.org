@@ -30,7 +30,7 @@
   - [[./notas/IA/Notas.org][Inteligencia Artificial]]
   - [[./notas/SO/Notas.org][Sistemas Operativos]]
   - [[./notas/Declarativa/Notas.org][Programación Declarativa]]
-  - [[./notas/IS/notas.org][Ingeniería de Software]]
+  - [[./notas/IS/Notas.org][Ingeniería de Software]]
   - [[./notas/Aprendizaje/notas.org][Reconocimiento de Patrones y Aprendizaje Automatizado]]
   - [[./notas/MFormales/notas.org][Métodos Formales]]
   - [[./notas/Compiladores/notas.org][Compiladores]]

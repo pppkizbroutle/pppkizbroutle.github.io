@@ -1,5 +1,6 @@
 #+title: Complejidad Computacional
 #+author: Erik Rangel Limón
+#+startup: latexpreview
 
 * Rubros
 
@@ -90,5 +91,12 @@
     $C=\lim_{n\to\infty}\frac{f(n)}{g(n)}$
 
     $C<\infty$ -> $f(n)=O(g(n))$
+
+** 17 / 08 / 23
+
+*** Problemas, algoritmos y soluciones
+
+    
+   
 
 * Bibliografia
