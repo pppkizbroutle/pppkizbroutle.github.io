@@ -1,0 +1,1052 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-02-01 Thu 10:53 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Laboratorio</title>
+<meta name="author" content="Erik Rangel Limón" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">/* Base */html,body {    background-color: #222;    min-height: 100%;    line-height: 1.5;}body {    color: #fafafa;    font-family: "Courier New";}::selection {    background-color:  #2ecc40;    color: white;}/* Responsive content positioning */@media only screen and (min-width: 1020px) /* Large screens */{    body{        padding: 10vh 25vw;    }}@media only screen and (max-width: 1020px) and (min-width: 750px) /* Small screens */{    body{        padding: 5vh 10vw;    }}@media only screen and (max-width: 750px) /* Small screens */{    body{        padding: 2vh 5vw;    }}/* Headers */h1{font-size: 2.5rem;}h2{font-size: 1.7rem;}h1 > .subtitle, h3, h4, h5, h6{font-size: 1.3rem;}.title{    margin-bottom: 2.5rem;}/* Padding & Margin */* {margin: 0; padding: 0;}pre, blockquote, ul, ol, p, table{    margin: 1rem 0;}h1, h2{margin-top: 2rem; line-height: 2rem;}h3, h4, h5, h6{margin-top: 1rem;}/* Links  */a, a:visited {    color: #01ff70;    text-decoration: underline;}a:hover, a:focus, a:active {    color: #2ecc40;}/* Code */pre {    font-family: "Courier New";    padding: .5rem;    background-color: #333;    padding: 0.5rem;    border-radius: 0.2rem;    font-size: 0.9rem;    color: #EEE;    overflow-x: auto;}.org-keyword{    color: #01ff70;}.org-rainbow-delimiters-depth-1{    color: #2ecc40;}.org-rainbow-delimiters-depth-2{    color: #01ff70;}/* Blockquotes */blockquote {    border-left: 3px solid #01ff70;    padding-left: 1rem;}li{    list-style-position: inside;}/* Tags */.tag{    margin-top: 0.5rem;    display: block;    color: white;    font-size: var(--font-size-xsmall);}.tag > span{		font-weight: 400;    font-size: 0.8rem;    background-color: #444;    text-transform: uppercase;    border-radius: 2px;    width: fit-content;    height: auto;    padding: 1px 5px;}/* Keywords */.todo{    color: #2ecc40;}.done{    color: #444;}/* Overflows */.outline-text-2, .outline-text-3, .outline-text-4{	  max-width: 100%;	  overflow-x: auto;}/* Table */tr:nth-child(even) {    background-color: #333;}th, td{    padding: 0.5rem;    text-align: center;}.underline{    text-decoration: underline;}img{    max-width: 100%;    height: auto;}</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Laboratorio</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org58b6e5f">Dinámica en el laboratorio</a></li>
+<li><a href="#org645ad0b">Avisos</a></li>
+<li><a href="#orgf70e724">Haskell</a>
+<ul>
+<li><a href="#org1844161">Instalación</a>
+<ul>
+<li><a href="#orgbeb6066">Requerimientos</a></li>
+<li><a href="#orgf4703c3">GHCup</a></li>
+<li><a href="#org3164dc7">Administrador de paquetes</a></li>
+</ul>
+</li>
+<li><a href="#org540d722">Introducción</a>
+<ul>
+<li><a href="#org5dd23f5">Variables y tipos primitivos</a></li>
+<li><a href="#org5674408">Funciones</a></li>
+<li><a href="#org37c503f">Operadores</a></li>
+<li><a href="#orgf53eb86">Precedencia</a></li>
+<li><a href="#org09eb237">Funciones anónimas</a></li>
+<li><a href="#org608db71">Listas y otras definiciones de tipos de dato</a></li>
+<li><a href="#org0fa8140">Coincidencia de patrones</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org58b6e5f" class="outline-2">
+<h2 id="org58b6e5f">Dinámica en el laboratorio</h2>
+<div class="outline-text-2" id="text-org58b6e5f">
+<p>
+En un princio, las prácticas se van a dejar los jueves con el
+objetivo de resolverse en una semana en equipos de dos o tres
+personas.
+</p>
+
+<p>
+Los primeros veinte minutos del laboratorio serán para resolver
+dudas de la práctica (u otras inquietudes que tengan).
+</p>
+
+<p>
+El resto de la clase será para resolver la práctica en equipos
+de 25.
+</p>
+
+<p>
+Yo diseñaré las prácticas entonces me pueden preguntar por los <i>hints</i>
+que quieran, pero ustedes deben llegar a la solución.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org645ad0b" class="outline-2">
+<h2 id="org645ad0b">Avisos</h2>
+<div class="outline-text-2" id="text-org645ad0b">
+<ul class="org-ul">
+<li><p>
+Grupo de telegram:
+</p>
+
+<p>
+Este es el link corregido
+</p>
+
+<p>
+<a href="https://t.me/+5Aj4ZeOmC2o2ZGQx">https://t.me/+5Aj4ZeOmC2o2ZGQx</a>
+</p></li>
+
+<li><p>
+Tarea 0:
+</p>
+
+<p>
+<a href="https://classroom.github.com/a/2DPFrzyI">https://classroom.github.com/a/2DPFrzyI</a>
+</p></li>
+
+<li><p>
+Práctica 0:
+</p>
+
+<p>
+<a href="https://classroom.github.com/a/_mSpGK0A">https://classroom.github.com/a/_mSpGK0A</a>
+</p></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf70e724" class="outline-2">
+<h2 id="orgf70e724">Haskell</h2>
+<div class="outline-text-2" id="text-orgf70e724">
+<p>
+Es el lenguaje de programación que utilizaremos para realizar
+la mayor parte de las prácticas de laboratorio.
+</p>
+
+<p>
+Se propone éste lenguaje pues cuenta con transparencia referencial,
+lo que garantiza que se pueda reemplazar una expresión con otra de
+igual valor sin cambiar el significado de éste. Como consecuencia,
+una función siempre producirá el mismo resultado para una entrada
+dada, por lo que es posible construir, razonar y manipular programas
+funcionales como si se tratasen de una expresión matemática.
+</p>
+</div>
+
+<div id="outline-container-org1844161" class="outline-3">
+<h3 id="org1844161">Instalación</h3>
+<div class="outline-text-3" id="text-org1844161">
+<p>
+<i>Haskell</i> es un lenguaje compilado, pero también puede comportarse
+como un programa interpretado. Ambas herramientas vienen al
+instalar <i>GHC</i> (<i>Glasgow Haskell Compiler</i>), el cuál es el compilador
+más usado hoy en día para <i>Haskell</i>.
+</p>
+
+<p>
+<i>Haskell</i> también cuenta con un administrador de paquetes <i>Cabal</i>,
+mediante el cual puedes instalar nuevas bibliotecas y programas. En
+particular la utilizaremos más adelante para instalar <i>QuickCheck</i>.
+</p>
+
+<p>
+Tanto <i>Haskell</i> y <i>Cabal</i> pueden ser instaladas con <code>ghcup</code>, que es un
+instalador para éstos y más programas en torno a <i>Haskell</i>, y para
+cualquier sistema basado en <i>Unix</i>, y los sistemas operativos <i>Windows</i>
+y <i>MacOS</i>.
+</p>
+
+<p>
+Las instrucciones específicas de cada sistema vienen en la
+siguiente página:
+</p>
+
+<p>
+<a href="https://www.haskell.org/ghcup/install/#installation">https://www.haskell.org/ghcup/install/#installation</a>
+</p>
+</div>
+
+
+<div id="outline-container-orgbeb6066" class="outline-4">
+<h4 id="orgbeb6066">Requerimientos</h4>
+<div class="outline-text-4" id="text-orgbeb6066">
+<ul class="org-ul">
+<li><p>
+Debian &gt;= 12:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">build-essential curl libffi-dev libffi8 libgmp-dev libgmp10 libncurses-dev libncurses5 libtinfo5
+</pre>
+</div></li>
+
+<li><p>
+Ubuntu &gt;= 23:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">build-essential curl libffi-dev libffi8ubuntu1 libgmp-dev libgmp10 libncurses-dev
+</pre>
+</div></li>
+
+<li><p>
+Fedora:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">gcc gcc-c++ gmp gmp-devel make ncurses ncurses-compat-libs xz perl
+</pre>
+</div></li>
+
+<li><p>
+Linux:
+</p>
+
+<p>
+Investiguen según su distribución cómo instalar los siguientes paquetes:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">curl g++ gcc gmp make ncurses realpath xz-utils
+</pre>
+</div></li>
+
+<li><p>
+Mac M1:
+</p>
+
+<p>
+En los sistemas operativos <i>OS X</i> los programas requeridos se
+configuran al instalar <code>ghcup</code>, posiblemente tengan que ejecutar
+el comando otra vez.
+</p>
+
+<p>
+En computadoras con <i>M1</i>, deben investiguen cómo instalar <code>llvm</code> con
+<code>hombrew</code> y cómo exponerlo en el <code>PATH</code>.
+</p></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf4703c3" class="outline-4">
+<h4 id="orgf4703c3">GHCup</h4>
+<div class="outline-text-4" id="text-orgf4703c3">
+<p>
+El comando que debe utilizarse para instalarlo en <i>Linux</i>, <i>macOS</i>,
+<i>FreeBSD</i> o <i>WSL2</i> es el siguiente:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">curl --proto <span style="font-style: italic;">'=https'</span> --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+</pre>
+</div>
+
+<p>
+(al 29 de enero de 2024, revisen la página si es que ésto cambia).
+</p>
+
+<p>
+Al terminar la instalación reinicien su <code>shell</code> y el comando <code>ghcup
+    tui</code> les abrirá una interfaz de terminal por la cual podrán navegar
+por las distintas versiones de <i>GHC</i> y <i>Cabal</i>, sólo asegúrense de
+usar las versiones de ambas herramientas respectivamente.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3164dc7" class="outline-4">
+<h4 id="org3164dc7">Administrador de paquetes</h4>
+<div class="outline-text-4" id="text-org3164dc7">
+<p>
+Además de instalar los requerimientos mencionados anteriormente,
+los programas que necesitan por lo general llevan los nombres de
+<code>ghc</code> y <code>cabal install</code>.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org540d722" class="outline-3">
+<h3 id="org540d722">Introducción</h3>
+<div class="outline-text-3" id="text-org540d722">
+<p>
+La extensión comúnmente usada para los archivos es <code>.hs</code>
+</p>
+</div>
+
+<div id="outline-container-org5dd23f5" class="outline-4">
+<h4 id="org5dd23f5">Variables y tipos primitivos</h4>
+<div class="outline-text-4" id="text-org5dd23f5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Tipo</th>
+<th scope="col" class="org-left">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Int</td>
+<td class="org-left">&#x2026;,-2,-1,0,1,2,&#x2026;</td>
+</tr>
+
+<tr>
+<td class="org-left">Float, Double</td>
+<td class="org-left">1.0,-1.25,2.5,&#x2026;</td>
+</tr>
+
+<tr>
+<td class="org-left">Bool</td>
+<td class="org-left">True, False</td>
+</tr>
+
+<tr>
+<td class="org-left">Char</td>
+<td class="org-left">'a','b','c','\n',&#x2026;</td>
+</tr>
+
+<tr>
+<td class="org-left">Integer</td>
+<td class="org-left">&#x2026;,-1,0,1,2,3,&#x2026;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+La creación de variables se puede hacer de la siguiente forma:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">x :: Int
+x = 5
+
+x' :: Float
+x' = 10.42
+
+y :: Double
+y = 10.4283762683
+
+z :: Bool
+z = False
+
+c :: Char
+c = 'a'
+</pre>
+</div>
+</div>
+
+
+<ul class="org-ul">
+<li><a id="orgefa29a5"></a>Inmutabilidad<br />
+<div class="outline-text-5" id="text-orgefa29a5">
+<p>
+En <i>Haskell</i> todas las variables son inmutables, es decir, una vez
+que se definen, ya no pueden cambiar su valor.
+</p>
+
+<p>
+Por ejemplo, el siguiente código nos arrojará un error:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">num :: Int
+num = 1
+
+num :: Int
+num = 2
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org5674408" class="outline-4">
+<h4 id="org5674408">Funciones</h4>
+<div class="outline-text-4" id="text-org5674408">
+<p>
+Las funciones en <i>Haskell</i> juegan un papel esencial (claro, por eso
+es un lenguaje de programación funcional).
+</p>
+
+<p>
+En matemáticas, una función es una relación de elementos de un
+conjunto \(A\) a elementos de un conjunto \(B\), donde un elemento de
+\(A\) se "mapea" con un único elemento del conjunto \(B\).
+</p>
+
+<p>
+Considera una función que eleva al cuadrado un número entero, su
+dominio y codominio se denotaría como sigue:
+</p>
+
+<p>
+\(f:\mathbb{Z}\to\mathbb{Z}\)
+</p>
+
+<p>
+Se define la función:
+</p>
+
+<p>
+\(f(x)=x^2\)
+</p>
+
+<p>
+Y para evaluar la función, sustituyes los parámetros de la función
+por un valor:
+</p>
+
+<p>
+\(f(2)=2^2=4\)
+</p>
+
+<p>
+\(f(3)=3^2=9\)
+</p>
+
+<p>
+Análogamente, el tipo de esta función se denotaría como:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">f :: Int -&gt; Int
+f x = x ^ 2
+</pre>
+</div>
+
+<p>
+Y para evaluar una función:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">resultado1 :: Int
+resultado1 = f 2
+
+resultado2 :: Int
+resultado2 = f 3
+</pre>
+</div>
+
+<p>
+Para abrir el intérprete de <i>Haskell</i>, lo puédes abrir con
+<code>ghci</code>. Para cargar un archivo dentro del intérprete, lo puedes
+hacer con el comando <code>:t ruta/del/archivo.hs</code>
+</p>
+
+<p>
+Y puedes evaluar las funciones o variables que definiste.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; f 12
+144
+ghci&gt; f 9
+81
+ghci&gt; resultado1
+4
+ghci&gt; resultado2
+9
+</pre>
+</div>
+
+<p>
+Sin embargo, cabe mencionar que la lógica para funciones
+multivariadas cambia, al menos con los tipos.
+</p>
+
+<p>
+Si ahora queremos hacer una función que recibe dos enteros y
+devuelve otro entero (la suma de ambos), lo haríamos de la
+siguiente forma:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">suma :: Int -&gt; Int -&gt; Int
+suma x y = x + y
+</pre>
+</div>
+
+<p>
+Y para una función de 3 parámetros:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">suma3 :: Int -&gt; Int -&gt; Int -&gt; Int
+suma3 x y z = x + y + z
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org37c503f" class="outline-4">
+<h4 id="org37c503f">Operadores</h4>
+<div class="outline-text-4" id="text-org37c503f">
+<p>
+Aritméticas:
+</p>
+
+<ul class="org-ul">
+<li>Suma: <code>+</code></li>
+<li>Resta: <code>-</code></li>
+<li>Multiplicación: <code>*</code></li>
+<li>División (Real): <code>/</code></li>
+<li>División (Entera): <code>div</code></li>
+<li>Potencia: <code>^</code></li>
+</ul>
+
+
+<p>
+Booleanas:
+</p>
+
+<ul class="org-ul">
+<li>Negación: <code>not</code></li>
+<li>Conjunción: <code>&amp;&amp;</code></li>
+<li>Disyunción: <code>||</code></li>
+</ul>
+
+
+<p>
+Comparación:
+</p>
+
+<ul class="org-ul">
+<li>Igualdad: <code>==</code></li>
+<li>Desigualdad: <code>/=</code></li>
+<li>Menor que: <code>&lt;</code></li>
+<li>Mayor que: <code>&gt;</code></li>
+<li>Menor igual: <code>&lt;=</code></li>
+<li>Mayor igual: <code>&gt;=</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf53eb86" class="outline-4">
+<h4 id="orgf53eb86">Precedencia</h4>
+<div class="outline-text-4" id="text-orgf53eb86">
+<p>
+Consideremos la función que dados dos números, suma los cuadrados
+de ambos
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">sumaCuadrados :: Int -&gt; Int -&gt; Int
+sumaCuadrados x y = x^2 + y^2
+</pre>
+</div>
+
+<p>
+esta es una definición de función, cabe recordar que los nombres
+de funciones y variables deben siempre iniciar con una letra
+minúscula seguido de una serie de caracteres alfanuméricos.
+</p>
+
+<p>
+Las funciones definidas de esta manera como ya vimos, las podemos
+utilizar de la siguiente forma:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; suma_cuadrados 2 3
+13
+</pre>
+</div>
+
+<p>
+Sin embargo, también es posible aplicar la función de manera
+infija, escribiendo el nombre de la función entre dos acentos
+graves <code>`</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; 2 `suma_cuadrados` 3
+13
+ghci&gt; 5 `div` 2
+2
+</pre>
+</div>
+
+<p>
+Pero haskell también nos deja crear nuestros propios operadores, y
+su nombre puede ser cualquier combinación de los siguientes
+símbolos:
+</p>
+
+<p>
+<code>! # $ * + . / &lt; = &gt; ? \ ^ | : - ~ %</code>
+</p>
+
+<p>
+Para denotar su tipo lo hacemos entre paréntesis:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">(&lt;+&lt;) :: Int -&gt; Int -&gt; Int
+x &lt;+&lt; y = x^2 + y^2
+</pre>
+</div>
+
+<p>
+También es válido dar la definición de manera prefija escribiendo
+el operador entre paréntesis.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">(&lt;+&lt;) :: Int -&gt; Int -&gt; Int
+(&lt;+&lt;) x y = x^2 + y^2
+</pre>
+</div>
+
+<p>
+Y ya lo podemos utilizar como cualquier otro operador
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; 2 &lt;+&lt; 3
+13
+</pre>
+</div>
+
+<p>
+De la misma manera es posible utilizar cualquier operador de
+manera prefija escribiendo el nombre del operador entre
+paréntesis:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; (&lt;+&lt;) 2 3
+13
+ghci&gt; (+) 2 3
+5
+ghci&gt; (-) 5 2
+3
+</pre>
+</div>
+
+<p>
+Al utilizar notación infija estamos eliminando el uso de
+paréntesis
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">(&lt;+&lt;) ((&lt;+&lt;) 2 3) 4
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-haskell">(2 &lt;+&lt; 3) &lt;+&lt; 4
+2 &lt;+&lt; 3 &lt;+&lt; 4 -- Por defecto los operadores asocian a la izquierda
+</pre>
+</div>
+
+<p>
+Sin embargo al combinarlo con otros operadores, posiblemente
+queramos que asocie de una forma distinta, y esto lo podemos hacer
+con las palabras reservadas <code>infixl</code> e <code>infixr</code>, por ejemplo, la
+asociatividas y precedencia de las operaciones aritméticas básicas
+se muestra como sigue:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">infixl 6 +, -
+infixl 7 *, /
+</pre>
+</div>
+
+<p>
+Y si quisiéramos que el operador <code>&lt;+&lt;</code> tuviera la misma precedencia
+que la multiplicación y la división, lo tendríamos que definir
+como sigue:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">infixl 7 &lt;+&lt;
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; 5 * 2 &lt;+&lt; 3 - 1
+108
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org09eb237" class="outline-4">
+<h4 id="org09eb237">Funciones anónimas</h4>
+<div class="outline-text-4" id="text-org09eb237">
+<p>
+¿Y si necesitamos hacer una función auxiliar que nada más usaré
+una vez, vale la pena definirla si quiera?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; (\x -&gt; x + 1) 4
+5
+ghci&gt; (\x y -&gt; x + y) 5 4
+9
+ghci&gt; (\x y z -&gt; x * y - z) 5 4 3
+17
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org608db71" class="outline-4">
+<h4 id="org608db71">Listas y otras definiciones de tipos de dato</h4>
+<div class="outline-text-4" id="text-org608db71">
+<p>
+¿Recuerdan la definición inductiva de listas?
+</p>
+
+<p>
+Listas con elementos de un tipo \(A\):
+</p>
+
+<ul class="org-ul">
+<li>La lista vacía \([]\), es una lista con elementos de tipo \(A\).</li>
+
+<li>Si \(x\) (cabeza) es un elemento de tipo \(A\) y \(xs\) una lista con
+elementos de tipo \(A\), entonces \(x:xs\) es una lista de elementos
+de tipo \(A\).</li>
+
+<li>Son todas.</li>
+</ul>
+
+
+<p>
+En <i>Haskell</i> también existen las listas bajo la misma semántica de
+la definición inductiva.
+</p>
+
+<p>
+Primero, podemos definir nuestros propios tipos de dato:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Color = Rojo | Verde | Azul
+</pre>
+</div>
+
+<p>
+<code>Rojo</code>, <code>Verde</code> y <code>Azul</code> son constructores
+</p>
+
+<p>
+Funcionan similar a una enumeración en java.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">favorito :: Color
+favorito = Verde
+</pre>
+</div>
+
+<p>
+Estas definiciones de tipos de dato pueden contener otros tipos,
+por ejemplo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Figura = Cuadrado Double
+            | Rectangulo Double Double
+            | Circulo Double
+</pre>
+</div>
+
+<p>
+<code>Cuadrado</code>, <code>Rectangulo</code> y <code>Circulo</code> son los constructores
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">cuadrado :: Figura
+cuadrado = Cuadrado 4.2
+
+rectangulo :: Figura
+rectangulo = Rectangulo 1.2 5.5
+
+circulo :: Figura
+circulo = Circulo 2.3
+</pre>
+</div>
+
+<p>
+¿Que pasa si un constructor tiene muchos tipos?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Alumno = Alumno String String Double Int
+</pre>
+</div>
+
+<p>
+Podemos usar la sintaxis <i>record</i>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Alumno = Alumno { nombre :: String
+                     , noCuenta :: String
+                     , calif :: Double
+                     , asistencias :: Int}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-haskell">limon :: Alumno
+limon = Alumno { noCuenta = "123456789"
+              , calif = 4.8
+              , nombre = "Erik Rangel Limón"
+              , asistencias = 2 }
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; noCuenta erik
+"123456789"
+</pre>
+</div>
+
+<p>
+Las definiciones de tipos de dato también pueden utilizar
+variables de tipo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Talvez a = Nada | Solo a
+</pre>
+</div>
+
+<p>
+Los tipos de dato también pueden ser definiciones inductivas; por
+ejemplo, los números naturales
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Nat = Zero
+         | Suc Nat
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-haskell">cero :: Nat
+cero = Zero
+
+tres :: Nat
+tres = Suc (Suc (Suc Zero))
+
+cuatro :: Nat
+cuatro = Suc tres
+</pre>
+</div>
+
+<p>
+Ahora, por fin, con las listas, ¿cómo seguimos con la definición?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Lista a = Vacia -- La lista vacia es una lista de elementos de
+                     -- tipo a
+             | Cons a (Lista a) -- Un elemento concatenado con otra
+                                -- lista de elementos de tipo a es
+                                -- una lista con elementos de tipo a
+</pre>
+</div>
+
+<p>
+Afortunadamente <i>haskell</i> ya define este tipo de listas.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data [] a = [] | a : ([] a)
+</pre>
+</div>
+
+<p>
+Por ejemplo, una lista con número enteros
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">enteros :: [] Int
+enteros = 1 : 2 : 3 : 4 : 5 : []
+</pre>
+</div>
+
+<p>
+Pero <i>haskell</i> ofrece una sintaxis más corta para representar listas
+(y el tipo de una lista):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">enteros2 :: [Double]
+enteros2 = [1.24,5.2,7.5,9.3]
+</pre>
+</div>
+</div>
+
+<ul class="org-ul">
+<li><a id="org672991e"></a>Tipos sinónimo<br />
+<div class="outline-text-5" id="text-org672991e">
+<p>
+Nosotros podemos hacer sinónimos de tipos de dato:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">type Calificacion = Double
+type Clase = [Alumnos]
+type Paleta = [Color]
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org960ecb4"></a>Strings<br />
+<div class="outline-text-5" id="text-org960ecb4">
+<p>
+Sí, sí existen cadenas en haskell, pero éstas se definen como un
+sinónimo de tipo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">type String = [Char]
+</pre>
+</div>
+
+<p>
+Y para escribir cadenas de texto, haskell nos da la posibilidad
+de usar <code>""</code> para representarlas.
+</p>
+
+<p>
+<b>No olviden que las comillas simples <code>''</code> denotan caracteres</b>
+</p>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org0fa8140" class="outline-4">
+<h4 id="org0fa8140">Coincidencia de patrones</h4>
+<div class="outline-text-4" id="text-org0fa8140">
+<p>
+Éste se le conoce en inglés como <i>pattern matching</i> y en español
+muchas veces lo encontrarán como <i>caza de patrones</i>.
+</p>
+
+<p>
+¿Cómo podemos utilizar funciones con éstos tipos de dato?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">describe :: Color -&gt; String
+describe color = case color of
+                   Rojo -&gt; "El color es rojo"
+                   Verde -&gt; "El color es verde"
+                   Azul -&gt; "El color es azul"
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-haskell">describe2 :: Color -&gt; String
+describe2 Rojo = "El color es rojo"
+describe2 Verde = "El color es verde"
+describe2 Azul = "El color es azul"
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-haskell">predecesor :: Nat -&gt; Nat
+predecesor Zero = Zero
+predecesor (Suc n) = n
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ceroUno :: Nat -&gt; Nat
+ceroUno Zero = Suc Zero
+ceroUno n = n
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-haskell">esZero :: Nat -&gt; Bool
+esZero Zero = True
+esZero _ = False
+</pre>
+</div>
+
+<p>
+¿Ahora, cómo hacemos coincidencia de patrones con listas?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">alMenosUno :: [a] -&gt; Bool
+alMenosUno [] = False
+alMenosUno _ = True
+</pre>
+</div>
+
+<p>
+Si queremos obtener la cabeza de una lista:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">cabeza :: [a] -&gt; a
+cabeza (x:xs) = x
+</pre>
+</div>
+
+<p>
+Si queremos obtener la cola de una lista:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">cola :: [a] -&gt; [a]
+cola (x:xs) = xs
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Erik Rangel Limón</p>
+<p class="date">Created: 2024-02-01 Thu 10:53</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.2 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
+</div>
+</body>
+</html>

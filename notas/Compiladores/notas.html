@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-08-17 Thu 16:43 -->
+<!-- 2024-02-01 Thu 10:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Compiladores</title>
@@ -50,44 +50,70 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf763001">Rubros</a></li>
-<li><a href="#org44ac9b7">Notas</a>
+<li><a href="#org5781f93">Rubros</a></li>
+<li><a href="#orgec81bba">Notas</a>
 <ul>
-<li><a href="#org4a4ea03">Temario ( 15 / 08 / 23 )</a></li>
-<li><a href="#org6029f38">Autómatas (repaso)</a></li>
-<li><a href="#orgd2cea2e">16 / 08 / 23</a>
+<li><a href="#org9b3cc58">Temario ( 15 / 08 / 23 )</a></li>
+<li><a href="#org78ff8f9">Autómatas (repaso)</a></li>
+<li><a href="#org94bdec3">16 / 08 / 23</a>
 <ul>
-<li><a href="#org9b0185f">Compilador</a></li>
-<li><a href="#org0020c94">Jerarquía de Chomsky</a></li>
-<li><a href="#orgf6ae622">Autómatas finitos y expresiones regulares</a></li>
-<li><a href="#org9bee425">Técnicas de optimización</a></li>
-<li><a href="#org6b13db2">Otros avances</a></li>
-<li><a href="#orge051b6f">Intérpretes</a></li>
-<li><a href="#org55d7a67">Ensambladores</a></li>
-<li><a href="#orgeab065b">Enlazador</a></li>
-<li><a href="#orgaaede6b">Preprocesadores</a></li>
-<li><a href="#org55dba49">Editores</a></li>
-<li><a href="#org4d9d2a9">Depuradores</a></li>
-<li><a href="#org7011e81">Perfiladores</a></li>
-<li><a href="#orgb079090">Administradores de proyecto</a></li>
+<li><a href="#orgd3fc982">Compilador</a></li>
+<li><a href="#orgfee16b9">Jerarquía de Chomsky</a></li>
+<li><a href="#org44bc4ab">Autómatas finitos y expresiones regulares</a></li>
+<li><a href="#orgc47e24d">Técnicas de optimización</a></li>
+<li><a href="#orgcc683b2">Otros avances</a></li>
+<li><a href="#org1dbaa49">Intérpretes</a></li>
+<li><a href="#orgdc46666">Ensambladores</a></li>
+<li><a href="#org8fc172a">Enlazador</a></li>
+<li><a href="#org5d38f9a">Preprocesadores</a></li>
+<li><a href="#orgf7e43d6">Editores</a></li>
+<li><a href="#org229302a">Depuradores</a></li>
+<li><a href="#orgbe16b56">Perfiladores</a></li>
+<li><a href="#orgd7a7ba0">Administradores de proyecto</a></li>
 </ul>
 </li>
-<li><a href="#org11858bb">17 / 08 / 23</a>
+<li><a href="#orga1065f3">17 / 08 / 23</a>
 <ul>
-<li><a href="#org67b88dd">Lenguajes Regulares</a></li>
-<li><a href="#org496b1b4">Regex</a></li>
+<li><a href="#org19a33fd">Lenguajes Regulares</a></li>
+<li><a href="#org8589f06">Regex</a></li>
+</ul>
+</li>
+<li><a href="#org8ceab39">21 / 08 / 23</a>
+<ul>
+<li><a href="#org9307f70">Introducción</a></li>
+</ul>
+</li>
+<li><a href="#org76e6e68">23 / 08 / 23</a>
+<ul>
+<li><a href="#org10ba803">Estructuras de datos principales en un compilador</a></li>
+</ul>
+</li>
+<li><a href="#orgaf00ea7">28 / 08 / 23</a>
+<ul>
+<li><a href="#orgeb11294">Compiladores</a></li>
+</ul>
+</li>
+<li><a href="#org74cab34">29 / 08 / 23</a>
+<ul>
+<li><a href="#org88aac37">Gramáticas (libres del contexto)</a></li>
+</ul>
+</li>
+<li><a href="#orgc6a88d4">30 / 08 / 23</a>
+<ul>
+<li><a href="#org0e0f4b8">Teoría de Lenguajes de Programación y Teoría de Compiladores</a></li>
+<li><a href="#org6c3b91a">Manejo de errores</a></li>
+<li><a href="#orgd8966b5">Autohosting y bootstraping</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org5398c10">Bibliografía</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf763001" class="outline-2">
-<h2 id="orgf763001">Rubros</h2>
-<div class="outline-text-2" id="text-orgf763001">
+<div id="outline-container-org5781f93" class="outline-2">
+<h2 id="org5781f93">Rubros</h2>
+<div class="outline-text-2" id="text-org5781f93">
 <ul class="org-ul">
 <li>Prácticas 20%</li>
 <li>Proyecto final 30%</li>
@@ -97,13 +123,13 @@
 </div>
 </div>
 
-<div id="outline-container-org44ac9b7" class="outline-2">
-<h2 id="org44ac9b7">Notas</h2>
-<div class="outline-text-2" id="text-org44ac9b7">
+<div id="outline-container-orgec81bba" class="outline-2">
+<h2 id="orgec81bba">Notas</h2>
+<div class="outline-text-2" id="text-orgec81bba">
 </div>
-<div id="outline-container-org4a4ea03" class="outline-3">
-<h3 id="org4a4ea03">Temario ( 15 / 08 / 23 )</h3>
-<div class="outline-text-3" id="text-org4a4ea03">
+<div id="outline-container-org9b3cc58" class="outline-3">
+<h3 id="org9b3cc58">Temario ( 15 / 08 / 23 )</h3>
+<div class="outline-text-3" id="text-org9b3cc58">
 <ol class="org-ol">
 <li>Introducción</li>
 
@@ -122,9 +148,9 @@
 </div>
 </div>
 
-<div id="outline-container-org6029f38" class="outline-3">
-<h3 id="org6029f38">Autómatas (repaso)</h3>
-<div class="outline-text-3" id="text-org6029f38">
+<div id="outline-container-org78ff8f9" class="outline-3">
+<h3 id="org78ff8f9">Autómatas (repaso)</h3>
+<div class="outline-text-3" id="text-org78ff8f9">
 <ul class="org-ul">
 <li>Lenguaje: Es un conjunto de cadenas sobre un alfabeto \(\Sigma\).
 
@@ -185,13 +211,13 @@ concatenaciones de palabras de \(\mathcal{L}\) con \(\mathcal{M}\)</li>
 </div>
 </div>
 
-<div id="outline-container-orgd2cea2e" class="outline-3">
-<h3 id="orgd2cea2e">16 / 08 / 23</h3>
-<div class="outline-text-3" id="text-orgd2cea2e">
+<div id="outline-container-org94bdec3" class="outline-3">
+<h3 id="org94bdec3">16 / 08 / 23</h3>
+<div class="outline-text-3" id="text-org94bdec3">
 </div>
-<div id="outline-container-org9b0185f" class="outline-4">
-<h4 id="org9b0185f">Compilador</h4>
-<div class="outline-text-4" id="text-org9b0185f">
+<div id="outline-container-orgd3fc982" class="outline-4">
+<h4 id="orgd3fc982">Compilador</h4>
+<div class="outline-text-4" id="text-orgd3fc982">
 <p>
 Un compilador es un programa que traduce de un lenguaje a
 otro. Toma como entrada un programa escrito en un lenguaje fuente
@@ -214,9 +240,9 @@ lenguaje objetivo (.class, .out, .exe).
 </div>
 </div>
 
-<div id="outline-container-org0020c94" class="outline-4">
-<h4 id="org0020c94">Jerarquía de Chomsky</h4>
-<div class="outline-text-4" id="text-org0020c94">
+<div id="outline-container-orgfee16b9" class="outline-4">
+<h4 id="orgfee16b9">Jerarquía de Chomsky</h4>
+<div class="outline-text-4" id="text-orgfee16b9">
 <ul class="org-ul">
 <li>Los estudios de <i>Noam Chomsky</i> condujeron a la clasificación de
 los lenguajes de acuerdo a la complejidad de sus gramáticas y la
@@ -239,8 +265,8 @@ cuales es una especialización de la anterior.
 </div>
 
 <ul class="org-ul">
-<li><a id="orged68a47"></a>Gramáticas libres de contexto<br />
-<div class="outline-text-5" id="text-orged68a47">
+<li><a id="org2be4ea9"></a>Gramáticas libres de contexto<br />
+<div class="outline-text-5" id="text-org2be4ea9">
 <ul class="org-ul">
 <li>Las gramáticas de tipo 2, mejor conocidas como gramáticas
 libres de contexto, han demostrado ser las más útiles para
@@ -263,9 +289,9 @@ Johnson en 1975 para el sistema Unix.</li>
 </ul>
 </div>
 
-<div id="outline-container-orgf6ae622" class="outline-4">
-<h4 id="orgf6ae622">Autómatas finitos y expresiones regulares</h4>
-<div class="outline-text-4" id="text-orgf6ae622">
+<div id="outline-container-org44bc4ab" class="outline-4">
+<h4 id="org44bc4ab">Autómatas finitos y expresiones regulares</h4>
+<div class="outline-text-4" id="text-org44bc4ab">
 <ul class="org-ul">
 <li>Estas técnicas, corresponden a las gramáticas tipo 3 y se
 encuentran relacionadas con las gramáticas libres de contexto.</li>
@@ -281,9 +307,9 @@ conocido es Lex.</li>
 </div>
 </div>
 
-<div id="outline-container-org9bee425" class="outline-4">
-<h4 id="org9bee425">Técnicas de optimización</h4>
-<div class="outline-text-4" id="text-org9bee425">
+<div id="outline-container-orgc47e24d" class="outline-4">
+<h4 id="orgc47e24d">Técnicas de optimización</h4>
+<div class="outline-text-4" id="text-orgc47e24d">
 <ul class="org-ul">
 <li>Otro aspecto destacable en el área ha sido el desarrollo de
 métodos para la generación de código objeto eficaz.</li>
@@ -296,9 +322,9 @@ objeto verdaderamente óptimo.</li>
 </div>
 </div>
 
-<div id="outline-container-org6b13db2" class="outline-4">
-<h4 id="org6b13db2">Otros avances</h4>
-<div class="outline-text-4" id="text-org6b13db2">
+<div id="outline-container-orgcc683b2" class="outline-4">
+<h4 id="orgcc683b2">Otros avances</h4>
+<div class="outline-text-4" id="text-orgcc683b2">
 <ul class="org-ul">
 <li>Algoritmos para inferir y / o simplificar la información
 contenida en un programa, por ejemplo el algoritmo de
@@ -309,9 +335,9 @@ unificación de tipos de <i>Hindley-Milner</i>.</li>
 </div>
 </div>
 
-<div id="outline-container-orge051b6f" class="outline-4">
-<h4 id="orge051b6f">Intérpretes</h4>
-<div class="outline-text-4" id="text-orge051b6f">
+<div id="outline-container-org1dbaa49" class="outline-4">
+<h4 id="org1dbaa49">Intérpretes</h4>
+<div class="outline-text-4" id="text-org1dbaa49">
 <ul class="org-ul">
 <li>A diferencia de un compilador, un intérprete ejecuta un programa
 fuente inmediatamente.</li>
@@ -330,9 +356,9 @@ intérpretes y existen incluso traductores híbridos.</li>
 </div>
 </div>
 
-<div id="outline-container-org55d7a67" class="outline-4">
-<h4 id="org55d7a67">Ensambladores</h4>
-<div class="outline-text-4" id="text-org55d7a67">
+<div id="outline-container-orgdc46666" class="outline-4">
+<h4 id="orgdc46666">Ensambladores</h4>
+<div class="outline-text-4" id="text-orgdc46666">
 <ul class="org-ul">
 <li>Un ensamblador es un traductor para el lenguaje ensamblador.</li>
 
@@ -343,9 +369,9 @@ la traducción a código objeto.</li>
 </div>
 </div>
 
-<div id="outline-container-orgeab065b" class="outline-4">
-<h4 id="orgeab065b">Enlazador</h4>
-<div class="outline-text-4" id="text-orgeab065b">
+<div id="outline-container-org8fc172a" class="outline-4">
+<h4 id="org8fc172a">Enlazador</h4>
+<div class="outline-text-4" id="text-org8fc172a">
 <ul class="org-ul">
 <li>Es un programa que combina los códigos objeto generados por el
 compilador o ensamblador así como otras piezas de código para
@@ -360,9 +386,9 @@ vínculo entre ellos.</li>
 </div>
 </div>
 
-<div id="outline-container-orgaaede6b" class="outline-4">
-<h4 id="orgaaede6b">Preprocesadores</h4>
-<div class="outline-text-4" id="text-orgaaede6b">
+<div id="outline-container-org5d38f9a" class="outline-4">
+<h4 id="org5d38f9a">Preprocesadores</h4>
+<div class="outline-text-4" id="text-org5d38f9a">
 <ul class="org-ul">
 <li>Son programas separados que son invocados por el compilador
 antes de que comience la traducción real.</li>
@@ -375,9 +401,9 @@ adicionales.</li>
 </div>
 </div>
 
-<div id="outline-container-org55dba49" class="outline-4">
-<h4 id="org55dba49">Editores</h4>
-<div class="outline-text-4" id="text-org55dba49">
+<div id="outline-container-orgf7e43d6" class="outline-4">
+<h4 id="orgf7e43d6">Editores</h4>
+<div class="outline-text-4" id="text-orgf7e43d6">
 <ul class="org-ul">
 <li>Los compiladores aceptan programas fuente escritos usando
 cualquier editor.</li>
@@ -395,9 +421,9 @@ programa se vaya escribiendo.</li>
 </div>
 </div>
 
-<div id="outline-container-org4d9d2a9" class="outline-4">
-<h4 id="org4d9d2a9">Depuradores</h4>
-<div class="outline-text-4" id="text-org4d9d2a9">
+<div id="outline-container-org229302a" class="outline-4">
+<h4 id="org229302a">Depuradores</h4>
+<div class="outline-text-4" id="text-org229302a">
 <ul class="org-ul">
 <li>Son programas que se usan para determinar los errores de
 ejecución en un programa.</li>
@@ -414,9 +440,9 @@ especificados.</li>
 </div>
 </div>
 
-<div id="outline-container-org7011e81" class="outline-4">
-<h4 id="org7011e81">Perfiladores</h4>
-<div class="outline-text-4" id="text-org7011e81">
+<div id="outline-container-orgbe16b56" class="outline-4">
+<h4 id="orgbe16b56">Perfiladores</h4>
+<div class="outline-text-4" id="text-orgbe16b56">
 <ul class="org-ul">
 <li>Un perfilador es un programa que recolecta estadísticas sobre el
 comportamienbto de un programa objeto durante la ejecución.</li>
@@ -429,9 +455,9 @@ ellos.</li>
 </div>
 </div>
 
-<div id="outline-container-orgb079090" class="outline-4">
-<h4 id="orgb079090">Administradores de proyecto</h4>
-<div class="outline-text-4" id="text-orgb079090">
+<div id="outline-container-orgd7a7ba0" class="outline-4">
+<h4 id="orgd7a7ba0">Administradores de proyecto</h4>
+<div class="outline-text-4" id="text-orgd7a7ba0">
 <ul class="org-ul">
 <li>Los proyecto de software por lo general son tan grandes que
 tienen que ser realizados por grupos de programadores en lugar
@@ -448,13 +474,13 @@ por programadores diferentes.</li>
 </div>
 </div>
 
-<div id="outline-container-org11858bb" class="outline-3">
-<h3 id="org11858bb">17 / 08 / 23</h3>
-<div class="outline-text-3" id="text-org11858bb">
+<div id="outline-container-orga1065f3" class="outline-3">
+<h3 id="orga1065f3">17 / 08 / 23</h3>
+<div class="outline-text-3" id="text-orga1065f3">
 </div>
-<div id="outline-container-org67b88dd" class="outline-4">
-<h4 id="org67b88dd">Lenguajes Regulares</h4>
-<div class="outline-text-4" id="text-org67b88dd">
+<div id="outline-container-org19a33fd" class="outline-4">
+<h4 id="org19a33fd">Lenguajes Regulares</h4>
+<div class="outline-text-4" id="text-org19a33fd">
 <p>
 Un lenguaje \(\mathcal{L}\) bajo un alfabeto \(\Sigma\) es regular si
 se puede generar a partir de lenguajes básicos (\(\{\varepsilon\}\),
@@ -480,9 +506,9 @@ regulares.</li>
 </div>
 </div>
 
-<div id="outline-container-org496b1b4" class="outline-4">
-<h4 id="org496b1b4">Regex</h4>
-<div class="outline-text-4" id="text-org496b1b4">
+<div id="outline-container-org8589f06" class="outline-4">
+<h4 id="org8589f06">Regex</h4>
+<div class="outline-text-4" id="text-org8589f06">
 <ul class="org-ul">
 <li>\(\emptyset\) es un regex</li>
 
@@ -498,18 +524,803 @@ regulares.</li>
 </div>
 </div>
 </div>
+
+<div id="outline-container-org8ceab39" class="outline-3">
+<h3 id="org8ceab39">21 / 08 / 23</h3>
+<div class="outline-text-3" id="text-org8ceab39">
+</div>
+<div id="outline-container-org9307f70" class="outline-4">
+<h4 id="org9307f70">Introducción</h4>
+<div class="outline-text-4" id="text-org9307f70">
+<p>
+Un compilador se compone internamente de varias etapas, o fases
+que realizan distintas operaciones lógicas.
+</p>
+
+<p>
+Es útil pensar en estas fases como piezas separadas aunque a
+menudo se integren juntas.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Código fuente</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Analizador léxico</td>
+<td class="org-left">Detectar palabras</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Tokens</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Analizador sintáctico</td>
+<td class="org-left">Analizar estructura</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Árbol de sintaxis abstracta</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Analizador semántico</td>
+<td class="org-left">Analiza significado</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Árbol con anotaciones</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Optimizador de código fuente</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Código intermedio</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Generador de código</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Código objetivo</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Optimizador de código objetivo</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Código objetivo</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
 </div>
 
+<ul class="org-ul">
+<li><a id="org3f61a62"></a>Analizador léxico<br />
+<div class="outline-text-5" id="text-org3f61a62">
+<ul class="org-ul">
+<li>En esta fase se ejecuta la lectura del programa fuente, el cuál
+generalmente es dado en forma de cadena.</li>
+
+<li>Se realiza lo que se conoce como análisis léxico es decir,
+recolecta subcadenas en unidades significativas denominadas
+lexemas o tokens las cuales son como las palabras de un
+lenguaje natural, como el español.</li>
+
+<li>De este modo, podemos pensar en un analizador léxico como un
+programa que realiza una función similar al deletreo.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org91c8580"></a>Analizador sintáctico<br />
+<div class="outline-text-5" id="text-org91c8580">
+<ul class="org-ul">
+<li>Recibe el código fuente en forma de tokens proveniente del
+analizador léxico y realiza un análisis sintáctico que
+determina la estructura del programa.</li>
+
+<li>Determina los elementos estructurales del programa y sus
+relaciones.</li>
+
+<li>Los resultados del análisis sintáctico usualmente se
+representan como árboles de análisis gramaticales o árboles de
+sintaxis abstracta.</li>
+
+<li>Un árbol de análisis gramatical es un auxiliar para visualizar
+la sintaxis del programa o de un elemento de programa, pero no
+es eficaz en su representación de dicha estructura.</li>
+
+<li>Los analizadores sintácticos tienden a generar un árbol de
+sintaxis abstracta (asa) en su lugar, el cual es una
+condensación de la información contenida en un árbol de
+análisis gramatical.</li>
+
+<li>Se les llama abstractos porque representan una abstracción
+adicional de los árboles de análisis gramatical.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgc9cbba9"></a>Analizador semántico<br />
+<div class="outline-text-5" id="text-orgc9cbba9">
+<ul class="org-ul">
+<li>La semántica de un programa es su <i>significado</i>, en oposición a
+su sintaxis o estructura.</li>
+
+<li>La semántica determina el comportamiento de un programa durante
+ejecución, sin embargo, un compilador puede determinar otras
+características a partir de lo escrito.</li>
+
+<li>Se hace referencia a tales características como semántica
+estática y el análisis de tal semántica es la tarea del
+analizador semántico.</li>
+
+<li>La semántica dinámica de un programa, es decir, aquellas
+propiedades del programa que sólo pueden determinar al
+ehjecutarlo, no se pueden determinar mediante un compilador
+porque éste no ejecuta el programa.</li>
+
+<li>Las características típicas de la semántica estática incluyen
+las declaraciones y la verificación de tipos.</li>
+
+<li>Las partes extra de la información (como los tipos de datos)
+que se calculan mediante un analizador semántico se llaman
+atributos y con frecuencia se agregan al árbol como anotaciones
+(también se pueden introducir en la tabla de símbolos).</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org4d0c3e5"></a>Optimizador de código fuente<br />
+<div class="outline-text-5" id="text-org4d0c3e5">
+<ul class="org-ul">
+<li>Los compiladores a menudo incluyen varias etapas para el
+mejoramiento, y optimización del código.</li>
+
+<li>El punto más anticipado en el que la mayoría de las etapas de
+optimización se pueden realizar es precisamente después del
+análisis semántico, y puede haber posibilidades para el
+mejoramiento del código que dependerán sólo del código fuente.</li>
+
+<li>Se indica esta posibilidad al proporcionar esta operación como
+una fase por separado en el proceso de compilación.</li>
+
+<li>Los compiladores muestran una amplia variación no sólo en los
+tipos de optimizaciones realizadas sino también en la
+colocación de las fases de optimización.</li>
+
+<li>Muchas optimizaciones se pueden efectuar sobre el <i>asa</i>, pero es
+más fácil optimizar una forma que esté más cercana al código
+ensamblador.</li>
+
+<li>Existen variedades diferentes como es el código en tres
+direcciones, denominado así porque contiene las direcciones de
+a lo más tres localidades de memoria.</li>
+
+<li>Al emplear el código en tres direcciones, nos podemos referir a
+su salida como código intermedio.</li>
+
+<li>Históricamente, el código intermedio ha hecho referencia a una
+forma de representación de código intermedia entre el código
+fuente y el código objeto tal como el código en tres
+direcciones.</li>
+
+<li>También puede referirse de manera general a <b>cualquier</b>
+representación interna para el código fuente utilizado por el
+compilador.</li>
+
+<li>En este sentido, también se puede hacer referencia al <i>asa</i> como
+un código intermedio, y efectivamente el optimizador de código
+guente podría continuar el uso de esta representación en su
+salida.</li>
+
+<li>En ocasiones este sentido general se indica al hacer referencia
+al código intermedio como <b>representación intermedia</b>, o <b>RI</b>.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org91050dc"></a>Generador de código<br />
+<div class="outline-text-5" id="text-org91050dc">
+<ul class="org-ul">
+<li>El generador de código toma la <b>RI</b> y genera el código para la
+máquina objetivo.</li>
+
+<li>Escribiremos el código objetivo en la forma de lenguaje
+ensamblador para facilitar su comprensión, aunque muchos
+compiladores generan el código objeto de manera directa.</li>
+
+<li>Es en esta fase de la compilación en la que las propiedades de
+la máquina objetivo se convierten en el factor principal.</li>
+
+<li>No sólo es necesario emplear instrucciones que existan en la
+máquina objetivo, sino que las decisiones respecto a la
+representación de los datos desempeñarán ahora también un papel
+principal, tal como cuántos bytes ocuparán las variables.</li>
+
+<li>En esta fase el compilador intenta mejorar el código objetivo
+dado por el generador de código.</li>
+
+<li>Dichas mejoras incluyen la selección de modos de
+direccionamiento para mejorar el rendimiento, reemplazando las
+instrucciones lentas por otras rápidas, y eliminando las
+operaciones redundantes o innecesarias.</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org76e6e68" class="outline-3">
+<h3 id="org76e6e68">23 / 08 / 23</h3>
+<div class="outline-text-3" id="text-org76e6e68">
+</div>
+<div id="outline-container-org10ba803" class="outline-4">
+<h4 id="org10ba803">Estructuras de datos principales en un compilador</h4>
+<div class="outline-text-4" id="text-org10ba803">
+<p>
+La interacción entre los algoritmos utilizados por las fases de un
+compilador y las estructuras de datos que soportan estas fases, es
+naturalmente, muy fuerte.
+</p>
+
+<p>
+Los programadores se esfuerzan por implementar estos algoritmos de
+una forma tan eficaz como sea posible, sin aumentar demasiado la
+complejidad.
+</p>
+
+<p>
+De manera ideal, un compilador debería poder compilar un programa
+en un tiempo proporcional al tamño del programa, es decir, \(O(n)\)
+en tiempo, donde \(n#\) es una medida del tamaño del programa.
+</p>
+
+<p>
+Este este tema señalaremos algunas de las principales estructuras
+de datos que son necesarias para las fases como parte de su
+operación y que sirven para comunicar la información entre las
+fases.
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="orgcecc913"></a>Tokens<br />
+<div class="outline-text-5" id="text-orgcecc913">
+<p>
+Cuando un analizador léxico reúne los caracteres en un token,
+generalmente representa el token de manera simbólica, es decir,
+como valor de un tipo de dato enumerado que representa el
+conjunto de tokens del lenguaje fuente.
+</p>
+
+<p>
+En ocasiones también es necesario mantener la cadena de
+caracteres misma u otra información derivada de ella, tal como el
+nombre asociado con un token identificador o el valor de un token
+número.
+</p>
+
+<p>
+En la mayoría de los lenguajes el analizador léxico sólo necesita
+generar un token a la vez (esto se conoce como búsqueda de
+símbolo simple).
+</p>
+
+<p>
+En este caso se puede utilizar una variable global simple para
+mantener la información del token.
+</p>
+
+<p>
+En otros casos, puede ser necesario un arreglo (u otra
+estructura) de tokens.
+</p>
+</div>
+</li>
+
+<li><a id="orgfad1d08"></a>Árboles de sintaxis abstracta<br />
+<div class="outline-text-5" id="text-orgfad1d08">
+<p>
+Si el analizador sintáctico genera un ASA, por lo regular se
+construye como una estructura estándar basada en un apuntador que
+se asigna de manera dinámica a medida que se efectúa el análisis
+sintáctico.
+</p>
+
+<p>
+El árbol entero puede entonces conservarse como una variable
+simple que apunta al nodo raíz.
+</p>
+
+<p>
+Cada nodo en la estructura es una estructura, cuyos campos
+representan la información recolectada tanto por el analizador
+sintáctico, como posteriormente, por el analizador semántico.
+</p>
+
+<p>
+Por ejemplo, el tipo de dato de una expresión puede conservarse
+como un campo en el nodo del ASA para la expresión.
+</p>
+
+<p>
+En ocasiones para ahorrar espacio, estos campos se asignan de
+manera dinámica, o se almacenan en otras estructuras de datos,
+como la tabla de símbolos que permiten una asignación y
+desasignación selectivas.
+</p>
+
+<p>
+En realidad, cada nodo del ASA por sí mismo puede requerir
+atributos diferentes para ser almacenado, de acuerdo con la clase
+de estructura del lenguaje que represente.
+</p>
+
+<p>
+En esete caso, cada nodo en el ASA puede estar representado por
+un registro variable, con cada clase de nodo conteniendo
+solamente la información necesaria para ese caso.
+</p>
+</div>
+</li>
+
+<li><a id="org817bded"></a>Tabla de símbolos<br />
+<div class="outline-text-5" id="text-org817bded">
+<p>
+Esta estructura de datos mantiene la información aosicada con los
+identificadores: funciones variables, constantes y tipos de
+datos.
+</p>
+
+<p>
+Interactúa con casi todas las fases del compilador: el analizador
+léxico, el analizador sintáctico o el analizador semántico que
+puede introducir identificadores dentro de la tabal o agregar
+tipos de datos y otra información; y las fases de optimización y
+generación de código que utlizan la información proporcionada
+para efectuar selecciones apropiadas de código objeto.
+</p>
+
+<p>
+Puesto que tendrá solicitudes de acceso con tanta frecuencia, las
+operaciones de elimincación, inserción y acceso necesitan ser
+eficientes, preferiblemente operaciones de tiempo constante.
+</p>
+
+<p>
+Una estrucutra de datos básica para este propósito son las tablas
+de dispersión aunque también se pueden utilizar diversas
+estructuras de árbol, o se construyen tablas con el apoyo de una
+lista o pila.
+</p>
+</div>
+</li>
+
+<li><a id="org3044667"></a>Tabla de literales<br />
+<div class="outline-text-5" id="text-org3044667">
+<p>
+La búsqueda y la inserción rápida son esenciales para la tabla de
+literales, la cual almacena constantes y cadenas utilizadas en el
+programa.
+</p>
+
+<p>
+Sin embargo, una tabla de literales necesita impedir las
+eliminaciones porque sus datos se aplican globalmente al programa
+y una constante o cadena aparecerá sólo una vez en esta tabla.
+</p>
+
+<p>
+Es importante en la reducción del tamaño de un programa en la
+memoria la permitir la reutilización de constantes y cadenas.
+</p>
+
+<p>
+También es necesaria para que el generador de código construya
+direcciones simbólicas para las literales y para introducir
+definiciones de datos en el archivo de código objetivo.
+</p>
+</div>
+</li>
+
+<li><a id="org84819f2"></a>Código intermedio<br />
+<div class="outline-text-5" id="text-org84819f2">
+<p>
+De acuerdo con la clase de código intermedio y de las clases de
+optimizaciones realizadas, este código puede conservarse como un
+arreglo de cadenas, un archivo de texto temporal o bien una lista
+de estructuras ligadas.
+</p>
+
+<p>
+En los compiladores que realizan optimizaciones complejas debe
+ponerse particular atención a la selección de representaciones
+que permitan una fácil reorganización.
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgaf00ea7" class="outline-3">
+<h3 id="orgaf00ea7">28 / 08 / 23</h3>
+<div class="outline-text-3" id="text-orgaf00ea7">
+</div>
+<div id="outline-container-orgeb11294" class="outline-4">
+<h4 id="orgeb11294">Compiladores</h4>
+<div class="outline-text-4" id="text-orgeb11294">
+</div>
+<ul class="org-ul">
+<li><a id="org4d2354c"></a>Introducción<br />
+<div class="outline-text-5" id="text-org4d2354c">
+<ul class="org-ul">
+<li>La estructura de un compilador se puede ver desde distinto
+ángulos.</li>
+
+<li>En temas anteriores describimos sus fases, las cuales
+representan la estrucutra lógica de un compilador.</li>
+
+<li>Otros puntos de vista posibles son:
+
+<ul class="org-ul">
+<li>La estructura física del compilador</li>
+
+<li>La secuenciación de las operaciones</li>
+</ul></li>
+
+<li>La persona que desarrolla el compilador debería estar
+familiarizada con tantos puntos de vista de la estructura del
+compilador como sea posible, ya que la estructura del
+compilador será determinante para su confiabilidad, eficacia,
+utilidad y mantenimiento.</li>
+
+<li>En este tema consideraremos otros aspectos en la estructura del
+compilador y señalaremos cómo se aplica cada punto de vista.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orga25afe8"></a>Análisis y síntesis<br />
+<div class="outline-text-5" id="text-orga25afe8">
+<ul class="org-ul">
+<li>Las operaciones del compilador que analizan el programa fuente
+para calcular sus propiedades se clasifican como la parte de
+<b>análisis</b> del compilador, mientras que las operaciones
+involucradas en la producción del código traducido se conocen
+como śintesis del compilador.</li>
+
+<li>Los análisis léxico, sintáctico y semántico pertenecen a la
+parte de análisis, mientras que la generación de código es la
+síntesis.</li>
+
+<li>Las etapas de optimización pueden involucrar tanto análisis
+como síntesis.</li>
+
+<li>El análisis tiende a ser más matemático y a comprendrerse
+mejor, mientras que la síntesis requiere de técnicas más
+especializadas.</li>
+
+<li>Es útil separar las etapas de análisis de las etapas de
+síntesis, de modo que cada una se pueda modificar de manera
+independiente respecto a la otra.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org99098a7"></a>Etapa inicial y etapa final<br />
+<div class="outline-text-5" id="text-org99098a7">
+<ul class="org-ul">
+<li>Considera al compilador separado en aquellas funciones que
+dependen sólo del lenguaje fuente (la etapa inicial <i>front-end</i>)
+y aquellas operaciones que dependen únicamente del leguaje
+objetivo (etapa final <i>back-end</i>).</li>
+
+<li>Es similar a la división en análisis y síntesis: los
+analizadores léxico, sintáctico y semántico son parte de la
+etapa inicial, mientras que el generador de código es parte de
+la etapa final.</li>
+
+<li>Algo de las optimizaciones puede ser dependiente del objetivo,
+y por lo tanto parte de la etapa final, mientras que la
+síntesis del código intermedio es a menudo dependiente del
+objetivo, y por consiguiente, parte de la etapa inicial. De
+manera ideal el compilador estaría estrictamente dividido en
+estas dos secciones, con la RI como el medio de comunicación
+entre ellas.</li>
+
+<li>Esta estructura es especialmente importante para la
+portabilidad del compilador donde se diseña con un enfoque
+hacia la modificación, ya sea del código fuente o del código
+objetivo.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgef53dff"></a>Pasadas<br />
+<div class="outline-text-5" id="text-orgef53dff">
+<ul class="org-ul">
+<li>Un compilador a menudo encuentra conveniente procesar todo el
+programa varias veces antes de generar el código.</li>
+
+<li>Estas repeticiones son conocidas como <b>pasadas</b>.</li>
+
+<li>Después del aso inicial, donde se construye el ASA o una RI a
+partir de la fuente, una pasada consiste en procesar la RI
+agregando información a ella, alterando su estructura o
+produciendo una representación diferente.</li>
+
+<li>Las pasadas pueden corresponder o no a las fases, a menudo una
+pasada consistirá de varias etapas.</li>
+
+<li>En realidad, dependiendo del lenguae, un compilador puede ser
+de una pasada, en el que todas las fases se presentan en un
+paso único.</li>
+
+<li>Esto resulta en una compilación eficaz pero también en un
+código objetivo menos eficiente.</li>
+
+<li>La mayoría de los compiladores con optimizaciones utilizan más
+de una pasada; por lo regular se emplea una pasada para los
+análisis léxico y sintáctico, otra para el análisis semántico y
+optimización a nivel del fuente, y una tercera para generación
+de código y optimización a nivel del objetivo.</li>
+
+<li>Existen compiladores que pueden emplear incluso más pasadas:
+cinco, seis e incluso ocho no son algo fuera de lo común.</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org74cab34" class="outline-3">
+<h3 id="org74cab34">29 / 08 / 23</h3>
+<div class="outline-text-3" id="text-org74cab34">
+</div>
+<div id="outline-container-org88aac37" class="outline-4">
+<h4 id="org88aac37">Gramáticas (libres del contexto)</h4>
+<div class="outline-text-4" id="text-org88aac37">
+<p>
+\[G=\langle V,T,S,P \rangle\]
+</p>
+
+<ul class="org-ul">
+<li>\(V\) alfabeto de símbolos no terminales</li>
+
+<li>\(T\) un alfabeto de símbolos terminales</li>
+
+<li>\(S\in V\) símbolo inicial</li>
+
+<li>\(P\) un conjunto de producciones</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc6a88d4" class="outline-3">
+<h3 id="orgc6a88d4">30 / 08 / 23</h3>
+<div class="outline-text-3" id="text-orgc6a88d4">
+</div>
+<div id="outline-container-org0e0f4b8" class="outline-4">
+<h4 id="org0e0f4b8">Teoría de Lenguajes de Programación y Teoría de Compiladores</h4>
+<div class="outline-text-4" id="text-org0e0f4b8">
+<ul class="org-ul">
+<li>Hablamos temas atrás sobre cómo las estructuras léxicas y
+sintácticas de un lenguaje de programación por lo regular son
+especificadas en términos formales y utilizan expresiones
+regulares y gramáticas libres del contexto.</li>
+
+<li>Sin embargo, la semántica de un lenguaje de programación todavía
+es comúnmente especificada utilizando descripciones en lenguaje
+natural.</li>
+
+<li>Estas descripciones son recopiladas en la documentación del
+lenguaje de programación.</li>
+
+<li>Cuando se crean nuevos lenguajes de programación, su diseño y
+compilador con frecuencia son dearrollados de manera simultánea,
+puesto que las técnicas disponibles para los desarrolladores de
+compiladores, pueden tener un impacto sobre el diseño del
+lenguaje de programación.</li>
+
+<li>Similarmente la manera en que se define un lenguaje de
+programación tendrá un impacto fundamental sobre las técnicas
+que son necesarias para construir el compilador.</li>
+
+<li>Una situación común es que el lenguaje de programación que se
+está implementando sea conocido y tenga un diseño ya existente.</li>
+
+<li>En muchos de estos casos, dichos lenguajes alcanzan el nivel de
+lenguaje estándar que son aprobados por organizaciones como ANSI
+o ISO.</li>
+
+<li>Esto a menudo no es una tarea sencilla, pero en ocasiones sí
+tiene ciertas ventajas debido principalmente a la existencia de
+baterías de pruebas estándar.</li>
+
+<li>Ocasionalmente los lenguajes cuentan con una semántica definida
+en términos matemáticos, por ejemplo, usando un estilo
+operacional.</li>
+
+<li>En estos casos es posible dar una prueba matemática de que un
+compilador se adhiere a la definición. Sin embargo, es una tarea
+difícil.</li>
+
+<li>El diseño del lenguaje también interfiere con el comportamiento
+y estructura de los ambientes de ejecución.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6c3b91a" class="outline-4">
+<h4 id="org6c3b91a">Manejo de errores</h4>
+<div class="outline-text-4" id="text-org6c3b91a">
+<ul class="org-ul">
+<li>Una de las funciones más importantes de un compilador es su
+respuesta a los errores</li>
+
+<li>Una definición de un lenguaje por lo general requerirá no
+solamente que los errores estáticos sean detectados por un
+compilador, sino también ciertos errores de ejecución.</li>
+
+<li>Esto requiere que un compilador genere código extra, el cual
+realizará priuebas de ejecución apropiadas para garantizar que
+aún con todos esos errores se provocará un evento apropiado
+durante la ejecución. El más simple será detener la ejecución.</li>
+
+<li>A menudo esto no es adecuado, y una definición del lenguaje
+puede requerir la presencia de mecanismos para el manejo de
+excepciones.</li>
+
+<li>No consideraremos la implementación de un mecanismo así&#x2026;</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd8966b5" class="outline-4">
+<h4 id="orgd8966b5">Autohosting y bootstraping</h4>
+<div class="outline-text-4" id="text-orgd8966b5">
+</div>
+<ul class="org-ul">
+<li><a id="org3ac9dd6"></a>Lenguaje anfitrión<br />
+<div class="outline-text-5" id="text-org3ac9dd6">
+<ul class="org-ul">
+<li>Hemos analizado los lenguajes fuente y objetivo como factores
+en la estructura de un compilador y la utilidad de separar
+cuestiones de los lenguajes fuente y objetivo en etapas inicial
+y final.</li>
+
+<li>No hemos mencionado el tercer lenguaje involucrado en el
+proceso de construcción de compiladores: el lenguaje en el que
+el compilador está escrito.</li>
+
+<li>Para que el compilador se ejecute inmediatamente, este lenguaje
+anfitrión tendría que ser lenguaje de máquina.</li>
+
+<li>Así fue como se escribieron los primeros compiladores, puesto
+que no existían compiladores todavía.</li>
+
+<li>Un enfoque en la actualidad es escribir el compilador en otro
+lenguaje para el cual ya exista un compilador.</li>
+
+<li>Si el compilador existente ya se ejecuta en la máquina
+objetivo, entonces necesitamos compilar utlizando el compilador
+existente para obtener un programa ejecutable.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org73bc057"></a>Lenguaje anfitrión<br />
+<div class="outline-text-5" id="text-org73bc057">
+<ul class="org-ul">
+<li>Si el compilador existente para el lenguaje B se ejecuta en una
+máquina diferente a la máquina objetivo, entonces la situación
+es un poco más complicada.</li>
+
+<li>La compilación produce entonces un compilador cruzado, es
+decir, un compilador que genera código objetivo para una
+máquina diferente de aquella en la que puede ejecutarse.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgb81ff89"></a>Diagramas T<br />
+<div class="outline-text-5" id="text-orgb81ff89">
+<ul class="org-ul">
+<li>La situación anterior y muchas otras más complejas se describen
+mejor al esquematizar un compilador como un diagrama T.</li>
+
+<li>Un compilador escrito en el lenguaje A (Anfitrión) que traduce
+el lenguaje F (Fuente) en lenguaje O (Objetivo) se dibuja como
+un diagrama T:</li>
+</ul>
 
 
-<div id="outline-container-org5398c10" class="outline-2">
-<h2 id="org5398c10">Bibliografía</h2>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">F</th>
+<th scope="col" class="org-left">-&gt;</th>
+<th scope="col" class="org-left">O</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">A</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>Observemos que esto es equivalente a decir que el compilador se
+ejecuta en la máquina A. Normalmente esperamos que A sea lo
+mismo que O, pero no es necesario que éste sea el caso.</li>
+
+<li>Los diagramas T se pueden combinar en dos formas.</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Erik Rangel Limón</p>
-<p class="date">Created: 2023-08-17 Thu 16:43</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1 (<a href="https://orgmode.org">Org</a> mode 9.6.6)</p>
+<p class="date">Created: 2024-02-01 Thu 10:53</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.2 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
 </div>
 </body>
 </html>

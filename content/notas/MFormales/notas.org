@@ -1,5 +1,6 @@
 #+title: Métodos Formales
 #+author: Erik Rangel Limón
+#+startup: latexpreview
 
 * Contacto
 
@@ -96,6 +97,1059 @@
 
     Para demostrar que $Suc\ n$ es Natural, basta demostrar que $n$ es
     un Natural.
+
+** 18 / 08 / 23
+
+*** Resumen
+
+    Entonces, los métodos formales consiste en la verificación de
+    sistemas de cómputo tando de /software/ como de /hardware/.
+
+    Son herramientas computacionales o matemáticas para la
+    abstracción, razonamientos y demostraciones por medio de sistemas
+    de deducción, que funcionan con un conjunto de reglas de
+    inferencia.
+
+    Estas reglas de inferencia modelan comportamientos; y pueden ser
+    utilizados par hacer juicios sobre objetos.
+
+** 21 / 08 / 23
+
+*** Sistemas deductivos
+
+    Sirven para formalizar o abstraer definiciones, propiedades o
+    cálculos.
+
+    Estos sistemas deductivos funcionan a partir de reglas básicas
+    (axiomáticas) en donde no hay suposiciones o premisas.
+
+    También las reglas pueden formarse a partir de
+
+    \[\infer{conclusion}{premisas}\]
+
+    Hay dos formas de leer las reglas; hacia adelante para llegar a
+    conclusiones, o dada una condición a verificar se lee hacia atrás
+    para corroborar la condición. *Éstas se pueden combinar*
+ 
+*** Listas de objetos de tipo A
+
+    \[\infer{[\ ]\ \textit{list}_A}{}\]
+
+    \[\infer{a:\ell\ \textit{list}_A}{a\ A & \ell\ \textit{list}_A}\]
+
+    \[\infer{snoc(\ell,a)\ \textit{list}_A}{a\ A & \ell\ \textit{list}_A}\]
+
+    
+**  23 / 08 / 23
+
+*** Logical Framework
+
+    Un meta lenguaje para la especificación de sistemas de deducción.
+
+*** Listas
+
+    La descripción básica es:
+
+    - Una secuencia de elementos
+    - Homogéneas
+    - Finitas
+    - Con un orden
+
+
+    Sea este conjunto de listas $L$
+
+*** Ejemplo, clase pasada
+
+    
+    \[\infer{[\ ]\ \textit{list}_A}{}\] Ln
+
+    \[\infer{a:\ell\ \textit{list}_A}{a\ A & \ell\ \textit{list}_A}\] /cons/
+
+    \[\infer{\ell;a\ \textit{list}_A}{a\ A & \ell\ \textit{list}_A}\] /snoc/
+
+    *Propiedad*: las listas generadas con /cons/ son las mismas que las
+    que se generan con /snoc/.
+
+    *Dem*: Sea $\ell$ una lista en $L$.
+
+    Si $\ell$ es la secuencia vacía
+
+    entonces Ln puede constuir la lista vacía en ambos sistemas.
+
+    Si $\ell$ es una secuencia no vacía
+
+*** Comportamiento vs implementación
+
+    - Intensional (Comportamiento): Dar las condiciones necesarias y suficiendtes para
+      definir un objeto.
+      
+    - Extensional (Extensional): Mostrar los objetos
+
+** 25 / 08 / 23
+
+*** Listas (cons)
+
+    #+begin_src haskell
+take :: Int -> [a] -> [a]
+take 0 _ = []
+take _ [] = []
+take n (a:l) = a : (take (n-1) l)
+
+drop :: Int -> [a] -> [a]
+drop 0 l = l
+drop _ [] = []
+drop n (a:l) = drop (n-1) l
+
+(++) :: [a] -> [a] -> [a]
+(++) [] l = l
+(++) (x:xs) l = x : (++) xs l
+    #+end_src
+
+    \[\infer{\texttt{take(n,l,[])}}{\texttt{n=0}}\]
+
+    \[\infer{\texttt{take(n,[],[])}}{}\]
+
+    \[\infer{\texttt{take(n,a:l, a:l')}}{\texttt{m=n-1} & \texttt{take()}}\]
+
+    ¿Será cierto que =take n l ++ drop n l = l=?
+
+    Siguiendo por inducción.
+
+    *Caso base*: =l = []=
+
+    *Paso inductivo*:
+
+** 28 / 08 / 23
+
+*** Software Testing
+
+    Consiste la calidad de un proudcto (software o un servicio) además
+    de verificarlo.
+
+    Son técnicas que permiten evaluarlo al:
+
+    - Ejecutar el programa o la aplicación con la intención de
+      encontrar fallas
+      
+    - Verificar si cunple los requerimientos del diseño.
+
+    - Analizar si responde ocrrectamente a todo tipo de entradas.
+
+    - Evaluar si realiza las acciones en un tiempo razonable.
+
+    - Verificar si es útil y puede instalarse y usarse en los
+      contextos para el cual fue diseñado.
+
+**** Consideraciones
+
+     Dado que no se pueden realizar una cantidad infinita de /tests/ para
+     validad un producto sólo se pueden buscar fallas o faltas en el
+     producto en lugares específicos.
+
+     Se realiza sobre el producto ya terminado o una versión del mismo
+     que ya es posible ejecutar.
+
+     Fase fundamental del desarrollo de software y depende la
+     metodología del desarrollo que determina el uso y forma de
+     aplicación de los tests.
+
+**** Estilos
+
+     - Estático: Dedicado a la verificación y no requiere ejecutar el
+       código (análisis léxico)
+
+     - Dinámico: Ejecución controlada bajo ciertas circunstancias para
+       análisis y validación de resultados.
+
+     - Pasivo: Verificar el comportamiento del producto si interactuar
+       con él.
+
+     - De exploración: Diseño y ejecución simultáneos para el diseño
+       de pruebas.
+
+     - Método de caja: considera el punto de vista del /tester/ para el
+       diseño de las pruebas y se usan en niveles de seguridad,
+       integración y de sistema:
+
+       - *white-box* para verificar estrucutras internas
+
+       - *black-box* para verificaciones de alto nivel
+
+**** Niveles
+
+     - Unit Testing:
+       
+       - Evaluación de unidades ó módulos completados y antes de
+         integrarse con otros módulos.
+
+       - El programador realiza los tests para mostrar que el código
+         satisface el diseño.
+
+       - Pruebas documentadas con objetivo - procedimiento -
+         resultado.
+
+       - Alcance de las pruebas (número de líneas ejecutadas y ramas
+         cubiertas).
+
+       - /Test-driven development/ (TDD) método usado en desarrollos
+         ágiles u en donde los test se dieñan antes del código.
+
+     - Integration Testing:
+
+       - Evaluación de un sistema integrado una cez que las partes fueron
+	 evaluadas individualmente.
+
+       - Para verificar que los módulos y sus interfaces trabajan en
+	 conjunto correctamente.
+
+     - System Testing:
+
+       - Verificar que la implementación es correcta con respecto a
+         los requerimientos del sistema.
+
+       - Evaluación realizada de forma independiente por un grupo de
+         pruebas en donde los casos de prueba y sus ejecuciones son
+         usados.
+
+       - Incluye pruebas de seguridad, de uso y de desempeño.
+
+     - Performance Testing:
+
+       - Tiene por objeto asegurar que el desempeño del sistema
+         respeta los límites establecidos por los requerimientos.
+
+       - Incluye pruebas de desempeño en tiempo, /stress testing/
+         simulación de uso, etc... Y se pueden utilizar herramientas
+         para estas simulaciones.
+
+     - Acceptance Testing:
+
+       - Pruebas controladas dirigidas al cliente o a situaciones
+         reales de uso para verificar que el producto cumple con los
+         requerimientos.
+
+     - Functional Testing:
+
+       - Verificación de funciones al simular escenarios basados en
+         los requerimientos.
+
+     - Regresion Testing:
+
+       - Verificar si algunas características degradas o rompen
+         algunas funcionalidades.
+
+     - Stress Testing:
+
+       - Probar las condiciones extremas que puede resistir el sistema
+         antes de fallar (no son funcionales).
+
+     - Usability Testing:
+
+       - Validar qué tan bien puede usar el cliente final el sistema
+         para completar una tarea.
+
+**** Técnicas
+
+     Existen diferentes técnicas o tácticas para llevar a cabo las
+     pruebas de productos, dependen del tipo de software o del
+     propósito de la prueba.
+
+     - Pruebas de instalación.
+
+     - Pruebas de compatibilidad respecto a aplicaciones, sistemas
+       operativos, etc.
+
+     - Pruebas de aceptación (ambientes especiales o hardware).
+
+     - /alpha testing/: simulaciones antes de pasar a otras pruebas.
+
+     - /beta testing/: después de las pruebas /alpha/ para aceptación del
+       usuario.
+
+     - Pruebas funcionales para evaluar algún requerimiento o función
+       especial.
+
+**** Ciclo de pruebas
+
+     El diseño y aplicación de pruebas o /testing/ se realiza en uno o
+     varios momentos del desarrollo de software y va de la mano con el
+     modelo de desarrollo que se usa.
+
+     En la práctica depende del equipo de desarrollo y la metodología
+     usada.
+
+** 30 / 08 / 23
+
+*** Haskell
+
+    /Haskell/ es un lenguaje de programación funcional, fuertemente
+    tipado, de muy alto nivel, cuenta con transparencia referencial
+    (no hay manejo de memoria explícito), y es turing completo.
+
+    El que este lenguaje sea de muy alto nivel quiere decir que
+    propone nuevos mecanismos para razonar programas, y en particular
+    el de /Haskell/ los programas funcionan por medio de un razonamiento
+    ecuacional, de manera que un programa es un conjunto de
+    ecuaciones; así mismo su mecanismo está basado fuertemente en la
+    inducción.    
+
+    Por ejemplo, el tipo de dato lista en haskell se definiría de la
+    siguiente manera:
+
+    #+begin_src haskell
+data List a = []
+            | Cons a (List a)
+    #+end_src
+
+    El sistema de tipos de /Haskell/ implementa el sistema F, el cual se
+    le conoce como polimorfismo ad-hoc y corresponde con la lógica de
+    2do orden. De esta manera /todo programa tiene un tipo/ y se
+    verifica en tiempo de compilación.
+    
+    Sin embargo el tipo de una función por lo general no es una buena
+    o completa especificación de lo que hace, y por lo que le hace
+    falta documentación para saber exactamente qué es lo que debería
+    hacer dicha función.
+    
+    Sin embargo, en /Haskell/ quisiéramos descripciones lógicas que
+    respeten los tipos, y sigan patrones; es decir, que podamos
+    definir propiedades de los programas (/program testing/, /property
+    based testing/).
+
+    Siendo =rev= la función que calcula la reversa de las listas; como
+    ejemplo mostramos la siguiente propiedad:
+
+    #+begin_src haskell
+p1 :: Eq a => [a] -> [a] -> Bool
+p1 l1 l2 = rev (l1 ++ l2) == rev l2 ++ rev l1
+    #+end_src
+
+    
+** 04 / 09 / 23
+
+*** Software Testing
+
+**** QuickCheck
+
+     Es una herramineta para /testing/ o para evaluar automáticamente
+     programas en /Haskell/.
+
+     - Provee una especificación del programa (propiedades de funciones)
+
+     - QuickCheck evalúa las propiedades generando casos de forma
+       aleatoria.
+
+     - El lenguaje usado es el propio de /Haskell/.
+
+**** Programación funcional
+     
+     - Es un estilo de programación cuyo método básico de computación
+       es la aplicación de funciones a argumentos.
+
+     - Pertenece a la programación declarativa donde la estructura y
+       los elementos en un programa se expresan de forma lógica, sin
+       describir el control del flujo de datos.
+
+       - Describir qué es lo que el programa debe realizar en lugar de
+         decir cómo realizarlo.
+
+       - Programación de alto nivel, sin efectos (transparencia
+         referencial, sin manejo explícito de memoria)
+
+       - Con una clara correspondencia matemática.
+
+     - Haskell tiene funciones de orden superior, transparencia
+       referencial, inferencia de tipos, semántica perezosa, módulos,
+       polimorfismo, etc..
+
+
+     Las ventajas de /Haskell/ como lenguaje de alto nivel son muchas,
+     entonces ¿Por qué hacer testing en programas de /Haskell/?
+
+**** Property-based testing en QuickCheck
+
+     Las propiedades de programase expresan como funciones con el
+     prefijo =prop_=.
+
+     - Están cuantificadas universalmente sobre sus parámetros.
+
+     - Sólo pueden ser de tipo monomórfico.
+
+     - Si se usa con un argumento polimórfico, las pruebas o /tests/ se
+       debem restringir a un tipo particular.
+
+     - La propiedad debe ser decidible, es decir de tipo =Bool=.
+
+     - También pueden ser una combinación de propiedades.
+
+***** Ejemplo
+
+      Propiedad simple:
+      
+      #+begin_src haskell
+prop_Revrev :: [a] -> Bool
+prop_Revrev xs = reverse (reverse xs) == xs
+  where
+    types = xs :: [Int]
+      #+end_src
+
+      Propiedad condicional:
+
+      #+begin_src haskell
+ordered xs = and (zipWith (<=) xs (drop 1 xs))
+insert x xs = takeWhile (<x) xs ++ [x] ++ dropWhile (<x) xs
+
+prop_Insert x xs = ordered xs ==> ordered (insert x xs)
+  where
+    types = x :: Int
+      #+end_src
+
+      Propiedad cuantificada:
+
+      #+begin_src haskell
+prop_Insert2 x = forAll orderedList $ \xs -> ordered (insert x xs)
+  where
+    types = x :: Int
+      #+end_src
+
+** 11 / 09 / 2023
+
+*** QuickCheck
+
+    - Nos sirve para probar software a través de propiedades generales
+      que el código / implementación debe cumplir.
+
+    - ¿Cómo diseñamos pruebas para código funcional?
+
+      - Que una función tenga su tipo especificado muchas veces no es
+        suficiente para asegurar que se va a realizar una tarea
+        específica.
+
+    - Una estrategia para hacer buenas propiedades es no repetir
+      código para verificar que hace lo que se le pide.
+
+      #+begin_src haskell
+prop_Reverse :: [Int] -> Property
+prop_Reverse xs = reverse xs === ???
+
+prop_Reverse xs = reverse (reverse xs) === xs
+      #+end_src
+
+      
+*** Árboles Binarios de Búsqueda
+
+    #+begin_src haskell
+data BST k v = Leaf | Branch (BST k v) k v (BST k v) deriving (Show, Eq, Generic)
+
+find :: Ord k => k -> BST k v -> Maybe v
+nil :: BST k v
+insert :: Ord k => k -> v -> BST k v -> BST k v
+delete :: Ord k => k -> BST k v -> BST k v
+union :: Ord k => BST k v -> BST k v -> BST k v
+
+toList :: BST k v -> [(k, v)]
+keys :: BST k v -> [k]
+    #+end_src
+
+    *Generación de pruebas:*
+
+    #+begin_src haskell
+instance (Ord k, Arbitrary k, Arbitray v) => Arbitrary (BST k v) where
+  arbitrary = do
+    kvs <- arbitrary
+    return $ foldr (uncurry insert) nil (kvs :: [(k, v)])
+  shrink = genericShrink
+    #+end_src
+
+    - =Arbitrary= es la clase de tipos para generar aleatoriamente
+      valores para las pruebas.
+
+    - =arbitrary :: Gen a= donde =Gen= esel tipo de generadores para
+      cierto tipo.
+
+    - =shrink :: a -> [a]= Es una función que colapsa valores y reducir
+      en complejidad los casos de prueba.
+
+
+    Para éste tipode pruebas es importante identificar las invariantes
+    de las funciones, es decir, afirmaciones lógicas que se cumplen en
+    alguna fase de ejecución.
+
+    Éstas invariantes ayudan a razonar respecto a la corrección de las
+    funciones y complementan la especificación dada por los tipos.
+
+    En el caso de árboles binarios de búsqueda, cualquier operación
+    debe respetar el orden de las llaves.
+
+** 12 / 09 / 23
+
+*** Ayudantía QuickCheck
+
+    #+begin_src haskell
+data Set a = Elem a (Set a) | Empty deriving (Show, Eq)
+
+insert a Empty = Elem a Empty
+insert a (Elem b s) = if a == b then Elem a s else Elem b (insert a s)
+
+instance (Arbitrary a, Eq a) => Arbitrary (Set a) where
+  arbitrary = do
+    s <- arbitrary
+    a <- arbitrary
+    oneof [return Empty, return (Elem a s)]
+    #+end_src
+
+** 18 / 09 / 23
+
+*** Análisis Estático
+
+**** Software Testing y Property-Based Testing
+
+     Son para evalua la calidad de un prdoucto (software o servicio)
+
+     - Usualmente, las herraminetas para /testing/ están dirigidas a
+       lenguajes de programación imperativos / estructurados /
+       orientados a objetos.
+       
+     - Realizan pruebas de las propiedades basado en las condiciones
+       de los programas:
+
+       - Cubrir la mayor parte de entradas posibles.
+
+       - Contracción de los casos de prueba para ajustarse a als
+         condiciones.
+
+       - Se pueden reproducir las pruebas
+
+     - Idea inicial en =QuickCheck=
+
+**** Verificación
+
+     Property-Based Testing no reemplaza las pruebas unitarias o
+     cualquier otro método para verificar programas.
+
+     - Existen diferentes usos de testing usando propiedades para
+       muchos lenguajes de programación:
+
+       - Jest: [[https://jesths.io/]]
+
+       - Hypothesis: [[https://hypothesis.readthedocs.io/en/latest/]]
+
+
+     Muchos aspectos de la verificación dependen del lenguaje de
+     programación y de la especificación del sistema o programa.Las
+     herramientas matemáticas que existen para realizar verificación
+     son muchas:
+
+     - Semánticas para lenguajes de programación. (definidos en cada
+       lenguaje)
+
+       - Semántica operacional
+
+       - Semántica estática
+
+       - Semántica axiomática.
+
+     - Análisis Estático
+
+     - Interpretación Abstracta
+
+     - Verificación de Modelos (lógicas temporales)
+
+     - Ejecución simbólica
+
+**** Abstracciones y análisis
+
+     La noción de *abstracción* es difícil de definer, se recurre a
+     explicarlo, ilustrarlo, modelarlo o entenderlo.
+
+     En el desarrollo de software, la abtracción ofrece ventajas como
+     simplicidad, generalidad y precisión para el proceso de
+     desarrollo y que es orientado a mostrar que el producto es
+     correcto y completo.
+
+     Una de lsa técnicas más usuales para probar / verificar / evaluar
+     un programa o un sistema es realizar un análisis (estático) del
+     mismo:
+
+     - Análisis de las definiciones
+
+     - Análisis de los datos y / o resultados
+
+     - Análisis de funciones o módulos
+
+**** Especificar y Analizar
+
+     Las formas de llevar a cabo los análisis dependen del sistema, el
+     foco a analizar, etc.
+
+     - El análisis simbólico: para verificar circuitos lógicos.
+
+     - La ejecución simbólica: técnica de análisis para raoznar
+       respecto a los programas, en particular sobre valores de
+       entrada y salida (intérpretes o máquinas virtuales).
+
+     - La simulación simbólica: Usando un sistema de transiciones se
+       pueden modelar los estados de un sistema de forma discreta en
+       tiempo (Teoría de Latices).
+
+     - Análisis estático de programas: Usar alguna de las semánticas
+       (denotacional, axiomática u operacional) para estudiar el
+       software, también usar la interpretación abstracta.
+
+**** Sistemas para abstracciones
+
+     Existen herramientas y ambientes para diseñar especificaciones a
+     partir de requerimientos.
+
+     Las abstracciones necesarias para datos y funciones son
+     integradas en lenguajes de especificación especializados:
+
+     - Z specification language
+       
+     - Vienna Development Method (VDM)
+
+       - Es un método formal orientado a modelos:
+
+	 - Especificaciones como modelos de un sistema.
+
+	 - Un sistema es diseñado por sus especificaciones donde cada
+           una es más concreta que la anterior.
+
+	 - En cada iteración o paso de desarrollo existen
+           refinamientos formales
+
+	 - Cada uno de los pasos son verificados
+
+	 - La corrección del sistema está determinada por la
+           corrección de cada uno de los pasos.
+
+       - Tiene su propio lenguaje formal (VDM-SL) para describir datos
+         y funcionalidades mediante tipos de datos, secuencias y
+         funciones.
+
+       - Las operaciones se definen usando pre y post condiciones para
+         caracterizar su comportamiento, o usando los algoritmos
+         diseñados para ellas.
+       
+     - B-Method
+
+**** Sistemas de tipos
+
+     Las definiciones de los lenguajes de programación (sintaxis y
+     semántica) son herramientas bien establecidas para realizar
+     especificaciones.
+
+     - Fases o procesos de compilación o interpretación pueden ser
+       usados como métodos formales.
+
+     - Un verificador de tipo (type-checker) es útil para realizar
+       verificaciones estáticas automáticas con la desventaja de que
+       es un proceso indecidible.
+
+     - Un type-checker puede ser extendido o enriquecido con
+       mecanismos para obtener "pruebas de correción"
+       (proof-obligations) para demostrar o verificar las partes
+       indecidibles y que no puede ser automatizado.
+
+     - La ejecución simbólica usando las reglas de la semántica
+       operacional de un lenguaje también puede ser usado como método
+       formal.
+
+**** Semántica Axiomática
+
+     - Sistema de deducción formal que consiste de reglas de juicios
+       sobre precondiciones y postcondiciones de un programa.
+
+     - Permite razonar formalmente y rigurosamente sobre la corrección
+       de programas.
+
+     - Método formal más usado después del testing al ser una
+       herramienta de soporte durante el desarrollo de software:
+
+       - SPARK programming language (subconjunto de Ada) y el Java
+         Modeling Language (JML) que usa ESC/Java y ESC/Java2.
+
+       - Frama-C WP (weakest precondition) plugin para el lenguaje C
+         extendido con ACSL (ANS/ISO C Specification Language).
+
+** 20 / 09 / 23
+
+*** Análisis Estático (Interpretación Abstracta)
+
+    Las técnicas de análisis estático no requiere ejecutar el programa
+    o sistema; se realiza un razonamiento del modelo matemático para
+    analizar los estados que se generan duran la ejecución.
+
+    - Análisis de control de flujo: información acerca de las
+      funciones y puntos de ejecución.
+
+    - Análisis de flujo de datos: información de los valores o datos y
+      cómo cambian en el tiempo.
+
+    - Sistemas de Efectos: representación de efectos durante la
+      ejecución.
+
+    - Sistemas de Tipos: asociación de tipos a programas como
+      requerimientos mediante verificación de tipos estática
+      (compilación) o dinámica (ejecución).
+
+    - Interpretación Abstracta: información de la ejecución del
+      programa usando un modelo matemático del programa que permite
+      analizar datos y estados del código.
+
+    - Verificación de Modelos: Uso de modelos (fórmulas lógicas) para
+      establecer que se cumple la especificación.
+
+**** Frama-C
+
+     Es un analizador estático formado por varios módulos (plugins)
+     para manipular árboles abstractos de sintaxis (AST) e
+     incorporarles anotaciones de especificaciones de C (ISO C
+     Specification Language).
+
+     [[https://www.frama-c.com/index.html]]
+
+     Nos fuciona para:
+
+     - Entender y razonar respecto al código en C.
+
+     - Probar formalmente propiedades de código.
+
+     - Para reforzar convenciones de código.
+
+     - Para prevenir fallas de seguridad.
+
+
+     Utiliza un lenguaje intermedio llamado CIL el cual funciona para
+     el análisis y transformación de programas hechos en C.
+
+     También tiene un lenguaje de especificación formal (ACSL) que usa
+     contratos (precondiciones, postcondiciones e invariantes).
+
+     La sintaxis que utiliza es la siguiente
+
+     #+begin_src c
+int a[10];
+/*@ loop invariant 0 <= i <= 10;
+  loop invariant \forall integer j; 0 <= j < i ==> a[j] == j;
+  loop assigns i, a[0 .. i-1];
+ ,*/
+for (int i = 0; i < 10; i++) a[i] = i;
+     #+end_src
+
+     - Los contratos o anotaciones son condiciones de algunas partes
+       del código.
+
+     - Dado el código, se agregan las anotaciones
+
+     - El análisis de código se realiza por bloques o enunciados
+       (lenguaje WHILE)
+
+     - El modelo abstracto del código es un árbol de sintaxis
+       abstracta.
+
+** 22 / 09 / 23
+
+*** Frama C
+
+    - Programado en OCaml, donde el kernel es una modificación de CIL,
+      el lenguaje intermedio estandarizado para C.
+
+    - El código se anota con expresiones en ACSL para expresar
+      contratos.
+
+    - La representación mediante AST es la que utilizan los
+      analizadores.
+
+    - Los analizadores están implementados como plugins.
+
+    - La base de datos contiene los servicios de los plugins.
+
+    - Los analizadores pueden operar:
+
+      - Secuencialmente al encadenar los resultados de los análisis
+
+      - Paralelo al combinar análisis parciales para la verificación
+        completa.
+
+
+    Plgin Value Analysis utiliza un análisis de datos "hacia
+    adenlante" para:
+
+    1. Indicar que una instrucción purfr gallar en tiempo de
+       ejecución.
+    2. Ofrecer una sobre aproximación de los valores que pueden
+       almacenarse en una locación de memoria.
+
+
+    - Relaciona la semántica concreta (conjunto de ejecuciones del
+      programa) con una abstracta.
+
+    - La semántica abstracta es una aproximación sólida del
+      comportamiento que tendrá el programa en tiempo de ejecución.
+
+    - Se realiza una ejecución simbólica del programa usando la
+      semántica abstracta.
+
+*** Interpretación abtracta
+
+    - Método para la verificación formal de programas al abtraer sólo
+      lo importante mediante la semántica abstracta.
+
+    - Las abstracciones deben ser
+
+      - Sólidas, ninguna conclusión derivada de la semántica abstracta
+        está mal respecto a ala semántica concreta y especificación
+        del programa.
+
+      - Completas, ningún aspecto semántico relevante en la
+        especificación no ha sido abstraido.
+
+    - La interpretación abstracta ofrece un método sistemático basado
+      en una aproximación efectiva a la semántica concreta que puede
+      ser automatizado y formalmente verificado.
+
+
+    Hay distintas herramientas para la abstracción:
+
+    - Dominios abstractos
+    - Análisis de flujo de datos
+    - Semánticas de recolección
+    - Conexiones de Galois
+    - Puntos fijos
+    - Iteración de cómputos
+    - Convergencia mediante /widening/ y /narrowing/
+    - Solución de restricciones (Programación por restricciones)
+
+
+    La interpretación abstracta es:
+
+    - Una función de abstracción $\alpha$ "mapea" un objeto concreto o
+      en una aproximación representada por un objeto abstracto
+      $\alpha(o)$.
+
+    - Un dominio abstracto es un conjunto de objetos abstractos junto
+      con las operaciones abstractas que permiten aproximar la parte
+      concreta.
+
+    - Una función de concretización $\gamma$ "mapea" objetos
+      abstractos o a un objeto concreto correspondiente
+      $\gamma(\hat{o})$
+
+
+    /Semantics with Applications: .../    
+    
+** 27 / 09 / 23
+
+*** Lógica Axiomática
+
+    Especifica propiedades de programas usando afirmaciones. Éstas
+    afirmaciones son por lo general escritas con lógica de predicados
+    con igualdad y "código".
+
+    Las propiedades que se definen son las conocidas como
+    precondiciones y postcondiciones, y se comportan como funciones
+    que dependen del estado del programa (memoria).
+
+    Es un sistema de deducción para razonar respecto a ternas de
+    Hoares y demostrar propiedades del código.
+
+** 09 / 10 / 23
+   
+*** Frama C
+
+    Incorpora diferentes métodos formales para análisis estático:
+
+    - Interpretación abstracta
+
+    - Verificación deductiva
+
+    - Testing con ejecución simbólica
+
+    - Especificación simbólica
+
+
+    Todos los analizadores trabajan unificados al usar la
+    representación mediante AST y el lenguaje ACSL para expresar
+    contratos.
+
+    - Los contratos son especificaciones del comportamiento de partes
+      del código, es una parte opaca en el código pero activa cuando
+      se usan para verificar condiciones de corrección del código en
+      cuestión.
+
+    - Los contratos se incluyen antes de las partes que se desean
+      demostrar correctas y pueden ser constituidas por múltiples
+      anotaciones para segurar todos lo casos posibles.
+
+    - Los contratos de funciones se usan principalmente para definir
+      los requerimientos (*requires*) y las garantías (*ensures*) de las
+      mismas.
+
+    - Se puede incluir información de memoria (apuntadores e índices
+      válidos), notación lógica (conectivos), tipos, etc., para
+      describir condiciones de los datos
+
+    - Para los ciclos se tienen anotaciones
+
+      =loop invariant=, =loop assigns=, =loop variant=
+     
+** 11 / 10 / 23
+   
+*** Arreglos
+
+    Son la estructura de datos "tradicional" para la programación
+    imperativa, con los que podemos:
+
+    - manejar elementos similares
+
+    - acceder a elementos usando índices
+
+    - mantener su tamaño estático
+
+    - realizar una variedad de operaciones
+
+
+    
+**** Ejemplo
+
+     De-referenciar un arreglo es equivalente a acceder al primer
+     elemento del arreglo, desplazarlo desde $i$ para encontrar el
+     i-ésimo elemento.
+
+     #+begin_src c
+int tab[10] = {1};
+int x;
+int *p = &x;
+
+//@ requires p == &x
+int main(void){
+  //@ assert tab[0]=1 && *p == x;
+  //@ assert *tab == 1;
+  int *q = &tab[3];
+  //@ assert q+1 == tab + 4;
+  //Esta afirmación garantiza que el desplazo es correcto.
+}
+     #+end_src
+
+    
+** 20 / 10 / 23
+
+*** Lógica de Hoare
+
+    Es un sistema de inferencia para estudiar la correctud parcual (no
+    se requiere que termine el programa para que se cumpla una terna)
+    de programas mediante aserciones o afirmaciones de los mismos
+    resultados usando ternas:
+
+    $\{P\}S\{Q\}$
+
+    Si $P$ se cumple en un estado incial y la ejecución de $S$ termina
+    al comenzar en el estado inicial entonces $Q$ se cumple en el
+    estado en donde $S$ se detiene.
+
+    El lenguaje de aserciones especifica condiciones en un sentido
+    extensional, es decir que las condiciones son predicados que
+    dependen de estados y permiten expresar condicio es detalladas:
+
+    *State* $\rightarrow$ {true,false}
+
+**** Weakest precondition
+
+     Es una técnica para demostrar propiedades en donde se generan
+     condicionesde verificacioón basada en una semántica de
+     transformación de predicados.
+
+     Para una expresión $S$ y una postcondición $R$, la precondición
+     más débil es un predicado $Q$ tal que para cualquier condición
+     $P$ sucede.
+
+     $\{P\}S\{R\}$ si y sólo si $P\Rightarrow Q$
+
+     
+**** Cálculo de las precondiciones más débiles
+
+     Considera las especificaciones de los programas (entendidas como
+     psotcondiciones) y una implementación particular (código) para
+     buscar una precondición que satisfaga ambas:
+
+     Dada una instrucción $S$ y una postcondición $Q$, se debe
+     encontrar la precondición más débil para completar una terna.
+
+     $wp(S,Q):=WakestPrecondition$
+
+     $\{wp(S,Q)\}S\{Q\}$
+
+
+     $wp(x:=a,Q):=Q[x\mapsto A_{\sigma}\llbracket a\rrbracket]$
+
+     $wp(S_1;S_2,Q):=wp(S_1,wp(S_2,Q))$
+
+     $wp(S_1;(S_2;S_3),Q):=wp((S_1;S_2);S_3,Q)$
+
+     $wp(\texttt{if }b\texttt{ then }S_1\texttt{ else }S_2,Q):=(\mathcal{B}\llbracket b\rrbracket \Rightarrow wp(S_1,Q))\wedge(\neg\mathcal{B}\llbracket b\rrbracket\Rightarrow wp(S_2,Q))$
+
+**** Propiedades
+
+     El lenguaje de aserciones especifica condiciones de forma
+     etensional:
+
+     $\{P\}S\{Q\}$ denota que si $P$ cumple en un estado incial
+     $\sigma$ y la ejecución de $S$ usando $\sigma$ termina en un
+     estado $\sigma'$ entonces $Q$ se cumple en $\sigma'$.
+
+** 08 / 11 / 23
+
+*** Lógica de orden superior
+
+    En este curso hemos enfatizado en dos diferentes niveles de
+    verificación: Testing (ejecución simbólica del código) y Lógica de
+    Floyd-Hoare.
+
+    La lógica de orden superior es un siguiente nivel, el cual nos
+    puede ayudar a demostrar la corrección total de código.
+
+    En este nivel de verificación se ve la lógica y otros estilos de
+    demostración para describir propiedades más generales del código y
+    con ello verificar que en todas las posibles ejecuciones de un
+    código, éste se comporta bien respecto a la especificación dada.
+
+**** COQ
+
+     Es un asistente de pruebas interactivo, que provee un ambiente
+     para definir o declarar especificaciones, razonar respecto a esas
+     especificaciones, demostrar porpiedades esperadas, generar código
+     verificado.
+
+     En éste a partir de una especificación lógica de muy alto nivel
+     (fórmula) se puede obtener una demostración de esa especificación
+     (fórmula verdad) y de esa demostración se puede extraer código
+     funcional bien construido.
+
+     Utiliza un estilo de programación certificada.
+
+** 13 / 11 / 23
+
+*** Sistemas de tipos
+
+    Brindan un mecanismo de "seguridad" a los programas y forman parte
+    de la definición de los lenguajes de programación.
+
+    La teoría de tipos puede ser usada como una teoría unificadora
+    para estudiar características de los lenguajes de programación,
+    como sus conceptos, propiedades y métodos prácticos y aplicables.
+    
+**** Cálculo lambda
+
+     Se considera como un lenguaje fundamental para estudiar nociones
+     de cómputo, el cual también funciona como un lenguaje lógico para
+     especificaciones.
+  
+** 15 / 11 / 23
+
+*** Sistema
+
+    \[\infer{\cdot\vdash\star}{}_{\texttt{Axiom}}\]
 
 * Bibliografía
 

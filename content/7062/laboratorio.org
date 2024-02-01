@@ -1,0 +1,633 @@
+#+title: Laboratorio
+#+author: Erik Rangel Limón
+#+startup: latexpreview
+
+* Dinámica en el laboratorio
+
+  En un princio, las prácticas se van a dejar los jueves con el
+  objetivo de resolverse en una semana en equipos de dos o tres
+  personas.
+
+  Los primeros veinte minutos del laboratorio serán para resolver
+  dudas de la práctica (u otras inquietudes que tengan).
+
+  El resto de la clase será para resolver la práctica en equipos
+  de 25.
+
+  Yo diseñaré las prácticas entonces me pueden preguntar por los /hints/
+  que quieran, pero ustedes deben llegar a la solución.
+  
+* Avisos
+
+  - Grupo de telegram:
+
+    Este es el link corregido
+  
+    [[https://t.me/+5Aj4ZeOmC2o2ZGQx]]
+
+  - Tarea 0:
+
+    [[https://classroom.github.com/a/2DPFrzyI]]
+
+  - Práctica 0:
+
+    [[https://classroom.github.com/a/_mSpGK0A]]
+
+* Haskell
+
+  Es el lenguaje de programación que utilizaremos para realizar
+  la mayor parte de las prácticas de laboratorio.
+
+  Se propone éste lenguaje pues cuenta con transparencia referencial,
+  lo que garantiza que se pueda reemplazar una expresión con otra de
+  igual valor sin cambiar el significado de éste. Como consecuencia,
+  una función siempre producirá el mismo resultado para una entrada
+  dada, por lo que es posible construir, razonar y manipular programas
+  funcionales como si se tratasen de una expresión matemática.
+
+** Instalación
+
+   /Haskell/ es un lenguaje compilado, pero también puede comportarse
+   como un programa interpretado. Ambas herramientas vienen al
+   instalar /GHC/ (/Glasgow Haskell Compiler/), el cuál es el compilador
+   más usado hoy en día para /Haskell/.
+
+   /Haskell/ también cuenta con un administrador de paquetes /Cabal/,
+   mediante el cual puedes instalar nuevas bibliotecas y programas. En
+   particular la utilizaremos más adelante para instalar /QuickCheck/.
+
+   Tanto /Haskell/ y /Cabal/ pueden ser instaladas con =ghcup=, que es un
+   instalador para éstos y más programas en torno a /Haskell/, y para
+   cualquier sistema basado en /Unix/, y los sistemas operativos /Windows/
+   y /MacOS/.
+
+   Las instrucciones específicas de cada sistema vienen en la
+   siguiente página:
+
+   https://www.haskell.org/ghcup/install/#installation
+
+   
+*** Requerimientos
+
+    - Debian >= 12:
+
+      #+begin_src shell
+build-essential curl libffi-dev libffi8 libgmp-dev libgmp10 libncurses-dev libncurses5 libtinfo5
+      #+end_src
+
+    - Ubuntu >= 23:
+
+      #+begin_src shell
+build-essential curl libffi-dev libffi8ubuntu1 libgmp-dev libgmp10 libncurses-dev
+      #+end_src
+
+    - Fedora:
+
+      #+begin_src shell
+gcc gcc-c++ gmp gmp-devel make ncurses ncurses-compat-libs xz perl
+      #+end_src
+
+    - Linux:
+
+      Investiguen según su distribución cómo instalar los siguientes paquetes:
+    
+      #+begin_src shell
+curl g++ gcc gmp make ncurses realpath xz-utils
+      #+end_src
+
+    - Mac M1:
+
+      En los sistemas operativos /OS X/ los programas requeridos se
+      configuran al instalar =ghcup=, posiblemente tengan que ejecutar
+      el comando otra vez.
+
+      En computadoras con /M1/, deben investiguen cómo instalar =llvm= con
+      =hombrew= y cómo exponerlo en el =PATH=.
+
+*** GHCup
+
+    El comando que debe utilizarse para instalarlo en /Linux/, /macOS/,
+    /FreeBSD/ o /WSL2/ es el siguiente:
+
+    #+begin_src shell
+curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+    #+end_src
+
+    (al 29 de enero de 2024, revisen la página si es que ésto cambia).
+
+    Al terminar la instalación reinicien su =shell= y el comando =ghcup
+    tui= les abrirá una interfaz de terminal por la cual podrán navegar
+    por las distintas versiones de /GHC/ y /Cabal/, sólo asegúrense de
+    usar las versiones de ambas herramientas respectivamente.
+
+*** Administrador de paquetes
+
+    Además de instalar los requerimientos mencionados anteriormente,
+    los programas que necesitan por lo general llevan los nombres de
+    =ghc= y =cabal install=.
+
+    
+** Introducción
+
+   La extensión comúnmente usada para los archivos es =.hs=
+   
+*** Variables y tipos primitivos
+
+    | Tipo          | Ejemplo              |
+    |---------------+----------------------|
+    | Int           | ...,-2,-1,0,1,2,...  |
+    | Float, Double | 1.0,-1.25,2.5,...    |
+    | Bool          | True, False          |
+    | Char          | 'a','b','c','\n',... |
+    | Integer       | ...,-1,0,1,2,3,...   |
+
+    La creación de variables se puede hacer de la siguiente forma:
+
+    #+begin_src haskell
+x :: Int
+x = 5
+
+x' :: Float
+x' = 10.42
+  
+y :: Double
+y = 10.4283762683
+
+z :: Bool
+z = False
+
+c :: Char
+c = 'a'
+    #+end_src
+
+    
+**** Inmutabilidad
+
+     En /Haskell/ todas las variables son inmutables, es decir, una vez
+     que se definen, ya no pueden cambiar su valor.
+
+     Por ejemplo, el siguiente código nos arrojará un error:
+    
+     #+begin_src haskell
+num :: Int
+num = 1
+
+num :: Int
+num = 2
+     #+end_src
+
+*** Funciones
+
+    Las funciones en /Haskell/ juegan un papel esencial (claro, por eso
+    es un lenguaje de programación funcional).
+
+    En matemáticas, una función es una relación de elementos de un
+    conjunto $A$ a elementos de un conjunto $B$, donde un elemento de
+    $A$ se "mapea" con un único elemento del conjunto $B$.
+
+    Considera una función que eleva al cuadrado un número entero, su
+    dominio y codominio se denotaría como sigue:
+
+    $f:\mathbb{Z}\to\mathbb{Z}$
+
+    Se define la función:
+    
+    $f(x)=x^2$
+
+    Y para evaluar la función, sustituyes los parámetros de la función
+    por un valor:
+
+    $f(2)=2^2=4$
+
+    $f(3)=3^2=9$
+
+    Análogamente, el tipo de esta función se denotaría como:
+
+    #+begin_src haskell
+f :: Int -> Int
+f x = x ^ 2
+    #+end_src
+
+    Y para evaluar una función:
+
+    #+begin_src haskell
+resultado1 :: Int
+resultado1 = f 2
+
+resultado2 :: Int
+resultado2 = f 3
+    #+end_src
+
+    Para abrir el intérprete de /Haskell/, lo puédes abrir con
+    =ghci=. Para cargar un archivo dentro del intérprete, lo puedes
+    hacer con el comando =:t ruta/del/archivo.hs=
+
+    Y puedes evaluar las funciones o variables que definiste.
+
+    #+begin_src haskell
+ghci> f 12
+144
+ghci> f 9
+81
+ghci> resultado1
+4
+ghci> resultado2
+9
+    #+end_src
+
+    Sin embargo, cabe mencionar que la lógica para funciones
+    multivariadas cambia, al menos con los tipos.
+
+    Si ahora queremos hacer una función que recibe dos enteros y
+    devuelve otro entero (la suma de ambos), lo haríamos de la
+    siguiente forma:
+
+    #+begin_src haskell
+suma :: Int -> Int -> Int
+suma x y = x + y
+    #+end_src
+
+    Y para una función de 3 parámetros:
+
+    #+begin_src haskell
+suma3 :: Int -> Int -> Int -> Int
+suma3 x y z = x + y + z
+    #+end_src
+
+*** Operadores
+
+    Aritméticas:
+
+    - Suma: =+=
+    - Resta: =-=
+    - Multiplicación: =*=
+    - División (Real): =/=
+    - División (Entera): =div=
+    - Potencia: =^=
+
+
+    Booleanas:
+
+    - Negación: =not=
+    - Conjunción: =&&=
+    - Disyunción: =||=
+
+
+    Comparación:
+
+    - Igualdad: ====
+    - Desigualdad: =/==
+    - Menor que: =<=
+    - Mayor que: =>=
+    - Menor igual: =<==
+    - Mayor igual: =>==
+    
+*** Precedencia
+
+    Consideremos la función que dados dos números, suma los cuadrados
+    de ambos
+
+    #+begin_src haskell
+sumaCuadrados :: Int -> Int -> Int
+sumaCuadrados x y = x^2 + y^2
+    #+end_src
+
+    esta es una definición de función, cabe recordar que los nombres
+    de funciones y variables deben siempre iniciar con una letra
+    minúscula seguido de una serie de caracteres alfanuméricos.
+
+    Las funciones definidas de esta manera como ya vimos, las podemos
+    utilizar de la siguiente forma:
+
+    #+begin_src haskell
+ghci> suma_cuadrados 2 3
+13
+    #+end_src
+
+    Sin embargo, también es posible aplicar la función de manera
+    infija, escribiendo el nombre de la función entre dos acentos
+    graves =`=:
+
+    #+begin_src haskell
+ghci> 2 `suma_cuadrados` 3
+13
+ghci> 5 `div` 2
+2
+    #+end_src
+
+    Pero haskell también nos deja crear nuestros propios operadores, y
+    su nombre puede ser cualquier combinación de los siguientes
+    símbolos:
+
+    =! # $ * + . / < = > ? \ ^ | : - ~ %=
+
+    Para denotar su tipo lo hacemos entre paréntesis:
+
+    #+begin_src haskell
+(<+<) :: Int -> Int -> Int
+x <+< y = x^2 + y^2
+    #+end_src
+
+    También es válido dar la definición de manera prefija escribiendo
+    el operador entre paréntesis.
+
+    #+begin_src haskell
+(<+<) :: Int -> Int -> Int
+(<+<) x y = x^2 + y^2
+    #+end_src
+
+    Y ya lo podemos utilizar como cualquier otro operador
+
+    #+begin_src haskell
+ghci> 2 <+< 3
+13
+    #+end_src
+
+    De la misma manera es posible utilizar cualquier operador de
+    manera prefija escribiendo el nombre del operador entre
+    paréntesis:
+
+    #+begin_src haskell
+ghci> (<+<) 2 3
+13
+ghci> (+) 2 3
+5
+ghci> (-) 5 2
+3
+    #+end_src
+
+    Al utilizar notación infija estamos eliminando el uso de
+    paréntesis
+
+    #+begin_src haskell
+(<+<) ((<+<) 2 3) 4
+    #+end_src
+
+    #+begin_src haskell
+(2 <+< 3) <+< 4
+2 <+< 3 <+< 4 -- Por defecto los operadores asocian a la izquierda
+    #+end_src
+
+    Sin embargo al combinarlo con otros operadores, posiblemente
+    queramos que asocie de una forma distinta, y esto lo podemos hacer
+    con las palabras reservadas =infixl= e =infixr=, por ejemplo, la
+    asociatividas y precedencia de las operaciones aritméticas básicas
+    se muestra como sigue:
+
+    #+begin_src haskell
+infixl 6 +, -
+infixl 7 *, /
+    #+end_src
+
+    Y si quisiéramos que el operador =<+<= tuviera la misma precedencia
+    que la multiplicación y la división, lo tendríamos que definir
+    como sigue:
+
+    #+begin_src haskell
+infixl 7 <+<
+    #+end_src
+
+    #+begin_src haskell
+ghci> 5 * 2 <+< 3 - 1
+108
+    #+end_src
+
+*** Funciones anónimas
+
+    ¿Y si necesitamos hacer una función auxiliar que nada más usaré
+    una vez, vale la pena definirla si quiera?
+
+    #+begin_src haskell
+ghci> (\x -> x + 1) 4
+5
+ghci> (\x y -> x + y) 5 4
+9
+ghci> (\x y z -> x * y - z) 5 4 3
+17
+    #+end_src
+
+*** Listas y otras definiciones de tipos de dato
+
+    ¿Recuerdan la definición inductiva de listas?
+
+    Listas con elementos de un tipo $A$:
+
+    - La lista vacía $[]$, es una lista con elementos de tipo $A$.
+      
+    - Si $x$ (cabeza) es un elemento de tipo $A$ y $xs$ una lista con
+      elementos de tipo $A$, entonces $x:xs$ es una lista de elementos
+      de tipo $A$.
+
+    - Son todas.
+
+
+    En /Haskell/ también existen las listas bajo la misma semántica de
+    la definición inductiva.
+
+    Primero, podemos definir nuestros propios tipos de dato:
+
+    #+begin_src haskell
+data Color = Rojo | Verde | Azul
+    #+end_src
+
+    =Rojo=, =Verde= y =Azul= son constructores
+
+    Funcionan similar a una enumeración en java.
+
+    #+begin_src haskell
+favorito :: Color
+favorito = Verde
+    #+end_src
+
+    Estas definiciones de tipos de dato pueden contener otros tipos,
+    por ejemplo:
+
+    #+begin_src haskell
+data Figura = Cuadrado Double
+            | Rectangulo Double Double
+            | Circulo Double
+    #+end_src
+
+    =Cuadrado=, =Rectangulo= y =Circulo= son los constructores
+
+    #+begin_src haskell
+cuadrado :: Figura
+cuadrado = Cuadrado 4.2
+
+rectangulo :: Figura
+rectangulo = Rectangulo 1.2 5.5
+
+circulo :: Figura
+circulo = Circulo 2.3
+    #+end_src
+
+    ¿Que pasa si un constructor tiene muchos tipos?
+    
+    #+begin_src haskell
+data Alumno = Alumno String String Double Int
+    #+end_src
+
+    Podemos usar la sintaxis /record/:
+
+    #+begin_src haskell
+data Alumno = Alumno { nombre :: String
+                     , noCuenta :: String
+                     , calif :: Double
+                     , asistencias :: Int}
+    #+end_src
+
+    #+begin_src haskell
+limon :: Alumno
+limon = Alumno { noCuenta = "123456789"
+              , calif = 4.8
+              , nombre = "Erik Rangel Limón"
+              , asistencias = 2 }
+    #+end_src
+    
+    #+begin_src haskell
+ghci> noCuenta erik
+"123456789"
+    #+end_src
+
+    Las definiciones de tipos de dato también pueden utilizar
+    variables de tipo:
+
+    #+begin_src haskell
+data Talvez a = Nada | Solo a
+    #+end_src
+
+    Los tipos de dato también pueden ser definiciones inductivas; por
+    ejemplo, los números naturales
+
+    #+begin_src haskell
+data Nat = Zero
+         | Suc Nat
+    #+end_src
+
+    #+begin_src haskell
+cero :: Nat
+cero = Zero
+
+tres :: Nat
+tres = Suc (Suc (Suc Zero))
+
+cuatro :: Nat
+cuatro = Suc tres
+    #+end_src
+
+    Ahora, por fin, con las listas, ¿cómo seguimos con la definición?
+
+    #+begin_src haskell
+  data Lista a = Vacia -- La lista vacia es una lista de elementos de
+                       -- tipo a
+               | Cons a (Lista a) -- Un elemento concatenado con otra
+                                  -- lista de elementos de tipo a es
+                                  -- una lista con elementos de tipo a
+    #+end_src
+
+    Afortunadamente /haskell/ ya define este tipo de listas.
+
+    #+begin_src haskell
+data [] a = [] | a : ([] a)
+    #+end_src
+
+    Por ejemplo, una lista con número enteros
+
+    #+begin_src haskell
+enteros :: [] Int
+enteros = 1 : 2 : 3 : 4 : 5 : []
+    #+end_src
+
+    Pero /haskell/ ofrece una sintaxis más corta para representar listas
+    (y el tipo de una lista):
+
+    #+begin_src haskell
+enteros2 :: [Double]
+enteros2 = [1.24,5.2,7.5,9.3]
+    #+end_src    
+
+**** Tipos sinónimo
+
+     Nosotros podemos hacer sinónimos de tipos de dato:
+
+     #+begin_src haskell
+type Calificacion = Double
+type Clase = [Alumnos]
+type Paleta = [Color]
+     #+end_src
+
+**** Strings
+
+     Sí, sí existen cadenas en haskell, pero éstas se definen como un
+     sinónimo de tipo:
+
+     #+begin_src haskell
+type String = [Char]
+     #+end_src
+
+     Y para escribir cadenas de texto, haskell nos da la posibilidad
+     de usar =""= para representarlas.
+
+     *No olviden que las comillas simples =''= denotan caracteres*
+     
+*** Coincidencia de patrones
+
+    Éste se le conoce en inglés como /pattern matching/ y en español
+    muchas veces lo encontrarán como /caza de patrones/.
+
+    ¿Cómo podemos utilizar funciones con éstos tipos de dato?
+
+    #+begin_src haskell
+describe :: Color -> String
+describe color = case color of
+                   Rojo -> "El color es rojo"
+                   Verde -> "El color es verde"
+                   Azul -> "El color es azul"
+    #+end_src
+
+    #+begin_src haskell
+describe2 :: Color -> String
+describe2 Rojo = "El color es rojo"
+describe2 Verde = "El color es verde"
+describe2 Azul = "El color es azul"
+    #+end_src
+
+    #+begin_src haskell
+predecesor :: Nat -> Nat
+predecesor Zero = Zero
+predecesor (Suc n) = n
+    #+end_src
+
+    #+begin_src haskell
+ceroUno :: Nat -> Nat
+ceroUno Zero = Suc Zero
+ceroUno n = n
+    #+end_src
+
+    #+begin_src haskell
+esZero :: Nat -> Bool
+esZero Zero = True
+esZero _ = False
+    #+end_src
+
+    ¿Ahora, cómo hacemos coincidencia de patrones con listas?
+
+    #+begin_src haskell
+alMenosUno :: [a] -> Bool
+alMenosUno [] = False
+alMenosUno _ = True
+    #+end_src
+
+    Si queremos obtener la cabeza de una lista:
+
+    #+begin_src haskell
+cabeza :: [a] -> a
+cabeza (x:xs) = x
+    #+end_src
+
+    Si queremos obtener la cola de una lista:
+
+    #+begin_src haskell
+cola :: [a] -> [a]
+cola (x:xs) = xs
+    #+end_src

@@ -21,6 +21,10 @@
     - El cierre convexo de manera informal es como si le pusiéramos una
       liga alrededor de todas las figuras en el plano.
     
+* Laboratorios
+
+  - [[./7062/laboratorio.org][7062]]
+
 * Propedeutico
 
   - [[./prope/emacs.org][Breve tutorial sobre emacs]]

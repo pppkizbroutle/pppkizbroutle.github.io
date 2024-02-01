@@ -92,11 +92,147 @@
 
     $C<\infty$ -> $f(n)=O(g(n))$
 
-** 17 / 08 / 23
+** 24 / 08 / 23
 
-*** Problemas, algoritmos y soluciones
+*** Esquemas de Codificación
 
-    
-   
+**** Modelos de cómputo
+
+     Para poder establecer por qué podemos y qué no podemos computar
+     necesitamos definir un modelo científico de computación.
+
+     Para poder establer que podemos y qué no podemos computar
+     necesitamos definir un modelo científico de computación.
+
+     Empezamos con un modelo muy simple que identifica 3 aspectos de
+     cualquier cómputo:
+
+**** Entrada y salida
+
+     - Entrada es una secuencia de símbolos de un alfabeto fijo.
+
+     - Salida es:
+
+       - Un sólo bit indicando un sí o un no. (en este modelo
+         consideraremos solamente problemas de decisión, esto es,
+         problemas que requieren una respuesta de tipo sí o no)
+
+       - Una secuencia de símbolos del mismo alfabeto de entrada. (En
+         este modelo también permitimos problemas de búsqueda y
+         optimización, esto es, problemas que requieren el cómputo de
+         alguna respuesta o de la mejor respuesta a algún conjunto de
+         símbolos)
+
+**** Alfabetos
+
+     Un alfabeto es un conjunto (finito) de símbolos, por ejemplo
+
+     \[\Sigma=\{0,1\},\Sigma=\{A,F,G,T\},\Sigma=\{a,b,c,\ldots,z\}\]
+
+     Una cadena (o palabra) sobre un alfabeto $\Sigma$ es una
+     secuencia (finita) de símbolos de $\Sigma$, por ejemplo:
+
+     $x=0010110111$
+
+     $y=314159$
+
+     $w=FAGTTAGT$
+
+     La longitud de una cadena $x$ es el número de símbolos en $x$,
+     denotado como $I(x)$. La cadena vacía $\omega$ (o también
+     representada como $\varepsilon$) es la vadena que no contiene
+     símbolos.
+
+     El conjunto de todas las cadenas no vacías sobre $\Sigma$ es
+     denotado como $\Sigma^+$.
+
+     El conjunto de todas las cadenas sobre $\Sigma$ (incluyendo la
+     cadena vacía) es denotado por $\Sigma^*$.
+
+**** Codificaciones
+
+     Para procesar problemas en una computadora, cada ejemplar debe
+     estar codificado en una cadena de símbolos sobre algún alfabeto.
+
+     Para hacer esto necesitamos un esquema de codificación.
+
+     - En general,
+
+       - Codificamos todas las cadenas en binario
+
+       - Justo como lo hacemos con las computadoras
+
+**** Representación: Números
+
+     - Los números son representados en binario
+
+     - Los ceros pueden ser ignorados
+
+**** Representación: Letras o alfabetos no binarios
+
+     - Codificación de cadenas de alfabetos no binarios
+
+       - Codificar cada símbolo usando $\lceil\log_2|\Sigma|\rceil$ bits
+
+       - Codificar cadenas concatenando las representaciones binarias
+
+     - Ejemplo: $\Sigma=\{a,b,c,d\}$, $\lceil\log_2|\Sigma|\rceil=2$
+
+**** Representación: Pares y tuplas
+
+     - Codificación de pares de objetos:
+       
+       - Asumimos que ya tenemos una función paracodificar los objetos
+         individuales.
+
+       - Escogemos un nuevo símbolo, por ejemplo $\#$
+
+       - Pares: codificamos $(x,y)$ como $\lfloor x\rfloor\#\lfloor y\rfloor$
+
+       - Tuplas: codificamos $(x_1,x_2,\ldots,x_k)$ como $\lfloor
+         x_1\rfloor\#\lfloor x_2\rfloor\#\ldots\#\lfloor x_k\rfloor$
+
+** 31 / 08 / 23
+
+*** Lenguajes
+
+    Un lenguaje sobre el alfabeto $\Sigma$ es cualquier subconjunto de
+    $\Sigma^*$, por ejemplo
+
+    \[L=\{\omega, ab,abab,ababab,\ldots\}=\{(ab)^n|n\in\mathbb{N}\cup\{0\}\}\]
+
+    Para un problema de decisión $\Pi$, con un esquema de codificación
+    $e$ sobre un alfabeto $\Sigma$, el conjunto de cadenas que se
+    corresponden con ejemplares con respuesta /sí/ es denotado como
+
+    \[L(\Pi,e)\]
+
+    y es llamado el lenguaje asociado con $\Pi$ y e
+
+    Notemos que
+
+    \[L(\Pi, e)\subset\Sigma^*\]
+
+    Para problemas de decisión sólo queremos decidir si una cadena
+    dada pertenece a $L(\Pi,e)$
+
+*** Máquna de Turing
+
+    Es un 7-tupla $\langle Q,\Sigma,\Gamma, \delta, q_s,q_a, q_r\rangle$ donde
+
+    1. $Q$ es un conjunto finito de estados
+
+    2. $\Sigma$ es el alfabeto de entrada que no contiene el símbolo
+       en blanco.
+
+    3. $\Gamma$ es el alfabeto de la cinta, donde $\Sigma\subseteq\Gamma$
+
+    4. $\delta$ es la función de transición $\delta: Q\times\Gamma\rightarrow Q\times\Gamma\times\{\leftarrow,\rightarrow\}$
+
+    5. $q_s\in Q$ es el estado inicial
+
+    6. $q_a\in Q$ es el estado de aceptación
+
+    7. $q_r\in Q$ es el estado de rechazo
 
 * Bibliografia

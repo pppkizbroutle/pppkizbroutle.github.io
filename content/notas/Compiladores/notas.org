@@ -287,7 +287,540 @@
 
     - Si $\alpha$, $\beta$ son regex, entonces $\alpha+\beta$ y
       $\alpha\beta$ son regex.
+   
+** 21 / 08 / 23
 
-      
+*** Introducción
 
-* Bibliografía
+    Un compilador se compone internamente de varias etapas, o fases
+    que realizan distintas operaciones lógicas.
+
+    Es útil pensar en estas fases como piezas separadas aunque a
+    menudo se integren juntas.
+
+    | Código fuente                  |                     |
+    |--------------------------------+---------------------|
+    | Analizador léxico              | Detectar palabras   |
+    |--------------------------------+---------------------|
+    | Tokens                         |                     |
+    |--------------------------------+---------------------|
+    | Analizador sintáctico          | Analizar estructura |
+    |--------------------------------+---------------------|
+    | Árbol de sintaxis abstracta    |                     |
+    |--------------------------------+---------------------|
+    | Analizador semántico           | Analiza significado |
+    |--------------------------------+---------------------|
+    | Árbol con anotaciones          |                     |
+    |--------------------------------+---------------------|
+    | Optimizador de código fuente   |                     |
+    |--------------------------------+---------------------|
+    | Código intermedio              |                     |
+    |--------------------------------+---------------------|
+    | Generador de código            |                     |
+    |--------------------------------+---------------------|
+    | Código objetivo                |                     |
+    |--------------------------------+---------------------|
+    | Optimizador de código objetivo |                     |
+    |--------------------------------+---------------------|
+    | Código objetivo                |                     |
+
+**** Analizador léxico
+
+     - En esta fase se ejecuta la lectura del programa fuente, el cuál
+       generalmente es dado en forma de cadena.
+       
+     - Se realiza lo que se conoce como análisis léxico es decir,
+       recolecta subcadenas en unidades significativas denominadas
+       lexemas o tokens las cuales son como las palabras de un
+       lenguaje natural, como el español.
+       
+     - De este modo, podemos pensar en un analizador léxico como un
+       programa que realiza una función similar al deletreo.
+
+**** Analizador sintáctico
+
+     - Recibe el código fuente en forma de tokens proveniente del
+       analizador léxico y realiza un análisis sintáctico que
+       determina la estructura del programa.
+
+     - Determina los elementos estructurales del programa y sus
+       relaciones.
+
+     - Los resultados del análisis sintáctico usualmente se
+       representan como árboles de análisis gramaticales o árboles de
+       sintaxis abstracta.
+
+     - Un árbol de análisis gramatical es un auxiliar para visualizar
+       la sintaxis del programa o de un elemento de programa, pero no
+       es eficaz en su representación de dicha estructura.
+
+     - Los analizadores sintácticos tienden a generar un árbol de
+       sintaxis abstracta (asa) en su lugar, el cual es una
+       condensación de la información contenida en un árbol de
+       análisis gramatical.
+
+     - Se les llama abstractos porque representan una abstracción
+       adicional de los árboles de análisis gramatical.
+
+**** Analizador semántico
+
+     - La semántica de un programa es su /significado/, en oposición a
+       su sintaxis o estructura.
+
+     - La semántica determina el comportamiento de un programa durante
+       ejecución, sin embargo, un compilador puede determinar otras
+       características a partir de lo escrito.
+
+     - Se hace referencia a tales características como semántica
+       estática y el análisis de tal semántica es la tarea del
+       analizador semántico.
+
+     - La semántica dinámica de un programa, es decir, aquellas
+       propiedades del programa que sólo pueden determinar al
+       ehjecutarlo, no se pueden determinar mediante un compilador
+       porque éste no ejecuta el programa.
+
+     - Las características típicas de la semántica estática incluyen
+       las declaraciones y la verificación de tipos.
+
+     - Las partes extra de la información (como los tipos de datos)
+       que se calculan mediante un analizador semántico se llaman
+       atributos y con frecuencia se agregan al árbol como anotaciones
+       (también se pueden introducir en la tabla de símbolos).
+
+**** Optimizador de código fuente
+
+     - Los compiladores a menudo incluyen varias etapas para el
+       mejoramiento, y optimización del código.
+
+     - El punto más anticipado en el que la mayoría de las etapas de
+       optimización se pueden realizar es precisamente después del
+       análisis semántico, y puede haber posibilidades para el
+       mejoramiento del código que dependerán sólo del código fuente.
+
+     - Se indica esta posibilidad al proporcionar esta operación como
+       una fase por separado en el proceso de compilación.
+
+     - Los compiladores muestran una amplia variación no sólo en los
+       tipos de optimizaciones realizadas sino también en la
+       colocación de las fases de optimización.
+
+     - Muchas optimizaciones se pueden efectuar sobre el /asa/, pero es
+       más fácil optimizar una forma que esté más cercana al código
+       ensamblador.
+
+     - Existen variedades diferentes como es el código en tres
+       direcciones, denominado así porque contiene las direcciones de
+       a lo más tres localidades de memoria.
+
+     - Al emplear el código en tres direcciones, nos podemos referir a
+       su salida como código intermedio.
+
+     - Históricamente, el código intermedio ha hecho referencia a una
+       forma de representación de código intermedia entre el código
+       fuente y el código objeto tal como el código en tres
+       direcciones.
+
+     - También puede referirse de manera general a *cualquier*
+       representación interna para el código fuente utilizado por el
+       compilador.
+
+     - En este sentido, también se puede hacer referencia al /asa/ como
+       un código intermedio, y efectivamente el optimizador de código
+       guente podría continuar el uso de esta representación en su
+       salida.
+
+     - En ocasiones este sentido general se indica al hacer referencia
+       al código intermedio como *representación intermedia*, o *RI*.
+
+**** Generador de código
+
+     - El generador de código toma la *RI* y genera el código para la
+       máquina objetivo.
+
+     - Escribiremos el código objetivo en la forma de lenguaje
+       ensamblador para facilitar su comprensión, aunque muchos
+       compiladores generan el código objeto de manera directa.
+
+     - Es en esta fase de la compilación en la que las propiedades de
+       la máquina objetivo se convierten en el factor principal.
+
+     - No sólo es necesario emplear instrucciones que existan en la
+       máquina objetivo, sino que las decisiones respecto a la
+       representación de los datos desempeñarán ahora también un papel
+       principal, tal como cuántos bytes ocuparán las variables.
+
+     - En esta fase el compilador intenta mejorar el código objetivo
+       dado por el generador de código.
+
+     - Dichas mejoras incluyen la selección de modos de
+       direccionamiento para mejorar el rendimiento, reemplazando las
+       instrucciones lentas por otras rápidas, y eliminando las
+       operaciones redundantes o innecesarias.
+
+** 23 / 08 / 23
+
+*** Estructuras de datos principales en un compilador
+
+    La interacción entre los algoritmos utilizados por las fases de un
+    compilador y las estructuras de datos que soportan estas fases, es
+    naturalmente, muy fuerte.
+
+    Los programadores se esfuerzan por implementar estos algoritmos de
+    una forma tan eficaz como sea posible, sin aumentar demasiado la
+    complejidad.
+
+    De manera ideal, un compilador debería poder compilar un programa
+    en un tiempo proporcional al tamño del programa, es decir, $O(n)$
+    en tiempo, donde $n#$ es una medida del tamaño del programa.
+
+    Este este tema señalaremos algunas de las principales estructuras
+    de datos que son necesarias para las fases como parte de su
+    operación y que sirven para comunicar la información entre las
+    fases.
+
+**** Tokens
+
+     Cuando un analizador léxico reúne los caracteres en un token,
+     generalmente representa el token de manera simbólica, es decir,
+     como valor de un tipo de dato enumerado que representa el
+     conjunto de tokens del lenguaje fuente.
+
+     En ocasiones también es necesario mantener la cadena de
+     caracteres misma u otra información derivada de ella, tal como el
+     nombre asociado con un token identificador o el valor de un token
+     número.
+
+     En la mayoría de los lenguajes el analizador léxico sólo necesita
+     generar un token a la vez (esto se conoce como búsqueda de
+     símbolo simple).
+
+     En este caso se puede utilizar una variable global simple para
+     mantener la información del token.
+
+     En otros casos, puede ser necesario un arreglo (u otra
+     estructura) de tokens.
+
+**** Árboles de sintaxis abstracta
+
+     Si el analizador sintáctico genera un ASA, por lo regular se
+     construye como una estructura estándar basada en un apuntador que
+     se asigna de manera dinámica a medida que se efectúa el análisis
+     sintáctico.
+
+     El árbol entero puede entonces conservarse como una variable
+     simple que apunta al nodo raíz.
+
+     Cada nodo en la estructura es una estructura, cuyos campos
+     representan la información recolectada tanto por el analizador
+     sintáctico, como posteriormente, por el analizador semántico.
+
+     Por ejemplo, el tipo de dato de una expresión puede conservarse
+     como un campo en el nodo del ASA para la expresión.
+
+     En ocasiones para ahorrar espacio, estos campos se asignan de
+     manera dinámica, o se almacenan en otras estructuras de datos,
+     como la tabla de símbolos que permiten una asignación y
+     desasignación selectivas.
+
+     En realidad, cada nodo del ASA por sí mismo puede requerir
+     atributos diferentes para ser almacenado, de acuerdo con la clase
+     de estructura del lenguaje que represente.
+
+     En esete caso, cada nodo en el ASA puede estar representado por
+     un registro variable, con cada clase de nodo conteniendo
+     solamente la información necesaria para ese caso.
+
+**** Tabla de símbolos
+
+     Esta estructura de datos mantiene la información aosicada con los
+     identificadores: funciones variables, constantes y tipos de
+     datos.
+
+     Interactúa con casi todas las fases del compilador: el analizador
+     léxico, el analizador sintáctico o el analizador semántico que
+     puede introducir identificadores dentro de la tabal o agregar
+     tipos de datos y otra información; y las fases de optimización y
+     generación de código que utlizan la información proporcionada
+     para efectuar selecciones apropiadas de código objeto.
+
+     Puesto que tendrá solicitudes de acceso con tanta frecuencia, las
+     operaciones de elimincación, inserción y acceso necesitan ser
+     eficientes, preferiblemente operaciones de tiempo constante.
+
+     Una estrucutra de datos básica para este propósito son las tablas
+     de dispersión aunque también se pueden utilizar diversas
+     estructuras de árbol, o se construyen tablas con el apoyo de una
+     lista o pila.
+
+**** Tabla de literales
+
+     La búsqueda y la inserción rápida son esenciales para la tabla de
+     literales, la cual almacena constantes y cadenas utilizadas en el
+     programa.
+
+     Sin embargo, una tabla de literales necesita impedir las
+     eliminaciones porque sus datos se aplican globalmente al programa
+     y una constante o cadena aparecerá sólo una vez en esta tabla.
+
+     Es importante en la reducción del tamaño de un programa en la
+     memoria la permitir la reutilización de constantes y cadenas.
+
+     También es necesaria para que el generador de código construya
+     direcciones simbólicas para las literales y para introducir
+     definiciones de datos en el archivo de código objetivo.
+
+**** Código intermedio
+
+     De acuerdo con la clase de código intermedio y de las clases de
+     optimizaciones realizadas, este código puede conservarse como un
+     arreglo de cadenas, un archivo de texto temporal o bien una lista
+     de estructuras ligadas.
+
+     En los compiladores que realizan optimizaciones complejas debe
+     ponerse particular atención a la selección de representaciones
+     que permitan una fácil reorganización.
+
+** 28 / 08 / 23
+
+*** Compiladores
+
+**** Introducción
+
+     - La estructura de un compilador se puede ver desde distinto
+       ángulos.
+
+     - En temas anteriores describimos sus fases, las cuales
+       representan la estrucutra lógica de un compilador.
+
+     - Otros puntos de vista posibles son:
+
+       - La estructura física del compilador
+
+       - La secuenciación de las operaciones
+
+     - La persona que desarrolla el compilador debería estar
+       familiarizada con tantos puntos de vista de la estructura del
+       compilador como sea posible, ya que la estructura del
+       compilador será determinante para su confiabilidad, eficacia,
+       utilidad y mantenimiento.
+
+     - En este tema consideraremos otros aspectos en la estructura del
+       compilador y señalaremos cómo se aplica cada punto de vista.
+
+**** Análisis y síntesis
+
+     - Las operaciones del compilador que analizan el programa fuente
+       para calcular sus propiedades se clasifican como la parte de
+       *análisis* del compilador, mientras que las operaciones
+       involucradas en la producción del código traducido se conocen
+       como śintesis del compilador.
+
+     - Los análisis léxico, sintáctico y semántico pertenecen a la
+       parte de análisis, mientras que la generación de código es la
+       síntesis.
+
+     - Las etapas de optimización pueden involucrar tanto análisis
+       como síntesis.
+
+     - El análisis tiende a ser más matemático y a comprendrerse
+       mejor, mientras que la síntesis requiere de técnicas más
+       especializadas.
+
+     - Es útil separar las etapas de análisis de las etapas de
+       síntesis, de modo que cada una se pueda modificar de manera
+       independiente respecto a la otra.
+
+**** Etapa inicial y etapa final
+
+     - Considera al compilador separado en aquellas funciones que
+       dependen sólo del lenguaje fuente (la etapa inicial /front-end/)
+       y aquellas operaciones que dependen únicamente del leguaje
+       objetivo (etapa final /back-end/).
+
+     - Es similar a la división en análisis y síntesis: los
+       analizadores léxico, sintáctico y semántico son parte de la
+       etapa inicial, mientras que el generador de código es parte de
+       la etapa final.
+
+     - Algo de las optimizaciones puede ser dependiente del objetivo,
+       y por lo tanto parte de la etapa final, mientras que la
+       síntesis del código intermedio es a menudo dependiente del
+       objetivo, y por consiguiente, parte de la etapa inicial. De
+       manera ideal el compilador estaría estrictamente dividido en
+       estas dos secciones, con la RI como el medio de comunicación
+       entre ellas.
+
+     - Esta estructura es especialmente importante para la
+       portabilidad del compilador donde se diseña con un enfoque
+       hacia la modificación, ya sea del código fuente o del código
+       objetivo.
+
+**** Pasadas
+
+     - Un compilador a menudo encuentra conveniente procesar todo el
+       programa varias veces antes de generar el código.
+
+     - Estas repeticiones son conocidas como *pasadas*.
+
+     - Después del aso inicial, donde se construye el ASA o una RI a
+       partir de la fuente, una pasada consiste en procesar la RI
+       agregando información a ella, alterando su estructura o
+       produciendo una representación diferente.
+
+     - Las pasadas pueden corresponder o no a las fases, a menudo una
+       pasada consistirá de varias etapas.
+
+     - En realidad, dependiendo del lenguae, un compilador puede ser
+       de una pasada, en el que todas las fases se presentan en un
+       paso único.
+
+     - Esto resulta en una compilación eficaz pero también en un
+       código objetivo menos eficiente.
+
+     - La mayoría de los compiladores con optimizaciones utilizan más
+       de una pasada; por lo regular se emplea una pasada para los
+       análisis léxico y sintáctico, otra para el análisis semántico y
+       optimización a nivel del fuente, y una tercera para generación
+       de código y optimización a nivel del objetivo.
+
+     - Existen compiladores que pueden emplear incluso más pasadas:
+       cinco, seis e incluso ocho no son algo fuera de lo común.
+
+** 29 / 08 / 23
+
+*** Gramáticas (libres del contexto)
+
+    \[G=\langle V,T,S,P \rangle\]
+
+    - $V$ alfabeto de símbolos no terminales
+
+    - $T$ un alfabeto de símbolos terminales
+
+    - $S\in V$ símbolo inicial
+
+    - $P$ un conjunto de producciones
+
+** 30 / 08 / 23
+
+*** Teoría de Lenguajes de Programación y Teoría de Compiladores
+
+    - Hablamos temas atrás sobre cómo las estructuras léxicas y
+      sintácticas de un lenguaje de programación por lo regular son
+      especificadas en términos formales y utilizan expresiones
+      regulares y gramáticas libres del contexto.
+
+    - Sin embargo, la semántica de un lenguaje de programación todavía
+      es comúnmente especificada utilizando descripciones en lenguaje
+      natural.
+
+    - Estas descripciones son recopiladas en la documentación del
+      lenguaje de programación.
+
+    - Cuando se crean nuevos lenguajes de programación, su diseño y
+      compilador con frecuencia son dearrollados de manera simultánea,
+      puesto que las técnicas disponibles para los desarrolladores de
+      compiladores, pueden tener un impacto sobre el diseño del
+      lenguaje de programación.
+
+    - Similarmente la manera en que se define un lenguaje de
+      programación tendrá un impacto fundamental sobre las técnicas
+      que son necesarias para construir el compilador.
+
+    - Una situación común es que el lenguaje de programación que se
+      está implementando sea conocido y tenga un diseño ya existente.
+
+    - En muchos de estos casos, dichos lenguajes alcanzan el nivel de
+      lenguaje estándar que son aprobados por organizaciones como ANSI
+      o ISO.
+
+    - Esto a menudo no es una tarea sencilla, pero en ocasiones sí
+      tiene ciertas ventajas debido principalmente a la existencia de
+      baterías de pruebas estándar.
+
+    - Ocasionalmente los lenguajes cuentan con una semántica definida
+      en términos matemáticos, por ejemplo, usando un estilo
+      operacional.
+
+    - En estos casos es posible dar una prueba matemática de que un
+      compilador se adhiere a la definición. Sin embargo, es una tarea
+      difícil.
+
+    - El diseño del lenguaje también interfiere con el comportamiento
+      y estructura de los ambientes de ejecución.
+
+*** Manejo de errores
+
+    - Una de las funciones más importantes de un compilador es su
+      respuesta a los errores
+
+    - Una definición de un lenguaje por lo general requerirá no
+      solamente que los errores estáticos sean detectados por un
+      compilador, sino también ciertos errores de ejecución.
+
+    - Esto requiere que un compilador genere código extra, el cual
+      realizará priuebas de ejecución apropiadas para garantizar que
+      aún con todos esos errores se provocará un evento apropiado
+      durante la ejecución. El más simple será detener la ejecución.
+
+    - A menudo esto no es adecuado, y una definición del lenguaje
+      puede requerir la presencia de mecanismos para el manejo de
+      excepciones.
+
+    - No consideraremos la implementación de un mecanismo así...
+
+*** Autohosting y bootstraping
+
+**** Lenguaje anfitrión
+
+     - Hemos analizado los lenguajes fuente y objetivo como factores
+       en la estructura de un compilador y la utilidad de separar
+       cuestiones de los lenguajes fuente y objetivo en etapas inicial
+       y final.
+
+     - No hemos mencionado el tercer lenguaje involucrado en el
+       proceso de construcción de compiladores: el lenguaje en el que
+       el compilador está escrito.
+
+     - Para que el compilador se ejecute inmediatamente, este lenguaje
+       anfitrión tendría que ser lenguaje de máquina.
+
+     - Así fue como se escribieron los primeros compiladores, puesto
+       que no existían compiladores todavía.
+
+     - Un enfoque en la actualidad es escribir el compilador en otro
+       lenguaje para el cual ya exista un compilador.
+
+     - Si el compilador existente ya se ejecuta en la máquina
+       objetivo, entonces necesitamos compilar utlizando el compilador
+       existente para obtener un programa ejecutable.
+
+**** Lenguaje anfitrión
+
+     - Si el compilador existente para el lenguaje B se ejecuta en una
+       máquina diferente a la máquina objetivo, entonces la situación
+       es un poco más complicada.
+
+     - La compilación produce entonces un compilador cruzado, es
+       decir, un compilador que genera código objetivo para una
+       máquina diferente de aquella en la que puede ejecutarse.
+
+**** Diagramas T
+
+     - La situación anterior y muchas otras más complejas se describen
+       mejor al esquematizar un compilador como un diagrama T.
+
+     - Un compilador escrito en el lenguaje A (Anfitrión) que traduce
+       el lenguaje F (Fuente) en lenguaje O (Objetivo) se dibuja como
+       un diagrama T:
+
+
+     | F | -> | O |
+     |---+----+---|
+     |   | A  |   |
+
+     - Observemos que esto es equivalente a decir que el compilador se
+       ejecuta en la máquina A. Normalmente esperamos que A sea lo
+       mismo que O, pero no es necesario que éste sea el caso.
+
+     - Los diagramas T se pueden combinar en dos formas.
