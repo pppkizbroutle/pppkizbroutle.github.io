@@ -24,6 +24,7 @@
 * Laboratorios
 
   - [[./7062/laboratorio.org][7062]]
+  - [[./7068/laboratorio.org][7068]]
 
 * Propedeutico
 
