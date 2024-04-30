@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-13 Tue 22:58 -->
+<!-- 2024-04-30 Tue 10:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Laboratorio</title>
@@ -50,42 +50,58 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2a07b43">Haskell</a>
+<li><a href="#org4ddd769">Haskell</a>
 <ul>
-<li><a href="#orgd47beb2">Instalación</a>
+<li><a href="#org527c7f8">Instalación</a>
 <ul>
-<li><a href="#org28d12bb">Requerimientos</a></li>
-<li><a href="#org7e9023a">GHCup</a></li>
-<li><a href="#org1fd6233">Administrador de paquetes</a></li>
+<li><a href="#org85eb992">Requerimientos</a></li>
+<li><a href="#orgbfaad15">GHCup</a></li>
+<li><a href="#orgd81bee0">Administrador de paquetes</a></li>
 </ul>
 </li>
-<li><a href="#org224a86d">Introducción</a>
+<li><a href="#orgcefaec0">Introducción</a>
 <ul>
-<li><a href="#orgf376728">Variables y tipos primitivos</a></li>
-<li><a href="#orge835fdb">Funciones</a></li>
-<li><a href="#org37dbc38">Operadores</a></li>
-<li><a href="#orgfd95491">Precedencia</a></li>
-<li><a href="#org4494010">Funciones anónimas</a></li>
+<li><a href="#orgfeac6f1">Variables y tipos primitivos</a></li>
+<li><a href="#org5dd42d8">Funciones</a></li>
+<li><a href="#orgdad9266">Operadores</a></li>
+<li><a href="#org0fc01a2">Precedencia</a></li>
+<li><a href="#org56e8749">Funciones anónimas</a></li>
 </ul>
 </li>
-<li><a href="#org127b02e">Listas, definiciones de tipos de dato y coincidencia de patrones</a>
+<li><a href="#org9bd27c5">Listas, definiciones de tipos de dato y coincidencia de patrones</a>
 <ul>
-<li><a href="#org1cedd04">Condicionales</a></li>
-<li><a href="#org3b59357">Coincidencia de patrones</a></li>
-<li><a href="#org90725e0">Funciones de orden superior</a></li>
+<li><a href="#orgd8fd0db">Condicionales</a></li>
+<li><a href="#org2c8e745">Coincidencia de patrones</a></li>
+<li><a href="#orgdf633e5">Funciones de orden superior</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org3b9289b">Lógica proposicional en Haskell</a></li>
+<li><a href="#org856b918">Lógica proposicional en Haskell</a></li>
+<li><a href="#org52383d3">Prolog</a>
+<ul>
+<li><a href="#org8e34283">Predicados y constantes</a></li>
+<li><a href="#org0fcaca8">Consultas</a></li>
+<li><a href="#org0f60048">Condiciones y Variables</a></li>
+<li><a href="#orge0909a2">Backtracking</a></li>
+<li><a href="#orgf731769">Números y Operadores</a>
+<ul>
+<li><a href="#org937acf5">Negación como falla</a></li>
+<li><a href="#org65a6642">Unificación</a></li>
+</ul>
+</li>
+<li><a href="#org5beef51">Ejemplos</a></li>
+<li><a href="#org06c65c6">Listas y comodines</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org2a07b43" class="outline-2">
-<h2 id="org2a07b43">Haskell</h2>
-<div class="outline-text-2" id="text-org2a07b43">
+<div id="outline-container-org4ddd769" class="outline-2">
+<h2 id="org4ddd769">Haskell</h2>
+<div class="outline-text-2" id="text-org4ddd769">
 <p>
 Es el lenguaje de programación que utilizaremos para realizar
 la mayor parte de las prácticas de laboratorio.
@@ -101,9 +117,9 @@ funcionales como si se tratasen de una expresión matemática.
 </p>
 </div>
 
-<div id="outline-container-orgd47beb2" class="outline-3">
-<h3 id="orgd47beb2">Instalación</h3>
-<div class="outline-text-3" id="text-orgd47beb2">
+<div id="outline-container-org527c7f8" class="outline-3">
+<h3 id="org527c7f8">Instalación</h3>
+<div class="outline-text-3" id="text-org527c7f8">
 <p>
 <i>Haskell</i> es un lenguaje compilado, pero también puede comportarse
 como un programa interpretado. Ambas herramientas vienen al
@@ -135,9 +151,9 @@ siguiente página:
 </div>
 
 
-<div id="outline-container-org28d12bb" class="outline-4">
-<h4 id="org28d12bb">Requerimientos</h4>
-<div class="outline-text-4" id="text-org28d12bb">
+<div id="outline-container-org85eb992" class="outline-4">
+<h4 id="org85eb992">Requerimientos</h4>
+<div class="outline-text-4" id="text-org85eb992">
 <ul class="org-ul">
 <li><p>
 Debian &gt;= 12:
@@ -197,9 +213,9 @@ En computadoras con <i>M1</i>, deben investiguen cómo instalar <code>llvm</code
 </div>
 </div>
 
-<div id="outline-container-org7e9023a" class="outline-4">
-<h4 id="org7e9023a">GHCup</h4>
-<div class="outline-text-4" id="text-org7e9023a">
+<div id="outline-container-orgbfaad15" class="outline-4">
+<h4 id="orgbfaad15">GHCup</h4>
+<div class="outline-text-4" id="text-orgbfaad15">
 <p>
 El comando que debe utilizarse para instalarlo en <i>Linux</i>, <i>macOS</i>,
 <i>FreeBSD</i> o <i>WSL2</i> es el siguiente:
@@ -223,9 +239,9 @@ usar las versiones de ambas herramientas respectivamente.
 </div>
 </div>
 
-<div id="outline-container-org1fd6233" class="outline-4">
-<h4 id="org1fd6233">Administrador de paquetes</h4>
-<div class="outline-text-4" id="text-org1fd6233">
+<div id="outline-container-orgd81bee0" class="outline-4">
+<h4 id="orgd81bee0">Administrador de paquetes</h4>
+<div class="outline-text-4" id="text-orgd81bee0">
 <p>
 Además de instalar los requerimientos mencionados anteriormente,
 los programas que necesitan por lo general llevan los nombres de
@@ -236,17 +252,17 @@ los programas que necesitan por lo general llevan los nombres de
 </div>
 
 
-<div id="outline-container-org224a86d" class="outline-3">
-<h3 id="org224a86d">Introducción</h3>
-<div class="outline-text-3" id="text-org224a86d">
+<div id="outline-container-orgcefaec0" class="outline-3">
+<h3 id="orgcefaec0">Introducción</h3>
+<div class="outline-text-3" id="text-orgcefaec0">
 <p>
 La extensión comúnmente usada para los archivos es <code>.hs</code>
 </p>
 </div>
 
-<div id="outline-container-orgf376728" class="outline-4">
-<h4 id="orgf376728">Variables y tipos primitivos</h4>
-<div class="outline-text-4" id="text-orgf376728">
+<div id="outline-container-orgfeac6f1" class="outline-4">
+<h4 id="orgfeac6f1">Variables y tipos primitivos</h4>
+<div class="outline-text-4" id="text-orgfeac6f1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -314,8 +330,8 @@ c = 'a'
 
 
 <ul class="org-ul">
-<li><a id="org337ffe9"></a>Inmutabilidad<br />
-<div class="outline-text-5" id="text-org337ffe9">
+<li><a id="org8fa5a04"></a>Inmutabilidad<br />
+<div class="outline-text-5" id="text-org8fa5a04">
 <p>
 En <i>Haskell</i> todas las variables son inmutables, es decir, una vez
 que se definen, ya no pueden cambiar su valor.
@@ -338,9 +354,9 @@ num = 2
 </ul>
 </div>
 
-<div id="outline-container-orge835fdb" class="outline-4">
-<h4 id="orge835fdb">Funciones</h4>
-<div class="outline-text-4" id="text-orge835fdb">
+<div id="outline-container-org5dd42d8" class="outline-4">
+<h4 id="org5dd42d8">Funciones</h4>
+<div class="outline-text-4" id="text-org5dd42d8">
 <p>
 Las funciones en <i>Haskell</i> juegan un papel esencial (claro, por eso
 es un lenguaje de programación funcional).
@@ -456,9 +472,9 @@ suma3 x y z = x + y + z
 </div>
 </div>
 
-<div id="outline-container-org37dbc38" class="outline-4">
-<h4 id="org37dbc38">Operadores</h4>
-<div class="outline-text-4" id="text-org37dbc38">
+<div id="outline-container-orgdad9266" class="outline-4">
+<h4 id="orgdad9266">Operadores</h4>
+<div class="outline-text-4" id="text-orgdad9266">
 <p>
 Aritméticas:
 </p>
@@ -499,9 +515,9 @@ Comparación:
 </div>
 </div>
 
-<div id="outline-container-orgfd95491" class="outline-4">
-<h4 id="orgfd95491">Precedencia</h4>
-<div class="outline-text-4" id="text-orgfd95491">
+<div id="outline-container-org0fc01a2" class="outline-4">
+<h4 id="org0fc01a2">Precedencia</h4>
+<div class="outline-text-4" id="text-org0fc01a2">
 <p>
 Consideremos la función que dados dos números, suma los cuadrados
 de ambos
@@ -655,9 +671,9 @@ como sigue:
 </div>
 </div>
 
-<div id="outline-container-org4494010" class="outline-4">
-<h4 id="org4494010">Funciones anónimas</h4>
-<div class="outline-text-4" id="text-org4494010">
+<div id="outline-container-org56e8749" class="outline-4">
+<h4 id="org56e8749">Funciones anónimas</h4>
+<div class="outline-text-4" id="text-org56e8749">
 <p>
 ¿Y si necesitamos hacer una función auxiliar que nada más usaré
 una vez, vale la pena definirla si quiera?
@@ -676,9 +692,9 @@ ghci&gt; (\x y z -&gt; x * y - z) 5 4 3
 </div>
 </div>
 
-<div id="outline-container-org127b02e" class="outline-3">
-<h3 id="org127b02e">Listas, definiciones de tipos de dato y coincidencia de patrones</h3>
-<div class="outline-text-3" id="text-org127b02e">
+<div id="outline-container-org9bd27c5" class="outline-3">
+<h3 id="org9bd27c5">Listas, definiciones de tipos de dato y coincidencia de patrones</h3>
+<div class="outline-text-3" id="text-org9bd27c5">
 <p>
 ¿Recuerdan la definición inductiva de listas?
 </p>
@@ -868,8 +884,8 @@ enteros2 = [1.24,5.2,7.5,9.3]
 </div>
 
 <ul class="org-ul">
-<li><a id="org0808289"></a>Tipos sinónimo<br />
-<div class="outline-text-5" id="text-org0808289">
+<li><a id="org7ca249e"></a>Tipos sinónimo<br />
+<div class="outline-text-5" id="text-org7ca249e">
 <p>
 Nosotros podemos hacer sinónimos de tipos de dato:
 </p>
@@ -888,8 +904,8 @@ alumnos1 = [erik, juan, alberto]
 </div>
 </div>
 </li>
-<li><a id="org89cef58"></a>Strings<br />
-<div class="outline-text-5" id="text-org89cef58">
+<li><a id="org3135615"></a>Strings<br />
+<div class="outline-text-5" id="text-org3135615">
 <p>
 Sí, sí existen cadenas en haskell, pero éstas se definen como un
 sinónimo de tipo:
@@ -912,9 +928,9 @@ de usar <code>""</code> para representarlas.
 </li>
 </ul>
 
-<div id="outline-container-org1cedd04" class="outline-4">
-<h4 id="org1cedd04">Condicionales</h4>
-<div class="outline-text-4" id="text-org1cedd04">
+<div id="outline-container-orgd8fd0db" class="outline-4">
+<h4 id="orgd8fd0db">Condicionales</h4>
+<div class="outline-text-4" id="text-orgd8fd0db">
 <p>
 Como en cualquier lenguaje de programación, tenemos expresiones
 condicionales para manejar casos en los que se cumpla una
@@ -992,9 +1008,9 @@ compara2 n m | n &lt; m = "El primero es menor que el segundo"
 </div>
 </div>
 
-<div id="outline-container-org3b59357" class="outline-4">
-<h4 id="org3b59357">Coincidencia de patrones</h4>
-<div class="outline-text-4" id="text-org3b59357">
+<div id="outline-container-org2c8e745" class="outline-4">
+<h4 id="org2c8e745">Coincidencia de patrones</h4>
+<div class="outline-text-4" id="text-org2c8e745">
 <p>
 Éste se le conoce en inglés como <i>pattern matching</i> y en español
 muchas veces lo encontrarán como <i>caza de patrones</i>.
@@ -1136,9 +1152,9 @@ nivel (Nodo a l r) = 1 + max (nivel l) (nivel r)
 </div>
 </div>
 
-<div id="outline-container-org90725e0" class="outline-4">
-<h4 id="org90725e0">Funciones de orden superior</h4>
-<div class="outline-text-4" id="text-org90725e0">
+<div id="outline-container-orgdf633e5" class="outline-4">
+<h4 id="orgdf633e5">Funciones de orden superior</h4>
+<div class="outline-text-4" id="text-orgdf633e5">
 <p>
 Una función de orden superior, es una función que puede recibir
 como parámetro otra función.
@@ -1213,9 +1229,9 @@ Ahora, qué si queremos
 </div>
 </div>
 
-<div id="outline-container-org3b9289b" class="outline-2">
-<h2 id="org3b9289b">Lógica proposicional en Haskell</h2>
-<div class="outline-text-2" id="text-org3b9289b">
+<div id="outline-container-org856b918" class="outline-2">
+<h2 id="org856b918">Lógica proposicional en Haskell</h2>
+<div class="outline-text-2" id="text-org856b918">
 <div class="org-src-container">
 <pre class="src src-haskell">type Name = String
 
@@ -1232,11 +1248,583 @@ infixr 8 #-&gt;#, #&lt;&gt;#
 </div>
 </div>
 </div>
+
+<div id="outline-container-org52383d3" class="outline-2">
+<h2 id="org52383d3">Prolog</h2>
+<div class="outline-text-2" id="text-org52383d3">
+<p>
+<i>Prolog</i> es un lenguaje de programación dentro del paradigma declarativo.
+</p>
+
+<p>
+Es un lenguaje lógico, en donde un programa es un conjunto de hechos
+y reglas, que definen relaciones, de tal forma que un cómputo se
+vuelve una consulta en éste programa.
+</p>
+</div>
+
+<div id="outline-container-org8e34283" class="outline-3">
+<h3 id="org8e34283">Predicados y constantes</h3>
+<div class="outline-text-3" id="text-org8e34283">
+<p>
+En <i>Prolog</i> podemos definir predicados sobre constantes concretas, lo
+único que se requiere es que tanto el nombre del predicado como el
+nombre de nuestra constante comience con minúscula.
+</p>
+
+<p>
+Por ejemplo, el siguiente predicado nos dice que su parámetro es escritor.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">escritor</span>(vargas_llosa). <span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">Mario Vargas Llosa es un escritor</span>
+<span style="font-weight: bold;">escritor</span>(carlos_fuentes). <span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">Carlos Fuentes es un escritor</span>
+<span style="font-weight: bold;">escritor</span>(ryu_murakami). <span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">Ryu Murakami es un escritor</span>
+
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">Sobra decir que los comentarios en prolog se denotan con el s&#237;mbolo</span>
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">de %</span>
+</pre>
+</div>
+
+
+<p>
+Éstos predicados pueden tener distinta aridad para dar mejor
+descripciones.
+</p>
+
+<p>
+Por ejemplo, el siguiente predicado es <code>escribio(X,Y)</code> y nos dice que
+el autor <code>X</code> escribió <code>Y</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">escribio</span>(vargas_llosa, felicidad_en_la_otra_esquina).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">Mario Vargas Llosa escribi&#243;: La felicidad en la otra esquina</span>
+<span style="font-weight: bold;">escribio</span>(vargas_llosa, los_cachorros).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">Mario Vargas Llosa escribi&#243;: Los cachorros</span>
+<span style="font-weight: bold;">escribio</span>(carlos_fuentes, gringo_viejo).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">Carlos Fuentes escribi&#243;: Gringo Viejo</span>
+<span style="font-weight: bold;">escribio</span>(carlos_fuentes, aura).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">Carlos Fuentes escribi&#243;: Aura</span>
+<span style="font-weight: bold;">escribio</span>(ryu_murakami, azul_casi_transparente).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">Ryu Murakami escribi&#243;: Azul casi transparente</span>
+<span style="font-weight: bold;">escribio</span>(erik_rangel, notas_lab).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">Erik Rangel escribi&#243; las notas de laboratorio</span>
+</pre>
+</div>
+
+<p>
+Y así, podemos especificar más propiedades sobre nuestras constantes.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">latinoamericano</span>(vargas_llosa). <span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">Mario Vargas Llosa es latinoamericano</span>
+<span style="font-weight: bold;">latinoamericano</span>(carlos_fuentes). <span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">Carlos Fuentes es latinoamericano</span>
+<span style="font-weight: bold;">latinoamericano</span>(erik_rangel). <span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">Erik Rangel es latinoamericano</span>
+
+<span style="font-weight: bold;">reconocimiento</span>(los_cachorros).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">El libro "Los cachorros" tuvo reconocimiento internacional</span>
+<span style="font-weight: bold;">reconocimiento</span>(aura).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">El libro "Aura" tuvo reconocimiento internacional</span>
+<span style="font-weight: bold;">reconocimiento</span>(azul_casi_transparente).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">El libro "Azul casi transparente" tuvo reconocimiento internacional</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0fcaca8" class="outline-3">
+<h3 id="org0fcaca8">Consultas</h3>
+<div class="outline-text-3" id="text-org0fcaca8">
+<p>
+Como mencionamos anteriormente, en prolog sólo definimos hechos y
+reglas, tal y como lo hicimos en la sección anterior.
+</p>
+
+<p>
+Toda esta información será nuestra base de conocimientos, y ésta la
+pueden guardar en un archivo con terminación <code>.pl</code>
+</p>
+
+<p>
+Podemos interpretar ésta base de conocimientos con la orden <code>swipl
+   archivo.pl</code>, y nos saldrá un prompt como el siguiente:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog">?-
+</pre>
+</div>
+
+<p>
+Aquí podemos hacer consultas sobre cosas que definimos en nuestra
+base de conocimientos.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog">?- escritor(carlos_fuentes).
+true.
+?- escritor(erik_rangel).
+false.
+?- escribio(ryu_murakami, azul_casi_transparente).
+true.
+?- escribio(ryu_murakami, aura).
+true.
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0f60048" class="outline-3">
+<h3 id="org0f60048">Condiciones y Variables</h3>
+<div class="outline-text-3" id="text-org0f60048">
+<p>
+Podemos dar propiedades más específicas usando condiciones, por
+ejemplo, si queremos expresar la propiedad:
+</p>
+
+<p>
+<i>Si un escritor latinoamericano escribió un libro que tuvo</i>
+<i>reconocimiento internacional, entonces pertenece al boom
+latinoamericano.</i>
+</p>
+
+<p>
+Para expresar ésto en prolog lo podríamos hacer de la siguiente
+forma:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">boom_lat</span>(<span style="font-weight: bold; font-style: italic;">X</span>) :- escritor(<span style="font-weight: bold; font-style: italic;">X</span>),
+               latinoamericano(<span style="font-weight: bold; font-style: italic;">X</span>),
+               escribio(<span style="font-weight: bold; font-style: italic;">X</span>,<span style="font-weight: bold; font-style: italic;">Y</span>),
+               reconocimiento(<span style="font-weight: bold; font-style: italic;">Y</span>).
+</pre>
+</div>
+
+<p>
+Las condiciones tienen la siguiente forma:
+</p>
+
+<p>
+<code>&lt;conclusión&gt; :- &lt;condiciones&gt;.</code>
+</p>
+
+<p>
+Y también con ésto introducimos a las variables, las cuales tienen
+la única condición de que deben inciar con mayúscula.
+</p>
+
+<p>
+Ahora, con ésto prolog nos puede responder nuevas consultas:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog">?- boom_lat(carlos_fuentes).
+true.
+?- boom_lat(erik_rangel).
+false.
+</pre>
+</div>
+
+<p>
+También con la introducción de variables, podemos hacer consultas
+más útiles, por ejemplo, podríamos preguntarle a prolog qué autores
+pertenecen al boom latinoamericano.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog">?- boom_lat(<span style="font-weight: bold; font-style: italic;">X</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = vargas_llosa
+</pre>
+</div>
+
+<p>
+Al introducir ésta consulta, prolog nos regresa un posible valor
+para la <code>X</code> que le pasamos, sin embargo, no nos devuelve al prompt,
+ésto quiere decir que prolog puede intentar obtener otro posible
+valor para <code>X</code>.
+</p>
+
+<p>
+Si la <code>X</code> que nos dió es suficiente para nosotros, entonces podemos
+presionar <code>Enter</code> o <code>.</code> para volver al prompt.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog">?- boom_lat(<span style="font-weight: bold; font-style: italic;">X</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = vargas_llosa.
+?-
+</pre>
+</div>
+
+<p>
+Si queremos ver el otro resultado, en su lugar podemos presionar <code>;</code>
+hasta que ya no haya más resultados.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog">?- boom_lat(<span style="font-weight: bold; font-style: italic;">X</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = vargas_llosa <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = carlos_fuentes <span style="font-weight: bold;">;</span>
+false.
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge0909a2" class="outline-3">
+<h3 id="orge0909a2">Backtracking</h3>
+<div class="outline-text-3" id="text-orge0909a2">
+<p>
+¿Por qué al final de la última consulta nos sale <code>false</code>?
+</p>
+
+<p>
+Ésto es por la forma en la que prolog hace sus consultas, que es
+por medio de <i>backtracking</i>. Esta forma de realizar operaciones
+permite a prolog explorar todas las posibilidades hasta encontrar
+un resultado, de tal forma que al encontrar un resultado que no es
+válido (o necesitar otro posible resultado), prolog pueda regresar
+en las decisiones que tomó y elegir otra posibilidad
+</p>
+
+<p>
+<i>Prolog</i> permite ver cómo se realiza cada una de estas decisiones al
+escribir el predicado <code>trace</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog">?- trace.
+true.
+
+<span style="font-weight: bold;">[</span>trace<span style="font-weight: bold;">]</span>  ?-
+</pre>
+</div>
+
+<p>
+Vemos como cambia el prompt para recordar que la opción <code>trace</code> está
+activada.
+</p>
+
+<p>
+Y ahora si hacemos una consulta como lo hacíamos antes, nos va a
+mostrar los pasos intermedios que se hacen antes de devolver un
+resultado.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">[</span>trace<span style="font-weight: bold;">]</span>  ?- boom_lat(<span style="font-weight: bold; font-style: italic;">X</span>).
+   <span style="font-weight: bold; font-style: italic;">Call</span>: (12) boom_lat(<span style="font-weight: bold; font-style: italic;">_5940</span>) ? creep
+   <span style="font-weight: bold; font-style: italic;">Call</span>: (13) escritor(<span style="font-weight: bold; font-style: italic;">_5940</span>) ? creep
+   <span style="font-weight: bold; font-style: italic;">Exit</span>: (13) escritor(vargas_llosa) ? creep
+   <span style="font-weight: bold; font-style: italic;">Call</span>: (13) latinoamericano(vargas_llosa) ? creep
+   <span style="font-weight: bold; font-style: italic;">Exit</span>: (13) latinoamericano(vargas_llosa) ? creep
+   <span style="font-weight: bold; font-style: italic;">Call</span>: (13) escribio(vargas_llosa, <span style="font-weight: bold; font-style: italic;">_10454</span>) ? creep
+   <span style="font-weight: bold; font-style: italic;">Exit</span>: (13) escribio(vargas_llosa, felicidad_en_la_otra_esquina) ? creep
+   <span style="font-weight: bold; font-style: italic;">Call</span>: (13) reconocimiento(felicidad_en_la_otra_esquina) ? creep
+   <span style="font-weight: bold; font-style: italic;">Fail</span>: (13) reconocimiento(felicidad_en_la_otra_esquina) ? creep
+   <span style="font-weight: bold; font-style: italic;">Redo</span>: (13) escribio(vargas_llosa, <span style="font-weight: bold; font-style: italic;">_10454</span>) ? creep
+   <span style="font-weight: bold; font-style: italic;">Exit</span>: (13) escribio(vargas_llosa, los_cachorros) ? creep
+   <span style="font-weight: bold; font-style: italic;">Call</span>: (13) reconocimiento(los_cachorros) ? creep
+   <span style="font-weight: bold; font-style: italic;">Exit</span>: (13) reconocimiento(los_cachorros) ? creep
+   <span style="font-weight: bold; font-style: italic;">Exit</span>: (12) boom_lat(vargas_llosa) ? creep
+<span style="font-weight: bold; font-style: italic;">X</span> = vargas_llosa <span style="font-weight: bold;">;</span>
+   <span style="font-weight: bold; font-style: italic;">Redo</span>: (13) escritor(<span style="font-weight: bold; font-style: italic;">_5940</span>) ? creep
+   <span style="font-weight: bold; font-style: italic;">Exit</span>: (13) escritor(carlos_fuentes) ? creep
+   <span style="font-weight: bold; font-style: italic;">Call</span>: (13) latinoamericano(carlos_fuentes) ? creep
+   <span style="font-weight: bold; font-style: italic;">Exit</span>: (13) latinoamericano(carlos_fuentes) ? creep
+   <span style="font-weight: bold; font-style: italic;">Call</span>: (13) escribio(carlos_fuentes, <span style="font-weight: bold; font-style: italic;">_22466</span>) ? creep
+   <span style="font-weight: bold; font-style: italic;">Exit</span>: (13) escribio(carlos_fuentes, gringo_viejo) ? creep
+   <span style="font-weight: bold; font-style: italic;">Call</span>: (13) reconocimiento(gringo_viejo) ? creep
+   <span style="font-weight: bold; font-style: italic;">Fail</span>: (13) reconocimiento(gringo_viejo) ? creep
+   <span style="font-weight: bold; font-style: italic;">Redo</span>: (13) escribio(carlos_fuentes, <span style="font-weight: bold; font-style: italic;">_22466</span>) ? creep
+   <span style="font-weight: bold; font-style: italic;">Exit</span>: (13) escribio(carlos_fuentes, aura) ? creep
+   <span style="font-weight: bold; font-style: italic;">Call</span>: (13) reconocimiento(aura) ? creep
+   <span style="font-weight: bold; font-style: italic;">Exit</span>: (13) reconocimiento(aura) ? creep
+   <span style="font-weight: bold; font-style: italic;">Exit</span>: (12) boom_lat(carlos_fuentes) ? creep
+<span style="font-weight: bold; font-style: italic;">X</span> = carlos_fuentes <span style="font-weight: bold;">;</span>
+   <span style="font-weight: bold; font-style: italic;">Redo</span>: (13) escritor(<span style="font-weight: bold; font-style: italic;">_5940</span>) ? creep
+   <span style="font-weight: bold; font-style: italic;">Exit</span>: (13) escritor(ryu_murakami) ? creep
+   <span style="font-weight: bold; font-style: italic;">Call</span>: (13) latinoamericano(ryu_murakami) ? creep
+   <span style="font-weight: bold; font-style: italic;">Fail</span>: (13) latinoamericano(ryu_murakami) ? creep
+   <span style="font-weight: bold; font-style: italic;">Fail</span>: (12) boom_lat(<span style="font-weight: bold; font-style: italic;">_5940</span>) ? creep
+false.
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf731769" class="outline-3">
+<h3 id="orgf731769">Números y Operadores</h3>
+<div class="outline-text-3" id="text-orgf731769">
+<p>
+Como comúnmente tenemos en los lenguajes de programación, los operadores aritméticos son:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">suma</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>, <span style="font-weight: bold; font-style: italic;">X</span> + <span style="font-weight: bold; font-style: italic;">Y</span>).
+<span style="font-weight: bold;">resta</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>, <span style="font-weight: bold; font-style: italic;">X</span> - <span style="font-weight: bold; font-style: italic;">Y</span>).
+<span style="font-weight: bold;">multiplicacion</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>, <span style="font-weight: bold; font-style: italic;">X</span> * <span style="font-weight: bold; font-style: italic;">Y</span>).
+<span style="font-weight: bold;">division</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>, <span style="font-weight: bold; font-style: italic;">X</span> / <span style="font-weight: bold; font-style: italic;">Y</span>).
+</pre>
+</div>
+
+<p>
+Los operadores de comparación:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">igualdad</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>) :- <span style="font-weight: bold; font-style: italic;">X</span> =:= <span style="font-weight: bold; font-style: italic;">Y</span>.
+<span style="font-weight: bold;">desigualdad</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>) :- <span style="font-weight: bold; font-style: italic;">X</span> =\= <span style="font-weight: bold; font-style: italic;">Y</span>.
+<span style="font-weight: bold;">menor_que</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>) :- <span style="font-weight: bold; font-style: italic;">X</span> &lt; <span style="font-weight: bold; font-style: italic;">Y</span>.
+<span style="font-weight: bold;">mayor_que</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>) :- <span style="font-weight: bold; font-style: italic;">X</span> &gt; <span style="font-weight: bold; font-style: italic;">Y</span>.
+<span style="font-weight: bold;">menor_igual</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>) :- <span style="font-weight: bold; font-style: italic;">X</span> =&lt; <span style="font-weight: bold; font-style: italic;">Y</span>.
+<span style="font-weight: bold;">mayor_igual</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>) :- <span style="font-weight: bold; font-style: italic;">X</span> &gt;= <span style="font-weight: bold; font-style: italic;">Y</span>.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org937acf5" class="outline-4">
+<h4 id="org937acf5">Negación como falla</h4>
+<div class="outline-text-4" id="text-org937acf5">
+<p>
+En <i>Prolog</i> toda proposición que no haya sido escrita en la base de
+conocimientos (o no pueda ser determinada) será considerada como
+<code>false</code>, pero cabe decir que este resultado no es definitivo, sólo
+nos dice que no se encontró una forma de demostrarlo.
+</p>
+
+<p>
+Por ejemplo, nostros no le dijimos a <i>Prolog</i> que <i>Shakespeare</i> fue un
+escritor, por lo que tendremos como resultado de una consulta así
+lo siguiente:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog">?- escritor(shakespeare).
+false.
+?-
+</pre>
+</div>
+
+<p>
+Nos dirá que esto es falso a pesar de que nosotros sepamos que
+<i>Shakespeare</i> sí fue un escritor.
+</p>
+
+<p>
+Por ello no existe como tal un operación de negación en prolog,
+pero sí tendremos un operador para ver si algo <i>no es demostrable</i>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">no_escritor</span>(<span style="font-weight: bold; font-style: italic;">X</span>) :- \+ escritor(<span style="font-weight: bold; font-style: italic;">X</span>).
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org65a6642" class="outline-4">
+<h4 id="org65a6642">Unificación</h4>
+<div class="outline-text-4" id="text-org65a6642">
+<p>
+En prolog tenemos dos operadores distintos para verificar que dos
+expresiones son unificables:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">suma2</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>, <span style="font-weight: bold; font-style: italic;">RES</span>) :- <span style="font-weight: bold; font-style: italic;">RES</span> = <span style="font-weight: bold; font-style: italic;">X</span> + <span style="font-weight: bold; font-style: italic;">Y</span>.
+<span style="font-weight: bold;">suma3</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>, <span style="font-weight: bold; font-style: italic;">RES</span>) :- <span style="font-weight: bold; font-style: italic;">RES</span> is <span style="font-weight: bold; font-style: italic;">X</span> + <span style="font-weight: bold; font-style: italic;">Y</span>.
+</pre>
+</div>
+
+<p>
+La primera de ellas, sólo podrá decir si <code>RES</code> en efecto unifica con
+la expresión <code>X+Y</code>, y de hecho esta unificación es la que se hacía
+cuando explicamos los operadores; mientras que la segundo podrá
+decir cuando <code>RES</code> sea unificable con el resultado de la expresión
+<code>X+Y</code>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5beef51" class="outline-3">
+<h3 id="org5beef51">Ejemplos</h3>
+<div class="outline-text-3" id="text-org5beef51">
+<p>
+Calcular la suma de todos los números naturales menores a un \(n\):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">suma_gauss</span>(0, 0).
+<span style="font-weight: bold;">suma_gauss</span>(<span style="font-weight: bold; font-style: italic;">N</span>, <span style="font-weight: bold; font-style: italic;">RES</span>) :- <span style="font-weight: bold; font-style: italic;">N</span> &gt;= 0,
+                      <span style="font-weight: bold; font-style: italic;">N1</span> is <span style="font-weight: bold; font-style: italic;">N</span> - 1,
+                      suma_gauss(<span style="font-weight: bold; font-style: italic;">N1</span>, <span style="font-weight: bold; font-style: italic;">R1</span>),
+                      <span style="font-weight: bold; font-style: italic;">RES</span> is <span style="font-weight: bold; font-style: italic;">N</span> + <span style="font-weight: bold; font-style: italic;">R1</span>.
+</pre>
+</div>
+
+<p>
+Y le podemos preguntar a <code>prolog</code> el resultado
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog">?- suma_gauss(5,<span style="font-weight: bold; font-style: italic;">X</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = 15 <span style="font-weight: bold;">;</span>
+false.
+</pre>
+</div>
+
+<p>
+Como vemos, <code>prolog</code> piensa que puede haber otro resultado, sin
+embargo al nosotros tener el valor de la variable <code>RES</code> es porque ya
+sabemos el resultado final, y no necesitamos más resultados.
+</p>
+
+<p>
+Para este tipo de operaciones es necesario indicarle a <code>prolog</code> que
+no existen más resultados, y para ello podemos utilizar el operador
+de corte después de que se sepa que ya hay un resultado.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">suma_gauss</span>(0, 0) :- <span style="font-weight: bold;">!</span>.
+<span style="font-weight: bold;">suma_gauss</span>(<span style="font-weight: bold; font-style: italic;">N</span>, <span style="font-weight: bold; font-style: italic;">RES</span>) :- <span style="font-weight: bold; font-style: italic;">N</span> &gt;= 0,
+                      <span style="font-weight: bold; font-style: italic;">N1</span> is <span style="font-weight: bold; font-style: italic;">N</span> - 1,
+                      suma_gauss(<span style="font-weight: bold; font-style: italic;">N1</span>, <span style="font-weight: bold; font-style: italic;">R1</span>),
+                      <span style="font-weight: bold; font-style: italic;">RES</span> is <span style="font-weight: bold; font-style: italic;">N</span> + <span style="font-weight: bold; font-style: italic;">R1</span>,
+                      <span style="font-weight: bold;">!</span>.
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-prolog">?- suma_gauss(5,<span style="font-weight: bold; font-style: italic;">X</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = 15.
+</pre>
+</div>
+
+<p>
+Ahora, podemos hacer un predicado que calcula el factorial de un número.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">factorial</span>(0,1) :- <span style="font-weight: bold;">!</span>.
+<span style="font-weight: bold;">factorial</span>(<span style="font-weight: bold; font-style: italic;">N</span>, <span style="font-weight: bold; font-style: italic;">RES</span>) :- <span style="font-weight: bold; font-style: italic;">N</span> &gt;= 0,
+                     <span style="font-weight: bold; font-style: italic;">N1</span> is <span style="font-weight: bold; font-style: italic;">N</span> - 1,
+                     factorial(<span style="font-weight: bold; font-style: italic;">N1</span>, <span style="font-weight: bold; font-style: italic;">R1</span>),
+                     <span style="font-weight: bold; font-style: italic;">RES</span> is <span style="font-weight: bold; font-style: italic;">N</span> * <span style="font-weight: bold; font-style: italic;">R1</span>,
+                     <span style="font-weight: bold;">!</span>.
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-prolog">?- factorial(5,<span style="font-weight: bold; font-style: italic;">X</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = 120.
+</pre>
+</div>
+
+<p>
+Un predicado que nos da el n-ésimo número fibonacci.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">fibonacci</span>(0,0) :- <span style="font-weight: bold;">!</span>.
+<span style="font-weight: bold;">fibonacci</span>(1,1) :- <span style="font-weight: bold;">!</span>.
+<span style="font-weight: bold;">fibonacci</span>(<span style="font-weight: bold; font-style: italic;">N</span>, <span style="font-weight: bold; font-style: italic;">RES</span>) :- <span style="font-weight: bold; font-style: italic;">N</span> &gt; 1,
+                     <span style="font-weight: bold; font-style: italic;">N1</span> is <span style="font-weight: bold; font-style: italic;">N</span> - 1,
+                     <span style="font-weight: bold; font-style: italic;">N2</span> is <span style="font-weight: bold; font-style: italic;">N</span> - 2,
+                     fibonacci(<span style="font-weight: bold; font-style: italic;">N1</span>, <span style="font-weight: bold; font-style: italic;">R1</span>),
+                     fibonacci(<span style="font-weight: bold; font-style: italic;">N2</span>, <span style="font-weight: bold; font-style: italic;">R2</span>),
+                     <span style="font-weight: bold; font-style: italic;">RES</span> is <span style="font-weight: bold; font-style: italic;">R1</span> + <span style="font-weight: bold; font-style: italic;">R2</span>,
+                     <span style="font-weight: bold;">!</span>.
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org06c65c6" class="outline-3">
+<h3 id="org06c65c6">Listas y comodines</h3>
+<div class="outline-text-3" id="text-org06c65c6">
+<p>
+Las listas se definen inductivamente bajo la definición recursiva convencional:
+</p>
+
+<p>
+Podemos tener la lista vacía, y ésta se representa como <code>[]</code>
+</p>
+
+<p>
+Podemos tener una lista con cabeza <code>X</code> y cola <code>XS</code>, y se representa
+como <code>[X|XS]</code>.
+</p>
+
+<p>
+También podemos construir listas con al menos un primer y segundo
+elemento; éste se escribe como <code>[X,Y|XS]</code>, y así para cualquier
+cantidad de elementos.
+</p>
+
+<p>
+Por ejemplo, haremos un predicado que nos calcula la longitud de una
+lista:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">longitud</span>(<span style="font-weight: bold;">[]</span>,0).
+<span style="font-weight: bold;">longitud</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">_</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">XS</span><span style="font-weight: bold;">]</span>,<span style="font-weight: bold; font-style: italic;">RES</span>) :- longitud(<span style="font-weight: bold; font-style: italic;">XS</span>, <span style="font-weight: bold; font-style: italic;">N</span>),
+                        <span style="font-weight: bold; font-style: italic;">RES</span> is <span style="font-weight: bold; font-style: italic;">N</span> + 1.
+</pre>
+</div>
+
+<p>
+En este caso nótese que no es necesario utilizar el operador de
+corte, pues una lista sólo va a unificar con sólamente uno de los
+dos casos que definimos, o la lista vacía, o la lista con al menos
+un elemento, por lo que no va a intentar más caminos después de
+devolver el primer resultado.
+</p>
+
+<p>
+Ahora, un predicado que nos da la concatenación de dos listas:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">concatena([],YS,YS).
+concatena([X|XS],YS,[X|R1]) :- concatena(XS,YS,R1).
+</pre>
+</div>
+
+<p>
+Un predicado que nos da la reversa:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">reversa</span>(<span style="font-weight: bold;">[]</span>,<span style="font-weight: bold;">[]</span>).
+<span style="font-weight: bold;">reversa</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">XS</span><span style="font-weight: bold;">]</span>,<span style="font-weight: bold; font-style: italic;">RES</span>) :- reversa(<span style="font-weight: bold; font-style: italic;">XS</span>,<span style="font-weight: bold; font-style: italic;">R1</span>),
+                       concatena(<span style="font-weight: bold; font-style: italic;">R1</span>,<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X</span><span style="font-weight: bold;">]</span>,<span style="font-weight: bold; font-style: italic;">RES</span>).
+</pre>
+</div>
+
+<p>
+Un predicado que da la suma de una lista de números:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prolog"><span style="font-weight: bold;">suma</span>(<span style="font-weight: bold;">[]</span>,0).
+<span style="font-weight: bold;">suma</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">XS</span><span style="font-weight: bold;">]</span>,<span style="font-weight: bold; font-style: italic;">RES</span>) :- suma(<span style="font-weight: bold; font-style: italic;">XS</span>, <span style="font-weight: bold; font-style: italic;">R1</span>),
+                    <span style="font-weight: bold; font-style: italic;">RES</span> is <span style="font-weight: bold; font-style: italic;">R1</span> + <span style="font-weight: bold; font-style: italic;">X</span>.
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Erik Rangel Limón</p>
-<p class="date">Created: 2024-02-13 Tue 22:58</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.2 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
+<p class="date">Created: 2024-04-30 Tue 10:56</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.3 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
 </div>
 </body>
 </html>

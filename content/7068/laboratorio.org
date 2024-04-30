@@ -773,3 +773,417 @@ data Prop = Var Name | Val Bool
 infixl 7 #&&#, #||#
 infixr 8 #->#, #<>#
   #+end_src
+
+* Prolog
+
+  /Prolog/ es un lenguaje de programación dentro del paradigma declarativo.
+
+  Es un lenguaje lógico, en donde un programa es un conjunto de hechos
+  y reglas, que definen relaciones, de tal forma que un cómputo se
+  vuelve una consulta en éste programa.
+
+** Predicados y constantes
+
+   En /Prolog/ podemos definir predicados sobre constantes concretas, lo
+   único que se requiere es que tanto el nombre del predicado como el
+   nombre de nuestra constante comience con minúscula.
+
+   Por ejemplo, el siguiente predicado nos dice que su parámetro es escritor.
+
+   #+begin_src prolog
+escritor(vargas_llosa). %% Mario Vargas Llosa es un escritor
+escritor(carlos_fuentes). %% Carlos Fuentes es un escritor
+escritor(ryu_murakami). %% Ryu Murakami es un escritor
+
+%% Sobra decir que los comentarios en prolog se denotan con el símbolo
+%% de %
+   #+end_src
+
+   
+   Éstos predicados pueden tener distinta aridad para dar mejor
+   descripciones.
+
+   Por ejemplo, el siguiente predicado es =escribio(X,Y)= y nos dice que
+   el autor =X= escribió =Y=.
+
+   #+begin_src prolog
+escribio(vargas_llosa, felicidad_en_la_otra_esquina).
+%% Mario Vargas Llosa escribió: La felicidad en la otra esquina
+escribio(vargas_llosa, los_cachorros).
+%% Mario Vargas Llosa escribió: Los cachorros
+escribio(carlos_fuentes, gringo_viejo).
+%% Carlos Fuentes escribió: Gringo Viejo
+escribio(carlos_fuentes, aura).
+%% Carlos Fuentes escribió: Aura
+escribio(ryu_murakami, azul_casi_transparente).
+%% Ryu Murakami escribió: Azul casi transparente
+escribio(erik_rangel, notas_lab).
+%% Erik Rangel escribió las notas de laboratorio
+   #+end_src
+
+   Y así, podemos especificar más propiedades sobre nuestras constantes.
+
+   #+begin_src prolog
+latinoamericano(vargas_llosa). %% Mario Vargas Llosa es latinoamericano
+latinoamericano(carlos_fuentes). %% Carlos Fuentes es latinoamericano
+latinoamericano(erik_rangel). %% Erik Rangel es latinoamericano
+
+reconocimiento(los_cachorros).
+%% El libro "Los cachorros" tuvo reconocimiento internacional
+reconocimiento(aura).
+%% El libro "Aura" tuvo reconocimiento internacional
+reconocimiento(azul_casi_transparente).
+%% El libro "Azul casi transparente" tuvo reconocimiento internacional
+   #+end_src
+
+** Consultas
+
+   Como mencionamos anteriormente, en prolog sólo definimos hechos y
+   reglas, tal y como lo hicimos en la sección anterior.
+
+   Toda esta información será nuestra base de conocimientos, y ésta la
+   pueden guardar en un archivo con terminación =.pl=
+
+   Podemos interpretar ésta base de conocimientos con la orden =swipl
+   archivo.pl=, y nos saldrá un prompt como el siguiente:
+
+   #+begin_src prolog
+?-
+   #+end_src
+
+   Aquí podemos hacer consultas sobre cosas que definimos en nuestra
+   base de conocimientos.
+
+   #+begin_src prolog
+?- escritor(carlos_fuentes).
+true.
+?- escritor(erik_rangel).
+false.
+?- escribio(ryu_murakami, azul_casi_transparente).
+true.
+?- escribio(ryu_murakami, aura).
+true.
+   #+end_src
+
+** Condiciones y Variables
+
+   Podemos dar propiedades más específicas usando condiciones, por
+   ejemplo, si queremos expresar la propiedad:
+
+   /Si un escritor latinoamericano escribió un libro que tuvo/
+   /reconocimiento internacional, entonces pertenece al boom
+   latinoamericano./
+
+   Para expresar ésto en prolog lo podríamos hacer de la siguiente
+   forma:
+
+   #+begin_src prolog
+boom_lat(X) :- escritor(X),
+	       latinoamericano(X),
+	       escribio(X,Y),
+	       reconocimiento(Y).
+   #+end_src
+
+   Las condiciones tienen la siguiente forma:
+
+   =<conclusión> :- <condiciones>.=
+
+   Y también con ésto introducimos a las variables, las cuales tienen
+   la única condición de que deben inciar con mayúscula.
+
+   Ahora, con ésto prolog nos puede responder nuevas consultas:
+
+   #+begin_src prolog
+?- boom_lat(carlos_fuentes).
+true.
+?- boom_lat(erik_rangel).
+false.
+   #+end_src
+
+   También con la introducción de variables, podemos hacer consultas
+   más útiles, por ejemplo, podríamos preguntarle a prolog qué autores
+   pertenecen al boom latinoamericano.
+
+   #+begin_src prolog
+?- boom_lat(X).
+X = vargas_llosa
+   #+end_src
+
+   Al introducir ésta consulta, prolog nos regresa un posible valor
+   para la =X= que le pasamos, sin embargo, no nos devuelve al prompt,
+   ésto quiere decir que prolog puede intentar obtener otro posible
+   valor para =X=.
+
+   Si la =X= que nos dió es suficiente para nosotros, entonces podemos
+   presionar =Enter= o =.= para volver al prompt.
+
+      #+begin_src prolog
+?- boom_lat(X).
+X = vargas_llosa.
+?-
+   #+end_src
+
+   Si queremos ver el otro resultado, en su lugar podemos presionar =;=
+   hasta que ya no haya más resultados.
+
+   #+begin_src prolog
+?- boom_lat(X).
+X = vargas_llosa ;
+X = carlos_fuentes ;
+false.
+   #+end_src
+
+** Backtracking
+
+   ¿Por qué al final de la última consulta nos sale =false=?
+
+   Ésto es por la forma en la que prolog hace sus consultas, que es
+   por medio de /backtracking/. Esta forma de realizar operaciones
+   permite a prolog explorar todas las posibilidades hasta encontrar
+   un resultado, de tal forma que al encontrar un resultado que no es
+   válido (o necesitar otro posible resultado), prolog pueda regresar
+   en las decisiones que tomó y elegir otra posibilidad
+
+   /Prolog/ permite ver cómo se realiza cada una de estas decisiones al
+   escribir el predicado =trace=.
+
+   #+begin_src prolog
+?- trace.
+true.
+
+[trace]  ?-
+   #+end_src
+
+   Vemos como cambia el prompt para recordar que la opción =trace= está
+   activada.
+
+   Y ahora si hacemos una consulta como lo hacíamos antes, nos va a
+   mostrar los pasos intermedios que se hacen antes de devolver un
+   resultado.
+
+   #+begin_src prolog
+[trace]  ?- boom_lat(X).
+   Call: (12) boom_lat(_5940) ? creep
+   Call: (13) escritor(_5940) ? creep
+   Exit: (13) escritor(vargas_llosa) ? creep
+   Call: (13) latinoamericano(vargas_llosa) ? creep
+   Exit: (13) latinoamericano(vargas_llosa) ? creep
+   Call: (13) escribio(vargas_llosa, _10454) ? creep
+   Exit: (13) escribio(vargas_llosa, felicidad_en_la_otra_esquina) ? creep
+   Call: (13) reconocimiento(felicidad_en_la_otra_esquina) ? creep
+   Fail: (13) reconocimiento(felicidad_en_la_otra_esquina) ? creep
+   Redo: (13) escribio(vargas_llosa, _10454) ? creep
+   Exit: (13) escribio(vargas_llosa, los_cachorros) ? creep
+   Call: (13) reconocimiento(los_cachorros) ? creep
+   Exit: (13) reconocimiento(los_cachorros) ? creep
+   Exit: (12) boom_lat(vargas_llosa) ? creep
+X = vargas_llosa ;
+   Redo: (13) escritor(_5940) ? creep
+   Exit: (13) escritor(carlos_fuentes) ? creep
+   Call: (13) latinoamericano(carlos_fuentes) ? creep
+   Exit: (13) latinoamericano(carlos_fuentes) ? creep
+   Call: (13) escribio(carlos_fuentes, _22466) ? creep
+   Exit: (13) escribio(carlos_fuentes, gringo_viejo) ? creep
+   Call: (13) reconocimiento(gringo_viejo) ? creep
+   Fail: (13) reconocimiento(gringo_viejo) ? creep
+   Redo: (13) escribio(carlos_fuentes, _22466) ? creep
+   Exit: (13) escribio(carlos_fuentes, aura) ? creep
+   Call: (13) reconocimiento(aura) ? creep
+   Exit: (13) reconocimiento(aura) ? creep
+   Exit: (12) boom_lat(carlos_fuentes) ? creep
+X = carlos_fuentes ;
+   Redo: (13) escritor(_5940) ? creep
+   Exit: (13) escritor(ryu_murakami) ? creep
+   Call: (13) latinoamericano(ryu_murakami) ? creep
+   Fail: (13) latinoamericano(ryu_murakami) ? creep
+   Fail: (12) boom_lat(_5940) ? creep
+false.
+   #+end_src
+
+** Números y Operadores
+
+   Como comúnmente tenemos en los lenguajes de programación, los operadores aritméticos son:
+
+   #+begin_src prolog
+suma(X, Y, X + Y).
+resta(X, Y, X - Y).
+multiplicacion(X, Y, X * Y).
+division(X, Y, X / Y).
+   #+end_src
+
+   Los operadores de comparación:
+
+   #+begin_src prolog
+igualdad(X, Y) :- X =:= Y.
+desigualdad(X, Y) :- X =\= Y.
+menor_que(X, Y) :- X < Y.
+mayor_que(X, Y) :- X > Y.
+menor_igual(X, Y) :- X =< Y.
+mayor_igual(X, Y) :- X >= Y.
+   #+end_src
+   
+*** Negación como falla
+
+    En /Prolog/ toda proposición que no haya sido escrita en la base de
+    conocimientos (o no pueda ser determinada) será considerada como
+    =false=, pero cabe decir que este resultado no es definitivo, sólo
+    nos dice que no se encontró una forma de demostrarlo.
+
+    Por ejemplo, nostros no le dijimos a /Prolog/ que /Shakespeare/ fue un
+    escritor, por lo que tendremos como resultado de una consulta así
+    lo siguiente:
+
+    #+begin_src prolog
+?- escritor(shakespeare).
+false.
+?-
+    #+end_src
+
+    Nos dirá que esto es falso a pesar de que nosotros sepamos que
+    /Shakespeare/ sí fue un escritor.
+
+    Por ello no existe como tal un operación de negación en prolog,
+    pero sí tendremos un operador para ver si algo /no es demostrable/.
+
+    #+begin_src prolog
+no_escritor(X) :- \+ escritor(X).
+    #+end_src
+
+*** Unificación
+
+    En prolog tenemos dos operadores distintos para verificar que dos
+    expresiones son unificables:
+
+    #+begin_src prolog
+suma2(X, Y, RES) :- RES = X + Y.
+suma3(X, Y, RES) :- RES is X + Y.
+    #+end_src
+
+    La primera de ellas, sólo podrá decir si =RES= en efecto unifica con
+    la expresión =X+Y=, y de hecho esta unificación es la que se hacía
+    cuando explicamos los operadores; mientras que la segundo podrá
+    decir cuando =RES= sea unificable con el resultado de la expresión
+    =X+Y=.
+
+** Ejemplos
+
+   Calcular la suma de todos los números naturales menores a un $n$:
+
+   #+begin_src prolog
+suma_gauss(0, 0).
+suma_gauss(N, RES) :- N >= 0,
+		      N1 is N - 1,
+		      suma_gauss(N1, R1),
+		      RES is N + R1.
+   #+end_src
+
+   Y le podemos preguntar a =prolog= el resultado
+
+   #+begin_src prolog
+?- suma_gauss(5,X).
+X = 15 ;
+false.
+   #+end_src
+
+   Como vemos, =prolog= piensa que puede haber otro resultado, sin
+   embargo al nosotros tener el valor de la variable =RES= es porque ya
+   sabemos el resultado final, y no necesitamos más resultados.
+
+   Para este tipo de operaciones es necesario indicarle a =prolog= que
+   no existen más resultados, y para ello podemos utilizar el operador
+   de corte después de que se sepa que ya hay un resultado.
+
+   #+begin_src prolog
+suma_gauss(0, 0) :- !.
+suma_gauss(N, RES) :- N >= 0,
+		      N1 is N - 1,
+		      suma_gauss(N1, R1),
+		      RES is N + R1,
+		      !.
+   #+end_src
+
+   #+begin_src prolog
+?- suma_gauss(5,X).
+X = 15.
+   #+end_src
+
+   Ahora, podemos hacer un predicado que calcula el factorial de un número.
+
+   #+begin_src prolog
+factorial(0,1) :- !.
+factorial(N, RES) :- N >= 0,
+		     N1 is N - 1,
+		     factorial(N1, R1),
+		     RES is N * R1,
+		     !.
+   #+end_src
+
+   #+begin_src prolog
+?- factorial(5,X).
+X = 120.
+   #+end_src
+
+   Un predicado que nos da el n-ésimo número fibonacci.
+
+   #+begin_src prolog
+fibonacci(0,0) :- !.
+fibonacci(1,1) :- !.
+fibonacci(N, RES) :- N > 1,
+		     N1 is N - 1,
+		     N2 is N - 2,
+		     fibonacci(N1, R1),
+		     fibonacci(N2, R2),
+		     RES is R1 + R2,
+		     !.
+   #+end_src
+
+** Listas y comodines
+
+   Las listas se definen inductivamente bajo la definición recursiva convencional:
+
+   Podemos tener la lista vacía, y ésta se representa como =[]=
+
+   Podemos tener una lista con cabeza =X= y cola =XS=, y se representa
+   como =[X|XS]=.
+
+   También podemos construir listas con al menos un primer y segundo
+   elemento; éste se escribe como =[X,Y|XS]=, y así para cualquier
+   cantidad de elementos.
+
+   Por ejemplo, haremos un predicado que nos calcula la longitud de una
+   lista:
+
+   #+begin_src prolog
+longitud([],0).
+longitud([_|XS],RES) :- longitud(XS, N),
+			RES is N + 1.
+   #+end_src
+
+   En este caso nótese que no es necesario utilizar el operador de
+   corte, pues una lista sólo va a unificar con sólamente uno de los
+   dos casos que definimos, o la lista vacía, o la lista con al menos
+   un elemento, por lo que no va a intentar más caminos después de
+   devolver el primer resultado.
+
+   Ahora, un predicado que nos da la concatenación de dos listas:
+
+   #+begin_src haskell
+concatena([],YS,YS).
+concatena([X|XS],YS,[X|R1]) :- concatena(XS,YS,R1).
+   #+end_src
+
+   Un predicado que nos da la reversa:
+
+   #+begin_src prolog
+reversa([],[]).
+reversa([X|XS],RES) :- reversa(XS,R1),
+		       concatena(R1,[X],RES).
+   #+end_src
+
+   Un predicado que da la suma de una lista de números:
+
+   #+begin_src prolog
+suma([],0).
+suma([X|XS],RES) :- suma(XS, R1),
+		    RES is R1 + X.
+   #+end_src
