@@ -1,0 +1,142 @@
+#+title: Laboratorio de Estructuras Discretas
+#+author: Erik Rangel Limón
+#+startup: latexpreview
+
+[[../index.org][Anterior]]
+
+* Sesión Introductoria
+
+** Dinámica de las prácticas
+
+   - Las entregas serán por medio de /Github Classroom/.
+
+   - Por cada práctica, se les creará un repositorio para cada alumnx
+     o equipo.
+
+   - En éste repositorio que se les creará tendrá:
+
+     1. Un pdf con la especificación de la práctica.
+
+     2. Un archivo =README.md= vacío que deberá ser llenado por ustedes.
+
+     3. Una carpeta =src= con el contenido de la práctica
+
+   - Por lo general el contenido de la carpeta =src= serán dos archivos:
+     
+     1. Un archivo terminación =.hs= con una serie de ejercicios a
+        resolver por ustedes.
+
+     2. Un programa con nombre =Test.hs= que verifica la solución a su
+        práctica, _NO SE DEBE MODIFICAR_.
+
+   - Todas las prácticas serán hechas en el lenguaje de programación
+     /Haskell/ y sus soluciones serán verificadas usando la biblioteca
+     /QuickCheck/.
+
+   - Cada práctica tendrá las instrucciones necesarias para que
+     completen su práctica, pero por lo general tienen que hacer dos
+     cosas:
+
+     1. Resolver todos los ejercicios indicados en el =.pdf=
+
+     2. Llenar el archivo =README.md= el cuál deberá llevar: número de
+        practica, sus nombres completos, y por cada ejercicio resuelto
+        deberán describir brevemente cómo llegaron a la solución del
+        ejercicio.
+
+   - La calificación de su práctica será determinada por el número de
+     pruebas que pasen sobre 10 menos los puntos de penalización que hayan
+     tenido.
+
+*** Consideraciones
+
+    - Cualquier copia total o parcial tanto en los ejercicios como en
+      su =README= será motivo de anular la calificación de la
+      práctica a los involucrados dando aviso al profesor.
+
+    - Los únicos ejercicios con respuestas iguales admisibles serán
+      aquellos que sean vistos en el laboratorio.
+
+    - No entregar el =README= o tenerlo incompleto se penalizará con
+      hasta 5 puntos tomando en cuenta los ejercicios que hayan
+      realizado.
+
+      Por ejemplo, si sólo pudieron resolver correctamente 4 de 5
+      ejercicios, sólo deberan explicar al menos esos 4 ejercicios que
+      tuvieron bien para no tener ninguna penalización.
+
+      Si resolvieron 6 de 7 ejercicios correctamente, pero les faltó
+      explicar uno tendrían $\frac{1}{6}\times 5=0.83$ puntos de
+      penalización.
+
+      Es decir, si resolvieron correctamente $n$ ejercicios, pero no
+      explicaron $p$ de esos ejercicios, su penalización sería $\frac{p}{n}\times 5$.
+
+      Si no pudieron resolver correctamente un ejercicio en lugar de
+      dejar una explicación pueden describir qué fue lo que intentaron
+      y con qué problema se enfrentaron. De ser así al momento de
+      calificar intentaré resolver las dudas que les surgieron, y
+      tienen la posibilidad de recuperar parte del puntaje perdido por
+      no haber tenido correcto el ejercicio.
+
+    - Si una explicación no es satisfactoria, también será penalizada.
+
+    - No se recibirán prácticas en donde hayan modificado los tests,
+      si encuentran un error deberán informarme y de ser necesario yo
+      les indicaré qué es lo que deben o pueden modificar.
+
+    - No se recibirán prácticas que no compilen.
+
+    - Los ejercicios a resolver tendrán la siguiente forma:
+
+      #+begin_src haskell
+miSuma :: Int -> Int -> Int -- | Esta es la firma de la función
+miSuma = undefined -- | Aquí va la definición de la función
+      #+end_src
+
+      No deben modificar ni el nombre de la función, ni su firma,
+      tampoco deberán eliminar el ejercicio, de hacerlo la práctica no
+      compilará.
+
+      Si no resuelven algún ejercicio déjenlo como =undefined= para que
+      siempre compile su práctica y consideremos el resto de
+      ejercicios.
+
+    - El primer día de retraso tendrán 1 punto de penalización, el
+      segundo tendrán 2 puntos adicionales (en total 3), y el tercero
+      3 puntos adicionales (en total 6); a partir del cuarto día ya no
+      se reciben prácticas.
+
+    - Únicamente para el primer día de retraso las prácticas
+      entregadas en la madrugada (hasta las 6:00 a.m.) no tendrán
+      ninguna penalización.
+
+      Es decir si la entrega era el 16 de agosto hasta las 11:59
+      p.m. las prácticas entregadas antes de las 6:00 a.m. del 17 de
+      agosto no tendrán penalización.
+
+    - Recorreremos la fecha de entrega de las prácticas si por alguna
+      razón no pudimos tener una sesión de laboratorio (por paros), no
+      se puedan aceptar evaluaciones en la fecha de entrega (por
+      paros, también) o si no terminamos de ver lo necesario para
+      completar su práctica.
+
+    - Las peticiones grupales para recorrer la fecha de entrega sólo
+      serán tomadas en cuenta si son por las siguientes razones:
+
+      - Dificultad; para lo cual entonces debe haber una considerable
+        cantidad de dudas sobre la práctica en cuestión durante las
+        sesiones de laboratorio, en mi correo o en mi telegram.
+
+	Es decir, si todos se están atorando en algún ejercicio de la
+        práctica, y me lo pueden comprobar, lo consideraré.
+
+      - Carga de trabajo; para lo cual, la mayor parte del grupo debe
+        llevar avances significativos en sus respectivos repositorios.
+
+	Muchas veces se pueden juntar exámenes, tareas y proyectos, y
+        es comprensible, podemos extender las entregas, siempre y
+        cuando la mayor parte del grupo tenga avances en su práctica.
+
+	Si la mayoría no ha empezado su práctica o llevan pocos
+        ejercicios, la petición no será tomada en cuenta.

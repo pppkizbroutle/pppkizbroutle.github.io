@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-04-30 Tue 10:56 -->
+<!-- 2024-08-07 Wed 16:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Complejidad Computacional</title>
@@ -50,59 +50,59 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org552259e">Rubros</a></li>
-<li><a href="#orgc188b1e">Notas</a>
+<li><a href="#org787a177">Rubros</a></li>
+<li><a href="#org9738a9a">Notas</a>
 <ul>
-<li><a href="#org8fb091c">15 / 08 / 23</a>
+<li><a href="#orga0e2c6b">15 / 08 / 23</a>
 <ul>
-<li><a href="#org16e83c7">Contexto</a></li>
-<li><a href="#orgfb05f11">Preguntas</a></li>
+<li><a href="#org03dea45">Contexto</a></li>
+<li><a href="#org9df8777">Preguntas</a></li>
 </ul>
 </li>
-<li><a href="#orgd60cb43">16 / 08 / 23</a>
+<li><a href="#org09fa5a9">16 / 08 / 23</a>
 <ul>
-<li><a href="#org0d92e0d">Análisis del peor caso</a></li>
-<li><a href="#orgd48ccc0">Análisis del mejor caso</a></li>
-<li><a href="#org5fa7aec">Tiempo de ejecución</a></li>
-<li><a href="#orgc37bf12">O - grande</a></li>
-<li><a href="#org5b9407c">Omega grande</a></li>
-<li><a href="#orgb93b344">Theta grante</a></li>
-<li><a href="#orgeb6f639">Función de complejidad</a></li>
+<li><a href="#org8d1169b">Análisis del peor caso</a></li>
+<li><a href="#org95d1da2">Análisis del mejor caso</a></li>
+<li><a href="#org3e5a5d0">Tiempo de ejecución</a></li>
+<li><a href="#org266bfe4">O - grande</a></li>
+<li><a href="#org9a43a4c">Omega grande</a></li>
+<li><a href="#org60a6cf6">Theta grante</a></li>
+<li><a href="#org504b30d">Función de complejidad</a></li>
 </ul>
 </li>
-<li><a href="#orga8b4f9f">24 / 08 / 23</a>
+<li><a href="#org7d944fc">24 / 08 / 23</a>
 <ul>
-<li><a href="#org8a60f7e">Esquemas de Codificación</a></li>
+<li><a href="#org833bcad">Esquemas de Codificación</a></li>
 </ul>
 </li>
-<li><a href="#org869ef6c">31 / 08 / 23</a>
+<li><a href="#orge7f1372">31 / 08 / 23</a>
 <ul>
-<li><a href="#org659a7f5">Lenguajes</a></li>
-<li><a href="#orgba2cbf5">Máquna de Turing</a></li>
+<li><a href="#org8af5e24">Lenguajes</a></li>
+<li><a href="#orgb639df0">Máquna de Turing</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org7a652a7">Bibliografia</a></li>
+<li><a href="#org6a655a5">Bibliografia</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org552259e" class="outline-2">
-<h2 id="org552259e">Rubros</h2>
+<div id="outline-container-org787a177" class="outline-2">
+<h2 id="org787a177">Rubros</h2>
 </div>
 
-<div id="outline-container-orgc188b1e" class="outline-2">
-<h2 id="orgc188b1e">Notas</h2>
-<div class="outline-text-2" id="text-orgc188b1e">
+<div id="outline-container-org9738a9a" class="outline-2">
+<h2 id="org9738a9a">Notas</h2>
+<div class="outline-text-2" id="text-org9738a9a">
 </div>
-<div id="outline-container-org8fb091c" class="outline-3">
-<h3 id="org8fb091c">15 / 08 / 23</h3>
-<div class="outline-text-3" id="text-org8fb091c">
+<div id="outline-container-orga0e2c6b" class="outline-3">
+<h3 id="orga0e2c6b">15 / 08 / 23</h3>
+<div class="outline-text-3" id="text-orga0e2c6b">
 </div>
-<div id="outline-container-org16e83c7" class="outline-4">
-<h4 id="org16e83c7">Contexto</h4>
-<div class="outline-text-4" id="text-org16e83c7">
+<div id="outline-container-org03dea45" class="outline-4">
+<h4 id="org03dea45">Contexto</h4>
+<div class="outline-text-4" id="text-org03dea45">
 <p>
 ¿Cuáles son las capacidades fundamentales y limitaciones de las
 compuitadoras?
@@ -131,9 +131,9 @@ difíciles y otros fáciles?</li>
 </div>
 </div>
 
-<div id="outline-container-orgfb05f11" class="outline-4">
-<h4 id="orgfb05f11">Preguntas</h4>
-<div class="outline-text-4" id="text-orgfb05f11">
+<div id="outline-container-org9df8777" class="outline-4">
+<h4 id="org9df8777">Preguntas</h4>
+<div class="outline-text-4" id="text-org9df8777">
 <ul class="org-ul">
 <li>¿Qué es un problema?</li>
 
@@ -145,13 +145,13 @@ difíciles y otros fáciles?</li>
 </div>
 </div>
 
-<div id="outline-container-orgd60cb43" class="outline-3">
-<h3 id="orgd60cb43">16 / 08 / 23</h3>
-<div class="outline-text-3" id="text-orgd60cb43">
+<div id="outline-container-org09fa5a9" class="outline-3">
+<h3 id="org09fa5a9">16 / 08 / 23</h3>
+<div class="outline-text-3" id="text-org09fa5a9">
 </div>
-<div id="outline-container-org0d92e0d" class="outline-4">
-<h4 id="org0d92e0d">Análisis del peor caso</h4>
-<div class="outline-text-4" id="text-org0d92e0d">
+<div id="outline-container-org8d1169b" class="outline-4">
+<h4 id="org8d1169b">Análisis del peor caso</h4>
+<div class="outline-text-4" id="text-org8d1169b">
 <p>
 El peor caso es el máximo número de operaciones elementales del
 algoritmo sobre cualquier ejemplar de tamaño n. Este análisis
@@ -162,9 +162,9 @@ ocurrir pocas veces.
 </div>
 </div>
 
-<div id="outline-container-orgd48ccc0" class="outline-4">
-<h4 id="orgd48ccc0">Análisis del mejor caso</h4>
-<div class="outline-text-4" id="text-orgd48ccc0">
+<div id="outline-container-org95d1da2" class="outline-4">
+<h4 id="org95d1da2">Análisis del mejor caso</h4>
+<div class="outline-text-4" id="text-org95d1da2">
 <p>
 El mínimo número de operaciones elementales de un algoritmo para
 cualquier ejemplar de tamaño n es demasiado <b>optimista</b> y no
@@ -174,9 +174,9 @@ ejecución.
 </div>
 </div>
 
-<div id="outline-container-org5fa7aec" class="outline-4">
-<h4 id="org5fa7aec">Tiempo de ejecución</h4>
-<div class="outline-text-4" id="text-org5fa7aec">
+<div id="outline-container-org3e5a5d0" class="outline-4">
+<h4 id="org3e5a5d0">Tiempo de ejecución</h4>
+<div class="outline-text-4" id="text-org3e5a5d0">
 <p>
 Depende de cuanto tiempo le tome a una computadora ejecutar las
 líneas de código del algoritmo:
@@ -200,9 +200,9 @@ notación \(\Theta\) grande, notación $O$-grande y notacion \(\Omega\)
 </div>
 </div>
 
-<div id="outline-container-orgc37bf12" class="outline-4">
-<h4 id="orgc37bf12">O - grande</h4>
-<div class="outline-text-4" id="text-orgc37bf12">
+<div id="outline-container-org266bfe4" class="outline-4">
+<h4 id="org266bfe4">O - grande</h4>
+<div class="outline-text-4" id="text-org266bfe4">
 <p>
 Si un tiempo de ejecución es \(O(f(n))\). Entonces para una \(n\)
 suficentemente grande el tiempo de ejecución es \(k\cdot f(n)\).
@@ -212,27 +212,27 @@ Usamos esta notación para cotas asintóticas superiores
 </div>
 </div>
 
-<div id="outline-container-org5b9407c" class="outline-4">
-<h4 id="org5b9407c">Omega grande</h4>
-<div class="outline-text-4" id="text-org5b9407c">
+<div id="outline-container-org9a43a4c" class="outline-4">
+<h4 id="org9a43a4c">Omega grande</h4>
+<div class="outline-text-4" id="text-org9a43a4c">
 <p>
 (acota por abajo, a lo menos)
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgb93b344" class="outline-4">
-<h4 id="orgb93b344">Theta grante</h4>
-<div class="outline-text-4" id="text-orgb93b344">
+<div id="outline-container-org60a6cf6" class="outline-4">
+<h4 id="org60a6cf6">Theta grante</h4>
+<div class="outline-text-4" id="text-org60a6cf6">
 <p>
 (Cota asintótica ajustada)
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgeb6f639" class="outline-4">
-<h4 id="orgeb6f639">Función de complejidad</h4>
-<div class="outline-text-4" id="text-orgeb6f639">
+<div id="outline-container-org504b30d" class="outline-4">
+<h4 id="org504b30d">Función de complejidad</h4>
+<div class="outline-text-4" id="text-org504b30d">
 <p>
 <b>Definición</b>: Cualquier función que representa el tiempo de
 ejecución de un algoritmo se conoce como función de complejidad.
@@ -249,17 +249,17 @@ ejecución de un algoritmo se conoce como función de complejidad.
 </div>
 </div>
 
-<div id="outline-container-orga8b4f9f" class="outline-3">
-<h3 id="orga8b4f9f">24 / 08 / 23</h3>
-<div class="outline-text-3" id="text-orga8b4f9f">
+<div id="outline-container-org7d944fc" class="outline-3">
+<h3 id="org7d944fc">24 / 08 / 23</h3>
+<div class="outline-text-3" id="text-org7d944fc">
 </div>
-<div id="outline-container-org8a60f7e" class="outline-4">
-<h4 id="org8a60f7e">Esquemas de Codificación</h4>
-<div class="outline-text-4" id="text-org8a60f7e">
+<div id="outline-container-org833bcad" class="outline-4">
+<h4 id="org833bcad">Esquemas de Codificación</h4>
+<div class="outline-text-4" id="text-org833bcad">
 </div>
 <ul class="org-ul">
-<li><a id="orgcc02f04"></a>Modelos de cómputo<br />
-<div class="outline-text-5" id="text-orgcc02f04">
+<li><a id="org803cd42"></a>Modelos de cómputo<br />
+<div class="outline-text-5" id="text-org803cd42">
 <p>
 Para poder establecer por qué podemos y qué no podemos computar
 necesitamos definir un modelo científico de computación.
@@ -277,8 +277,8 @@ cualquier cómputo:
 </div>
 </li>
 
-<li><a id="org5b61ff4"></a>Entrada y salida<br />
-<div class="outline-text-5" id="text-org5b61ff4">
+<li><a id="orga76bf57"></a>Entrada y salida<br />
+<div class="outline-text-5" id="text-orga76bf57">
 <ul class="org-ul">
 <li>Entrada es una secuencia de símbolos de un alfabeto fijo.</li>
 
@@ -299,8 +299,8 @@ símbolos)</li>
 </div>
 </li>
 
-<li><a id="orga6fab16"></a>Alfabetos<br />
-<div class="outline-text-5" id="text-orga6fab16">
+<li><a id="orgb8d0421"></a>Alfabetos<br />
+<div class="outline-text-5" id="text-orgb8d0421">
 <p>
 Un alfabeto es un conjunto (finito) de símbolos, por ejemplo
 </p>
@@ -345,8 +345,8 @@ cadena vacía) es denotado por \(\Sigma^*\).
 </div>
 </li>
 
-<li><a id="orgc9d7d1b"></a>Codificaciones<br />
-<div class="outline-text-5" id="text-orgc9d7d1b">
+<li><a id="orgcb1781a"></a>Codificaciones<br />
+<div class="outline-text-5" id="text-orgcb1781a">
 <p>
 Para procesar problemas en una computadora, cada ejemplar debe
 estar codificado en una cadena de símbolos sobre algún alfabeto.
@@ -368,8 +368,8 @@ Para hacer esto necesitamos un esquema de codificación.
 </div>
 </li>
 
-<li><a id="org5f38870"></a>Representación: Números<br />
-<div class="outline-text-5" id="text-org5f38870">
+<li><a id="orgba01377"></a>Representación: Números<br />
+<div class="outline-text-5" id="text-orgba01377">
 <ul class="org-ul">
 <li>Los números son representados en binario</li>
 
@@ -378,8 +378,8 @@ Para hacer esto necesitamos un esquema de codificación.
 </div>
 </li>
 
-<li><a id="orgfb9de5d"></a>Representación: Letras o alfabetos no binarios<br />
-<div class="outline-text-5" id="text-orgfb9de5d">
+<li><a id="orga4ce226"></a>Representación: Letras o alfabetos no binarios<br />
+<div class="outline-text-5" id="text-orga4ce226">
 <ul class="org-ul">
 <li>Codificación de cadenas de alfabetos no binarios
 
@@ -394,8 +394,8 @@ Para hacer esto necesitamos un esquema de codificación.
 </div>
 </li>
 
-<li><a id="org21374fd"></a>Representación: Pares y tuplas<br />
-<div class="outline-text-5" id="text-org21374fd">
+<li><a id="org9d428b8"></a>Representación: Pares y tuplas<br />
+<div class="outline-text-5" id="text-org9d428b8">
 <ul class="org-ul">
 <li>Codificación de pares de objetos:
 
@@ -417,13 +417,13 @@ individuales.</li>
 </div>
 </div>
 
-<div id="outline-container-org869ef6c" class="outline-3">
-<h3 id="org869ef6c">31 / 08 / 23</h3>
-<div class="outline-text-3" id="text-org869ef6c">
+<div id="outline-container-orge7f1372" class="outline-3">
+<h3 id="orge7f1372">31 / 08 / 23</h3>
+<div class="outline-text-3" id="text-orge7f1372">
 </div>
-<div id="outline-container-org659a7f5" class="outline-4">
-<h4 id="org659a7f5">Lenguajes</h4>
-<div class="outline-text-4" id="text-org659a7f5">
+<div id="outline-container-org8af5e24" class="outline-4">
+<h4 id="org8af5e24">Lenguajes</h4>
+<div class="outline-text-4" id="text-org8af5e24">
 <p>
 Un lenguaje sobre el alfabeto \(\Sigma\) es cualquier subconjunto de
 \(\Sigma^*\), por ejemplo
@@ -462,9 +462,9 @@ dada pertenece a \(L(\Pi,e)\)
 </div>
 </div>
 
-<div id="outline-container-orgba2cbf5" class="outline-4">
-<h4 id="orgba2cbf5">Máquna de Turing</h4>
-<div class="outline-text-4" id="text-orgba2cbf5">
+<div id="outline-container-orgb639df0" class="outline-4">
+<h4 id="orgb639df0">Máquna de Turing</h4>
+<div class="outline-text-4" id="text-orgb639df0">
 <p>
 Es un 7-tupla \(\langle Q,\Sigma,\Gamma, \delta, q_s,q_a, q_r\rangle\) donde
 </p>
@@ -490,14 +490,14 @@ en blanco.</li>
 </div>
 </div>
 
-<div id="outline-container-org7a652a7" class="outline-2">
-<h2 id="org7a652a7">Bibliografia</h2>
+<div id="outline-container-org6a655a5" class="outline-2">
+<h2 id="org6a655a5">Bibliografia</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Erik Rangel Limón</p>
-<p class="date">Created: 2024-04-30 Tue 10:56</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.3 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
+<p class="date">Created: 2024-08-07 Wed 16:33</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
 </div>
 </body>
 </html>

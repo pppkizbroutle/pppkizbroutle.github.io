@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-08-07 Wed 16:33 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Laboratorio de Estructuras Discretas</title>
+<meta name="author" content="Erik Rangel Limón" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">/* Base */html,body {    background-color: #222;    min-height: 100%;    line-height: 1.5;}body {    color: #fafafa;    font-family: "Courier New";}::selection {    background-color:  #2ecc40;    color: white;}/* Responsive content positioning */@media only screen and (min-width: 1020px) /* Large screens */{    body{        padding: 10vh 25vw;    }}@media only screen and (max-width: 1020px) and (min-width: 750px) /* Small screens */{    body{        padding: 5vh 10vw;    }}@media only screen and (max-width: 750px) /* Small screens */{    body{        padding: 2vh 5vw;    }}/* Headers */h1{font-size: 2.5rem;}h2{font-size: 1.7rem;}h1 > .subtitle, h3, h4, h5, h6{font-size: 1.3rem;}.title{    margin-bottom: 2.5rem;}/* Padding & Margin */* {margin: 0; padding: 0;}pre, blockquote, ul, ol, p, table{    margin: 1rem 0;}h1, h2{margin-top: 2rem; line-height: 2rem;}h3, h4, h5, h6{margin-top: 1rem;}/* Links  */a, a:visited {    color: #01ff70;    text-decoration: underline;}a:hover, a:focus, a:active {    color: #2ecc40;}/* Code */pre {    font-family: "Courier New";    padding: .5rem;    background-color: #333;    padding: 0.5rem;    border-radius: 0.2rem;    font-size: 0.9rem;    color: #EEE;    overflow-x: auto;}.org-keyword{    color: #01ff70;}.org-rainbow-delimiters-depth-1{    color: #2ecc40;}.org-rainbow-delimiters-depth-2{    color: #01ff70;}/* Blockquotes */blockquote {    border-left: 3px solid #01ff70;    padding-left: 1rem;}li{    list-style-position: inside;}/* Tags */.tag{    margin-top: 0.5rem;    display: block;    color: white;    font-size: var(--font-size-xsmall);}.tag > span{		font-weight: 400;    font-size: 0.8rem;    background-color: #444;    text-transform: uppercase;    border-radius: 2px;    width: fit-content;    height: auto;    padding: 1px 5px;}/* Keywords */.todo{    color: #2ecc40;}.done{    color: #444;}/* Overflows */.outline-text-2, .outline-text-3, .outline-text-4{	  max-width: 100%;	  overflow-x: auto;}/* Table */tr:nth-child(even) {    background-color: #333;}th, td{    padding: 0.5rem;    text-align: center;}.underline{    text-decoration: underline;}img{    max-width: 100%;    height: auto;}</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Laboratorio de Estructuras Discretas</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org093e6e1">Sesión Introductoria</a>
+<ul>
+<li><a href="#org1daa396">Dinámica de las prácticas</a>
+<ul>
+<li><a href="#orga3cf244">Consideraciones</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+<a href="../index.html">Anterior</a>
+</p>
+
+<div id="outline-container-org093e6e1" class="outline-2">
+<h2 id="org093e6e1">Sesión Introductoria</h2>
+<div class="outline-text-2" id="text-org093e6e1">
+</div>
+<div id="outline-container-org1daa396" class="outline-3">
+<h3 id="org1daa396">Dinámica de las prácticas</h3>
+<div class="outline-text-3" id="text-org1daa396">
+<ul class="org-ul">
+<li>Las entregas serán por medio de <i>Github Classroom</i>.</li>
+
+<li>Por cada práctica, se les creará un repositorio para cada alumnx
+o equipo.</li>
+
+<li>En éste repositorio que se les creará tendrá:
+
+<ol class="org-ol">
+<li>Un pdf con la especificación de la práctica.</li>
+
+<li>Un archivo <code>README.md</code> vacío que deberá ser llenado por ustedes.</li>
+
+<li>Una carpeta <code>src</code> con el contenido de la práctica</li>
+</ol></li>
+
+<li>Por lo general el contenido de la carpeta <code>src</code> serán dos archivos:
+
+<ol class="org-ol">
+<li>Un archivo terminación <code>.hs</code> con una serie de ejercicios a
+resolver por ustedes.</li>
+
+<li>Un programa con nombre <code>Test.hs</code> que verifica la solución a su
+práctica, <span class="underline">NO SE DEBE MODIFICAR</span>.</li>
+</ol></li>
+
+<li>Todas las prácticas serán hechas en el lenguaje de programación
+<i>Haskell</i> y sus soluciones serán verificadas usando la biblioteca
+<i>QuickCheck</i>.</li>
+
+<li>Cada práctica tendrá las instrucciones necesarias para que
+completen su práctica, pero por lo general tienen que hacer dos
+cosas:
+
+<ol class="org-ol">
+<li>Resolver todos los ejercicios indicados en el <code>.pdf</code></li>
+
+<li>Llenar el archivo <code>README.md</code> el cuál deberá llevar: número de
+practica, sus nombres completos, y por cada ejercicio resuelto
+deberán describir brevemente cómo llegaron a la solución del
+ejercicio.</li>
+</ol></li>
+
+<li>La calificación de su práctica será determinada por el número de
+pruebas que pasen sobre 10 menos los puntos de penalización que hayan
+tenido.</li>
+</ul>
+</div>
+
+<div id="outline-container-orga3cf244" class="outline-4">
+<h4 id="orga3cf244">Consideraciones</h4>
+<div class="outline-text-4" id="text-orga3cf244">
+<ul class="org-ul">
+<li>Cualquier copia total o parcial tanto en los ejercicios como en
+su <code>README</code> será motivo de anular la calificación de la
+práctica a los involucrados dando aviso al profesor.</li>
+
+<li>Los únicos ejercicios con respuestas iguales admisibles serán
+aquellos que sean vistos en el laboratorio.</li>
+
+<li><p>
+No entregar el <code>README</code> o tenerlo incompleto se penalizará con
+hasta 5 puntos tomando en cuenta los ejercicios que hayan
+realizado.
+</p>
+
+<p>
+Por ejemplo, si sólo pudieron resolver correctamente 4 de 5
+ejercicios, sólo deberan explicar al menos esos 4 ejercicios que
+tuvieron bien para no tener ninguna penalización.
+</p>
+
+<p>
+Si resolvieron 6 de 7 ejercicios correctamente, pero les faltó
+explicar uno tendrían \(\frac{1}{6}\times 5=0.83\) puntos de
+penalización.
+</p>
+
+<p>
+Es decir, si resolvieron correctamente \(n\) ejercicios, pero no
+explicaron \(p\) de esos ejercicios, su penalización sería \(\frac{p}{n}\times 5\).
+</p>
+
+<p>
+Si no pudieron resolver correctamente un ejercicio en lugar de
+dejar una explicación pueden describir qué fue lo que intentaron
+y con qué problema se enfrentaron. De ser así al momento de
+calificar intentaré resolver las dudas que les surgieron, y
+tienen la posibilidad de recuperar parte del puntaje perdido por
+no haber tenido correcto el ejercicio.
+</p></li>
+
+<li>Si una explicación no es satisfactoria, también será penalizada.</li>
+
+<li>No se recibirán prácticas en donde hayan modificado los tests,
+si encuentran un error deberán informarme y de ser necesario yo
+les indicaré qué es lo que deben o pueden modificar.</li>
+
+<li>No se recibirán prácticas que no compilen.</li>
+
+<li><p>
+Los ejercicios a resolver tendrán la siguiente forma:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">miSuma :: Int -&gt; Int -&gt; Int -- | Esta es la firma de la función
+miSuma = undefined -- | Aquí va la definición de la función
+</pre>
+</div>
+
+<p>
+No deben modificar ni el nombre de la función, ni su firma,
+tampoco deberán eliminar el ejercicio, de hacerlo la práctica no
+compilará.
+</p>
+
+<p>
+Si no resuelven algún ejercicio déjenlo como <code>undefined</code> para que
+siempre compile su práctica y consideremos el resto de
+ejercicios.
+</p></li>
+
+<li>El primer día de retraso tendrán 1 punto de penalización, el
+segundo tendrán 2 puntos adicionales (en total 3), y el tercero
+3 puntos adicionales (en total 6); a partir del cuarto día ya no
+se reciben prácticas.</li>
+
+<li><p>
+Únicamente para el primer día de retraso las prácticas
+entregadas en la madrugada (hasta las 6:00 a.m.) no tendrán
+ninguna penalización.
+</p>
+
+<p>
+Es decir si la entrega era el 16 de agosto hasta las 11:59
+p.m. las prácticas entregadas antes de las 6:00 a.m. del 17 de
+agosto no tendrán penalización.
+</p></li>
+
+<li>Recorreremos la fecha de entrega de las prácticas si por alguna
+razón no pudimos tener una sesión de laboratorio (por paros), no
+se puedan aceptar evaluaciones en la fecha de entrega (por
+paros, también) o si no terminamos de ver lo necesario para
+completar su práctica.</li>
+
+<li>Las peticiones grupales para recorrer la fecha de entrega sólo
+serán tomadas en cuenta si son por las siguientes razones:
+
+<ul class="org-ul">
+<li><p>
+Dificultad; para lo cual entonces debe haber una considerable
+cantidad de dudas sobre la práctica en cuestión durante las
+sesiones de laboratorio, en mi correo o en mi telegram.
+</p>
+
+<p>
+Es decir, si todos se están atorando en algún ejercicio de la
+práctica, y me lo pueden comprobar, lo consideraré.
+</p></li>
+
+<li><p>
+Carga de trabajo; para lo cual, la mayor parte del grupo debe
+llevar avances significativos en sus respectivos repositorios.
+</p>
+
+<p>
+Muchas veces se pueden juntar exámenes, tareas y proyectos, y
+es comprensible, podemos extender las entregas, siempre y
+cuando la mayor parte del grupo tenga avances en su práctica.
+</p>
+
+<p>
+Si la mayoría no ha empezado su práctica o llevan pocos
+ejercicios, la petición no será tomada en cuenta.
+</p></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Erik Rangel Limón</p>
+<p class="date">Created: 2024-08-07 Wed 16:33</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
+</div>
+</body>
+</html>

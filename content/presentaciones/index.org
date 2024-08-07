@@ -1,0 +1,18 @@
+#+title: 2024-2
+#+author: Erik Rangel Limón
+
+* Inicio
+
+  [[../index.org][Inicio]]
+  
+* 2024-2
+
+  - [[./Logica7062/laboratorio.org][Lógica 7062]]
+
+  - [[./Logica7068/laboratorio.org][Lógica 7068]]
+
+* 2025-1
+
+  - [[./Discretas7026/laboratorio.org][Estructuras Discretas]]
+  
+  - [[./Lenguajes/laboratorio.org][Lenguajes de Programación]]
