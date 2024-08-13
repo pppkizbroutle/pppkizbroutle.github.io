@@ -205,7 +205,7 @@ ghci> main
   asignándole al árbol un peso igual a la suma de las frecuencias de
   sus elementos.
   
-  [[file:./img/t1.png]]
+  [[file:./img/t1.png][file:./img/t1.png]]
 
   Con éste árbol actualizamos nuestra lista de frecuencias
 
@@ -228,7 +228,7 @@ ghci> main
 
   Volvemos a tomar los primeros dos elementos y construimos el árbol
   
-  [[file:./img/t2.png]]
+  [[file:./img/t2.png][file:./img/t2.png]]
 
   Quedando nuestra tabla como sigue:
   
@@ -250,7 +250,7 @@ ghci> main
 
   Y repetimos el procedimiento hasta sólo tener un árbol
 
-  [[file:./img/t3.png]]
+  [[file:./img/t3.png][file:./img/t3.png]]
 
   | v  | 1 |
   | B  | 1 |
@@ -267,7 +267,7 @@ ghci> main
   |    | 4 |
   | e  | 5 |  
 
-  [[file:./img/t4.png]]
+  [[file:./img/t4.png][file:./img/t4.png]]
 
   | t4 | 2 |
   | t3 | 2 |
@@ -283,7 +283,7 @@ ghci> main
   |    | 4 |
   | e  | 5 |
 
-  [[file:./img/t5.png]]
+  [[file:./img/t5.png][file:./img/t5.png]]
 
   | t2 | 2 |
   | t1 | 2 |
@@ -298,7 +298,7 @@ ghci> main
   |    | 4 |
   | e  | 5 |  
 
-  [[file:./img/t6.png]]
+  [[file:./img/t6.png][file:./img/t6.png]]
 
   | u  | 2 |
   | a  | 2 |
@@ -312,7 +312,7 @@ ghci> main
   |    | 4 |
   | e  | 5 |
 
-  [[file:./img/t7.png]]
+  [[file:./img/t7.png][file:./img/t7.png]]
 
   | o  | 2 |
   | d  | 2 |
@@ -325,7 +325,7 @@ ghci> main
   |    | 4 |
   | e  | 5 |
 
-  [[file:./img/t8.png]]
+  [[file:./img/t8.png][file:./img/t8.png]]
 
   | i  | 2 |
   | s  | 3 |
@@ -337,7 +337,7 @@ ghci> main
   |    | 4 |
   | e  | 5 |
 
-  [[file:./img/t9.png]]
+  [[file:./img/t9.png][file:./img/t9.png]]
 
   | n  | 3 |
   | t8 | 4 |
@@ -348,7 +348,7 @@ ghci> main
   | t9 | 5 |
   | e  | 5 |
 
-  [[file:./img/t10.png]]
+  [[file:./img/t10.png][file:./img/t10.png]]
 
   | t7  | 4 |
   | t6  | 4 |
@@ -358,7 +358,7 @@ ghci> main
   | e   | 5 |
   | t10 | 7 |
 
-  [[file:./img/t11.png]]
+  [[file:./img/t11.png][file:./img/t11.png]]
 
   | t5  | 4 |
   |     | 4 |
@@ -367,7 +367,7 @@ ghci> main
   | t10 | 7 |
   | t11 | 8 |
 
-  [[file:./img/t12.png]]
+  [[file:./img/t12.png][file:./img/t12.png]]
 
   | t9  | 5 |
   | e   | 5 |
@@ -375,25 +375,25 @@ ghci> main
   | t12 | 8 |
   | t11 | 8 |  
 
-  [[file:./img/t13.png]]
+  [[file:./img/t13.png][file:./img/t13.png]]
 
   | t10 |  7 |
   | t12 |  8 |
   | t11 |  8 |
   | t13 | 10 |
 
-  [[file:./img/t14.png]]
+  [[file:./img/t14.png][file:./img/t14.png]]
 
   | t11 |  8 |
   | t13 | 10 |
   | t14 | 15 |
 
-  [[file:./img/t15.png]]
+  [[file:./img/t15.png][file:./img/t15.png]]
 
   | t14 | 15 |
   | t15 | 18 |
 
-  [[file:./img/t16.png]]
+  [[file:./img/t16.png][file:./img/t16.png]]
 
   De esta forma hemos creado el árbol para codificar cada caracter;
   para codificar cada caracter, si es un subárbol izquierdo, le
@@ -403,7 +403,7 @@ ghci> main
   Es decir, el árbol con la codificación correspondiente sería la
   siguiente:
 
-  [[file:./img/tfinal.png]]
+  [[file:./img/tfinal.png][file:./img/tfinal.png]] 
 
   Por ejemplo, si quisiéramos escribir el caracter "e", éste tendría
   la codificación "111"; si quisiéramos escribir el caracter "B", éste
