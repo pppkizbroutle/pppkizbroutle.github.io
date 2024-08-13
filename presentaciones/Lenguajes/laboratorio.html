@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-07 Wed 16:33 -->
+<!-- 2024-08-13 Tue 14:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lenguajes de programación</title>
@@ -50,38 +50,40 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4eb3538">Dinámica del laboratorio</a>
+<li><a href="#org192a657">Dinámica del laboratorio</a>
 <ul>
-<li><a href="#orgeeb2d89">Prácticas</a></li>
+<li><a href="#org7161e53">Prácticas</a></li>
 </ul>
 </li>
-<li><a href="#org99d6eb9">Haskell</a>
+<li><a href="#orgd9b4f5d">Haskell</a>
 <ul>
-<li><a href="#org781feda">Instalación</a>
+<li><a href="#org0dc8c68">Instalación</a>
 <ul>
-<li><a href="#org84eb11f">Requerimientos</a></li>
-<li><a href="#orgbd93c34">GHCup</a></li>
+<li><a href="#orgfc79059">Requerimientos</a></li>
+<li><a href="#orga7675e9">GHCup</a></li>
 </ul>
 </li>
-<li><a href="#org3fe466b">QuickCheck y Happy</a></li>
-<li><a href="#orgcc2ba31">Introducción</a>
+<li><a href="#org574dcd9">QuickCheck y Happy</a></li>
+<li><a href="#org6b1ef46">Introducción</a>
 <ul>
-<li><a href="#orge1d39c9">Variables y tipos primitivos</a></li>
-<li><a href="#org8fc8873">Funciones</a></li>
-<li><a href="#orgfc9c57b">Operadores</a></li>
-<li><a href="#org44b9fce">Precedencia</a></li>
-<li><a href="#org1812e3e">Funciones anónimas</a></li>
+<li><a href="#org48e9a7d">Variables y tipos primitivos</a></li>
+<li><a href="#org392cbdb">Funciones</a></li>
+<li><a href="#orga5cc64f">Operadores</a></li>
+<li><a href="#org48d4ca5">Precedencia</a></li>
+<li><a href="#orgb7d69b7">Funciones anónimas</a></li>
 </ul>
 </li>
-<li><a href="#org95cf2d0">Listas, definiciones de tipos de dato y coincidencia de patrones</a>
+<li><a href="#org1c07ad2">Listas, definiciones de tipos de dato y coincidencia de patrones</a>
 <ul>
-<li><a href="#org8dc42f1">Condicionales</a></li>
-<li><a href="#orgf2b698c">Coincidencia de patrones</a></li>
-<li><a href="#org3a3f5d2">Funciones de orden superior</a></li>
+<li><a href="#org125bab1">Condicionales</a></li>
+<li><a href="#orgbb7bb67">Coincidencia de patrones</a></li>
+<li><a href="#orgbb2f420">Funciones de orden superior</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li><a href="#org325903c">Clases</a></li>
+<li><a href="#org148891a">Práctica 1</a></li>
 </ul>
 </div>
 </div>
@@ -89,9 +91,9 @@
 <a href="../index.html">Anterior</a>
 </p>
 
-<div id="outline-container-org4eb3538" class="outline-2">
-<h2 id="org4eb3538">Dinámica del laboratorio</h2>
-<div class="outline-text-2" id="text-org4eb3538">
+<div id="outline-container-org192a657" class="outline-2">
+<h2 id="org192a657">Dinámica del laboratorio</h2>
+<div class="outline-text-2" id="text-org192a657">
 <p>
 Para este curso todas las prácticas serán hechas en <i>Haskell</i>, y para
 la gran mayoría de ellas utilizaremos una biblioteca llamada <i>Happy</i>.
@@ -106,9 +108,9 @@ vamos a ahorrar.
 </p>
 </div>
 
-<div id="outline-container-orgeeb2d89" class="outline-3">
-<h3 id="orgeeb2d89">Prácticas</h3>
-<div class="outline-text-3" id="text-orgeeb2d89">
+<div id="outline-container-org7161e53" class="outline-3">
+<h3 id="org7161e53">Prácticas</h3>
+<div class="outline-text-3" id="text-org7161e53">
 <p>
 Las prácticas por lo general serán varios archivos, el cuál algunos
 de ellos serán los <i>Tests</i> y que no deberán modificar.
@@ -132,9 +134,9 @@ como de páginas de internet o IA.
 </div>
 </div>
 
-<div id="outline-container-org99d6eb9" class="outline-2">
-<h2 id="org99d6eb9">Haskell</h2>
-<div class="outline-text-2" id="text-org99d6eb9">
+<div id="outline-container-orgd9b4f5d" class="outline-2">
+<h2 id="orgd9b4f5d">Haskell</h2>
+<div class="outline-text-2" id="text-orgd9b4f5d">
 <p>
 Se propone éste lenguaje pues cuenta con transparencia referencial,
 lo que garantiza que se pueda reemplazar una expresión con otra de
@@ -145,9 +147,9 @@ funcionales como si se tratasen de una expresión matemática.
 </p>
 </div>
 
-<div id="outline-container-org781feda" class="outline-3">
-<h3 id="org781feda">Instalación</h3>
-<div class="outline-text-3" id="text-org781feda">
+<div id="outline-container-org0dc8c68" class="outline-3">
+<h3 id="org0dc8c68">Instalación</h3>
+<div class="outline-text-3" id="text-org0dc8c68">
 <p>
 <i>Haskell</i> es un lenguaje compilado, pero también puede comportarse
 como un programa interpretado. Ambas herramientas vienen al
@@ -179,9 +181,9 @@ siguiente página:
 </div>
 
 
-<div id="outline-container-org84eb11f" class="outline-4">
-<h4 id="org84eb11f">Requerimientos</h4>
-<div class="outline-text-4" id="text-org84eb11f">
+<div id="outline-container-orgfc79059" class="outline-4">
+<h4 id="orgfc79059">Requerimientos</h4>
+<div class="outline-text-4" id="text-orgfc79059">
 <ul class="org-ul">
 <li><p>
 Debian &gt;= 12:
@@ -241,9 +243,9 @@ En computadoras con <i>M1</i>, deben investiguen cómo instalar <code>llvm</code
 </div>
 </div>
 
-<div id="outline-container-orgbd93c34" class="outline-4">
-<h4 id="orgbd93c34">GHCup</h4>
-<div class="outline-text-4" id="text-orgbd93c34">
+<div id="outline-container-orga7675e9" class="outline-4">
+<h4 id="orga7675e9">GHCup</h4>
+<div class="outline-text-4" id="text-orga7675e9">
 <p>
 El comando que debe utilizarse para instalarlo en <i>Linux</i>, <i>macOS</i>,
 <i>FreeBSD</i> o <i>WSL2</i> es el siguiente:
@@ -268,9 +270,9 @@ usar las versiones de ambas herramientas respectivamente.
 </div>
 </div>
 
-<div id="outline-container-org3fe466b" class="outline-3">
-<h3 id="org3fe466b">QuickCheck y Happy</h3>
-<div class="outline-text-3" id="text-org3fe466b">
+<div id="outline-container-org574dcd9" class="outline-3">
+<h3 id="org574dcd9">QuickCheck y Happy</h3>
+<div class="outline-text-3" id="text-org574dcd9">
 <p>
 Éstas son bibliotecas externas de <i>Haskell</i> por lo que es necesario
 instalarlas con cabal.
@@ -298,17 +300,17 @@ Happy:
 </div>
 </div>
 
-<div id="outline-container-orgcc2ba31" class="outline-3">
-<h3 id="orgcc2ba31">Introducción</h3>
-<div class="outline-text-3" id="text-orgcc2ba31">
+<div id="outline-container-org6b1ef46" class="outline-3">
+<h3 id="org6b1ef46">Introducción</h3>
+<div class="outline-text-3" id="text-org6b1ef46">
 <p>
 La extensión comúnmente usada para los archivos es <code>.hs</code>
 </p>
 </div>
 
-<div id="outline-container-orge1d39c9" class="outline-4">
-<h4 id="orge1d39c9">Variables y tipos primitivos</h4>
-<div class="outline-text-4" id="text-orge1d39c9">
+<div id="outline-container-org48e9a7d" class="outline-4">
+<h4 id="org48e9a7d">Variables y tipos primitivos</h4>
+<div class="outline-text-4" id="text-org48e9a7d">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -376,8 +378,8 @@ c = 'a'
 
 
 <ul class="org-ul">
-<li><a id="orgb84af06"></a>Inmutabilidad<br />
-<div class="outline-text-5" id="text-orgb84af06">
+<li><a id="org08ffc1e"></a>Inmutabilidad<br />
+<div class="outline-text-5" id="text-org08ffc1e">
 <p>
 En <i>Haskell</i> todas las variables son inmutables, es decir, una vez
 que se definen, ya no pueden cambiar su valor.
@@ -400,9 +402,9 @@ num = 2
 </ul>
 </div>
 
-<div id="outline-container-org8fc8873" class="outline-4">
-<h4 id="org8fc8873">Funciones</h4>
-<div class="outline-text-4" id="text-org8fc8873">
+<div id="outline-container-org392cbdb" class="outline-4">
+<h4 id="org392cbdb">Funciones</h4>
+<div class="outline-text-4" id="text-org392cbdb">
 <p>
 Las funciones en <i>Haskell</i> juegan un papel esencial (claro, por eso
 es un lenguaje de programación funcional).
@@ -518,9 +520,9 @@ suma3 x y z = x + y + z
 </div>
 </div>
 
-<div id="outline-container-orgfc9c57b" class="outline-4">
-<h4 id="orgfc9c57b">Operadores</h4>
-<div class="outline-text-4" id="text-orgfc9c57b">
+<div id="outline-container-orga5cc64f" class="outline-4">
+<h4 id="orga5cc64f">Operadores</h4>
+<div class="outline-text-4" id="text-orga5cc64f">
 <p>
 Aritméticas:
 </p>
@@ -561,9 +563,9 @@ Comparación:
 </div>
 </div>
 
-<div id="outline-container-org44b9fce" class="outline-4">
-<h4 id="org44b9fce">Precedencia</h4>
-<div class="outline-text-4" id="text-org44b9fce">
+<div id="outline-container-org48d4ca5" class="outline-4">
+<h4 id="org48d4ca5">Precedencia</h4>
+<div class="outline-text-4" id="text-org48d4ca5">
 <p>
 Consideremos la función que dados dos números, suma los cuadrados
 de ambos
@@ -717,9 +719,9 @@ como sigue:
 </div>
 </div>
 
-<div id="outline-container-org1812e3e" class="outline-4">
-<h4 id="org1812e3e">Funciones anónimas</h4>
-<div class="outline-text-4" id="text-org1812e3e">
+<div id="outline-container-orgb7d69b7" class="outline-4">
+<h4 id="orgb7d69b7">Funciones anónimas</h4>
+<div class="outline-text-4" id="text-orgb7d69b7">
 <p>
 ¿Y si necesitamos hacer una función auxiliar que nada más usaré
 una vez, vale la pena definirla si quiera?
@@ -738,9 +740,9 @@ ghci&gt; (\x y z -&gt; x * y - z) 5 4 3
 </div>
 </div>
 
-<div id="outline-container-org95cf2d0" class="outline-3">
-<h3 id="org95cf2d0">Listas, definiciones de tipos de dato y coincidencia de patrones</h3>
-<div class="outline-text-3" id="text-org95cf2d0">
+<div id="outline-container-org1c07ad2" class="outline-3">
+<h3 id="org1c07ad2">Listas, definiciones de tipos de dato y coincidencia de patrones</h3>
+<div class="outline-text-3" id="text-org1c07ad2">
 <p>
 ¿Recuerdan la definición inductiva de listas?
 </p>
@@ -930,15 +932,15 @@ enteros2 = [1.24,5.2,7.5,9.3]
 </div>
 
 <ul class="org-ul">
-<li><a id="org7d5bbee"></a>Tipos sinónimo<br />
-<div class="outline-text-5" id="text-org7d5bbee">
+<li><a id="org04b2ee1"></a>Tipos sinónimo<br />
+<div class="outline-text-5" id="text-org04b2ee1">
 <p>
 Nosotros podemos hacer sinónimos de tipos de dato:
 </p>
 
 <div class="org-src-container">
 <pre class="src src-haskell">type Calificacion = Double
-type Clase = [Alumnos]
+type Clase = [Alumno]
 type Paleta = [Color]
 </pre>
 </div>
@@ -950,8 +952,8 @@ alumnos1 = [erik, juan, alberto]
 </div>
 </div>
 </li>
-<li><a id="orgd1066ce"></a>Strings<br />
-<div class="outline-text-5" id="text-orgd1066ce">
+<li><a id="orga07c65b"></a>Strings<br />
+<div class="outline-text-5" id="text-orga07c65b">
 <p>
 Sí, sí existen cadenas en haskell, pero éstas se definen como un
 sinónimo de tipo:
@@ -974,9 +976,9 @@ de usar <code>""</code> para representarlas.
 </li>
 </ul>
 
-<div id="outline-container-org8dc42f1" class="outline-4">
-<h4 id="org8dc42f1">Condicionales</h4>
-<div class="outline-text-4" id="text-org8dc42f1">
+<div id="outline-container-org125bab1" class="outline-4">
+<h4 id="org125bab1">Condicionales</h4>
+<div class="outline-text-4" id="text-org125bab1">
 <p>
 Como en cualquier lenguaje de programación, tenemos expresiones
 condicionales para manejar casos en los que se cumpla una
@@ -1054,9 +1056,9 @@ compara2 n m | n &lt; m = "El primero es menor que el segundo"
 </div>
 </div>
 
-<div id="outline-container-orgf2b698c" class="outline-4">
-<h4 id="orgf2b698c">Coincidencia de patrones</h4>
-<div class="outline-text-4" id="text-orgf2b698c">
+<div id="outline-container-orgbb7bb67" class="outline-4">
+<h4 id="orgbb7bb67">Coincidencia de patrones</h4>
+<div class="outline-text-4" id="text-orgbb7bb67">
 <p>
 Éste se le conoce en inglés como <i>pattern matching</i> y en español
 muchas veces lo encontrarán como <i>caza de patrones</i>.
@@ -1195,12 +1197,98 @@ nivel Vacio = -1
 nivel (Nodo a l r) = 1 + max (nivel l) (nivel r)
 </pre>
 </div>
+
+<p>
+También podemos hacer coincidencia de patrones con la sintaxis
+<i>record</i> de los tipos de dato.
+</p>
+
+<p>
+Recordemos la definición que teníamos para el tipo de dato alumno:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Alumno = Alumno { nombre :: String
+                     , noCuenta :: String
+                     , calif :: Double
+                     , asistencias :: Int}
+</pre>
+</div>
+
+<p>
+Una forma de hacerlo sería la siguiente:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">recordAlumno (Alumno nombre noCuenta calif asistencias) = ...
+</pre>
+</div>
+
+<p>
+Los parámetros del constructor se deben utilizar en el mismo orden
+en el que se definió el tipo de dato.
+</p>
+
+<p>
+¿Y si no necesitamos todos los datos?
+</p>
+
+<p>
+Por ejemplo, a los alumnos se les dará un puntaje extra por las
+veces que asistieron en un total de 10 clases, y queremos calcular
+su calificación final.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">califFinal (Alumno _ _ calif asistencias) = calif + fromIntegral asistencias / 10
+</pre>
+</div>
+
+<p>
+Podemos usar comodines, o bien también podemos utilizar la
+siguiente sintaxis:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">califFinal1 Alumno{calif=c,asistencias=a} = c + fromIntegral a / 10
+</pre>
+</div>
+
+<p>
+Usando esta sintaxis no es necesario poner todas los parámetros y
+ponerlos en cualquier orden.
+</p>
+
+<p>
+Supongamos el siguiente tipo de dato:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Escuela = Estudiante { nombre :: String
+                          , noCuenta :: String
+                          , calif :: Double
+                          , asistencias :: Int}
+             | Profesor { nombre :: String
+                        , noTrabajador :: String}
+</pre>
+</div>
+
+<p>
+Si necesitamos una función que nos diga si un elemento es profesor
+o alumno sería como la siguiente:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">describe Estudiante{} = "Es un alumno"
+describe Profesor{} = "Es un profesor"
+</pre>
+</div>
 </div>
 </div>
 
-<div id="outline-container-org3a3f5d2" class="outline-4">
-<h4 id="org3a3f5d2">Funciones de orden superior</h4>
-<div class="outline-text-4" id="text-org3a3f5d2">
+<div id="outline-container-orgbb2f420" class="outline-4">
+<h4 id="orgbb2f420">Funciones de orden superior</h4>
+<div class="outline-text-4" id="text-orgbb2f420">
 <p>
 Una función de orden superior, es una función que puede recibir
 como parámetro otra función.
@@ -1270,10 +1358,282 @@ ghci&gt; mimap (\x -&gt; x + 1) [1,2,3,4,5]
 </div>
 </div>
 </div>
+
+<div id="outline-container-org325903c" class="outline-2">
+<h2 id="org325903c">Clases</h2>
+<div class="outline-text-2" id="text-org325903c">
+<p>
+¿Qué tipo tiene el operador de la suma en <i>Haskell</i>?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">(+) :: Num a =&gt; a -&gt; a -&gt; a
+</pre>
+</div>
+
+<p>
+¿Ésto que quiere decir?
+</p>
+
+<p>
+<code>Num a</code> hace referencia a que <code>a</code>, sea cual sea su tipo debe ser un
+número, posteriromente nos dice que recibe dos cosas de tipo <code>a</code> y nos
+regresa algo de tipo <code>a</code>.
+</p>
+
+<p>
+Las clases funcionan de manera similar que las interfaces en un
+lenguaje de programación orientado a objetos; éstos sólo definen qué
+comportamiento debería tener si éste pertenece a la interfaz, sin
+embargo no se especifica el cómo de este comportamiento.
+</p>
+
+<p>
+De la misma forma podemos hacerlo en <i>Haskell</i> por medio de clases, en
+donde sólo indicaremos las firmas de las funciones o variables que
+la conforman.
+</p>
+
+<p>
+En el preludio de <i>Haskell</i>, <code>Num</code> se define como sigue:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">class Num a where
+  (+) :: a -&gt; a -&gt; a
+  (-) :: a -&gt; a -&gt; a
+  (*) :: a -&gt; a -&gt; a
+  negate :: a -&gt; a
+  abs :: a -&gt; a
+  signum :: a -&gt; a
+  fromInteger :: Integer -&gt; a
+</pre>
+</div>
+
+<p>
+¿Qué tipos de dato pertenecen a la clase <code>Num</code>?
+</p>
+
+<p>
+Con el comando <code>:i</code> haskell les puede mostrar información general
+sobre cualquier expresión en el lenguaje.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; :i Num
+type Num :: * -&gt; Constraint
+class Num a where
+  (+) :: a -&gt; a -&gt; a
+  (-) :: a -&gt; a -&gt; a
+  (*) :: a -&gt; a -&gt; a
+  negate :: a -&gt; a
+  abs :: a -&gt; a
+  signum :: a -&gt; a
+  fromInteger :: Integer -&gt; a
+  {-# MINIMAL (+), (*), abs, signum, fromInteger, (negate | (-)) #-}
+        -- Defined in ‘GHC.Num’
+instance Num Double -- Defined in ‘GHC.Float’
+instance Num Float -- Defined in ‘GHC.Float’
+instance Num Int -- Defined in ‘GHC.Num’
+instance Num Integer -- Defined in ‘GHC.Num’
+instance Num Word -- Defined in ‘GHC.Num’
+</pre>
+</div>
+
+<p>
+Lo que nos importa es lo último, donde nos menciona que los tipos de
+dato <code>Int</code>, <code>Double</code>, <code>Float</code>, <code>Integer</code> y <code>Word</code> son instancias de la clase
+<code>Num</code>, y por tanto podemos utilizar cualquier función definida en esta
+clase para estos tipos de dato.
+</p>
+
+<p>
+¿Y cómo hacemos que un tipo de dato sea <code>Num</code>?
+</p>
+
+<p>
+Por ejemplo, haremos los números complejos.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Complex = Complex Double Double
+</pre>
+</div>
+
+<p>
+Anteriormente, vimos esto:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">{-# MINIMAL (+), (*), abs, signum, fromInteger, (negate | (-)) #-}
+</pre>
+</div>
+
+<p>
+Por lo general cuando busquemos información sobre una clase
+predefinida en <i>Haskell</i> nos encontraremos con esta instrucción del
+compilador.
+</p>
+
+<p>
+Ésta nos indica la definición mínima para que un tipo de dato tenga
+una definición completa para que ésta sea instancia de la clase.
+</p>
+
+<p>
+En particular la de la clase num nos dice que se deben definir:
+</p>
+
+<ul class="org-ul">
+<li>suma (+)</li>
+
+<li>multiplicación (*)</li>
+
+<li>valor absoluto (abs)</li>
+
+<li>signo de un número (signum)</li>
+
+<li>Conversión de entero al tipo de dato en cuestión (fromInteger)</li>
+
+<li>Negación de un número (negate) o la resta (-) (Es decir, basta con que definamos alguna de las dos)</li>
+</ul>
+
+
+<div class="org-src-container">
+<pre class="src src-haskell">instance Num Complex where
+  (Complex a b) + (Complex c d) = Complex (a + c) (b + d)
+  (Complex a b) * (Complex c d) = Complex (a * c - b * d) (a * d + b * c)
+  abs (Complex x y) = Complex (sqrt $ x^2 + y^2) 0
+  signum x = case abs x of
+               Complex a _ -&gt; x * Complex (1 / a) 0
+  fromInteger int = Complex (fromInteger int) 0
+  negate (Complex a b) = Complex (negate a) (negate b)
+</pre>
+</div>
+
+<p>
+Con esto podemos ya operar con números complejos usando los
+operadores de siempre
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">ghci&gt; Complex 0 1 * Complex 0 1
+
+&lt;interactive&gt;:53:1: error:
+    &#8226; No instance for (Show Complex) arising from a use of &#8216;print&#8217;
+    &#8226; In a stmt of an interactive GHCi command: print it
+</pre>
+</div>
+
+<p>
+¿Qué significa ésto?
+</p>
+
+<p>
+Aún no le hemos especificado a <i>haskell</i> cómo se deben imprimir los
+números complejos.
+</p>
+
+<p>
+Una forma de solucionar esto, es añadiendo lo siguiente al tipo de
+dato:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Complex = Complex Double Double deriving Show
+</pre>
+</div>
+
+<p>
+Con esto le indicamos a <i>haskell</i> que queremos imprimir los números
+complejos como nosotros lo escribiríamos en el intérprete, es decir,
+usando sus constructores.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">ghci&gt; Complex 0 1 * Complex 0 1
+<span style="font-weight: bold;">Complex</span> (-1.0) 0.0
+</pre>
+</div>
+
+<p>
+Pero, ¿y si queremos cambiar la forma en la que éste tipo de dato se
+imprime?
+</p>
+
+<p>
+Bueno <code>Show</code> también es una clase
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; :i Show
+type Show :: * -&gt; Constraint
+class Show a where
+  showsPrec :: Int -&gt; a -&gt; ShowS
+  show :: a -&gt; String
+  showList :: [a] -&gt; ShowS
+  {-# MINIMAL showsPrec | show #-}
+        -- Defined in ‘GHC.Show’
+  ...
+</pre>
+</div>
+
+<p>
+Y nos dice que una definición completa será si definimos la función
+<code>show</code> o <code>showsPrec</code>.
+</p>
+
+<p>
+<code>show</code> se usa para indicar directamente cómo queremos que se imprima.
+</p>
+
+<p>
+<code>showsPrec</code> es si en nuestros constructores queremos que se impriman
+con operadores indicando la precedencia que tiene cada uno de ellos.
+</p>
+
+<p>
+Para éste curso nos basta con implementar <code>show</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">instance Show Complex where
+  show (Complex x y)
+    | x == 0 = if y == 0 then show 0 else show y ++ "i"
+    | signum y == 1 = show x ++ " + " ++ show y ++ "i"
+    | signum y == 0 = show x
+    | otherwise = show x ++ " - " ++ show (negate y) ++ "i"
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-bash">ghci&gt; Complex 0 1 * Complex 0 1
+-1.0
+ghci&gt; Complex 0 1 * Complex 1 1
+-1.0 + 1.0i
+ghci&gt; Complex 1 (-12)
+1.0 - 12.0i
+ghci&gt; Complex 1 1 + Complex 1 1
+2.0 + 2.0i
+ghci&gt; Complex 1 1 * Complex 1 1
+2.0i
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org148891a" class="outline-2">
+<h2 id="org148891a">Práctica 1</h2>
+<div class="outline-text-2" id="text-org148891a">
+<p>
+<a href="./practica1/practica1.html">Práctica 1</a>
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Erik Rangel Limón</p>
-<p class="date">Created: 2024-08-07 Wed 16:33</p>
+<p class="date">Created: 2024-08-13 Tue 14:32</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
 </div>
 </body>

@@ -1,0 +1,1998 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-08-13 Tue 14:32 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Práctica 1: Codificación de Huffman</title>
+<meta name="author" content="Erik Rangel Limón" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">/* Base */html,body {    background-color: #222;    min-height: 100%;    line-height: 1.5;}body {    color: #fafafa;    font-family: "Courier New";}::selection {    background-color:  #2ecc40;    color: white;}/* Responsive content positioning */@media only screen and (min-width: 1020px) /* Large screens */{    body{        padding: 10vh 25vw;    }}@media only screen and (max-width: 1020px) and (min-width: 750px) /* Small screens */{    body{        padding: 5vh 10vw;    }}@media only screen and (max-width: 750px) /* Small screens */{    body{        padding: 2vh 5vw;    }}/* Headers */h1{font-size: 2.5rem;}h2{font-size: 1.7rem;}h1 > .subtitle, h3, h4, h5, h6{font-size: 1.3rem;}.title{    margin-bottom: 2.5rem;}/* Padding & Margin */* {margin: 0; padding: 0;}pre, blockquote, ul, ol, p, table{    margin: 1rem 0;}h1, h2{margin-top: 2rem; line-height: 2rem;}h3, h4, h5, h6{margin-top: 1rem;}/* Links  */a, a:visited {    color: #01ff70;    text-decoration: underline;}a:hover, a:focus, a:active {    color: #2ecc40;}/* Code */pre {    font-family: "Courier New";    padding: .5rem;    background-color: #333;    padding: 0.5rem;    border-radius: 0.2rem;    font-size: 0.9rem;    color: #EEE;    overflow-x: auto;}.org-keyword{    color: #01ff70;}.org-rainbow-delimiters-depth-1{    color: #2ecc40;}.org-rainbow-delimiters-depth-2{    color: #01ff70;}/* Blockquotes */blockquote {    border-left: 3px solid #01ff70;    padding-left: 1rem;}li{    list-style-position: inside;}/* Tags */.tag{    margin-top: 0.5rem;    display: block;    color: white;    font-size: var(--font-size-xsmall);}.tag > span{		font-weight: 400;    font-size: 0.8rem;    background-color: #444;    text-transform: uppercase;    border-radius: 2px;    width: fit-content;    height: auto;    padding: 1px 5px;}/* Keywords */.todo{    color: #2ecc40;}.done{    color: #444;}/* Overflows */.outline-text-2, .outline-text-3, .outline-text-4{	  max-width: 100%;	  overflow-x: auto;}/* Table */tr:nth-child(even) {    background-color: #333;}th, td{    padding: 0.5rem;    text-align: center;}.underline{    text-decoration: underline;}img{    max-width: 100%;    height: auto;}</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Práctica 1: Codificación de Huffman</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org3b85d3b">Objetivos</a></li>
+<li><a href="#orgd0490c3">Instrucciones</a></li>
+<li><a href="#org1d6feef">Desarrollo</a></li>
+<li><a href="#org740c8ea">Ejercicios</a></li>
+<li><a href="#org149562d">Consideraciones</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3b85d3b" class="outline-2">
+<h2 id="org3b85d3b">Objetivos</h2>
+<div class="outline-text-2" id="text-org3b85d3b">
+<p>
+Poner a prueba los conocimientos de lxs alumnxs en el lenguaje de
+programación <i>Haskell</i> desarrollando la codificación de Huffman.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd0490c3" class="outline-2">
+<h2 id="orgd0490c3">Instrucciones</h2>
+<div class="outline-text-2" id="text-orgd0490c3">
+<ol class="org-ol">
+<li><p>
+Para ésta práctica necesitan tener instalado <i>GHC</i> y <i>Cabal</i>.
+</p>
+
+<p>
+Hay dos formas de hacerlo
+</p>
+
+<ul class="org-ul">
+<li><p>
+<i>ghcup</i> (recomendada):
+</p>
+
+<p>
+Es una herramienta para administrar las distintas versiones de
+<i>GHC</i>, <i>Cabal</i>, <i>Stack</i> y otras herramientas del lenguaje de
+programación <i>Haskell</i>.
+</p>
+
+<p>
+La página oficial con las instrucciones es la siguiente:
+</p>
+
+<p>
+<a href="https://www.haskell.org/ghcup/install/#installation">https://www.haskell.org/ghcup/install/#installation</a>
+</p>
+
+<p>
+En la página encontraran la línea de comando adecuada para
+instalar la herramienta según su sistema operativo.
+</p>
+
+<p>
+Antes de seguir la instalación asegúrense de tener instalados
+los <a href="https://www.haskell.org/ghcup/install/#system-requirements">programas requeridos</a>.
+</p>
+
+<p>
+Cuando ejecuten el comando de instalación les saldrá un prompt
+que les preguntará si desean continuar con la instalación; para
+continuar deberán presionar <code>Enter</code>.
+</p>
+
+<p>
+Después les hará una serie de preguntas sobre la instalación:
+Si quieren que <i>ghcup</i> y los demás binarios se agreguen a las
+variables de entorno, si desean instalar un servidor de
+lenguaje, entre otras. Cada una de estas preguntas selecciona
+una opción por defecto si no escogen ninguna al presionar
+<code>Enter</code>, estas opciones serán suficientes para sus prácticas.
+</p>
+
+<p>
+Al terminar la instalación deberán reiniciar su <code>shell</code> (o su
+terminal) y podrán corroborar la instalación de <i>ghcup</i> con el
+comando.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">ghcup tui
+</pre>
+</div>
+
+<p>
+Les saldrá un menú interactivo en su terminal en donde podrán
+administrar las versiones de los programas.
+</p>
+
+<p>
+Procuren usar las versiones recomendadas tanto de <i>Haskell</i> como
+de <i>Cabal</i>.
+</p></li>
+
+<li><p>
+<i>Linux</i>:
+</p>
+
+<p>
+Depende de su distribución, pero busquen cómo instalar los
+programas, por lo general tienen el nombre de <i>ghc</i> y
+<i>cabal-install</i> en la mayoría de administradores de paquetes.
+</p></li>
+</ul></li>
+
+<li><p>
+Adicionalmente, necesitan la biblioteca <i>QuickCheck</i>.
+</p>
+
+<p>
+Una vez teniendo <i>GHC</i> y <i>Cabal</i>, la biblioteca puede instalarse con
+la siguiente línea de comandos:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">cabal update
+</pre>
+</div>
+
+<p>
+Seguido de:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">cabal install --lib QuickCheck
+</pre>
+</div>
+
+<p>
+Pueden corroborar la instalación de la biblioteca abriendo el
+intérprete e importando <code>Test.QuickCheck</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">$ ghci
+Loaded package environment from /home/pppkizbroutle/.ghc/x86_64-linux-9.4.8/environments/default
+GHCi, version 9.4.8: https://www.haskell.org/ghc/  :? for help
+ghci&gt; import Test.QuickCheck
+ghci&gt;
+</pre>
+</div>
+
+<p>
+Si no les arroja errores, entonces la instalación fue exitosa.
+</p></li>
+
+<li>Deberán resolver todos las funciones no definidas (las que tienen
+<code>undefined</code> en lugar de una definición) en el archivo <code>src/Huffman.hs</code>.</li>
+
+<li><p>
+Verifiquen todas sus respuestas.
+</p>
+
+<p>
+Pueden hacerlo de dos formas:
+</p>
+
+<ul class="org-ul">
+<li><p>
+<i>runhaskell</i>:
+</p>
+
+<p>
+Dentro de la carpeta <code>src</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">$ runhaskell --ghc-arg=<span style="font-style: italic;">'-package transformers'</span> Test.hs
+=== prop_insert_elements from Test.hs:118 ===
++++ OK, passed 1000 tests.
+
+=== prop_insert_length from Test.hs:124 ===
++++ OK, passed 1000 tests.
+
+...
+
+=== prop_full from Test.hs:242 ===
++++ OK, passed 1000 tests; 153 discarded.
+
+&#161;Pasaron todas las pruebas!
+</pre>
+</div>
+
+<p>
+Ésto compilará los archivos y verificará todas las propiedades
+de las funciones.
+</p></li>
+
+<li><p>
+<i>ghci</i>
+</p>
+
+<p>
+Dentro de la carpeta <code>src</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">$ ghci -package transformers Test.hs
+Loaded package environment from /home/pppkizbroutle/.ghc/x86_64-linux-9.4.8/environments/default
+GHCi, version 9.4.8: https://www.haskell.org/ghc/  :? for help
+[1 of 3] Compiling Huffman          ( Huffman.hs, interpreted )
+[2 of 3] Compiling Examples         ( Examples.hs, interpreted )
+[3 of 3] Compiling Test             ( Test.hs, interpreted )
+Ok, three modules loaded.
+ghci&gt;
+</pre>
+</div>
+
+<p>
+Pueden verificar las propiedades de manera individual de la
+siguiente forma:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">ghci&gt; quickCheck prop_&lt;nombre_de_la_propiedad&gt;
++++ OK, passed 100 tests; 23 discarded.
+</pre>
+</div>
+
+<p>
+Pueden verificar <span class="underline">todas</span> las propiedades de la siguiente forma:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">ghci&gt; main
+=== prop_insert_elements from Test.hs:118 ===
++++ OK, passed 1000 tests.
+
+=== prop_insert_length from Test.hs:124 ===
++++ OK, passed 1000 tests.
+
+...
+
+=== prop_full from Test.hs:242 ===
++++ OK, passed 1000 tests; 153 discarded.
+
+&#161;Pasaron todas las pruebas!
+</pre>
+</div></li>
+</ul></li>
+
+<li>Contesten el cuestionario que viene en el archivo <code>README.md</code></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org1d6feef" class="outline-2">
+<h2 id="org1d6feef">Desarrollo</h2>
+<div class="outline-text-2" id="text-org1d6feef">
+<p>
+La codificación de Huffman es un algoritmo usado para la compresión
+de datos, éste utiliza un método específico para elegir la
+representación de cada símbolo, la cual da lugar a un código prefijo
+(es decir, la cadena de bits que representa a un símbolo en
+particular nunca es prefijo de la cadena de bits de un símbolo
+distinto).
+</p>
+
+<p>
+Ésta codificación es particularmente conocida porque ninguna
+representación alternativa de un conjunto de símbolos de entrada
+produce una salida media más pequeña cuando las frecuencias de los
+símbolos coinciden con las usadas para crear el código.
+</p>
+
+<p>
+El método consiste en contar el número de apariciones de cada letra
+en un texto y ordenarlos por ejemplo:
+</p>
+
+<div class="org-center">
+<p>
+Bienvenidos al curso de Lenguajes
+</p>
+</div>
+
+<p>
+Las frecuencias de cada caracter son las siguientes:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">j</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">g</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">L</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">r</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">c</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">l</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">v</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">B</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">u</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">a</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">o</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">d</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">s</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-right">5</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Tomamos los primeros dos elementos y construimos un arbol,
+asignándole al árbol un peso igual a la suma de las frecuencias de
+sus elementos.
+</p>
+
+
+<div id="org74d8730" class="figure">
+<p><img src="./img/t1.png" alt="t1.png" />
+</p>
+</div>
+
+<p>
+Con éste árbol actualizamos nuestra lista de frecuencias
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">L</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">r</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">c</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">l</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">v</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">B</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">t1</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">u</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">a</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">o</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">d</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">s</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-right">5</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Volvemos a tomar los primeros dos elementos y construimos el árbol
+</p>
+
+
+<div id="org4e8c072" class="figure">
+<p><img src="./img/t2.png" alt="t2.png" />
+</p>
+</div>
+
+<p>
+Quedando nuestra tabla como sigue:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">c</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">l</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">v</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">B</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">t2</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">t1</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">u</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">a</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">o</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">d</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">s</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-right">5</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Y repetimos el procedimiento hasta sólo tener un árbol
+</p>
+
+
+<div id="org386a041" class="figure">
+<p><img src="./img/t3.png" alt="t3.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">v</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">B</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">t3</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">t2</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">t1</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">u</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">a</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">o</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">d</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">s</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-right">5</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="orge0616df" class="figure">
+<p><img src="./img/t4.png" alt="t4.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">t4</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">t3</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">t2</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">t1</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">u</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">a</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">o</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">d</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">s</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-right">5</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="orgfa8123a" class="figure">
+<p><img src="./img/t5.png" alt="t5.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">t2</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">t1</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">u</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">a</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">o</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">d</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">s</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">t5</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-right">5</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="org0176f29" class="figure">
+<p><img src="./img/t6.png" alt="t6.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">u</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">a</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">o</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">d</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">s</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">t6</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">t5</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-right">5</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="org1fd9c67" class="figure">
+<p><img src="./img/t7.png" alt="t7.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">o</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">d</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">s</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">t7</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">t6</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">t5</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-right">5</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="org415615c" class="figure">
+<p><img src="./img/t8.png" alt="t8.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">i</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">s</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">t8</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">t7</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">t6</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">t5</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-right">5</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="org0705d42" class="figure">
+<p><img src="./img/t9.png" alt="t9.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">n</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">t8</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">t7</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">t6</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">t5</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">t9</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-right">5</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="org2f6f471" class="figure">
+<p><img src="./img/t10.png" alt="t10.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">t7</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">t6</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">t5</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">t9</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">t10</td>
+<td class="org-right">7</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="org09d6ac0" class="figure">
+<p><img src="./img/t11.png" alt="t11.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">t5</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">t9</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">t10</td>
+<td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-left">t11</td>
+<td class="org-right">8</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="orgeb1803e" class="figure">
+<p><img src="./img/t12.png" alt="t12.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">t9</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">t10</td>
+<td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-left">t12</td>
+<td class="org-right">8</td>
+</tr>
+
+<tr>
+<td class="org-left">t11</td>
+<td class="org-right">8</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="orgf14de8c" class="figure">
+<p><img src="./img/t13.png" alt="t13.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">t10</td>
+<td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-left">t12</td>
+<td class="org-right">8</td>
+</tr>
+
+<tr>
+<td class="org-left">t11</td>
+<td class="org-right">8</td>
+</tr>
+
+<tr>
+<td class="org-left">t13</td>
+<td class="org-right">10</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="org0f84d92" class="figure">
+<p><img src="./img/t14.png" alt="t14.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">t11</td>
+<td class="org-right">8</td>
+</tr>
+
+<tr>
+<td class="org-left">t13</td>
+<td class="org-right">10</td>
+</tr>
+
+<tr>
+<td class="org-left">t14</td>
+<td class="org-right">15</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="org00f9ef5" class="figure">
+<p><img src="./img/t15.png" alt="t15.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">t14</td>
+<td class="org-right">15</td>
+</tr>
+
+<tr>
+<td class="org-left">t15</td>
+<td class="org-right">18</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="org0ef5492" class="figure">
+<p><img src="./img/t16.png" alt="t16.png" />
+</p>
+</div>
+
+<p>
+De esta forma hemos creado el árbol para codificar cada caracter;
+para codificar cada caracter, si es un subárbol izquierdo, le
+añadiremos el prefijo \(0\), si es un subárbol derecho, le añadimos el
+prefijo \(1\), y repetimos éste proceso hasta llegar a la raiz.
+</p>
+
+<p>
+Es decir, el árbol con la codificación correspondiente sería la
+siguiente:
+</p>
+
+
+<div id="org37059c7" class="figure">
+<p><img src="./img/tfinal.png" alt="tfinal.png" />
+</p>
+</div>
+
+<p>
+Por ejemplo, si quisiéramos escribir el caracter "e", éste tendría
+la codificación "111"; si quisiéramos escribir el caracter "B", éste
+tendría la codificación "01001".  
+</p>
+</div>
+</div>
+
+<div id="outline-container-org740c8ea" class="outline-2">
+<h2 id="org740c8ea">Ejercicios</h2>
+<div class="outline-text-2" id="text-org740c8ea">
+<p>
+En su práctica encontrarán la definición del siguiente tipo de dato:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data HuffmanTree = Node { weight :: Int
+                        , left :: HuffmanTree
+                        , right :: HuffmanTree}
+                 | Leaf { element :: Char
+                        , weight :: Int }
+                 deriving Eq
+</pre>
+</div>
+
+<p>
+Con éste representaremos los árboles de Huffman. Éste tipo de dato
+está escrito con la sintaxis de record con dos constructores
+distintos:
+</p>
+
+<ul class="org-ul">
+<li><code>Leaf</code>: Representa las hojas de un árbol; cuenta con un elemento
+(<code>element</code>), el cual corresponde a un caracter, y un peso (<code>weight</code>),
+que corresponde la frecuencia de ese caracter.</li>
+
+<li><code>Node</code>: Representa los nodos internos de un árbol; cuenta con dos
+subárboles, uno izquierdo y uno derecho (<code>left</code> y <code>right</code>
+respectivamente), y cuenta con un peso (<code>weight</code>) el cual siempre
+debe ser la suma de los pesos de sus subárboles.</li>
+</ul>
+
+
+<ol class="org-ol">
+<li><p>
+<i>Instancia</i> <code>Show</code> <i>del tipo de dato HuffmanTree</i>:
+</p>
+
+<p>
+Deberán definir la instancia <code>Show</code> por medio de la misma función
+<code>show</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">instance Show HuffmanTree where
+  show :: HuffmanTree -&gt; String
+</pre>
+</div>
+
+<p>
+La forma en la que vamos a representar árboles en cadenas es
+usando la siguiente gramática:
+</p>
+
+<p>
+\(T\to1TT\)
+</p>
+
+<p>
+\(T\to 0<char>\)
+</p>
+
+<p>
+Siendo \(<char>\) un caracter cualquiera.
+</p>
+
+<p>
+Para esta representación en cadena ignoraremos los pesos tanto de
+los nodos como de las hojas.
+</p>
+
+<p>
+Para la regla \(T\to 1TT\) la primera \(T\) corresponde al subárbol
+izquierdo, mientras que la segunda corresponde al subárbol
+derecho.
+</p>
+
+<p>
+Esta función no cuenta con pruebas individuales, sin embargo es
+importante que se implemente ya que la última propiedad <code>prop_full</code>
+revisará todo el procedimiento de la condificación de <i>Huffman</i>
+intentando decodificar el árbol usando la representación en
+cadena implementada en esta función. Por esta razón quizá
+prefieran hacer éste ejercicio después de implementar las
+funciones del ejercicio 9.
+</p>
+
+<p>
+Ejemplo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">ghci&gt; show (Node {<span style="font-weight: bold; font-style: italic;">weight</span>=1, <span style="font-weight: bold; font-style: italic;">left</span>=Node {<span style="font-weight: bold; font-style: italic;">weight</span>=1, <span style="font-weight: bold; font-style: italic;">left</span>=Leaf {<span style="font-weight: bold; font-style: italic;">element</span>=<span style="font-style: italic;">'a'</span>,<span style="font-weight: bold; font-style: italic;">weight</span>=1},<span style="font-weight: bold; font-style: italic;">right</span>=Leaf {<span style="font-weight: bold; font-style: italic;">element</span>=<span style="font-style: italic;">'b'</span>,<span style="font-weight: bold; font-style: italic;">weight</span>=1}},<span style="font-weight: bold; font-style: italic;">right</span>=Leaf {<span style="font-weight: bold; font-style: italic;">element</span>=<span style="font-style: italic;">'c'</span>,<span style="font-weight: bold; font-style: italic;">weight</span>=1}})
+<span style="font-style: italic;">"110a0b0c"</span>
+</pre>
+</div></li>
+
+<li><p>
+<i>Inserción ordenada</i>:
+</p>
+
+<p>
+Implementen la siguiente función, que dado una elemento, una
+lista y una función de comparación, inserte el elemento en la
+lista de forma "ordenada" usando la función de comparación recibida:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">myInsertBy :: a -&gt; [a] -&gt; (a -&gt; a -&gt; Bool) -&gt; [a]
+</pre>
+</div>
+
+<p>
+Ésta función debe cumplir cuatro propiedades:
+</p>
+
+<ul class="org-ul">
+<li><code>prop_insert_elements</code>: Verifica si después de la inserción se
+encuentran tanto el elemento insertado como los elementos de la
+lista.</li>
+<li><code>prop_insert_length</code>: Verifica si el resultado tras insertar un
+elemento a una lista tiene el mismo número de elementos más
+uno.</li>
+<li><code>prop_insert_ok1</code>: Verifica que después de insertar un elemento
+en una lista ordenada (de menor a mayor) la lista sigue estando
+ordenada (de menor a mayor).</li>
+<li><p>
+<code>prop_insert_ok2</code>: Verifica que después de insertar un elemento
+en una lista ordenada (de mayor a menor) la lista sigue estando
+ordenada (de mayor a menor).
+</p>
+
+<p>
+Ejemplo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">ghci&gt; myInsertBy 4 [2,3,5,7] (&lt;)
+[2,3,4,5,7]
+</pre>
+</div></li>
+</ul></li>
+
+<li><p>
+<i>Ordenamiento con función de comparación</i>:
+</p>
+
+<p>
+Implementen la siguiente función, que dada una lista y una
+función de comparación, regrese la lista ordenada con respecto a
+la función de comparación recibida.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">mySortBy :: [a] -&gt; (a -&gt; a -&gt; Bool) -&gt; [a]
+</pre>
+</div>
+
+<p>
+<b>Importante</b>: Utilicen la función <code>myInsertBy</code> para hacer el ordenamiento.
+</p>
+
+<p>
+Ésta función debe cumplir cuatro propiedades:
+</p>
+
+<ul class="org-ul">
+<li><code>prop_sort_elements</code>: Verifica que la lista original y la lista
+ordenada contengan los mismos elementos.</li>
+
+<li><code>prop_sort_length</code>: verifica que la lista original y la lista
+ordenada contenga el mismo número de elementos.</li>
+
+<li><code>prop_sort_ok1</code>: Verifica que la lista se ordena correctamente al
+pasarle como parámetro el operador <code>&lt;</code>.</li>
+
+<li><p>
+<code>prop_sort_ok2</code>: Verifica que la lista se ordena correctamente al
+pasarle como parámetro el operador <code>&gt;</code>.
+</p>
+
+<p>
+Ejemplo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">ghci&gt; mySortBy [5,12,8,4,2,17] (&gt;)
+[17,12,8,5,4,2]
+</pre>
+</div></li>
+</ul></li>
+
+<li><p>
+<i>Contar las frecuencias</i>:
+</p>
+
+<p>
+Implementen la función <code>occur</code>, que recibe una cadena y regresa una
+lista de <span class="underline">hojas</span> cuyos elementos son los caracteres de la cadena
+original y sus respectivos pesos la frecuencia del caracter en
+cuestión.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">occur :: String -&gt; [HuffmanTree]
+</pre>
+</div>
+
+<p>
+<b>Importante</b>: Para que no tengan problemas con las pruebas de los
+siguientes ejercicios es importante que en la lista resultante
+los caracteres en las hojas aparezcan en el mismo orden en el que
+aparecieron en la cadena original, y que no se repitan caracteres
+en la lista.
+</p>
+
+<p>
+Esta función debe cumplir cuatro propiedades:
+</p>
+
+<ul class="org-ul">
+<li><code>prop_occur_null</code>: Verifica que al pasarle la lista vacía ésta
+función regrese también la lista vacía.</li>
+
+<li><code>prop_occur_not_nodes</code>: Verifica que todos los elementos del
+resultado no sean nodos.</li>
+
+<li><code>prop_occur_order</code>: Verifica que en el resultado se encuentren
+todos los caracteres de la cadena original, aparezcan en el
+mismo orden, y que no se repitan caracteres.</li>
+
+<li><p>
+<code>prop_occur_ok</code>: Verifica que el conteo se haya realizado
+correctamente.
+</p>
+
+<p>
+Ejemplo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">ghci&gt; map (\Leaf{<span style="font-weight: bold; font-style: italic;">element</span>=e,<span style="font-weight: bold; font-style: italic;">weight</span>=n} -&gt; (e,n)) (occur <span style="font-style: italic;">"El hereje rebelde"</span>)
+[(<span style="font-style: italic;">'E'</span>,1),(<span style="font-style: italic;">'l'</span>,2),(<span style="font-style: italic;">' '</span>,2),(<span style="font-style: italic;">'h'</span>,1),(<span style="font-style: italic;">'e'</span>,6),(<span style="font-style: italic;">'r'</span>,2),(<span style="font-style: italic;">'j'</span>,1),(<span style="font-style: italic;">'b'</span>,1),(<span style="font-style: italic;">'d'</span>,1)]
+</pre>
+</div></li>
+</ul></li>
+
+<li><p>
+<i>Ordenamiento inicial</i>
+</p>
+
+<p>
+Similar a <code>occur</code>, con la diferencia de que regresa la lista
+ordenada de menor a mayor con respecto al peso de las hojas.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">initHuffman :: String -&gt; [HuffmanTree]
+</pre>
+</div>
+
+<p>
+<b>Importante</b>: Utilicen las funciones <code>occur</code> y <code>mySortBy</code>.
+</p>
+
+<p>
+Esta función debe cumplir una propiedad:
+</p>
+
+<ul class="org-ul">
+<li><p>
+<code>prop_initHuffman_sorted</code>: Verifica que los elementos en el
+resultado estén ordenados de menor a mayor por su peso.
+</p>
+
+<p>
+Ejemplo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">ghci&gt; map (\Leaf{<span style="font-weight: bold; font-style: italic;">element</span>=e,<span style="font-weight: bold; font-style: italic;">weight</span>=n} -&gt; (e,n)) $ initHuffman <span style="font-style: italic;">"El hereje rebelde"</span>
+[(<span style="font-style: italic;">'d'</span>,1),(<span style="font-style: italic;">'b'</span>,1),(<span style="font-style: italic;">'j'</span>,1),(<span style="font-style: italic;">'h'</span>,1),(<span style="font-style: italic;">'E'</span>,1),(<span style="font-style: italic;">'r'</span>,2),(<span style="font-style: italic;">' '</span>,2),(<span style="font-style: italic;">'l'</span>,2),(<span style="font-style: italic;">'e'</span>,6)]
+</pre>
+</div>
+
+<p>
+(El orden de los caracteres con pesos iguales puede variar)
+</p></li>
+</ul></li>
+
+<li><p>
+<i>Generación del árbol</i>:
+</p>
+
+<p>
+Implementa una función que construyye el árbol para la
+codificación de Huffman dada una lista de árboles; toma los dos
+primeros elementos y crea un nuevo nodo en donde sus hijos son
+los elementos tomados y el peso es la suma de ambos, éste nuevo
+nodo se inserta de nuevo en la lista de manera ordenada (menor a
+mayor) a partir de su peso y se realiza recursión hasta tener un
+sólo elemento, el cual será el árbol en resultante.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">processHuffman :: [HuffmanTree] -&gt; Maybe HuffmanTree
+</pre>
+</div>
+
+<p>
+<b>Nota</b>: Si la lista recibida es vacía, no se puede construir el
+árbol, en ese caso regresa <code>Nothing</code>.
+</p>
+
+<p>
+Ésta función tiene una única propiedad, y revisa la correcta
+construcción de un árbol a partir de ejemplos concretos en el
+archivo <code>Examples.hs</code>:
+</p>
+
+<p>
+<code>prop_processHuffman_ok</code>
+</p>
+
+<p>
+Para ésta propiedad es necesario que ya hayan implementado la
+función <code>initHuffman</code>.
+</p>
+
+<p>
+Para cada cadena obtenida del archivo de ejemplos, se admiten
+hasta cuatro árboles distintos los cuales corresponden a los
+generados a partir de las dos formas de ordenar los árboles
+iniciales usando el algoritmo <code>Insertion Sort</code> y a las dos formas
+de insertar un elemento de manera ordenada durante el
+procedimiento. Para asegurar que esta propiedad se cumpla, y su
+resultado sea alguno de los cuatro árboles revisados en la
+propiedad, es importante que hayan considerado las notas
+importantes de las funciones <code>mySortBy</code>, <code>occur</code> e <code>initHuffman</code>.
+</p></li>
+
+<li><p>
+<i>Crear el "diccionario"</i>.
+</p>
+
+<p>
+Implementa una función que dado un árbol devuelve un
+"diccionario" que relacione los caracteres con su respectiva
+traducción en el árbol.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">createDict :: HuffmanTree -&gt; [(Char,String)]
+</pre>
+</div>
+
+<p>
+<b>Importante</b>: Si el árbol inicial es una hoja, la traducción del
+caracter en cuestión debe ser siempre "0".
+</p>
+
+<p>
+Para esta función hay igualmente una única propiedad, que utiliza
+árboles en el archivo de ejemplo.
+</p>
+
+<ul class="org-ul">
+<li><p>
+<code>prop_createDict_ok</code>: Verifica que se construya correctamente el
+"diccionario" según la topología del árbol.
+</p>
+
+<p>
+Ejemplo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">ghci&gt; createDict $ Node {weight = 17, left = Node {weight = 5, left = Node {weight = 2, left = Leaf {element = <span style="font-style: italic;">'j'</span>, weight = 1}, right = Leaf {element = <span style="font-style: italic;">'h'</span>, weight = 1}}, right = Node {weight = 3, left = Leaf {element = <span style="font-style: italic;">'E'</span>, weight = 1}, right = Leaf {element = <span style="font-style: italic;">'r'</span>, weight = 2}}}, right = Node {weight = 12, left = Node {weight = 4, left = Leaf {element = <span style="font-style: italic;">' '</span>, weight = 2}, right = Leaf {element = <span style="font-style: italic;">'l'</span>, weight = 2}}, right = Node {weight = 8, left = Leaf {element = <span style="font-style: italic;">'e'</span>, weight = 6}, right = Node {weight = 2, left = Leaf {element = <span style="font-style: italic;">'d'</span>, weight = 1}, right = Leaf {element = <span style="font-style: italic;">'b'</span>, weight = 1}}}}}
+[(<span style="font-style: italic;">'j'</span>,<span style="font-style: italic;">"000"</span>),(<span style="font-style: italic;">'h'</span>,<span style="font-style: italic;">"001"</span>),(<span style="font-style: italic;">'E'</span>,<span style="font-style: italic;">"010"</span>),(<span style="font-style: italic;">'r'</span>,<span style="font-style: italic;">"011"</span>),(<span style="font-style: italic;">' '</span>,<span style="font-style: italic;">"100"</span>),(<span style="font-style: italic;">'l'</span>,<span style="font-style: italic;">"101"</span>),(<span style="font-style: italic;">'e'</span>,<span style="font-style: italic;">"110"</span>),(<span style="font-style: italic;">'d'</span>,<span style="font-style: italic;">"1110"</span>),(<span style="font-style: italic;">'b'</span>,<span style="font-style: italic;">"1111"</span>)]  
+</pre>
+</div>
+
+<p>
+(en este caso no importa el orden del diccionario)
+</p></li>
+</ul></li>
+
+<li><p>
+<i>Transcripción</i>.
+</p>
+
+<p>
+Implementa una función que dada una cadena y un diccionario
+reescribe los caracteres de la cadena original por los indicados
+en el diccionario.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">rewrite :: String -&gt; [(Char,String)] -&gt; Maybe String
+</pre>
+</div>
+
+<p>
+<b>Nota</b>: Si un caracter no está en el diccionario se regresa
+<code>Nothing</code>.
+</p>
+
+<p>
+<b>Hint</b>: Investiga la función <code>lookup</code>.
+</p>
+
+<p>
+Ésta función debe cumplir tres propiedades:
+</p>
+
+<ul class="org-ul">
+<li><code>prop_rewrite_void</code>: Verifica que si el primer parámetro es la
+cadena vacía, el resultado nos devuelva también la cadena
+vacía.</li>
+
+<li><code>prop_rewrite_null</code>: Si la cadena dada no es vacía, verifica que
+el resultado de reescribir esa cadena con un diccionario vacío
+nos devuelva <code>Nothing</code>.</li>
+
+<li><p>
+<code>prop_rewrite_ok</code>: Verifica que se reemplacen los caracteres de
+la cadena recibida según el archivo de ejemplos.
+</p>
+
+<p>
+Ejemplo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">ghci&gt; rewrite <span style="font-style: italic;">"El hereje rebelde"</span> [(<span style="font-style: italic;">'j'</span>,<span style="font-style: italic;">"000"</span>),(<span style="font-style: italic;">'h'</span>,<span style="font-style: italic;">"001"</span>),(<span style="font-style: italic;">'E'</span>,<span style="font-style: italic;">"010"</span>),(<span style="font-style: italic;">'r'</span>,<span style="font-style: italic;">"011"</span>),(<span style="font-style: italic;">' '</span>,<span style="font-style: italic;">"100"</span>),(<span style="font-style: italic;">'l'</span>,<span style="font-style: italic;">"101"</span>),(<span style="font-style: italic;">'e'</span>,<span style="font-style: italic;">"110"</span>),(<span style="font-style: italic;">'d'</span>,<span style="font-style: italic;">"1110"</span>),(<span style="font-style: italic;">'b'</span>,<span style="font-style: italic;">"1111"</span>)]
+Just <span style="font-style: italic;">"01010110000111001111000011010001111011111101011110110"</span>
+</pre>
+</div></li>
+</ul></li>
+
+<li><p>
+<i>Transcripción completa</i>.
+</p>
+
+<p>
+Implementa una función que construye el árbol de huffman y nos da
+su codificación en una tupla donde el primer elemento es el árbol
+y el segundo la codificación.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">huffman :: String -&gt; Maybe (String, String)
+</pre>
+</div>
+
+<p>
+<b>Nota</b>: Si la construcción del árbol da <code>Nothing</code>, regresa
+<code>Nothing</code>. Utiliza la función <code>show</code> para mostrar el árbol.
+</p>
+
+<p>
+Posteriormente, usando la función anterior, da una función que
+regresa la codificación completa; primero se describe el árbol
+seguido de la codificación binaria del texto original.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">fullHuffman :: String -&gt; String
+</pre>
+</div>
+
+<p>
+<b>Nota</b>: Si el resultado de la función <code>huffman</code> es <code>Nothing</code>, ésta
+regresa la cadena vacía.
+</p>
+
+<p>
+Estas funciones deben cumplir dos propiedades:
+</p>
+
+<ul class="org-ul">
+<li><code>prop_null</code>: Verifica que la cadena vacía también regrese a la
+cadena vacía.</li>
+
+<li><code>prop_full</code>: Intenta parsear la cadena codificada y revisa si al
+traducirla nos devuelve la cadena original.</li>
+</ul>
+
+<p>
+Ejemplo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">ghci&gt; fullHuffman <span style="font-style: italic;">"El hereje rebelde"</span>
+<span style="font-style: italic;">"1110j0h10E0r110 0l10e10d0b01010110000111001111000011010001111011111101011110110"</span>
+</pre>
+</div>
+
+<p>
+(El resultado puede ser distinto)
+</p></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org149562d" class="outline-2">
+<h2 id="org149562d">Consideraciones</h2>
+<div class="outline-text-2" id="text-org149562d">
+<ol class="org-ol">
+<li>La entrega es por medio de la plataforma <i>Github Classroom</i>.</li>
+
+<li>Pueden hacer equipos de hasta 3 personas.</li>
+
+<li>Todas las prácticas con copias totales o parciales tanto en el
+código como en el <code>README</code> serán evaluadas con cero.</li>
+
+<li>Las únicas funciones con soluciones iguales admisibles son todas
+aquellas que sean iguales a las resueltas por el grupo en el
+laboratorio, sin embargo la explicación de su solución en el
+<code>README</code> debe ser única para cada equipo.</li>
+
+<li>No entregar el <code>README</code> o tenerlo incompleto se penalizará con
+hasta dos puntos menos sobre su calificación de la práctica.</li>
+
+<li>Cada día de retraso se penalizará con un punto sobre la
+calificación de la práctica.</li>
+
+<li>Pueden usar cualquier función de alguna biblioteca estándar de
+<i>Haskell</i>, siempre que:
+
+<ul class="org-ul">
+<li>No resuelva directamente el ejercicio.</li>
+
+<li>No requiera instalación manual.</li>
+
+<li>Indicar en el <code>README</code> si la ejecución de los Tests cambia
+(e.g. Si las paqueterías que quieren usar están en <i>Haskell</i>,
+pero están ocultas, deberán indicar cómo adaptar la línea de
+comandos para ejecutar los Tests para que tome en cuenta las
+bibliotecas que van a usar).</li>
+</ul></li>
+
+<li>La compilación de las pruebas de esta práctica puede tardar entre
+uno y dos minutos, pues el archivo de ejemplos es grande, les
+recomendamos ejecutar las pruebas desde <code>ghci</code> y recargar sus
+cambios con el comando <code>:r</code> para que éste archivo no se tenga que
+compilar cada que hagan cambios en su práctica.</li>
+
+<li>Las pruebas de esta práctica no deben tardar más de un minuto. Al
+final del archivo <code>Huffman.hs</code> hay una variable <code>numero_de_pruebas</code>,
+ésta indica el número de pruebas que se realizarán a cada
+propiedad al ejecutar el <code>main</code> del archivo <code>Test.hs</code>. Por defecto
+está configurada para hacer 1000 pruebas, pero pueden ponerle un
+valor menor si consideran que las pruebas tardan mucho en
+completarse, siempre y cuando éste valor no sea menos a 100. Si
+las pruebas tardan más de un minuto aún con 100 pruebas,
+consideren otra solución.</li>
+
+<li>Pueden hacer tantas funciones auxiliares como quieran, pero no
+deben modificar la firma de las funciones ni de las variables,
+ni la definición de tipos de dato que se les dió.</li>
+
+<li>No se recibirán prácticas que no compilen (no debe arrojar
+errores la orden <code>ghci Test.hs</code>). Si no resuelven alguna de las
+funciones déjenlas como <code>undefined</code>, pero no eliminen la función,
+ya que ésto lanzará errores.</li>
+
+<li>No deben modificar los archivos <code>Test.hs</code>, <code>Examples.hs</code>, ni los
+respectivos a su dispersión <code>sha256</code>. Si encuentran errores o
+tienen dudas sobre las pruebas, manden un correo al ayudante de
+laboratorio.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Erik Rangel Limón</p>
+<p class="date">Created: 2024-08-13 Tue 14:32</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
+</div>
+</body>
+</html>

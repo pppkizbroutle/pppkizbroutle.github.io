@@ -559,7 +559,7 @@ enteros2 = [1.24,5.2,7.5,9.3]
 
      #+begin_src haskell
 type Calificacion = Double
-type Clase = [Alumnos]
+type Clase = [Alumno]
 type Paleta = [Color]
      #+end_src
 
@@ -741,6 +741,66 @@ nivel Vacio = -1
 nivel (Nodo a l r) = 1 + max (nivel l) (nivel r)
     #+end_src
 
+    También podemos hacer coincidencia de patrones con la sintaxis
+    /record/ de los tipos de dato.
+
+    Recordemos la definición que teníamos para el tipo de dato alumno:
+
+    #+begin_src haskell
+data Alumno = Alumno { nombre :: String
+                     , noCuenta :: String
+                     , calif :: Double
+                     , asistencias :: Int}
+    #+end_src
+
+    Una forma de hacerlo sería la siguiente:
+
+    #+begin_src haskell
+recordAlumno (Alumno nombre noCuenta calif asistencias) = ...
+    #+end_src
+
+    Los parámetros del constructor se deben utilizar en el mismo orden
+    en el que se definió el tipo de dato.
+
+    ¿Y si no necesitamos todos los datos?
+
+    Por ejemplo, a los alumnos se les dará un puntaje extra por las
+    veces que asistieron en un total de 10 clases, y queremos calcular
+    su calificación final.
+
+    #+begin_src haskell
+califFinal (Alumno _ _ calif asistencias) = calif + fromIntegral asistencias / 10
+    #+end_src
+
+    Podemos usar comodines, o bien también podemos utilizar la
+    siguiente sintaxis:
+
+    #+begin_src haskell
+califFinal1 Alumno{calif=c,asistencias=a} = c + fromIntegral a / 10
+    #+end_src
+
+    Usando esta sintaxis no es necesario poner todas los parámetros y
+    ponerlos en cualquier orden.
+
+    Supongamos el siguiente tipo de dato:
+
+    #+begin_src haskell
+data Escuela = Estudiante { nombre :: String
+                          , noCuenta :: String
+                          , calif :: Double
+                          , asistencias :: Int}
+             | Profesor { nombre :: String
+                        , noTrabajador :: String}
+    #+end_src
+
+    Si necesitamos una función que nos diga si un elemento es profesor
+    o alumno sería como la siguiente:
+
+    #+begin_src haskell
+describe Estudiante{} = "Es un alumno"
+describe Profesor{} = "Es un profesor"
+    #+end_src
+
 *** Funciones de orden superior
 
     Una función de orden superior, es una función que puede recibir
@@ -788,3 +848,201 @@ ghci> mimap (\x -> x ^ 2) [1,2,3,4,5]
 ghci> mimap (\x -> x + 1) [1,2,3,4,5]
 [2,3,4,5,6]
     #+end_src
+    
+* Clases
+
+  ¿Qué tipo tiene el operador de la suma en /Haskell/?
+
+  #+begin_src haskell
+(+) :: Num a => a -> a -> a
+  #+end_src
+
+  ¿Ésto que quiere decir?
+
+  =Num a= hace referencia a que =a=, sea cual sea su tipo debe ser un
+  número, posteriromente nos dice que recibe dos cosas de tipo =a= y nos
+  regresa algo de tipo =a=.
+
+  Las clases funcionan de manera similar que las interfaces en un
+  lenguaje de programación orientado a objetos; éstos sólo definen qué
+  comportamiento debería tener si éste pertenece a la interfaz, sin
+  embargo no se especifica el cómo de este comportamiento.
+
+  De la misma forma podemos hacerlo en /Haskell/ por medio de clases, en
+  donde sólo indicaremos las firmas de las funciones o variables que
+  la conforman.
+
+  En el preludio de /Haskell/, =Num= se define como sigue:
+
+  #+begin_src haskell
+class Num a where
+  (+) :: a -> a -> a
+  (-) :: a -> a -> a
+  (*) :: a -> a -> a
+  negate :: a -> a
+  abs :: a -> a
+  signum :: a -> a
+  fromInteger :: Integer -> a
+  #+end_src
+
+  ¿Qué tipos de dato pertenecen a la clase =Num=?
+
+  Con el comando =:i= haskell les puede mostrar información general
+  sobre cualquier expresión en el lenguaje.
+
+  #+begin_src haskell
+ghci> :i Num
+type Num :: * -> Constraint
+class Num a where
+  (+) :: a -> a -> a
+  (-) :: a -> a -> a
+  (*) :: a -> a -> a
+  negate :: a -> a
+  abs :: a -> a
+  signum :: a -> a
+  fromInteger :: Integer -> a
+  {-# MINIMAL (+), (*), abs, signum, fromInteger, (negate | (-)) #-}
+  	-- Defined in ‘GHC.Num’
+instance Num Double -- Defined in ‘GHC.Float’
+instance Num Float -- Defined in ‘GHC.Float’
+instance Num Int -- Defined in ‘GHC.Num’
+instance Num Integer -- Defined in ‘GHC.Num’
+instance Num Word -- Defined in ‘GHC.Num’
+  #+end_src
+
+  Lo que nos importa es lo último, donde nos menciona que los tipos de
+  dato =Int=, =Double=, =Float=, =Integer= y =Word= son instancias de la clase
+  =Num=, y por tanto podemos utilizar cualquier función definida en esta
+  clase para estos tipos de dato.
+
+  ¿Y cómo hacemos que un tipo de dato sea =Num=?
+
+  Por ejemplo, haremos los números complejos.
+
+  #+begin_src haskell
+data Complex = Complex Double Double
+  #+end_src
+
+  Anteriormente, vimos esto:
+
+  #+begin_src haskell
+{-# MINIMAL (+), (*), abs, signum, fromInteger, (negate | (-)) #-}
+  #+end_src
+
+  Por lo general cuando busquemos información sobre una clase
+  predefinida en /Haskell/ nos encontraremos con esta instrucción del
+  compilador.
+
+  Ésta nos indica la definición mínima para que un tipo de dato tenga
+  una definición completa para que ésta sea instancia de la clase.
+
+  En particular la de la clase num nos dice que se deben definir:
+
+  - suma (+)
+
+  - multiplicación (*)
+
+  - valor absoluto (abs)
+
+  - signo de un número (signum)
+
+  - Conversión de entero al tipo de dato en cuestión (fromInteger)
+
+  - Negación de un número (negate) o la resta (-) (Es decir, basta con que definamos alguna de las dos)
+
+
+  #+begin_src haskell
+instance Num Complex where
+  (Complex a b) + (Complex c d) = Complex (a + c) (b + d)
+  (Complex a b) * (Complex c d) = Complex (a * c - b * d) (a * d + b * c)
+  abs (Complex x y) = Complex (sqrt $ x^2 + y^2) 0
+  signum x = case abs x of
+               Complex a _ -> x * Complex (1 / a) 0
+  fromInteger int = Complex (fromInteger int) 0
+  negate (Complex a b) = Complex (negate a) (negate b)
+  #+end_src
+
+  Con esto podemos ya operar con números complejos usando los
+  operadores de siempre
+
+  #+begin_src bash
+ghci> Complex 0 1 * Complex 0 1
+
+<interactive>:53:1: error:
+    • No instance for (Show Complex) arising from a use of ‘print’
+    • In a stmt of an interactive GHCi command: print it
+  #+end_src
+
+  ¿Qué significa ésto?
+
+  Aún no le hemos especificado a /haskell/ cómo se deben imprimir los
+  números complejos.
+
+  Una forma de solucionar esto, es añadiendo lo siguiente al tipo de
+  dato:
+
+  #+begin_src haskell
+data Complex = Complex Double Double deriving Show
+  #+end_src
+
+  Con esto le indicamos a /haskell/ que queremos imprimir los números
+  complejos como nosotros lo escribiríamos en el intérprete, es decir,
+  usando sus constructores.
+
+  #+begin_src bash
+ghci> Complex 0 1 * Complex 0 1
+Complex (-1.0) 0.0
+  #+end_src
+
+  Pero, ¿y si queremos cambiar la forma en la que éste tipo de dato se
+  imprime?
+
+  Bueno =Show= también es una clase
+
+  #+begin_src haskell
+ghci> :i Show
+type Show :: * -> Constraint
+class Show a where
+  showsPrec :: Int -> a -> ShowS
+  show :: a -> String
+  showList :: [a] -> ShowS
+  {-# MINIMAL showsPrec | show #-}
+  	-- Defined in ‘GHC.Show’
+  ...
+  #+end_src
+
+  Y nos dice que una definición completa será si definimos la función
+  =show= o =showsPrec=.
+
+  =show= se usa para indicar directamente cómo queremos que se imprima.
+
+  =showsPrec= es si en nuestros constructores queremos que se impriman
+  con operadores indicando la precedencia que tiene cada uno de ellos.
+
+  Para éste curso nos basta con implementar =show=.
+
+  #+begin_src haskell
+instance Show Complex where
+  show (Complex x y)
+    | x == 0 = if y == 0 then show 0 else show y ++ "i"
+    | signum y == 1 = show x ++ " + " ++ show y ++ "i"
+    | signum y == 0 = show x
+    | otherwise = show x ++ " - " ++ show (negate y) ++ "i"
+  #+end_src
+
+  #+begin_src bash
+ghci> Complex 0 1 * Complex 0 1
+-1.0
+ghci> Complex 0 1 * Complex 1 1
+-1.0 + 1.0i
+ghci> Complex 1 (-12)
+1.0 - 12.0i
+ghci> Complex 1 1 + Complex 1 1
+2.0 + 2.0i
+ghci> Complex 1 1 * Complex 1 1
+2.0i
+  #+end_src
+
+* Práctica 1
+
+  [[./practica1/practica1.org][Práctica 1]]
