@@ -746,6 +746,57 @@ ghci> fullHuffman "El hereje rebelde"
 
      (El resultado puede ser distinto)
 
+** Punto extra
+   
+   1. Implementar una función que dada una lista de cadenas devuelve
+      el prefijo que tienen en común todas las cadenas de la lista.
+
+      #+begin_src haskell
+prefijoComun :: [String] -> String
+      #+end_src
+
+      Tiene dos pruebas:
+
+      - =extra_prefixIsCorrect=: A partir de un generador, revisa que el
+        resultado sea en efecto prefijo de todas las cadenas del
+        generador.
+
+      - =extra_prefixIsIntended=: Usando un generador, revisa que el
+        prefijo dado por el generador sea prefijo del resultado de la
+        función.
+    
+      Ejemplo:
+
+      #+begin_src haskell
+ghci> prefijoComun ["prefijo","preludio","prenda"]
+"pre"
+ghci> prefijoComun ["funcional","funcionamiento","fundamental"]
+"fun"
+ghci> prefijoComun ["facultad","involucrar","caminar"]
+""
+      #+end_src
+
+   2. Implementar una función que dadas dos listas de enteros,
+      calcular el producto punto de ambas.
+
+      #+begin_src haskell
+productoPunto :: [Integer] -> [Integer] -> Integer
+    #+end_src
+
+      Tiene una prueba:
+
+      - =extra_productoPunto=: Revisa que el cálculo del producto punto
+	sea el esperado.
+
+      Ejemplo:
+     
+	    #+begin_src haskell
+      ghci> productoPunto [5,3,2] [2,4] -- =5·2+5·4+3·2+3·4+2·2+2·4
+      60
+      ghci> [1,4,5,2,3] [10,32,21] -- =1·10+1·32+1·21+4·10+4·32+4·21+5·10+5·32+5·21+2·10+2·32+2·21+3·10+3·32+3·21
+      945
+	    #+end_src
+
 * Consideraciones
 
   1. La entrega es por medio de la plataforma /Github Classroom/.

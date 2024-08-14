@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-13 Tue 14:59 -->
+<!-- 2024-08-14 Wed 00:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Laboratorio</title>
@@ -50,48 +50,48 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org03dbea3">Haskell</a>
+<li><a href="#org4a72287">Haskell</a>
 <ul>
-<li><a href="#orgf50adf3">Instalación</a>
+<li><a href="#orge0ee46c">Instalación</a>
 <ul>
-<li><a href="#orgb9abd42">Requerimientos</a></li>
-<li><a href="#org8ea3582">GHCup</a></li>
-<li><a href="#orgd4127a6">Administrador de paquetes</a></li>
+<li><a href="#org85c997f">Requerimientos</a></li>
+<li><a href="#org6c615e6">GHCup</a></li>
+<li><a href="#org4554aaf">Administrador de paquetes</a></li>
 </ul>
 </li>
-<li><a href="#org40d9e5f">Introducción</a>
+<li><a href="#org6545071">Introducción</a>
 <ul>
-<li><a href="#org22ee764">Variables y tipos primitivos</a></li>
-<li><a href="#orga61a289">Funciones</a></li>
-<li><a href="#org4afe1a0">Operadores</a></li>
-<li><a href="#org1c9e97e">Precedencia</a></li>
-<li><a href="#org7320599">Funciones anónimas</a></li>
+<li><a href="#orgba8bb56">Variables y tipos primitivos</a></li>
+<li><a href="#orgdddca3c">Funciones</a></li>
+<li><a href="#org00ee783">Operadores</a></li>
+<li><a href="#orga2844c8">Precedencia</a></li>
+<li><a href="#org82ba7fb">Funciones anónimas</a></li>
 </ul>
 </li>
-<li><a href="#orgf28c0cb">Listas, definiciones de tipos de dato y coincidencia de patrones</a>
+<li><a href="#org89908e0">Listas, definiciones de tipos de dato y coincidencia de patrones</a>
 <ul>
-<li><a href="#org112fd6c">Condicionales</a></li>
-<li><a href="#orgd904172">Coincidencia de patrones</a></li>
-<li><a href="#org94da25f">Funciones de orden superior</a></li>
+<li><a href="#org1059727">Condicionales</a></li>
+<li><a href="#orgeec8da2">Coincidencia de patrones</a></li>
+<li><a href="#orgb190d8b">Funciones de orden superior</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org8c5b34a">Lógica proposicional en Haskell</a></li>
-<li><a href="#org0972f68">Prolog</a>
+<li><a href="#org29f80d5">Lógica proposicional en Haskell</a></li>
+<li><a href="#org15c37fa">Prolog</a>
 <ul>
-<li><a href="#orgac7d914">Predicados y constantes</a></li>
-<li><a href="#org7ee8851">Consultas</a></li>
-<li><a href="#org387ee61">Condiciones y Variables</a></li>
-<li><a href="#org81ba922">Backtracking</a></li>
-<li><a href="#org3a65621">Números y Operadores</a>
+<li><a href="#org5e19931">Predicados y constantes</a></li>
+<li><a href="#org608a858">Consultas</a></li>
+<li><a href="#orgaa8bf92">Condiciones y Variables</a></li>
+<li><a href="#org0b01f88">Backtracking</a></li>
+<li><a href="#orged8227e">Números y Operadores</a>
 <ul>
-<li><a href="#orgcfde489">Negación como falla</a></li>
-<li><a href="#org9bd4744">Unificación</a></li>
+<li><a href="#org98df86c">Negación como falla</a></li>
+<li><a href="#orgacf3a37">Unificación</a></li>
 </ul>
 </li>
-<li><a href="#org6f68042">Ejemplos</a></li>
-<li><a href="#orgffc1cbb">Listas y comodines</a></li>
+<li><a href="#org4a001fd">Ejemplos</a></li>
+<li><a href="#org480e6a5">Listas y comodines</a></li>
 </ul>
 </li>
 </ul>
@@ -99,9 +99,9 @@
 </div>
 
 
-<div id="outline-container-org03dbea3" class="outline-2">
-<h2 id="org03dbea3">Haskell</h2>
-<div class="outline-text-2" id="text-org03dbea3">
+<div id="outline-container-org4a72287" class="outline-2">
+<h2 id="org4a72287">Haskell</h2>
+<div class="outline-text-2" id="text-org4a72287">
 <p>
 Es el lenguaje de programación que utilizaremos para realizar
 la mayor parte de las prácticas de laboratorio.
@@ -117,9 +117,9 @@ funcionales como si se tratasen de una expresión matemática.
 </p>
 </div>
 
-<div id="outline-container-orgf50adf3" class="outline-3">
-<h3 id="orgf50adf3">Instalación</h3>
-<div class="outline-text-3" id="text-orgf50adf3">
+<div id="outline-container-orge0ee46c" class="outline-3">
+<h3 id="orge0ee46c">Instalación</h3>
+<div class="outline-text-3" id="text-orge0ee46c">
 <p>
 <i>Haskell</i> es un lenguaje compilado, pero también puede comportarse
 como un programa interpretado. Ambas herramientas vienen al
@@ -151,9 +151,9 @@ siguiente página:
 </div>
 
 
-<div id="outline-container-orgb9abd42" class="outline-4">
-<h4 id="orgb9abd42">Requerimientos</h4>
-<div class="outline-text-4" id="text-orgb9abd42">
+<div id="outline-container-org85c997f" class="outline-4">
+<h4 id="org85c997f">Requerimientos</h4>
+<div class="outline-text-4" id="text-org85c997f">
 <ul class="org-ul">
 <li><p>
 Debian &gt;= 12:
@@ -213,9 +213,9 @@ En computadoras con <i>M1</i>, deben investiguen cómo instalar <code>llvm</code
 </div>
 </div>
 
-<div id="outline-container-org8ea3582" class="outline-4">
-<h4 id="org8ea3582">GHCup</h4>
-<div class="outline-text-4" id="text-org8ea3582">
+<div id="outline-container-org6c615e6" class="outline-4">
+<h4 id="org6c615e6">GHCup</h4>
+<div class="outline-text-4" id="text-org6c615e6">
 <p>
 El comando que debe utilizarse para instalarlo en <i>Linux</i>, <i>macOS</i>,
 <i>FreeBSD</i> o <i>WSL2</i> es el siguiente:
@@ -239,9 +239,9 @@ usar las versiones de ambas herramientas respectivamente.
 </div>
 </div>
 
-<div id="outline-container-orgd4127a6" class="outline-4">
-<h4 id="orgd4127a6">Administrador de paquetes</h4>
-<div class="outline-text-4" id="text-orgd4127a6">
+<div id="outline-container-org4554aaf" class="outline-4">
+<h4 id="org4554aaf">Administrador de paquetes</h4>
+<div class="outline-text-4" id="text-org4554aaf">
 <p>
 Además de instalar los requerimientos mencionados anteriormente,
 los programas que necesitan por lo general llevan los nombres de
@@ -252,17 +252,17 @@ los programas que necesitan por lo general llevan los nombres de
 </div>
 
 
-<div id="outline-container-org40d9e5f" class="outline-3">
-<h3 id="org40d9e5f">Introducción</h3>
-<div class="outline-text-3" id="text-org40d9e5f">
+<div id="outline-container-org6545071" class="outline-3">
+<h3 id="org6545071">Introducción</h3>
+<div class="outline-text-3" id="text-org6545071">
 <p>
 La extensión comúnmente usada para los archivos es <code>.hs</code>
 </p>
 </div>
 
-<div id="outline-container-org22ee764" class="outline-4">
-<h4 id="org22ee764">Variables y tipos primitivos</h4>
-<div class="outline-text-4" id="text-org22ee764">
+<div id="outline-container-orgba8bb56" class="outline-4">
+<h4 id="orgba8bb56">Variables y tipos primitivos</h4>
+<div class="outline-text-4" id="text-orgba8bb56">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -330,8 +330,8 @@ c = 'a'
 
 
 <ul class="org-ul">
-<li><a id="org8803967"></a>Inmutabilidad<br />
-<div class="outline-text-5" id="text-org8803967">
+<li><a id="orgeea5fd0"></a>Inmutabilidad<br />
+<div class="outline-text-5" id="text-orgeea5fd0">
 <p>
 En <i>Haskell</i> todas las variables son inmutables, es decir, una vez
 que se definen, ya no pueden cambiar su valor.
@@ -354,9 +354,9 @@ num = 2
 </ul>
 </div>
 
-<div id="outline-container-orga61a289" class="outline-4">
-<h4 id="orga61a289">Funciones</h4>
-<div class="outline-text-4" id="text-orga61a289">
+<div id="outline-container-orgdddca3c" class="outline-4">
+<h4 id="orgdddca3c">Funciones</h4>
+<div class="outline-text-4" id="text-orgdddca3c">
 <p>
 Las funciones en <i>Haskell</i> juegan un papel esencial (claro, por eso
 es un lenguaje de programación funcional).
@@ -472,9 +472,9 @@ suma3 x y z = x + y + z
 </div>
 </div>
 
-<div id="outline-container-org4afe1a0" class="outline-4">
-<h4 id="org4afe1a0">Operadores</h4>
-<div class="outline-text-4" id="text-org4afe1a0">
+<div id="outline-container-org00ee783" class="outline-4">
+<h4 id="org00ee783">Operadores</h4>
+<div class="outline-text-4" id="text-org00ee783">
 <p>
 Aritméticas:
 </p>
@@ -515,9 +515,9 @@ Comparación:
 </div>
 </div>
 
-<div id="outline-container-org1c9e97e" class="outline-4">
-<h4 id="org1c9e97e">Precedencia</h4>
-<div class="outline-text-4" id="text-org1c9e97e">
+<div id="outline-container-orga2844c8" class="outline-4">
+<h4 id="orga2844c8">Precedencia</h4>
+<div class="outline-text-4" id="text-orga2844c8">
 <p>
 Consideremos la función que dados dos números, suma los cuadrados
 de ambos
@@ -671,9 +671,9 @@ como sigue:
 </div>
 </div>
 
-<div id="outline-container-org7320599" class="outline-4">
-<h4 id="org7320599">Funciones anónimas</h4>
-<div class="outline-text-4" id="text-org7320599">
+<div id="outline-container-org82ba7fb" class="outline-4">
+<h4 id="org82ba7fb">Funciones anónimas</h4>
+<div class="outline-text-4" id="text-org82ba7fb">
 <p>
 ¿Y si necesitamos hacer una función auxiliar que nada más usaré
 una vez, vale la pena definirla si quiera?
@@ -692,9 +692,9 @@ ghci&gt; (\x y z -&gt; x * y - z) 5 4 3
 </div>
 </div>
 
-<div id="outline-container-orgf28c0cb" class="outline-3">
-<h3 id="orgf28c0cb">Listas, definiciones de tipos de dato y coincidencia de patrones</h3>
-<div class="outline-text-3" id="text-orgf28c0cb">
+<div id="outline-container-org89908e0" class="outline-3">
+<h3 id="org89908e0">Listas, definiciones de tipos de dato y coincidencia de patrones</h3>
+<div class="outline-text-3" id="text-org89908e0">
 <p>
 ¿Recuerdan la definición inductiva de listas?
 </p>
@@ -884,8 +884,8 @@ enteros2 = [1.24,5.2,7.5,9.3]
 </div>
 
 <ul class="org-ul">
-<li><a id="org15cba2c"></a>Tipos sinónimo<br />
-<div class="outline-text-5" id="text-org15cba2c">
+<li><a id="orgbbeec61"></a>Tipos sinónimo<br />
+<div class="outline-text-5" id="text-orgbbeec61">
 <p>
 Nosotros podemos hacer sinónimos de tipos de dato:
 </p>
@@ -904,8 +904,8 @@ alumnos1 = [erik, juan, alberto]
 </div>
 </div>
 </li>
-<li><a id="org592b414"></a>Strings<br />
-<div class="outline-text-5" id="text-org592b414">
+<li><a id="org129059f"></a>Strings<br />
+<div class="outline-text-5" id="text-org129059f">
 <p>
 Sí, sí existen cadenas en haskell, pero éstas se definen como un
 sinónimo de tipo:
@@ -928,9 +928,9 @@ de usar <code>""</code> para representarlas.
 </li>
 </ul>
 
-<div id="outline-container-org112fd6c" class="outline-4">
-<h4 id="org112fd6c">Condicionales</h4>
-<div class="outline-text-4" id="text-org112fd6c">
+<div id="outline-container-org1059727" class="outline-4">
+<h4 id="org1059727">Condicionales</h4>
+<div class="outline-text-4" id="text-org1059727">
 <p>
 Como en cualquier lenguaje de programación, tenemos expresiones
 condicionales para manejar casos en los que se cumpla una
@@ -1008,9 +1008,9 @@ compara2 n m | n &lt; m = "El primero es menor que el segundo"
 </div>
 </div>
 
-<div id="outline-container-orgd904172" class="outline-4">
-<h4 id="orgd904172">Coincidencia de patrones</h4>
-<div class="outline-text-4" id="text-orgd904172">
+<div id="outline-container-orgeec8da2" class="outline-4">
+<h4 id="orgeec8da2">Coincidencia de patrones</h4>
+<div class="outline-text-4" id="text-orgeec8da2">
 <p>
 Éste se le conoce en inglés como <i>pattern matching</i> y en español
 muchas veces lo encontrarán como <i>caza de patrones</i>.
@@ -1152,9 +1152,9 @@ nivel (Nodo a l r) = 1 + max (nivel l) (nivel r)
 </div>
 </div>
 
-<div id="outline-container-org94da25f" class="outline-4">
-<h4 id="org94da25f">Funciones de orden superior</h4>
-<div class="outline-text-4" id="text-org94da25f">
+<div id="outline-container-orgb190d8b" class="outline-4">
+<h4 id="orgb190d8b">Funciones de orden superior</h4>
+<div class="outline-text-4" id="text-orgb190d8b">
 <p>
 Una función de orden superior, es una función que puede recibir
 como parámetro otra función.
@@ -1229,9 +1229,9 @@ Ahora, qué si queremos
 </div>
 </div>
 
-<div id="outline-container-org8c5b34a" class="outline-2">
-<h2 id="org8c5b34a">Lógica proposicional en Haskell</h2>
-<div class="outline-text-2" id="text-org8c5b34a">
+<div id="outline-container-org29f80d5" class="outline-2">
+<h2 id="org29f80d5">Lógica proposicional en Haskell</h2>
+<div class="outline-text-2" id="text-org29f80d5">
 <div class="org-src-container">
 <pre class="src src-haskell">type Name = String
 
@@ -1249,9 +1249,9 @@ infixr 8 #-&gt;#, #&lt;&gt;#
 </div>
 </div>
 
-<div id="outline-container-org0972f68" class="outline-2">
-<h2 id="org0972f68">Prolog</h2>
-<div class="outline-text-2" id="text-org0972f68">
+<div id="outline-container-org15c37fa" class="outline-2">
+<h2 id="org15c37fa">Prolog</h2>
+<div class="outline-text-2" id="text-org15c37fa">
 <p>
 <i>Prolog</i> es un lenguaje de programación dentro del paradigma declarativo.
 </p>
@@ -1263,9 +1263,9 @@ vuelve una consulta en éste programa.
 </p>
 </div>
 
-<div id="outline-container-orgac7d914" class="outline-3">
-<h3 id="orgac7d914">Predicados y constantes</h3>
-<div class="outline-text-3" id="text-orgac7d914">
+<div id="outline-container-org5e19931" class="outline-3">
+<h3 id="org5e19931">Predicados y constantes</h3>
+<div class="outline-text-3" id="text-org5e19931">
 <p>
 En <i>Prolog</i> podemos definir predicados sobre constantes concretas, lo
 único que se requiere es que tanto el nombre del predicado como el
@@ -1333,9 +1333,9 @@ Y así, podemos especificar más propiedades sobre nuestras constantes.
 </div>
 </div>
 
-<div id="outline-container-org7ee8851" class="outline-3">
-<h3 id="org7ee8851">Consultas</h3>
-<div class="outline-text-3" id="text-org7ee8851">
+<div id="outline-container-org608a858" class="outline-3">
+<h3 id="org608a858">Consultas</h3>
+<div class="outline-text-3" id="text-org608a858">
 <p>
 Como mencionamos anteriormente, en prolog sólo definimos hechos y
 reglas, tal y como lo hicimos en la sección anterior.
@@ -1375,9 +1375,9 @@ true.
 </div>
 </div>
 
-<div id="outline-container-org387ee61" class="outline-3">
-<h3 id="org387ee61">Condiciones y Variables</h3>
-<div class="outline-text-3" id="text-org387ee61">
+<div id="outline-container-orgaa8bf92" class="outline-3">
+<h3 id="orgaa8bf92">Condiciones y Variables</h3>
+<div class="outline-text-3" id="text-orgaa8bf92">
 <p>
 Podemos dar propiedades más específicas usando condiciones, por
 ejemplo, si queremos expresar la propiedad:
@@ -1473,9 +1473,9 @@ false.
 </div>
 </div>
 
-<div id="outline-container-org81ba922" class="outline-3">
-<h3 id="org81ba922">Backtracking</h3>
-<div class="outline-text-3" id="text-org81ba922">
+<div id="outline-container-org0b01f88" class="outline-3">
+<h3 id="org0b01f88">Backtracking</h3>
+<div class="outline-text-3" id="text-org0b01f88">
 <p>
 ¿Por qué al final de la última consulta nos sale <code>false</code>?
 </p>
@@ -1555,9 +1555,9 @@ false.
 </div>
 </div>
 
-<div id="outline-container-org3a65621" class="outline-3">
-<h3 id="org3a65621">Números y Operadores</h3>
-<div class="outline-text-3" id="text-org3a65621">
+<div id="outline-container-orged8227e" class="outline-3">
+<h3 id="orged8227e">Números y Operadores</h3>
+<div class="outline-text-3" id="text-orged8227e">
 <p>
 Como comúnmente tenemos en los lenguajes de programación, los operadores aritméticos son:
 </p>
@@ -1585,9 +1585,9 @@ Los operadores de comparación:
 </div>
 </div>
 
-<div id="outline-container-orgcfde489" class="outline-4">
-<h4 id="orgcfde489">Negación como falla</h4>
-<div class="outline-text-4" id="text-orgcfde489">
+<div id="outline-container-org98df86c" class="outline-4">
+<h4 id="org98df86c">Negación como falla</h4>
+<div class="outline-text-4" id="text-org98df86c">
 <p>
 En <i>Prolog</i> toda proposición que no haya sido escrita en la base de
 conocimientos (o no pueda ser determinada) será considerada como
@@ -1625,9 +1625,9 @@ pero sí tendremos un operador para ver si algo <i>no es demostrable</i>.
 </div>
 </div>
 
-<div id="outline-container-org9bd4744" class="outline-4">
-<h4 id="org9bd4744">Unificación</h4>
-<div class="outline-text-4" id="text-org9bd4744">
+<div id="outline-container-orgacf3a37" class="outline-4">
+<h4 id="orgacf3a37">Unificación</h4>
+<div class="outline-text-4" id="text-orgacf3a37">
 <p>
 En prolog tenemos dos operadores distintos para verificar que dos
 expresiones son unificables:
@@ -1650,9 +1650,9 @@ decir cuando <code>RES</code> sea unificable con el resultado de la expresión
 </div>
 </div>
 
-<div id="outline-container-org6f68042" class="outline-3">
-<h3 id="org6f68042">Ejemplos</h3>
-<div class="outline-text-3" id="text-org6f68042">
+<div id="outline-container-org4a001fd" class="outline-3">
+<h3 id="org4a001fd">Ejemplos</h3>
+<div class="outline-text-3" id="text-org4a001fd">
 <p>
 Calcular la suma de todos los números naturales menores a un \(n\):
 </p>
@@ -1744,9 +1744,9 @@ Un predicado que nos da el n-ésimo número fibonacci.
 </div>
 </div>
 
-<div id="outline-container-orgffc1cbb" class="outline-3">
-<h3 id="orgffc1cbb">Listas y comodines</h3>
-<div class="outline-text-3" id="text-orgffc1cbb">
+<div id="outline-container-org480e6a5" class="outline-3">
+<h3 id="org480e6a5">Listas y comodines</h3>
+<div class="outline-text-3" id="text-org480e6a5">
 <p>
 Las listas se definen inductivamente bajo la definición recursiva convencional:
 </p>
@@ -1823,7 +1823,7 @@ Un predicado que da la suma de una lista de números:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Erik Rangel Limón</p>
-<p class="date">Created: 2024-08-13 Tue 14:59</p>
+<p class="date">Created: 2024-08-14 Wed 00:04</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
 </div>
 </body>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-13 Tue 14:59 -->
+<!-- 2024-08-14 Wed 00:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Compiladores</title>
@@ -50,59 +50,59 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org247be98">Rubros</a></li>
-<li><a href="#orgbf1f7a2">Notas</a>
+<li><a href="#orgccf412b">Rubros</a></li>
+<li><a href="#org1c61811">Notas</a>
 <ul>
-<li><a href="#org840050b">Temario ( 15 / 08 / 23 )</a></li>
-<li><a href="#org51a8fee">Autómatas (repaso)</a></li>
-<li><a href="#orgf21e257">16 / 08 / 23</a>
+<li><a href="#orgba648d3">Temario ( 15 / 08 / 23 )</a></li>
+<li><a href="#org9b83a68">Autómatas (repaso)</a></li>
+<li><a href="#org1c2dada">16 / 08 / 23</a>
 <ul>
-<li><a href="#org97cec9b">Compilador</a></li>
-<li><a href="#org96d8b19">Jerarquía de Chomsky</a></li>
-<li><a href="#orgfef2156">Autómatas finitos y expresiones regulares</a></li>
-<li><a href="#org98e09da">Técnicas de optimización</a></li>
-<li><a href="#org47fd340">Otros avances</a></li>
-<li><a href="#org0bc7f1b">Intérpretes</a></li>
-<li><a href="#org2abe540">Ensambladores</a></li>
-<li><a href="#org09ae755">Enlazador</a></li>
-<li><a href="#org4693bcd">Preprocesadores</a></li>
-<li><a href="#org449af73">Editores</a></li>
-<li><a href="#orgc1ab8cc">Depuradores</a></li>
-<li><a href="#orgb4935a5">Perfiladores</a></li>
-<li><a href="#orgaea4f7d">Administradores de proyecto</a></li>
+<li><a href="#orgd89685e">Compilador</a></li>
+<li><a href="#orgaa4b927">Jerarquía de Chomsky</a></li>
+<li><a href="#org31fe9a0">Autómatas finitos y expresiones regulares</a></li>
+<li><a href="#org9f12b77">Técnicas de optimización</a></li>
+<li><a href="#orge12e70e">Otros avances</a></li>
+<li><a href="#orgf1e94e5">Intérpretes</a></li>
+<li><a href="#org01b56f6">Ensambladores</a></li>
+<li><a href="#orged1398e">Enlazador</a></li>
+<li><a href="#org2803f7a">Preprocesadores</a></li>
+<li><a href="#org913f4d1">Editores</a></li>
+<li><a href="#orgd4bc838">Depuradores</a></li>
+<li><a href="#org8692ee5">Perfiladores</a></li>
+<li><a href="#org7f74cf9">Administradores de proyecto</a></li>
 </ul>
 </li>
-<li><a href="#org03a9966">17 / 08 / 23</a>
+<li><a href="#orgefc0d68">17 / 08 / 23</a>
 <ul>
-<li><a href="#org33abacd">Lenguajes Regulares</a></li>
-<li><a href="#org8b3966e">Regex</a></li>
+<li><a href="#orgbc49d35">Lenguajes Regulares</a></li>
+<li><a href="#orgb29b9cb">Regex</a></li>
 </ul>
 </li>
-<li><a href="#org56760c4">21 / 08 / 23</a>
+<li><a href="#org00f2f4b">21 / 08 / 23</a>
 <ul>
-<li><a href="#org4d03fef">Introducción</a></li>
+<li><a href="#org25a74f0">Introducción</a></li>
 </ul>
 </li>
-<li><a href="#org9c3973c">23 / 08 / 23</a>
+<li><a href="#org5dab736">23 / 08 / 23</a>
 <ul>
-<li><a href="#org158fc50">Estructuras de datos principales en un compilador</a></li>
+<li><a href="#orgf0267a4">Estructuras de datos principales en un compilador</a></li>
 </ul>
 </li>
-<li><a href="#org299ee7e">28 / 08 / 23</a>
+<li><a href="#orge6229b0">28 / 08 / 23</a>
 <ul>
-<li><a href="#orgbaddee5">Compiladores</a></li>
+<li><a href="#org1d5cc6e">Compiladores</a></li>
 </ul>
 </li>
-<li><a href="#org410a468">29 / 08 / 23</a>
+<li><a href="#org87c43d3">29 / 08 / 23</a>
 <ul>
-<li><a href="#org231b587">Gramáticas (libres del contexto)</a></li>
+<li><a href="#orga12ec75">Gramáticas (libres del contexto)</a></li>
 </ul>
 </li>
-<li><a href="#org1e88fdd">30 / 08 / 23</a>
+<li><a href="#org5f9ccc3">30 / 08 / 23</a>
 <ul>
-<li><a href="#orgc1249cb">Teoría de Lenguajes de Programación y Teoría de Compiladores</a></li>
-<li><a href="#orgc16c664">Manejo de errores</a></li>
-<li><a href="#org4180a0e">Autohosting y bootstraping</a></li>
+<li><a href="#orge5fc98e">Teoría de Lenguajes de Programación y Teoría de Compiladores</a></li>
+<li><a href="#org5e766d1">Manejo de errores</a></li>
+<li><a href="#orgaebacac">Autohosting y bootstraping</a></li>
 </ul>
 </li>
 </ul>
@@ -111,9 +111,9 @@
 </div>
 </div>
 
-<div id="outline-container-org247be98" class="outline-2">
-<h2 id="org247be98">Rubros</h2>
-<div class="outline-text-2" id="text-org247be98">
+<div id="outline-container-orgccf412b" class="outline-2">
+<h2 id="orgccf412b">Rubros</h2>
+<div class="outline-text-2" id="text-orgccf412b">
 <ul class="org-ul">
 <li>Prácticas 20%</li>
 <li>Proyecto final 30%</li>
@@ -123,13 +123,13 @@
 </div>
 </div>
 
-<div id="outline-container-orgbf1f7a2" class="outline-2">
-<h2 id="orgbf1f7a2">Notas</h2>
-<div class="outline-text-2" id="text-orgbf1f7a2">
+<div id="outline-container-org1c61811" class="outline-2">
+<h2 id="org1c61811">Notas</h2>
+<div class="outline-text-2" id="text-org1c61811">
 </div>
-<div id="outline-container-org840050b" class="outline-3">
-<h3 id="org840050b">Temario ( 15 / 08 / 23 )</h3>
-<div class="outline-text-3" id="text-org840050b">
+<div id="outline-container-orgba648d3" class="outline-3">
+<h3 id="orgba648d3">Temario ( 15 / 08 / 23 )</h3>
+<div class="outline-text-3" id="text-orgba648d3">
 <ol class="org-ol">
 <li>Introducción</li>
 
@@ -148,9 +148,9 @@
 </div>
 </div>
 
-<div id="outline-container-org51a8fee" class="outline-3">
-<h3 id="org51a8fee">Autómatas (repaso)</h3>
-<div class="outline-text-3" id="text-org51a8fee">
+<div id="outline-container-org9b83a68" class="outline-3">
+<h3 id="org9b83a68">Autómatas (repaso)</h3>
+<div class="outline-text-3" id="text-org9b83a68">
 <ul class="org-ul">
 <li>Lenguaje: Es un conjunto de cadenas sobre un alfabeto \(\Sigma\).
 
@@ -211,13 +211,13 @@ concatenaciones de palabras de \(\mathcal{L}\) con \(\mathcal{M}\)</li>
 </div>
 </div>
 
-<div id="outline-container-orgf21e257" class="outline-3">
-<h3 id="orgf21e257">16 / 08 / 23</h3>
-<div class="outline-text-3" id="text-orgf21e257">
+<div id="outline-container-org1c2dada" class="outline-3">
+<h3 id="org1c2dada">16 / 08 / 23</h3>
+<div class="outline-text-3" id="text-org1c2dada">
 </div>
-<div id="outline-container-org97cec9b" class="outline-4">
-<h4 id="org97cec9b">Compilador</h4>
-<div class="outline-text-4" id="text-org97cec9b">
+<div id="outline-container-orgd89685e" class="outline-4">
+<h4 id="orgd89685e">Compilador</h4>
+<div class="outline-text-4" id="text-orgd89685e">
 <p>
 Un compilador es un programa que traduce de un lenguaje a
 otro. Toma como entrada un programa escrito en un lenguaje fuente
@@ -240,9 +240,9 @@ lenguaje objetivo (.class, .out, .exe).
 </div>
 </div>
 
-<div id="outline-container-org96d8b19" class="outline-4">
-<h4 id="org96d8b19">Jerarquía de Chomsky</h4>
-<div class="outline-text-4" id="text-org96d8b19">
+<div id="outline-container-orgaa4b927" class="outline-4">
+<h4 id="orgaa4b927">Jerarquía de Chomsky</h4>
+<div class="outline-text-4" id="text-orgaa4b927">
 <ul class="org-ul">
 <li>Los estudios de <i>Noam Chomsky</i> condujeron a la clasificación de
 los lenguajes de acuerdo a la complejidad de sus gramáticas y la
@@ -265,8 +265,8 @@ cuales es una especialización de la anterior.
 </div>
 
 <ul class="org-ul">
-<li><a id="orgad3076c"></a>Gramáticas libres de contexto<br />
-<div class="outline-text-5" id="text-orgad3076c">
+<li><a id="orgf99e7b9"></a>Gramáticas libres de contexto<br />
+<div class="outline-text-5" id="text-orgf99e7b9">
 <ul class="org-ul">
 <li>Las gramáticas de tipo 2, mejor conocidas como gramáticas
 libres de contexto, han demostrado ser las más útiles para
@@ -289,9 +289,9 @@ Johnson en 1975 para el sistema Unix.</li>
 </ul>
 </div>
 
-<div id="outline-container-orgfef2156" class="outline-4">
-<h4 id="orgfef2156">Autómatas finitos y expresiones regulares</h4>
-<div class="outline-text-4" id="text-orgfef2156">
+<div id="outline-container-org31fe9a0" class="outline-4">
+<h4 id="org31fe9a0">Autómatas finitos y expresiones regulares</h4>
+<div class="outline-text-4" id="text-org31fe9a0">
 <ul class="org-ul">
 <li>Estas técnicas, corresponden a las gramáticas tipo 3 y se
 encuentran relacionadas con las gramáticas libres de contexto.</li>
@@ -307,9 +307,9 @@ conocido es Lex.</li>
 </div>
 </div>
 
-<div id="outline-container-org98e09da" class="outline-4">
-<h4 id="org98e09da">Técnicas de optimización</h4>
-<div class="outline-text-4" id="text-org98e09da">
+<div id="outline-container-org9f12b77" class="outline-4">
+<h4 id="org9f12b77">Técnicas de optimización</h4>
+<div class="outline-text-4" id="text-org9f12b77">
 <ul class="org-ul">
 <li>Otro aspecto destacable en el área ha sido el desarrollo de
 métodos para la generación de código objeto eficaz.</li>
@@ -322,9 +322,9 @@ objeto verdaderamente óptimo.</li>
 </div>
 </div>
 
-<div id="outline-container-org47fd340" class="outline-4">
-<h4 id="org47fd340">Otros avances</h4>
-<div class="outline-text-4" id="text-org47fd340">
+<div id="outline-container-orge12e70e" class="outline-4">
+<h4 id="orge12e70e">Otros avances</h4>
+<div class="outline-text-4" id="text-orge12e70e">
 <ul class="org-ul">
 <li>Algoritmos para inferir y / o simplificar la información
 contenida en un programa, por ejemplo el algoritmo de
@@ -335,9 +335,9 @@ unificación de tipos de <i>Hindley-Milner</i>.</li>
 </div>
 </div>
 
-<div id="outline-container-org0bc7f1b" class="outline-4">
-<h4 id="org0bc7f1b">Intérpretes</h4>
-<div class="outline-text-4" id="text-org0bc7f1b">
+<div id="outline-container-orgf1e94e5" class="outline-4">
+<h4 id="orgf1e94e5">Intérpretes</h4>
+<div class="outline-text-4" id="text-orgf1e94e5">
 <ul class="org-ul">
 <li>A diferencia de un compilador, un intérprete ejecuta un programa
 fuente inmediatamente.</li>
@@ -356,9 +356,9 @@ intérpretes y existen incluso traductores híbridos.</li>
 </div>
 </div>
 
-<div id="outline-container-org2abe540" class="outline-4">
-<h4 id="org2abe540">Ensambladores</h4>
-<div class="outline-text-4" id="text-org2abe540">
+<div id="outline-container-org01b56f6" class="outline-4">
+<h4 id="org01b56f6">Ensambladores</h4>
+<div class="outline-text-4" id="text-org01b56f6">
 <ul class="org-ul">
 <li>Un ensamblador es un traductor para el lenguaje ensamblador.</li>
 
@@ -369,9 +369,9 @@ la traducción a código objeto.</li>
 </div>
 </div>
 
-<div id="outline-container-org09ae755" class="outline-4">
-<h4 id="org09ae755">Enlazador</h4>
-<div class="outline-text-4" id="text-org09ae755">
+<div id="outline-container-orged1398e" class="outline-4">
+<h4 id="orged1398e">Enlazador</h4>
+<div class="outline-text-4" id="text-orged1398e">
 <ul class="org-ul">
 <li>Es un programa que combina los códigos objeto generados por el
 compilador o ensamblador así como otras piezas de código para
@@ -386,9 +386,9 @@ vínculo entre ellos.</li>
 </div>
 </div>
 
-<div id="outline-container-org4693bcd" class="outline-4">
-<h4 id="org4693bcd">Preprocesadores</h4>
-<div class="outline-text-4" id="text-org4693bcd">
+<div id="outline-container-org2803f7a" class="outline-4">
+<h4 id="org2803f7a">Preprocesadores</h4>
+<div class="outline-text-4" id="text-org2803f7a">
 <ul class="org-ul">
 <li>Son programas separados que son invocados por el compilador
 antes de que comience la traducción real.</li>
@@ -401,9 +401,9 @@ adicionales.</li>
 </div>
 </div>
 
-<div id="outline-container-org449af73" class="outline-4">
-<h4 id="org449af73">Editores</h4>
-<div class="outline-text-4" id="text-org449af73">
+<div id="outline-container-org913f4d1" class="outline-4">
+<h4 id="org913f4d1">Editores</h4>
+<div class="outline-text-4" id="text-org913f4d1">
 <ul class="org-ul">
 <li>Los compiladores aceptan programas fuente escritos usando
 cualquier editor.</li>
@@ -421,9 +421,9 @@ programa se vaya escribiendo.</li>
 </div>
 </div>
 
-<div id="outline-container-orgc1ab8cc" class="outline-4">
-<h4 id="orgc1ab8cc">Depuradores</h4>
-<div class="outline-text-4" id="text-orgc1ab8cc">
+<div id="outline-container-orgd4bc838" class="outline-4">
+<h4 id="orgd4bc838">Depuradores</h4>
+<div class="outline-text-4" id="text-orgd4bc838">
 <ul class="org-ul">
 <li>Son programas que se usan para determinar los errores de
 ejecución en un programa.</li>
@@ -440,9 +440,9 @@ especificados.</li>
 </div>
 </div>
 
-<div id="outline-container-orgb4935a5" class="outline-4">
-<h4 id="orgb4935a5">Perfiladores</h4>
-<div class="outline-text-4" id="text-orgb4935a5">
+<div id="outline-container-org8692ee5" class="outline-4">
+<h4 id="org8692ee5">Perfiladores</h4>
+<div class="outline-text-4" id="text-org8692ee5">
 <ul class="org-ul">
 <li>Un perfilador es un programa que recolecta estadísticas sobre el
 comportamienbto de un programa objeto durante la ejecución.</li>
@@ -455,9 +455,9 @@ ellos.</li>
 </div>
 </div>
 
-<div id="outline-container-orgaea4f7d" class="outline-4">
-<h4 id="orgaea4f7d">Administradores de proyecto</h4>
-<div class="outline-text-4" id="text-orgaea4f7d">
+<div id="outline-container-org7f74cf9" class="outline-4">
+<h4 id="org7f74cf9">Administradores de proyecto</h4>
+<div class="outline-text-4" id="text-org7f74cf9">
 <ul class="org-ul">
 <li>Los proyecto de software por lo general son tan grandes que
 tienen que ser realizados por grupos de programadores en lugar
@@ -474,13 +474,13 @@ por programadores diferentes.</li>
 </div>
 </div>
 
-<div id="outline-container-org03a9966" class="outline-3">
-<h3 id="org03a9966">17 / 08 / 23</h3>
-<div class="outline-text-3" id="text-org03a9966">
+<div id="outline-container-orgefc0d68" class="outline-3">
+<h3 id="orgefc0d68">17 / 08 / 23</h3>
+<div class="outline-text-3" id="text-orgefc0d68">
 </div>
-<div id="outline-container-org33abacd" class="outline-4">
-<h4 id="org33abacd">Lenguajes Regulares</h4>
-<div class="outline-text-4" id="text-org33abacd">
+<div id="outline-container-orgbc49d35" class="outline-4">
+<h4 id="orgbc49d35">Lenguajes Regulares</h4>
+<div class="outline-text-4" id="text-orgbc49d35">
 <p>
 Un lenguaje \(\mathcal{L}\) bajo un alfabeto \(\Sigma\) es regular si
 se puede generar a partir de lenguajes básicos (\(\{\varepsilon\}\),
@@ -506,9 +506,9 @@ regulares.</li>
 </div>
 </div>
 
-<div id="outline-container-org8b3966e" class="outline-4">
-<h4 id="org8b3966e">Regex</h4>
-<div class="outline-text-4" id="text-org8b3966e">
+<div id="outline-container-orgb29b9cb" class="outline-4">
+<h4 id="orgb29b9cb">Regex</h4>
+<div class="outline-text-4" id="text-orgb29b9cb">
 <ul class="org-ul">
 <li>\(\emptyset\) es un regex</li>
 
@@ -525,13 +525,13 @@ regulares.</li>
 </div>
 </div>
 
-<div id="outline-container-org56760c4" class="outline-3">
-<h3 id="org56760c4">21 / 08 / 23</h3>
-<div class="outline-text-3" id="text-org56760c4">
+<div id="outline-container-org00f2f4b" class="outline-3">
+<h3 id="org00f2f4b">21 / 08 / 23</h3>
+<div class="outline-text-3" id="text-org00f2f4b">
 </div>
-<div id="outline-container-org4d03fef" class="outline-4">
-<h4 id="org4d03fef">Introducción</h4>
-<div class="outline-text-4" id="text-org4d03fef">
+<div id="outline-container-org25a74f0" class="outline-4">
+<h4 id="org25a74f0">Introducción</h4>
+<div class="outline-text-4" id="text-org25a74f0">
 <p>
 Un compilador se compone internamente de varias etapas, o fases
 que realizan distintas operaciones lógicas.
@@ -632,8 +632,8 @@ menudo se integren juntas.
 </div>
 
 <ul class="org-ul">
-<li><a id="org92ece81"></a>Analizador léxico<br />
-<div class="outline-text-5" id="text-org92ece81">
+<li><a id="org81e29c7"></a>Analizador léxico<br />
+<div class="outline-text-5" id="text-org81e29c7">
 <ul class="org-ul">
 <li>En esta fase se ejecuta la lectura del programa fuente, el cuál
 generalmente es dado en forma de cadena.</li>
@@ -649,8 +649,8 @@ programa que realiza una función similar al deletreo.</li>
 </div>
 </li>
 
-<li><a id="orgf16301b"></a>Analizador sintáctico<br />
-<div class="outline-text-5" id="text-orgf16301b">
+<li><a id="org2fe7e3a"></a>Analizador sintáctico<br />
+<div class="outline-text-5" id="text-org2fe7e3a">
 <ul class="org-ul">
 <li>Recibe el código fuente en forma de tokens proveniente del
 analizador léxico y realiza un análisis sintáctico que
@@ -678,8 +678,8 @@ adicional de los árboles de análisis gramatical.</li>
 </div>
 </li>
 
-<li><a id="org1aff298"></a>Analizador semántico<br />
-<div class="outline-text-5" id="text-org1aff298">
+<li><a id="org03472f9"></a>Analizador semántico<br />
+<div class="outline-text-5" id="text-org03472f9">
 <ul class="org-ul">
 <li>La semántica de un programa es su <i>significado</i>, en oposición a
 su sintaxis o estructura.</li>
@@ -708,8 +708,8 @@ atributos y con frecuencia se agregan al árbol como anotaciones
 </div>
 </li>
 
-<li><a id="org1139964"></a>Optimizador de código fuente<br />
-<div class="outline-text-5" id="text-org1139964">
+<li><a id="orga148e4e"></a>Optimizador de código fuente<br />
+<div class="outline-text-5" id="text-orga148e4e">
 <ul class="org-ul">
 <li>Los compiladores a menudo incluyen varias etapas para el
 mejoramiento, y optimización del código.</li>
@@ -757,8 +757,8 @@ al código intermedio como <b>representación intermedia</b>, o <b>RI</b>.</li>
 </div>
 </li>
 
-<li><a id="org9884e3f"></a>Generador de código<br />
-<div class="outline-text-5" id="text-org9884e3f">
+<li><a id="org7394c56"></a>Generador de código<br />
+<div class="outline-text-5" id="text-org7394c56">
 <ul class="org-ul">
 <li>El generador de código toma la <b>RI</b> y genera el código para la
 máquina objetivo.</li>
@@ -789,13 +789,13 @@ operaciones redundantes o innecesarias.</li>
 </div>
 </div>
 
-<div id="outline-container-org9c3973c" class="outline-3">
-<h3 id="org9c3973c">23 / 08 / 23</h3>
-<div class="outline-text-3" id="text-org9c3973c">
+<div id="outline-container-org5dab736" class="outline-3">
+<h3 id="org5dab736">23 / 08 / 23</h3>
+<div class="outline-text-3" id="text-org5dab736">
 </div>
-<div id="outline-container-org158fc50" class="outline-4">
-<h4 id="org158fc50">Estructuras de datos principales en un compilador</h4>
-<div class="outline-text-4" id="text-org158fc50">
+<div id="outline-container-orgf0267a4" class="outline-4">
+<h4 id="orgf0267a4">Estructuras de datos principales en un compilador</h4>
+<div class="outline-text-4" id="text-orgf0267a4">
 <p>
 La interacción entre los algoritmos utilizados por las fases de un
 compilador y las estructuras de datos que soportan estas fases, es
@@ -823,8 +823,8 @@ fases.
 </div>
 
 <ul class="org-ul">
-<li><a id="org58807b8"></a>Tokens<br />
-<div class="outline-text-5" id="text-org58807b8">
+<li><a id="orge41a6d9"></a>Tokens<br />
+<div class="outline-text-5" id="text-orge41a6d9">
 <p>
 Cuando un analizador léxico reúne los caracteres en un token,
 generalmente representa el token de manera simbólica, es decir,
@@ -857,8 +857,8 @@ estructura) de tokens.
 </div>
 </li>
 
-<li><a id="org07fb9c4"></a>Árboles de sintaxis abstracta<br />
-<div class="outline-text-5" id="text-org07fb9c4">
+<li><a id="org41355f9"></a>Árboles de sintaxis abstracta<br />
+<div class="outline-text-5" id="text-org41355f9">
 <p>
 Si el analizador sintáctico genera un ASA, por lo regular se
 construye como una estructura estándar basada en un apuntador que
@@ -903,8 +903,8 @@ solamente la información necesaria para ese caso.
 </div>
 </li>
 
-<li><a id="orgf712d51"></a>Tabla de símbolos<br />
-<div class="outline-text-5" id="text-orgf712d51">
+<li><a id="orgbd1955d"></a>Tabla de símbolos<br />
+<div class="outline-text-5" id="text-orgbd1955d">
 <p>
 Esta estructura de datos mantiene la información aosicada con los
 identificadores: funciones variables, constantes y tipos de
@@ -935,8 +935,8 @@ lista o pila.
 </div>
 </li>
 
-<li><a id="org9eabdf9"></a>Tabla de literales<br />
-<div class="outline-text-5" id="text-org9eabdf9">
+<li><a id="orgf70f9a5"></a>Tabla de literales<br />
+<div class="outline-text-5" id="text-orgf70f9a5">
 <p>
 La búsqueda y la inserción rápida son esenciales para la tabla de
 literales, la cual almacena constantes y cadenas utilizadas en el
@@ -962,8 +962,8 @@ definiciones de datos en el archivo de código objetivo.
 </div>
 </li>
 
-<li><a id="org0cde106"></a>Código intermedio<br />
-<div class="outline-text-5" id="text-org0cde106">
+<li><a id="org92f7b61"></a>Código intermedio<br />
+<div class="outline-text-5" id="text-org92f7b61">
 <p>
 De acuerdo con la clase de código intermedio y de las clases de
 optimizaciones realizadas, este código puede conservarse como un
@@ -982,17 +982,17 @@ que permitan una fácil reorganización.
 </div>
 </div>
 
-<div id="outline-container-org299ee7e" class="outline-3">
-<h3 id="org299ee7e">28 / 08 / 23</h3>
-<div class="outline-text-3" id="text-org299ee7e">
+<div id="outline-container-orge6229b0" class="outline-3">
+<h3 id="orge6229b0">28 / 08 / 23</h3>
+<div class="outline-text-3" id="text-orge6229b0">
 </div>
-<div id="outline-container-orgbaddee5" class="outline-4">
-<h4 id="orgbaddee5">Compiladores</h4>
-<div class="outline-text-4" id="text-orgbaddee5">
+<div id="outline-container-org1d5cc6e" class="outline-4">
+<h4 id="org1d5cc6e">Compiladores</h4>
+<div class="outline-text-4" id="text-org1d5cc6e">
 </div>
 <ul class="org-ul">
-<li><a id="org6ceb3f4"></a>Introducción<br />
-<div class="outline-text-5" id="text-org6ceb3f4">
+<li><a id="org293ffea"></a>Introducción<br />
+<div class="outline-text-5" id="text-org293ffea">
 <ul class="org-ul">
 <li>La estructura de un compilador se puede ver desde distinto
 ángulos.</li>
@@ -1020,8 +1020,8 @@ compilador y señalaremos cómo se aplica cada punto de vista.</li>
 </div>
 </li>
 
-<li><a id="orgb138ea3"></a>Análisis y síntesis<br />
-<div class="outline-text-5" id="text-orgb138ea3">
+<li><a id="org982efec"></a>Análisis y síntesis<br />
+<div class="outline-text-5" id="text-org982efec">
 <ul class="org-ul">
 <li>Las operaciones del compilador que analizan el programa fuente
 para calcular sus propiedades se clasifican como la parte de
@@ -1047,8 +1047,8 @@ independiente respecto a la otra.</li>
 </div>
 </li>
 
-<li><a id="orgd28ed93"></a>Etapa inicial y etapa final<br />
-<div class="outline-text-5" id="text-orgd28ed93">
+<li><a id="org83cc12a"></a>Etapa inicial y etapa final<br />
+<div class="outline-text-5" id="text-org83cc12a">
 <ul class="org-ul">
 <li>Considera al compilador separado en aquellas funciones que
 dependen sólo del lenguaje fuente (la etapa inicial <i>front-end</i>)
@@ -1076,8 +1076,8 @@ objetivo.</li>
 </div>
 </li>
 
-<li><a id="org52db5ee"></a>Pasadas<br />
-<div class="outline-text-5" id="text-org52db5ee">
+<li><a id="orgfd63c6d"></a>Pasadas<br />
+<div class="outline-text-5" id="text-orgfd63c6d">
 <ul class="org-ul">
 <li>Un compilador a menudo encuentra conveniente procesar todo el
 programa varias veces antes de generar el código.</li>
@@ -1114,13 +1114,13 @@ cinco, seis e incluso ocho no son algo fuera de lo común.</li>
 </div>
 </div>
 
-<div id="outline-container-org410a468" class="outline-3">
-<h3 id="org410a468">29 / 08 / 23</h3>
-<div class="outline-text-3" id="text-org410a468">
+<div id="outline-container-org87c43d3" class="outline-3">
+<h3 id="org87c43d3">29 / 08 / 23</h3>
+<div class="outline-text-3" id="text-org87c43d3">
 </div>
-<div id="outline-container-org231b587" class="outline-4">
-<h4 id="org231b587">Gramáticas (libres del contexto)</h4>
-<div class="outline-text-4" id="text-org231b587">
+<div id="outline-container-orga12ec75" class="outline-4">
+<h4 id="orga12ec75">Gramáticas (libres del contexto)</h4>
+<div class="outline-text-4" id="text-orga12ec75">
 <p>
 \[G=\langle V,T,S,P \rangle\]
 </p>
@@ -1138,13 +1138,13 @@ cinco, seis e incluso ocho no son algo fuera de lo común.</li>
 </div>
 </div>
 
-<div id="outline-container-org1e88fdd" class="outline-3">
-<h3 id="org1e88fdd">30 / 08 / 23</h3>
-<div class="outline-text-3" id="text-org1e88fdd">
+<div id="outline-container-org5f9ccc3" class="outline-3">
+<h3 id="org5f9ccc3">30 / 08 / 23</h3>
+<div class="outline-text-3" id="text-org5f9ccc3">
 </div>
-<div id="outline-container-orgc1249cb" class="outline-4">
-<h4 id="orgc1249cb">Teoría de Lenguajes de Programación y Teoría de Compiladores</h4>
-<div class="outline-text-4" id="text-orgc1249cb">
+<div id="outline-container-orge5fc98e" class="outline-4">
+<h4 id="orge5fc98e">Teoría de Lenguajes de Programación y Teoría de Compiladores</h4>
+<div class="outline-text-4" id="text-orge5fc98e">
 <ul class="org-ul">
 <li>Hablamos temas atrás sobre cómo las estructuras léxicas y
 sintácticas de un lenguaje de programación por lo regular son
@@ -1193,9 +1193,9 @@ y estructura de los ambientes de ejecución.</li>
 </div>
 </div>
 
-<div id="outline-container-orgc16c664" class="outline-4">
-<h4 id="orgc16c664">Manejo de errores</h4>
-<div class="outline-text-4" id="text-orgc16c664">
+<div id="outline-container-org5e766d1" class="outline-4">
+<h4 id="org5e766d1">Manejo de errores</h4>
+<div class="outline-text-4" id="text-org5e766d1">
 <ul class="org-ul">
 <li>Una de las funciones más importantes de un compilador es su
 respuesta a los errores</li>
@@ -1218,13 +1218,13 @@ excepciones.</li>
 </div>
 </div>
 
-<div id="outline-container-org4180a0e" class="outline-4">
-<h4 id="org4180a0e">Autohosting y bootstraping</h4>
-<div class="outline-text-4" id="text-org4180a0e">
+<div id="outline-container-orgaebacac" class="outline-4">
+<h4 id="orgaebacac">Autohosting y bootstraping</h4>
+<div class="outline-text-4" id="text-orgaebacac">
 </div>
 <ul class="org-ul">
-<li><a id="org649759e"></a>Lenguaje anfitrión<br />
-<div class="outline-text-5" id="text-org649759e">
+<li><a id="orga88f4f0"></a>Lenguaje anfitrión<br />
+<div class="outline-text-5" id="text-orga88f4f0">
 <ul class="org-ul">
 <li>Hemos analizado los lenguajes fuente y objetivo como factores
 en la estructura de un compilador y la utilidad de separar
@@ -1251,8 +1251,8 @@ existente para obtener un programa ejecutable.</li>
 </div>
 </li>
 
-<li><a id="org07690bf"></a>Lenguaje anfitrión<br />
-<div class="outline-text-5" id="text-org07690bf">
+<li><a id="orge9ce977"></a>Lenguaje anfitrión<br />
+<div class="outline-text-5" id="text-orge9ce977">
 <ul class="org-ul">
 <li>Si el compilador existente para el lenguaje B se ejecuta en una
 máquina diferente a la máquina objetivo, entonces la situación
@@ -1265,8 +1265,8 @@ máquina diferente de aquella en la que puede ejecutarse.</li>
 </div>
 </li>
 
-<li><a id="orgea86298"></a>Diagramas T<br />
-<div class="outline-text-5" id="text-orgea86298">
+<li><a id="orga341c18"></a>Diagramas T<br />
+<div class="outline-text-5" id="text-orga341c18">
 <ul class="org-ul">
 <li>La situación anterior y muchas otras más complejas se describen
 mejor al esquematizar un compilador como un diagrama T.</li>
@@ -1319,7 +1319,7 @@ mismo que O, pero no es necesario que éste sea el caso.</li>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Erik Rangel Limón</p>
-<p class="date">Created: 2024-08-13 Tue 14:59</p>
+<p class="date">Created: 2024-08-14 Wed 00:04</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
 </div>
 </body>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-13 Tue 14:59 -->
+<!-- 2024-08-14 Wed 00:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Práctica 1: Codificación de Huffman</title>
@@ -50,18 +50,22 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org79a4bae">Objetivos</a></li>
-<li><a href="#orge45b2e5">Instrucciones</a></li>
-<li><a href="#org4ca252c">Desarrollo</a></li>
-<li><a href="#orgdc594f6">Ejercicios</a></li>
-<li><a href="#org98cb4b1">Consideraciones</a></li>
+<li><a href="#org1724953">Objetivos</a></li>
+<li><a href="#org487fffb">Instrucciones</a></li>
+<li><a href="#org7e0b077">Desarrollo</a></li>
+<li><a href="#org5800da2">Ejercicios</a>
+<ul>
+<li><a href="#org41d1dff">Punto extra</a></li>
+</ul>
+</li>
+<li><a href="#org3eb2809">Consideraciones</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org79a4bae" class="outline-2">
-<h2 id="org79a4bae">Objetivos</h2>
-<div class="outline-text-2" id="text-org79a4bae">
+<div id="outline-container-org1724953" class="outline-2">
+<h2 id="org1724953">Objetivos</h2>
+<div class="outline-text-2" id="text-org1724953">
 <p>
 Poner a prueba los conocimientos de lxs alumnxs en el lenguaje de
 programación <i>Haskell</i> desarrollando la codificación de Huffman.
@@ -69,9 +73,9 @@ programación <i>Haskell</i> desarrollando la codificación de Huffman.
 </div>
 </div>
 
-<div id="outline-container-orge45b2e5" class="outline-2">
-<h2 id="orge45b2e5">Instrucciones</h2>
-<div class="outline-text-2" id="text-orge45b2e5">
+<div id="outline-container-org487fffb" class="outline-2">
+<h2 id="org487fffb">Instrucciones</h2>
+<div class="outline-text-2" id="text-org487fffb">
 <ol class="org-ol">
 <li><p>
 Para ésta práctica necesitan tener instalado <i>GHC</i> y <i>Cabal</i>.
@@ -298,9 +302,9 @@ Pueden verificar <span class="underline">todas</span> las propiedades de la sigu
 </div>
 </div>
 
-<div id="outline-container-org4ca252c" class="outline-2">
-<h2 id="org4ca252c">Desarrollo</h2>
-<div class="outline-text-2" id="text-org4ca252c">
+<div id="outline-container-org7e0b077" class="outline-2">
+<h2 id="org7e0b077">Desarrollo</h2>
+<div class="outline-text-2" id="text-org7e0b077">
 <p>
 La codificación de Huffman es un algoritmo usado para la compresión
 de datos, éste utiliza un método específico para elegir la
@@ -435,7 +439,7 @@ sus elementos.
 </p>
 
 
-<div id="orgb08b789" class="figure">
+<div id="org608b6c1" class="figure">
 <p><a href="./img/t1.png"><img src="./img/t1.png" alt="t1.png" /></a>
 </p>
 </div>
@@ -540,7 +544,7 @@ Volvemos a tomar los primeros dos elementos y construimos el árbol
 </p>
 
 
-<div id="orgea76307" class="figure">
+<div id="org5aba02f" class="figure">
 <p><a href="./img/t2.png"><img src="./img/t2.png" alt="t2.png" /></a>
 </p>
 </div>
@@ -640,7 +644,7 @@ Y repetimos el procedimiento hasta sólo tener un árbol
 </p>
 
 
-<div id="org23e97af" class="figure">
+<div id="orgde25902" class="figure">
 <p><a href="./img/t3.png"><img src="./img/t3.png" alt="t3.png" /></a>
 </p>
 </div>
@@ -727,7 +731,7 @@ Y repetimos el procedimiento hasta sólo tener un árbol
 </table>
 
 
-<div id="org1276b54" class="figure">
+<div id="org8eb5ede" class="figure">
 <p><a href="./img/t4.png"><img src="./img/t4.png" alt="t4.png" /></a>
 </p>
 </div>
@@ -809,7 +813,7 @@ Y repetimos el procedimiento hasta sólo tener un árbol
 </table>
 
 
-<div id="org5167ebf" class="figure">
+<div id="org6084339" class="figure">
 <p><a href="./img/t5.png"><img src="./img/t5.png" alt="t5.png" /></a>
 </p>
 </div>
@@ -886,7 +890,7 @@ Y repetimos el procedimiento hasta sólo tener un árbol
 </table>
 
 
-<div id="org621faf6" class="figure">
+<div id="orgaab888d" class="figure">
 <p><a href="./img/t6.png"><img src="./img/t6.png" alt="t6.png" /></a>
 </p>
 </div>
@@ -958,7 +962,7 @@ Y repetimos el procedimiento hasta sólo tener un árbol
 </table>
 
 
-<div id="orgc86e1b0" class="figure">
+<div id="org494ddf9" class="figure">
 <p><a href="./img/t7.png"><img src="./img/t7.png" alt="t7.png" /></a>
 </p>
 </div>
@@ -1025,7 +1029,7 @@ Y repetimos el procedimiento hasta sólo tener un árbol
 </table>
 
 
-<div id="org0b6d2cd" class="figure">
+<div id="org9737a85" class="figure">
 <p><a href="./img/t8.png"><img src="./img/t8.png" alt="t8.png" /></a>
 </p>
 </div>
@@ -1087,7 +1091,7 @@ Y repetimos el procedimiento hasta sólo tener un árbol
 </table>
 
 
-<div id="orgf1bee17" class="figure">
+<div id="org85f4a70" class="figure">
 <p><a href="./img/t9.png"><img src="./img/t9.png" alt="t9.png" /></a>
 </p>
 </div>
@@ -1144,7 +1148,7 @@ Y repetimos el procedimiento hasta sólo tener un árbol
 </table>
 
 
-<div id="orgb269594" class="figure">
+<div id="org9bec31b" class="figure">
 <p><a href="./img/t10.png"><img src="./img/t10.png" alt="t10.png" /></a>
 </p>
 </div>
@@ -1196,7 +1200,7 @@ Y repetimos el procedimiento hasta sólo tener un árbol
 </table>
 
 
-<div id="org60ff039" class="figure">
+<div id="orgf7f1bbc" class="figure">
 <p><a href="./img/t11.png"><img src="./img/t11.png" alt="t11.png" /></a>
 </p>
 </div>
@@ -1243,7 +1247,7 @@ Y repetimos el procedimiento hasta sólo tener un árbol
 </table>
 
 
-<div id="orgffd959b" class="figure">
+<div id="orgaaff4e8" class="figure">
 <p><a href="./img/t12.png"><img src="./img/t12.png" alt="t12.png" /></a>
 </p>
 </div>
@@ -1285,7 +1289,7 @@ Y repetimos el procedimiento hasta sólo tener un árbol
 </table>
 
 
-<div id="org3df49c8" class="figure">
+<div id="orgad63b64" class="figure">
 <p><a href="./img/t13.png"><img src="./img/t13.png" alt="t13.png" /></a>
 </p>
 </div>
@@ -1322,7 +1326,7 @@ Y repetimos el procedimiento hasta sólo tener un árbol
 </table>
 
 
-<div id="org0a97a96" class="figure">
+<div id="org1b72962" class="figure">
 <p><a href="./img/t14.png"><img src="./img/t14.png" alt="t14.png" /></a>
 </p>
 </div>
@@ -1354,7 +1358,7 @@ Y repetimos el procedimiento hasta sólo tener un árbol
 </table>
 
 
-<div id="orgbe1c8d6" class="figure">
+<div id="org801f2d5" class="figure">
 <p><a href="./img/t15.png"><img src="./img/t15.png" alt="t15.png" /></a>
 </p>
 </div>
@@ -1381,7 +1385,7 @@ Y repetimos el procedimiento hasta sólo tener un árbol
 </table>
 
 
-<div id="orgab5463d" class="figure">
+<div id="orged3d867" class="figure">
 <p><a href="./img/t16.png"><img src="./img/t16.png" alt="t16.png" /></a>
 </p>
 </div>
@@ -1399,7 +1403,7 @@ siguiente:
 </p>
 
 
-<div id="org9dfa352" class="figure">
+<div id="org9952c0c" class="figure">
 <p><a href="./img/tfinal.png"><img src="./img/tfinal.png" alt="tfinal.png" /></a> 
 </p>
 </div>
@@ -1412,9 +1416,9 @@ tendría la codificación "01001".
 </div>
 </div>
 
-<div id="outline-container-orgdc594f6" class="outline-2">
-<h2 id="orgdc594f6">Ejercicios</h2>
-<div class="outline-text-2" id="text-orgdc594f6">
+<div id="outline-container-org5800da2" class="outline-2">
+<h2 id="org5800da2">Ejercicios</h2>
+<div class="outline-text-2" id="text-org5800da2">
 <p>
 En su práctica encontrarán la definición del siguiente tipo de dato:
 </p>
@@ -1917,11 +1921,87 @@ Ejemplo:
 </p></li>
 </ol>
 </div>
+
+<div id="outline-container-org41d1dff" class="outline-3">
+<h3 id="org41d1dff">Punto extra</h3>
+<div class="outline-text-3" id="text-org41d1dff">
+<ol class="org-ol">
+<li><p>
+Implementar una función que dada una lista de cadenas devuelve
+el prefijo que tienen en común todas las cadenas de la lista.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">prefijoComun :: [String] -&gt; String
+</pre>
 </div>
 
-<div id="outline-container-org98cb4b1" class="outline-2">
-<h2 id="org98cb4b1">Consideraciones</h2>
-<div class="outline-text-2" id="text-org98cb4b1">
+<p>
+Tiene dos pruebas:
+</p>
+
+<ul class="org-ul">
+<li><code>extra_prefixIsCorrect</code>: A partir de un generador, revisa que el
+resultado sea en efecto prefijo de todas las cadenas del
+generador.</li>
+
+<li><code>extra_prefixIsIntended</code>: Usando un generador, revisa que el
+prefijo dado por el generador sea prefijo del resultado de la
+función.</li>
+</ul>
+
+<p>
+Ejemplo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; prefijoComun ["prefijo","preludio","prenda"]
+"pre"
+ghci&gt; prefijoComun ["funcional","funcionamiento","fundamental"]
+"fun"
+ghci&gt; prefijoComun ["facultad","involucrar","caminar"]
+""
+</pre>
+</div></li>
+
+<li><p>
+Implementar una función que dadas dos listas de enteros,
+calcular el producto punto de ambas.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">productoPunto :: [Integer] -&gt; [Integer] -&gt; Integer
+</pre>
+</div>
+
+<p>
+Tiene una prueba:
+</p>
+
+<ul class="org-ul">
+<li><code>extra_productoPunto</code>: Revisa que el cálculo del producto punto
+sea el esperado.</li>
+</ul>
+
+<p>
+Ejemplo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; productoPunto [5,3,2] [2,4] -- =5·2+5·4+3·2+3·4+2·2+2·4
+60
+ghci&gt; [1,4,5,2,3] [10,32,21] -- =1·10+1·32+1·21+4·10+4·32+4·21+5·10+5·32+5·21+2·10+2·32+2·21+3·10+3·32+3·21
+945
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3eb2809" class="outline-2">
+<h2 id="org3eb2809">Consideraciones</h2>
+<div class="outline-text-2" id="text-org3eb2809">
 <ol class="org-ol">
 <li>La entrega es por medio de la plataforma <i>Github Classroom</i>.</li>
 
@@ -1991,7 +2071,7 @@ laboratorio.</li>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Erik Rangel Limón</p>
-<p class="date">Created: 2024-08-13 Tue 14:59</p>
+<p class="date">Created: 2024-08-14 Wed 00:04</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
 </div>
 </body>
