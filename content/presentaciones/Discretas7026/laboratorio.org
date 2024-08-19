@@ -241,3 +241,52 @@ f x = x ^ 2
 a :: Double
 a = f 128371893129.0
   #+end_src
+
+  El anterior es el archivo que hicimos el viernest 16 de Agosto.
+
+  Guárdenlo en un archivo con extensión =.hs=, por ejemplo =tutorial.hs=.
+
+  Recuerden que para cargar el archivo en el intérprete es con el
+  comando:
+
+  #+begin_src bash
+$ ghci tutorial.hs
+  #+end_src
+
+  Desde luego, estando en el directorio en donde se encuentra el
+  archivo =tutorial.hs=.
+
+  ésto les abrirá el intérprete tomando como contexto el archivo que
+  crearon.
+
+* Glosario de comandos en ghci
+
+  - =:l= para cargar un archivo desde el intérprete. (Estando en el
+    directorio donde se encuentra el archivo.)
+
+    #+begin_src haskell
+ghci> :l tutorial.hs
+[1 of 2] Compiling Main             ( tutorial.hs, interpreted )
+Ok, one module loaded.
+ghci> :l tutorial.hs
+    #+end_src
+
+  - =:r= para recargar un achivo que ya fue cargado en =ghci=
+    anteriormente.
+
+    #+begin_src haskell
+ghci> :r
+[1 of 2] Compiling Main             ( tutorial.hs, interpreted ) [Source file changed]
+Ok, one module loaded.
+ghci> 
+    #+end_src
+
+  - Dentro del intérprete pueden utilizar las funciones o variables
+    creadas:
+
+    #+begin_src haskell
+ghci> f 5
+25.0
+ghci> a
+1.6479342945523397e22  
+    #+end_src

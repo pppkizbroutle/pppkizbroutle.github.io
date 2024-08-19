@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-19 Mon 11:43 -->
+<!-- 2024-08-19 Mon 12:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Laboratorio de Estructuras Discretas</title>
@@ -50,18 +50,19 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org7c0d580">Sesión Introductoria</a>
+<li><a href="#org6b3d44e">Sesión Introductoria</a>
 <ul>
-<li><a href="#org06a3670">Dinámica de las prácticas</a>
+<li><a href="#org7a9f3fa">Dinámica de las prácticas</a>
 <ul>
-<li><a href="#org81e0272">Consideraciones</a></li>
+<li><a href="#orga48e7aa">Consideraciones</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgeb54dab">Haskell</a></li>
-<li><a href="#org22f1056">Instalación</a></li>
-<li><a href="#org5cad19f">Tutorial</a></li>
+<li><a href="#orgede6e0a">Haskell</a></li>
+<li><a href="#org8c1d0f9">Instalación</a></li>
+<li><a href="#org3ca4803">Tutorial</a></li>
+<li><a href="#org12edf5f">Glosario de comandos en ghci</a></li>
 </ul>
 </div>
 </div>
@@ -69,13 +70,13 @@
 <a href="../index.html">Anterior</a>
 </p>
 
-<div id="outline-container-org7c0d580" class="outline-2">
-<h2 id="org7c0d580">Sesión Introductoria</h2>
-<div class="outline-text-2" id="text-org7c0d580">
+<div id="outline-container-org6b3d44e" class="outline-2">
+<h2 id="org6b3d44e">Sesión Introductoria</h2>
+<div class="outline-text-2" id="text-org6b3d44e">
 </div>
-<div id="outline-container-org06a3670" class="outline-3">
-<h3 id="org06a3670">Dinámica de las prácticas</h3>
-<div class="outline-text-3" id="text-org06a3670">
+<div id="outline-container-org7a9f3fa" class="outline-3">
+<h3 id="org7a9f3fa">Dinámica de las prácticas</h3>
+<div class="outline-text-3" id="text-org7a9f3fa">
 <ul class="org-ul">
 <li>Las entregas serán por medio de <i>Github Classroom</i>.</li>
 
@@ -125,9 +126,9 @@ tenido.</li>
 </ul>
 </div>
 
-<div id="outline-container-org81e0272" class="outline-4">
-<h4 id="org81e0272">Consideraciones</h4>
-<div class="outline-text-4" id="text-org81e0272">
+<div id="outline-container-orga48e7aa" class="outline-4">
+<h4 id="orga48e7aa">Consideraciones</h4>
+<div class="outline-text-4" id="text-orga48e7aa">
 <ul class="org-ul">
 <li>Cualquier copia total o parcial tanto en los ejercicios como en
 su <code>README</code> será motivo de anular la calificación de la
@@ -258,9 +259,9 @@ ejercicios, la petición no será tomada en cuenta.
 </div>
 </div>
 
-<div id="outline-container-orgeb54dab" class="outline-2">
-<h2 id="orgeb54dab">Haskell</h2>
-<div class="outline-text-2" id="text-orgeb54dab">
+<div id="outline-container-orgede6e0a" class="outline-2">
+<h2 id="orgede6e0a">Haskell</h2>
+<div class="outline-text-2" id="text-orgede6e0a">
 <p>
 Es el lenguaje de programación que utilizaremos para sus sesiones en
 el laboratorio.
@@ -326,9 +327,9 @@ hechos lógicos, funciones matemáticas y otros.
 </div>
 </div>
 
-<div id="outline-container-org22f1056" class="outline-2">
-<h2 id="org22f1056">Instalación</h2>
-<div class="outline-text-2" id="text-org22f1056">
+<div id="outline-container-org8c1d0f9" class="outline-2">
+<h2 id="org8c1d0f9">Instalación</h2>
+<div class="outline-text-2" id="text-org8c1d0f9">
 <p>
 <code>ghc cabal-install</code>
 </p>
@@ -360,9 +361,9 @@ relacionados con el lenguaje de programación haskell.
 </div>
 </div>
 
-<div id="outline-container-org5cad19f" class="outline-2">
-<h2 id="org5cad19f">Tutorial</h2>
-<div class="outline-text-2" id="text-org5cad19f">
+<div id="outline-container-org3ca4803" class="outline-2">
+<h2 id="org3ca4803">Tutorial</h2>
+<div class="outline-text-2" id="text-org3ca4803">
 <div class="org-src-container">
 <pre class="src src-haskell">-- Clase de haskell:
 
@@ -403,12 +404,86 @@ a :: Double
 a = f 128371893129.0
 </pre>
 </div>
+
+<p>
+El anterior es el archivo que hicimos el viernest 16 de Agosto.
+</p>
+
+<p>
+Guárdenlo en un archivo con extensión <code>.hs</code>, por ejemplo <code>tutorial.hs</code>.
+</p>
+
+<p>
+Recuerden que para cargar el archivo en el intérprete es con el
+comando:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">$ ghci tutorial.hs
+</pre>
+</div>
+
+<p>
+Desde luego, estando en el directorio en donde se encuentra el
+archivo <code>tutorial.hs</code>.
+</p>
+
+<p>
+ésto les abrirá el intérprete tomando como contexto el archivo que
+crearon.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org12edf5f" class="outline-2">
+<h2 id="org12edf5f">Glosario de comandos en ghci</h2>
+<div class="outline-text-2" id="text-org12edf5f">
+<ul class="org-ul">
+<li><p>
+<code>:l</code> para cargar un archivo desde el intérprete. (Estando en el
+directorio donde se encuentra el archivo.)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; :l tutorial.hs
+[1 of 2] Compiling Main             ( tutorial.hs, interpreted )
+Ok, one module loaded.
+ghci&gt; :l tutorial.hs
+</pre>
+</div></li>
+
+<li><p>
+<code>:r</code> para recargar un achivo que ya fue cargado en <code>ghci</code>
+anteriormente.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; :r
+[1 of 2] Compiling Main             ( tutorial.hs, interpreted ) [Source file changed]
+Ok, one module loaded.
+ghci&gt; 
+</pre>
+</div></li>
+
+<li><p>
+Dentro del intérprete pueden utilizar las funciones o variables
+creadas:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; f 5
+25.0
+ghci&gt; a
+1.6479342945523397e22  
+</pre>
+</div></li>
+</ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Erik Rangel Limón</p>
-<p class="date">Created: 2024-08-19 Mon 11:43</p>
+<p class="date">Created: 2024-08-19 Mon 12:06</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
 </div>
 </body>
