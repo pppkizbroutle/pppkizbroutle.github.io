@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-14 Wed 00:04 -->
+<!-- 2024-08-19 Mon 11:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Laboratorio de Estructuras Discretas</title>
@@ -50,15 +50,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org30129bd">Sesión Introductoria</a>
+<li><a href="#org7c0d580">Sesión Introductoria</a>
 <ul>
-<li><a href="#org55a822e">Dinámica de las prácticas</a>
+<li><a href="#org06a3670">Dinámica de las prácticas</a>
 <ul>
-<li><a href="#org109c560">Consideraciones</a></li>
+<li><a href="#org81e0272">Consideraciones</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li><a href="#orgeb54dab">Haskell</a></li>
+<li><a href="#org22f1056">Instalación</a></li>
+<li><a href="#org5cad19f">Tutorial</a></li>
 </ul>
 </div>
 </div>
@@ -66,13 +69,13 @@
 <a href="../index.html">Anterior</a>
 </p>
 
-<div id="outline-container-org30129bd" class="outline-2">
-<h2 id="org30129bd">Sesión Introductoria</h2>
-<div class="outline-text-2" id="text-org30129bd">
+<div id="outline-container-org7c0d580" class="outline-2">
+<h2 id="org7c0d580">Sesión Introductoria</h2>
+<div class="outline-text-2" id="text-org7c0d580">
 </div>
-<div id="outline-container-org55a822e" class="outline-3">
-<h3 id="org55a822e">Dinámica de las prácticas</h3>
-<div class="outline-text-3" id="text-org55a822e">
+<div id="outline-container-org06a3670" class="outline-3">
+<h3 id="org06a3670">Dinámica de las prácticas</h3>
+<div class="outline-text-3" id="text-org06a3670">
 <ul class="org-ul">
 <li>Las entregas serán por medio de <i>Github Classroom</i>.</li>
 
@@ -122,9 +125,9 @@ tenido.</li>
 </ul>
 </div>
 
-<div id="outline-container-org109c560" class="outline-4">
-<h4 id="org109c560">Consideraciones</h4>
-<div class="outline-text-4" id="text-org109c560">
+<div id="outline-container-org81e0272" class="outline-4">
+<h4 id="org81e0272">Consideraciones</h4>
+<div class="outline-text-4" id="text-org81e0272">
 <ul class="org-ul">
 <li>Cualquier copia total o parcial tanto en los ejercicios como en
 su <code>README</code> será motivo de anular la calificación de la
@@ -254,10 +257,158 @@ ejercicios, la petición no será tomada en cuenta.
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgeb54dab" class="outline-2">
+<h2 id="orgeb54dab">Haskell</h2>
+<div class="outline-text-2" id="text-orgeb54dab">
+<p>
+Es el lenguaje de programación que utilizaremos para sus sesiones en
+el laboratorio.
+</p>
+
+<p>
+En la programación existen dos grandes paradigmas
+</p>
+
+<ul class="org-ul">
+<li><p>
+Programación imperativa:
+</p>
+
+<p>
+Son los lenguajes como <i>Python</i>, <i>Java</i>, <i>C</i>, <i>C++</i>, <i>Ruby</i>, <i>Lua</i>.
+</p>
+
+<p>
+En este tipo de programación se describe <i>cómo</i> es la ejecución de
+un programa, es decir, se debe indicar paso por paso cómo va a ser
+la evolución de la memoria dentro de un programa.
+</p>
+
+<p>
+Si ya anteriormente han programado, podrían entender el siguiente
+pseudocódigo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-prog">x = 0
+y = x + 2
+x = x + y
+x = x * 2
+y = x + y
+print(y)
+</pre>
+</div>
+
+<p>
+En el pseudocódigo anterior le estamos indicando cómo se le van a
+asignar a las variables <code>x</code> y <code>y</code> paso por paso.
+</p></li>
+
+<li><p>
+Programación declarativa:
+</p>
+
+<p>
+Lenguajes como <i>Haskell</i>, <i>Racket</i>, <i>Lisp</i>, <i>Prolog</i>.
+</p>
+
+<p>
+En éste tipo de lenguajes en lugar de describir cómo es un
+programa, le indicamos <i>qué</i> es un programa, esto por medio de
+hechos lógicos, funciones matemáticas y otros.
+</p>
+
+<p>
+\(f(x,y) = x + y\)
+</p></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org22f1056" class="outline-2">
+<h2 id="org22f1056">Instalación</h2>
+<div class="outline-text-2" id="text-org22f1056">
+<p>
+<code>ghc cabal-install</code>
+</p>
+
+<p>
+Para este curso necesitaremos un compilador de <i>Haskell</i>, y un
+administrador de bibliotecas del lenguaje como <i>Cabal</i>.
+</p>
+
+<p>
+La instalación puede variar según su sistema operativo, y es común
+que entre administradores de paquetes de distintas distribuciones de
+linux instalen versiones distintas de los programas necesarios.
+</p>
+
+<p>
+Afortunadamente existe una herramienta que puede unificar el proceso
+de instalación para todos los sistemas operativos.
+</p>
+
+<p>
+<a href="https://www.haskell.org/ghcup/install/">https://www.haskell.org/ghcup/install/</a>
+</p>
+
+<p>
+<i>GHCup</i> nos permite administrar versiones de los programas
+relacionados con el lenguaje de programación haskell.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5cad19f" class="outline-2">
+<h2 id="org5cad19f">Tutorial</h2>
+<div class="outline-text-2" id="text-org5cad19f">
+<div class="org-src-container">
+<pre class="src src-haskell">-- Clase de haskell:
+
+x :: Int
+x = 10
+
+i :: Integer
+i = 367239123678216478367612471623782638716238762187361872361873628173687216387216387216387216387216216387
+
+y :: Float
+y =  10.64
+
+z :: Double
+z = 10.64
+
+c :: Char
+c = 'a'
+
+s :: String
+s = "Hola"
+
+var :: Int
+var = 5
+
+var2 :: Int
+var2 = 6
+
+tupla1 :: (Int, String)
+tupla1 = (10, "Cadena")
+
+tupla2 :: (Int, Char, Float, Double, String)
+tupla2 = (1, 'a', 0.5, 0.10, "Adios")
+
+f :: Double -&gt; Double
+f x = x ^ 2
+
+a :: Double
+a = f 128371893129.0
+</pre>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Erik Rangel Limón</p>
-<p class="date">Created: 2024-08-14 Wed 00:04</p>
+<p class="date">Created: 2024-08-19 Mon 11:43</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
 </div>
 </body>

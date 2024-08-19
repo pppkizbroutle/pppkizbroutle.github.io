@@ -140,3 +140,104 @@ miSuma = undefined -- | Aquí va la definición de la función
 
 	Si la mayoría no ha empezado su práctica o llevan pocos
         ejercicios, la petición no será tomada en cuenta.
+
+* Haskell
+
+  Es el lenguaje de programación que utilizaremos para sus sesiones en
+  el laboratorio.
+
+  En la programación existen dos grandes paradigmas
+
+  - Programación imperativa:
+
+    Son los lenguajes como /Python/, /Java/, /C/, /C++/, /Ruby/, /Lua/.
+
+    En este tipo de programación se describe /cómo/ es la ejecución de
+    un programa, es decir, se debe indicar paso por paso cómo va a ser
+    la evolución de la memoria dentro de un programa.
+
+    Si ya anteriormente han programado, podrían entender el siguiente
+    pseudocódigo:
+
+    #+begin_src prog
+x = 0
+y = x + 2
+x = x + y
+x = x * 2
+y = x + y
+print(y)
+    #+end_src
+
+    En el pseudocódigo anterior le estamos indicando cómo se le van a
+    asignar a las variables =x= y =y= paso por paso.
+
+  - Programación declarativa:
+
+    Lenguajes como /Haskell/, /Racket/, /Lisp/, /Prolog/.
+
+    En éste tipo de lenguajes en lugar de describir cómo es un
+    programa, le indicamos /qué/ es un programa, esto por medio de
+    hechos lógicos, funciones matemáticas y otros.
+
+    $f(x,y) = x + y$
+  
+* Instalación
+
+  =ghc cabal-install=
+
+  Para este curso necesitaremos un compilador de /Haskell/, y un
+  administrador de bibliotecas del lenguaje como /Cabal/.
+
+  La instalación puede variar según su sistema operativo, y es común
+  que entre administradores de paquetes de distintas distribuciones de
+  linux instalen versiones distintas de los programas necesarios.
+
+  Afortunadamente existe una herramienta que puede unificar el proceso
+  de instalación para todos los sistemas operativos.
+
+  [[https://www.haskell.org/ghcup/install/]]
+
+  /GHCup/ nos permite administrar versiones de los programas
+  relacionados con el lenguaje de programación haskell.
+
+* Tutorial
+
+  #+begin_src haskell
+-- Clase de haskell:
+
+x :: Int
+x = 10
+
+i :: Integer
+i = 367239123678216478367612471623782638716238762187361872361873628173687216387216387216387216387216216387
+  
+y :: Float
+y =  10.64
+
+z :: Double
+z = 10.64
+
+c :: Char
+c = 'a'
+
+s :: String
+s = "Hola"
+
+var :: Int
+var = 5
+
+var2 :: Int
+var2 = 6
+
+tupla1 :: (Int, String)
+tupla1 = (10, "Cadena")
+
+tupla2 :: (Int, Char, Float, Double, String)
+tupla2 = (1, 'a', 0.5, 0.10, "Adios")
+
+f :: Double -> Double
+f x = x ^ 2
+
+a :: Double
+a = f 128371893129.0
+  #+end_src
