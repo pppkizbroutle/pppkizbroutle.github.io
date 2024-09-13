@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-19 Mon 12:06 -->
+<!-- 2024-09-12 Thu 23:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Laboratorio de Estructuras Discretas</title>
@@ -50,19 +50,33 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6b3d44e">Sesión Introductoria</a>
+<li><a href="#org0c36f45">Sesión Introductoria</a>
 <ul>
-<li><a href="#org7a9f3fa">Dinámica de las prácticas</a>
+<li><a href="#org9ab4c60">Dinámica de las prácticas</a>
 <ul>
-<li><a href="#orga48e7aa">Consideraciones</a></li>
+<li><a href="#org7e0f68c">Consideraciones</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgede6e0a">Haskell</a></li>
-<li><a href="#org8c1d0f9">Instalación</a></li>
-<li><a href="#org3ca4803">Tutorial</a></li>
-<li><a href="#org12edf5f">Glosario de comandos en ghci</a></li>
+<li><a href="#org8092cea">Haskell</a></li>
+<li><a href="#org24ee46d">Instalación</a></li>
+<li><a href="#orgdcd862e">Tutorial</a></li>
+<li><a href="#org9e63bc5">Glosario de comandos en ghci</a></li>
+<li><a href="#org1cff758">Tipos de dato algebraicos y coincidencia de patrones</a>
+<ul>
+<li><a href="#org6375c49">Coincidencia de patrones</a></li>
+<li><a href="#org3b1b409">Constructores con parámetros</a></li>
+<li><a href="#org91b0575">Tipos de dato recursivos</a></li>
+<li><a href="#orgfc7e5df">Tipos de dato con parámetros</a></li>
+</ul>
+</li>
+<li><a href="#orgb71e3ff">Listas</a>
+<ul>
+<li><a href="#org33b63a5">Coincidencia de patrones</a></li>
+</ul>
+</li>
+<li><a href="#org37f1814">Ejercicios de recursión</a></li>
 </ul>
 </div>
 </div>
@@ -70,13 +84,13 @@
 <a href="../index.html">Anterior</a>
 </p>
 
-<div id="outline-container-org6b3d44e" class="outline-2">
-<h2 id="org6b3d44e">Sesión Introductoria</h2>
-<div class="outline-text-2" id="text-org6b3d44e">
+<div id="outline-container-org0c36f45" class="outline-2">
+<h2 id="org0c36f45">Sesión Introductoria</h2>
+<div class="outline-text-2" id="text-org0c36f45">
 </div>
-<div id="outline-container-org7a9f3fa" class="outline-3">
-<h3 id="org7a9f3fa">Dinámica de las prácticas</h3>
-<div class="outline-text-3" id="text-org7a9f3fa">
+<div id="outline-container-org9ab4c60" class="outline-3">
+<h3 id="org9ab4c60">Dinámica de las prácticas</h3>
+<div class="outline-text-3" id="text-org9ab4c60">
 <ul class="org-ul">
 <li>Las entregas serán por medio de <i>Github Classroom</i>.</li>
 
@@ -126,9 +140,9 @@ tenido.</li>
 </ul>
 </div>
 
-<div id="outline-container-orga48e7aa" class="outline-4">
-<h4 id="orga48e7aa">Consideraciones</h4>
-<div class="outline-text-4" id="text-orga48e7aa">
+<div id="outline-container-org7e0f68c" class="outline-4">
+<h4 id="org7e0f68c">Consideraciones</h4>
+<div class="outline-text-4" id="text-org7e0f68c">
 <ul class="org-ul">
 <li>Cualquier copia total o parcial tanto en los ejercicios como en
 su <code>README</code> será motivo de anular la calificación de la
@@ -259,9 +273,9 @@ ejercicios, la petición no será tomada en cuenta.
 </div>
 </div>
 
-<div id="outline-container-orgede6e0a" class="outline-2">
-<h2 id="orgede6e0a">Haskell</h2>
-<div class="outline-text-2" id="text-orgede6e0a">
+<div id="outline-container-org8092cea" class="outline-2">
+<h2 id="org8092cea">Haskell</h2>
+<div class="outline-text-2" id="text-org8092cea">
 <p>
 Es el lenguaje de programación que utilizaremos para sus sesiones en
 el laboratorio.
@@ -327,9 +341,9 @@ hechos lógicos, funciones matemáticas y otros.
 </div>
 </div>
 
-<div id="outline-container-org8c1d0f9" class="outline-2">
-<h2 id="org8c1d0f9">Instalación</h2>
-<div class="outline-text-2" id="text-org8c1d0f9">
+<div id="outline-container-org24ee46d" class="outline-2">
+<h2 id="org24ee46d">Instalación</h2>
+<div class="outline-text-2" id="text-org24ee46d">
 <p>
 <code>ghc cabal-install</code>
 </p>
@@ -361,9 +375,9 @@ relacionados con el lenguaje de programación haskell.
 </div>
 </div>
 
-<div id="outline-container-org3ca4803" class="outline-2">
-<h2 id="org3ca4803">Tutorial</h2>
-<div class="outline-text-2" id="text-org3ca4803">
+<div id="outline-container-orgdcd862e" class="outline-2">
+<h2 id="orgdcd862e">Tutorial</h2>
+<div class="outline-text-2" id="text-orgdcd862e">
 <div class="org-src-container">
 <pre class="src src-haskell">-- Clase de haskell:
 
@@ -435,9 +449,9 @@ crearon.
 </div>
 </div>
 
-<div id="outline-container-org12edf5f" class="outline-2">
-<h2 id="org12edf5f">Glosario de comandos en ghci</h2>
-<div class="outline-text-2" id="text-org12edf5f">
+<div id="outline-container-org9e63bc5" class="outline-2">
+<h2 id="org9e63bc5">Glosario de comandos en ghci</h2>
+<div class="outline-text-2" id="text-org9e63bc5">
 <ul class="org-ul">
 <li><p>
 <code>:l</code> para cargar un archivo desde el intérprete. (Estando en el
@@ -480,10 +494,943 @@ ghci&gt; a
 </ul>
 </div>
 </div>
+
+<div id="outline-container-org1cff758" class="outline-2">
+<h2 id="org1cff758">Tipos de dato algebraicos y coincidencia de patrones</h2>
+<div class="outline-text-2" id="text-org1cff758">
+<p>
+En matemáticas discretas podemos introducir definiciones de
+conjuntos como estructuras recursivas dando los casos de definición
+y un axioma de clausura, indicando que ninguna otra cosa forma parte
+de lo definido.
+</p>
+
+<p>
+Los tipos de dato algebraicos han sido adoptados por distintos
+lenguajes de programación, particularmente los funcionales, en donde
+<i>Haskell</i> no es la excepción.
+</p>
+
+<p>
+Nosotros podemos crear tipos de dato a partir de definir quienes van
+a ser elementos de ese tipo (ese conjunto).
+</p>
+
+<p>
+Por ejemplo, tomemos en cuenta una definición simple de los colores
+que componen el esquema de colores <i>RGB</i>.
+</p>
+
+<p>
+El conjunto de colores <i>RGB</i> se construye con las siguientes reglas:
+</p>
+
+<ol class="org-ol">
+<li>El Rojo es un color <i>RGB</i>.</li>
+<li>El Verde es un color <i>RGB</i>.</li>
+<li>El Azul es un color <i>RGB</i>.</li>
+<li>Sólo los elementos generados por 1, 2 y 3 son colores <i>RGB</i>.</li>
+</ol>
+
+
+<p>
+En Haskell podemos dar estas mismas definiciones, con la palabra
+reservada <code>data</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data RGB = Rojo
+         | Verde
+         | Azul
+</pre>
+</div>
+
+<p>
+En donde <code>RGB</code> corresponde al nombre que queremos que tenga nuestro
+tipo de dato, este nombre <b>siempre debe iniciar con mayúscula</b>.
+</p>
+
+<p>
+Despúes del <code>=</code> siguen las reglas que componen a ese tipo de dato,
+separando cada una de ellas por un <code>|</code>.
+</p>
+
+<p>
+Y cada regla comienza con el nombre de lo que se conoce como el
+<b>constructor</b>, en este caso los constructores son <code>Rojo</code>, <code>Verde</code>,
+<code>Azul</code>. Los constructores también pueden llevar cualquier nombre
+siempre y cuando <b>comiencen con mayúscula</b>.
+</p>
+
+<p>
+Con esto definido ya podemos considerar el tipo de dato <code>RGB</code> para
+utilizarlo en variables o funciones.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">azul :: RGB
+azul = Azul
+
+verde :: RGB
+verde = Rojo
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org6375c49" class="outline-3">
+<h3 id="org6375c49">Coincidencia de patrones</h3>
+<div class="outline-text-3" id="text-org6375c49">
+<p>
+Y bueno, ¿cómo realizamos operaciones con éste tipo de dato que
+acabamos de crear?
+</p>
+
+<p>
+<code>Haskell</code> tiene una característica que permite descomponer la forma
+que tiene una expresión y ver con qué caso le corresponde.
+</p>
+
+<p>
+Supongamos que queremos hacer una función que nos regrese en una
+cadena de texto cuál es el color que está recibiendo.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">color :: RGB -&gt; String
+color x = case x of
+            Rojo -&gt; "El color es rojo"
+            Verde -&gt; "El color es verde"
+            Azul -&gt; "El color es azul"
+</pre>
+</div>
+
+<p>
+Una forma de hacerlo es con la expresión <code>case ... of</code>. En donde lo
+que sigue después del <code>case</code> es la expresión que queremos
+analizar. En este caso, por la firma que tiene la función, sabemos
+que <code>x</code> es del tipo <code>RGB</code> y que <code>x</code> sólo tiene tres formas de
+construirse: <code>Rojo</code>, <code>Verde</code> y <code>Azul</code>.
+</p>
+
+<p>
+Con esta coincidencia de patrones <code>haskell</code> revisará con qué
+expresión que pusieron después del <code>of</code> coincide primero la expresión
+<code>x</code> (es decir, revisará en el orden que hayan puesto los casos, en
+este ejemplo, primero revisará si <code>x</code> es <code>Rojo</code>, después <code>Verde</code> y al
+final <code>Azul</code>).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; color Azul
+"El color es azul"
+</pre>
+</div>
+
+<p>
+Siempre va a ser una buena práctica colocar todas las formas
+posibles que podría tener <code>x</code>, pues <code>haskell</code> compilará aún si no
+abarcaron todos los casos posibles, por ejemplo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">color' :: RGB -&gt; String
+color' x = case x of
+             Rojo -&gt; "El color es rojo"
+             Verde -&gt; "El color es verde"
+</pre>
+</div>
+
+<p>
+Pero en este caso <code>haskell</code> nos lanzará un error cuando intentemos
+evaluar la función con el valor <code>Azul</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; color' Azul
+"*** Exception: ej.hs:(6,12)-(8,41): Non-exhaustive patterns in case
+</pre>
+</div>
+
+<p>
+Precisamente nos dice que no fuimos exhaustivos en nuestra
+coincidencia de patrones.
+</p>
+
+<p>
+No es la única forma en la que podemos hacer coincidencia de
+patrones, en este caso como sólo nos importa qué forma tiene el
+mismo parámetro de la función, entonces podríamos reducir la
+función anterior como sigue:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">color1 :: RGB -&gt; String
+color1 Rojo = "El color es rojo"
+color1 Verde = "El color es verde"
+color1 Azul = "El color es azul"
+</pre>
+</div>
+
+<p>
+Poniendo definiciones distintas para cada caso de <code>x</code>.
+</p>
+
+<p>
+También podemos dar definiciones incompletas y también nos
+devolverá un error:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">color1' :: RGB -&gt; String
+color1' Rojo = "El color es rojo"
+color1' Verde = "El color es verde"
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; color1' Azul
+"*** Exception: ej.hs:(11,1)-(12,35): Non-exhaustive patterns in function color1'
+</pre>
+</div>
+
+<p>
+¿Cuándo queremos utilizar la función <code>case ... of</code> en lugar de
+utilizar coincidencia de patrones directamente en el parámetro?
+</p>
+
+<p>
+Imaginemos que tenemos la función que nos da el color que sigue al
+que recibió como parámetro.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">siguiente :: RGB -&gt; RGB
+siguiente Rojo = Verde
+siguiente Verde = Azul
+siguiente Azul = Rojo
+</pre>
+</div>
+
+<p>
+Este orden es arbitrario, pero con esta expresión intento decir que
+el color que le sigue al rojo es el verde, y al que le sigue al
+verde es el azul.
+</p>
+
+<p>
+Si quisiéramos hacer una función que nos diga en una cadena de
+texto cuál es el color que le sigue a otro, una forma de hacerlo
+podría ser recordando ese orden y hacer la función de esa forma.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">siguienteColor :: RGB -&gt; String
+siguienteColor Rojo = "El color que sigue es el verde"
+...
+</pre>
+</div>
+
+<p>
+Sin embargo, esto no es una buena práctica ya que nosotros de una u
+otra forma estamos imitando la funcionalidad de <code>siguiente</code> que
+habíamos definido con anterioridad, y los programadores siempre
+tenemos que evitar de reinventar la rueda a toda costa.
+</p>
+
+<p>
+Bueno, pues gracias a <code>case ... of</code> podemos capturar los resultados
+que nos puede regresar la función <code>siguiente</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">siguienteColor :: RGB -&gt; String
+siguienteColor x = case siguiente x of
+                     Rojo -&gt; "El color que sigue es el rojo"
+                     Verde -&gt; "El color que sigue es el verde"
+                     Azul -&gt; "El color que sigue es el azul"
+</pre>
+</div>
+
+<p>
+Entonces una forma de hacer coincidencia de patrones no desprecia a
+la otra, utilicen las dos como mejor les convenga.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3b1b409" class="outline-3">
+<h3 id="org3b1b409">Constructores con parámetros</h3>
+<div class="outline-text-3" id="text-org3b1b409">
+<p>
+Nuestros constructores en las definiciones de tipo de dato pueden
+tener parámetros.
+</p>
+
+<p>
+Supongamos que queremos un tipo de dato que nos diga una
+combinación de dos colores.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Combinacion = Comb RGB RGB
+</pre>
+</div>
+
+<p>
+En este caso <code>Comb</code> es un constructor que tiene dos parámetros, y en
+estos sólamente indicamos el tipo que queremos que tengan esos
+parámetros.
+</p>
+
+<p>
+¿Y cómo manejamos éste tipo de dato?
+</p>
+
+<p>
+Supongamos que queremos una función que nos diga el primer color
+que conforma la combinación:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">primero :: Combinacion -&gt; RGB
+primero c = ...
+</pre>
+</div>
+
+<p>
+Bueno, el primer parámetro es una Combinacion, entonces podemos
+descomponer el parámetro <code>c</code> usando coincidencia de patrones, y en
+este caso como recibe parámetros es necesario descomponerlo entre
+paréntesis.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">primero :: Combinacion -&gt; RGB
+primero (Comb ...) = ...  
+</pre>
+</div>
+
+<p>
+¿Pero qué es lo que sigue? Bueno, sabemos que ambos parámetros son
+de tipo <code>RGB</code>, entonces también los podríamos descomponer.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">primero :: Combinacion -&gt; RGB
+primero (Comb Rojo Rojo) = Rojo
+primero (Comb Rojo Verde) = Rojo
+primero (Comb Rojo Azul) = Rojo
+...
+</pre>
+</div>
+
+<p>
+Pero, ¿es necesario revisar absolutamente todas las posibilidades
+de esas dos entradas cuando únicamente sólo nos interesa el primer
+color? No, y por eso también podemos reemplazar esos dos parámetros
+con variables.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">primero :: Combinacion -&gt; RGB
+primero (Comb primerColor segundoColor) = primerColor
+</pre>
+</div>
+
+<p>
+Usando variables estamos indicándole a <code>Haskell</code> que cualquier caso
+(en este caso del <code>RGB</code>) puede ser capturado dentro esas variables.
+</p>
+
+<p>
+Supongamos que queremos hacer un tipo de dato para los números
+complejos, es decir que contengan un número para la parte real, y
+otro número real para la parte imaginaria.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Complejo = Comp Double Double
+</pre>
+</div>
+
+<p>
+<code>Comp</code> va a ser el constructor que tiene dos parámetros, en este caso
+decidimos que ambos parámetros que corresponden para la parte real
+y la parte imaginaria (en ese orden) fueran <code>Double</code>.
+</p>
+
+<p>
+Y la forma de hacer coincidencia de patrones con éste tipo de dato
+es como sigue:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">parteReal :: Complejo -&gt; Double
+parteReal (Comp r i) = r
+</pre>
+</div>
+
+<p>
+En donde <code>r</code> corresponde al primer <code>Double</code> que es el que vamos a
+tratar como la parte real del número e <code>i</code> como la que vamos a tratar
+como imaginaria.
+</p>
+
+<p>
+Por eso es que las tuplas se pueden manejar de la siguiente forma en <code>haskell</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">sumatupla :: (Int, Int) -&gt; Int
+sumatupla (x,y) = x + y
+</pre>
+</div>
+
+<p>
+Revisa la forma que tiene la tupla y hacemos coincidencia de
+patrones con ella.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org91b0575" class="outline-3">
+<h3 id="org91b0575">Tipos de dato recursivos</h3>
+<div class="outline-text-3" id="text-org91b0575">
+<p>
+Así mismo como en matemáticas podemos también dar definiciones de
+tipos de dato (de conjuntos) de forma inductiva/recursiva.
+</p>
+
+<p>
+Recordemos las reglas para construir los números naturales:
+</p>
+
+<ol class="org-ol">
+<li>\(0\) es un número natural.</li>
+<li>Si \(n\) es un número natural, entonces el sucesor de \(n\)
+(\(Suc(n)\)) también es un número natural.</li>
+<li>Sólo los elementos generados por 1 y 2 son naturales.</li>
+</ol>
+
+
+<p>
+En <code>Haskell</code> podemos recrear este tipo de dato bajo esta misma
+semántica combinando constructores sencillos, como constructores
+con parámetros.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Natural = Cero
+             | Suc Natural
+</pre>
+</div>
+
+<p>
+<code>Cero</code> sería nuestro caso base, y <code>Suc</code> es un constructor que recibe
+otro número natural como parámetro.
+</p>
+
+<p>
+Nótese que en ésta definición estamos utilizando a los mismos
+números naturales para definir a los números naturales.
+</p>
+
+<p>
+Y con esto ya tenemos una definición de los naturales.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">cero :: Natural
+cero = Cero
+
+uno :: Natural
+uno = Suc Cero
+
+dos :: Natural
+dos = Suc (Suc (Cero))
+
+tres :: Natural
+tres = Suc dos
+</pre>
+</div>
+
+<p>
+Como ejemplo, definamos la suma entre naturales:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">sumaNat :: Natural -&gt; Natural -&gt; Natural
+sumaNat Cero m = m
+sumaNat (Suc n) m = sumaNat n (Suc m)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfc7e5df" class="outline-3">
+<h3 id="orgfc7e5df">Tipos de dato con parámetros</h3>
+<div class="outline-text-3" id="text-orgfc7e5df">
+<p>
+Nuestros tipos de dato también pueden llevar parámetros en su
+definición; recrearemos el tipo de dato <code>Maybe</code> de <code>Haskell</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Talvez a = Nada
+              | Solo a
+</pre>
+</div>
+
+<p>
+¿Qué significa ésto?
+</p>
+
+<p>
+<code>Talvez a</code> define el nombre del tipo <code>Talvez</code> y la <code>a</code> es una variable
+que representa un tipo cualquiera que usaremos dentro de la
+definición y la nombraremos como <code>a</code>.
+</p>
+
+<p>
+Tiene un constructor básico <code>Nada</code>, y un constructor con parámetro
+<code>Solo</code> cuyo primer parámetro debe ser algo del tipo <code>a</code>.
+</p>
+
+<p>
+Ejemplos de tipos de dato <code>Talvez</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">talvez1 :: Talvez Int
+talvez1 = Solo 10
+
+talvez2 :: Talvez Int
+talvez2 = Nada
+
+talvez3 :: Talvez String
+talvez3 = Solo "Hola"
+
+talvez4 :: Talvez Double
+talvez4 = Nada
+
+talvez5 :: Talvez Natural
+talvez5 = Solo (Suc Cero)
+
+talvez6 :: Talvez (Talvez Int)
+talvez6 = Solo (Solo 1)
+</pre>
+</div>
+
+<p>
+¿Qué utilidad tiene este tipo de dato?
+</p>
+
+<p>
+Funciona para devolver errores y capturarlos.
+</p>
+
+<p>
+Consideremos el operador <code>/</code>, qué nos devuelve si intentamos dividir
+por cero?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">ghci&gt; 1 / 0
+Infinity
+ghci&gt; 0 / 0
+NaN
+</pre>
+</div>
+
+<p>
+En ambos casos nos deuvelve un error que es algo complicado de
+capturar.
+</p>
+
+<p>
+Hagamos una función para realizar la división de manera "segura".
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">safediv :: Double -&gt; Double -&gt; Talvez Double
+safediv x y
+  | y == 0 = Nada
+  | otherwise = Solo (x / y)
+</pre>
+</div>
+
+<p>
+De esta forma podemos capturar estos errores al momento de realizar
+más operaciones con éstos elementos.
+</p>
+
+<p>
+Supongamos que queremos utilizar esta función y al final al
+resultado añadirle uno si es que no ocurrió un error:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">divadd1 :: Double -&gt; Double -&gt; Talvez Double
+divadd1 x y = case safediv x y of
+                Nada -&gt; Nada
+                Solo r -&gt; Solo (r + 1)
+</pre>
+</div>
+
+<p>
+La definición del tipo de dato <code>Maybe</code> (que ya viene en <i>haskell</i>) es
+como sigue:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Maybe a = Nothing
+             | Just a 
+</pre>
+</div>
+
+<p>
+También las definiciones de tipo pueden llevar más de un parámetro
+en su tipo. Definamos nuestra propia tupla
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Tupla a b = Tup a b
+</pre>
+</div>
+
+<p>
+Recibe dos tipos cualesquiera <code>a</code> y <code>b</code>, y su constructor <code>Tup</code> recibe
+esos mismos parámetros respectivamente.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">intDouble :: Tupla Int Double
+intDouble = Tup 5 10.9
+
+stringDouble :: Tupla String Double
+stringDouble = Tup "Hola" 10.18
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb71e3ff" class="outline-2">
+<h2 id="orgb71e3ff">Listas</h2>
+<div class="outline-text-2" id="text-orgb71e3ff">
+<p>
+Las listas de elementos de tipo \(A\) se construyen con las siguientes
+reglas:
+</p>
+
+<ol class="org-ol">
+<li>La lista vacía es una lista de elementos de tipo \(A\).</li>
+
+<li>Si \(X\) es un elemento de tipo \(A\) y \(XS\) una lista de elementos
+de tipo \(A\), entonces la construcción de \(X\) con \(XS\) (\(X:XS\)) es
+otra lista de elementos de tipo \(A\).</li>
+
+<li>Sólo los elementos construidos con las reglas 1 y 2 son listas de
+elementos de tipo \(A\).</li>
+</ol>
+
+
+<p>
+Entonces podemos describir una lista en <i>haskell</i> de la siguiente
+forma:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data Lista a = Nil
+             | Cons a (Lista a)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-haskell">nums :: Lista Int
+nums = Cons 1 (Cons 2 (Cons 3 Nil))
+
+strings :: Lista String
+strings = Cons "Hola" (Cons "grupo" Nil)
+
+nil :: Lista Double
+nil = Nil
+
+unEntero :: Lista Int
+unEntero = Cons 1 Nil
+
+listaDeListas :: Lista (Lista Int)
+listaDeListas = Cons (Cons 1 (Cons 2 Nil)) (Cons (Cons 3 (Cons 4 Nil)) Nil)
+</pre>
+</div>
+
+<p>
+<i>Haskell</i> ya tiene su propia definición de listas, y es algo parecido
+a la siguiente:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">data [] a = []
+          | a : ([] a)
+</pre>
+</div>
+
+<p>
+Aquí ellos utilizan un operador <code>:</code> en lugar de un constructor como
+nosotros los hemos visto, y ésto es posible porque Haskell admite
+operadores binarios en lugar de constructores tradicionales siempre
+y cuando éstos comiencen con <code>:</code>
+</p>
+
+<p>
+De esta forma <i>Haskell</i> perite la construcción de listas de la
+siguiente manera:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">nums :: [] Int
+nums = 1 : 2 : 3 []
+
+strings :: [] String
+strings = "Hola" : "grupo" : []
+
+nil :: [] Double
+nil = []
+
+listaDeListas :: [] ([] Int)
+listaDeListas = (1 : 2 : []) : (3 : 4 : []) : []
+</pre>
+</div>
+
+<p>
+Y <i>haskell</i> ofrece una sintaxis aún más sencilla para construir
+estas mismas listas, es la siguiente:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">nums :: [Int]
+nums = [1,2,3]
+
+strings :: [String]
+strings = ["Hola","grupo"]
+
+nil :: [Double]
+nil = []
+
+listaDeListas :: [[Int]]
+listaDeListas = [[1,2],[3,4]]
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org33b63a5" class="outline-3">
+<h3 id="org33b63a5">Coincidencia de patrones</h3>
+<div class="outline-text-3" id="text-org33b63a5">
+<p>
+Para las listas, la coincidencia de patrones se puede realizar de
+una forma muy versátil.
+</p>
+
+<p>
+Digamos que queremos hacer una función que nos diga verdadero si
+una lista es vacía o falso en otro caso.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">vacia :: [Int] -&gt; Bool
+vacia [] = True
+vacia xs = False
+</pre>
+</div>
+
+<p>
+Para capturar el caso de la lista vacía, lo logramos con <code>[]</code>, y
+cualquier otro caso es capturado por la variable <code>xs</code>.
+</p>
+
+<p>
+Notemos que en el segundo caso no utilizamos si quiera la variable
+<code>xs</code>, entonces podemos indicarle a <i>Haskell</i> que ignore totalmente su
+valor con el uso del comodín <code>_</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">vacia :: [Int] -&gt; Bool
+vacia [] = True
+vacia _ = False
+</pre>
+</div>
+
+<p>
+En la coincidencia de patrones, el comodín <code>_</code> podrá capturar
+cualquier caso igual que con las variables, con la diferencia de
+que <i>haskell</i> ignorará completamente su valor y nos dará directamente
+la definición que le hayamos dado.
+</p>
+
+<p>
+¿Y si quisiéramos una función que nos diga si una lista tiene
+exactamente un elemento?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">individual :: [Int] -&gt; Bool
+individual [x] = True
+individual _ = False
+</pre>
+</div>
+
+<p>
+Con el patrón <code>[x]</code> indicamos que queremos capturar exactamente
+cuando la lista tenga un único elemento.
+</p>
+
+<p>
+Y de nuevo, como estamos ignorando el valor de <code>x</code> y no lo estamos
+utilizando en la definición, podemos cambiarlo por un comodín.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">individual :: [Int] -&gt; Bool
+individual [_] = True
+individual _ = False
+</pre>
+</div>
+
+<p>
+De la misma forma, podemos capturar cuando haya exactamente cierto
+número de elementos durante la caza de patrones.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">listaConTres :: [Int] -&gt; Bool
+listaConTres [_,_,_] = True
+listaConTres _ = False
+</pre>
+</div>
+
+<p>
+Ahora bien, supongamos que queremos una función que nos regrese el
+primer elemento de una lista si es que tiene elementos.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">cabeza :: [Int] -&gt; Int
+cabeza (x:xs) = x
+</pre>
+</div>
+
+<p>
+Podemos hacer coincidencia de patrones con la definición inductiva
+separando la cabeza de la lista <code>x</code> con la cola <code>xs</code>. Y de nuevo, como
+no estamos utilizando <code>xs</code> en la definición podemos reemplazarlo con
+un comodín.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">cabeza :: [Int] -&gt; Int
+cabeza (x:_) = x
+</pre>
+</div>
+
+<p>
+Nótese que esta es una definición incompleta, ya que sólo le
+estamos indicando qué hacer cuando la lista tiene la forma
+<code>cabeza:cola</code>, pero no cuando es vacía, por lo que si le pasamos una
+lista vacía, ésta nos lanzará una excepción.
+</p>
+
+<p>
+A veces querrán utilizar éste tipo de funciones para hacer más
+sencillas ciertas operaciones, pero deben tener cuidado con los
+parámetros que le están pasando, y asegurarse que no sea un
+parámetro que ocasione un error.
+</p>
+
+<p>
+Ahora, uno que regrese la cola de una lista.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">cola :: [Int] -&gt; [Int]
+cola (_:xs) = xs
+</pre>
+</div>
+
+<p>
+¿Si ahora queremos uno que nos regrese el segundo elemento de una
+lista?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">segundoElemento :: [Int] -&gt; Int
+segundoElemento (x:xs) = ...
+</pre>
+</div>
+
+<p>
+Sabemos que podemos acceder al primer elemento de la lista, y en
+éste caso es <code>x</code>, ¿pero el segundo? no podemos devolver <code>xs</code> porque
+ésta es una lista, no un elemento.
+</p>
+
+<p>
+Bueno, aprovechemos que <code>xs</code> es una lista para descomponerla también en algo que tiene cabeza y cola.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">segundoElemento :: [Int] -&gt; Int
+segundoElemento (x:(y:ys)) = y
+</pre>
+</div>
+
+<p>
+Y por tanto el segundo elemento es <code>y</code>.
+</p>
+
+<p>
+Cabe decir que los parentesis más internos no son necesarios, pues el operador <code>:</code> asocia hacia la derecha, es decir:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">segundoElemento :: [Int] -&gt; Int
+segundoElemento (x:y:ys) = y
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org37f1814" class="outline-2">
+<h2 id="org37f1814">Ejercicios de recursión</h2>
+<div class="outline-text-2" id="text-org37f1814">
+<div class="org-src-container">
+<pre class="src src-haskell">-- | Dada una lista de enteros, calcula la suma de todos sus elementos
+suma :: [Int] -&gt; Int
+suma = undefined
+
+-- | Dada una lista de enteros, calcula la multiplicación de todos sus
+-- elementos.
+multiplicacion :: [Int] -&gt; Int
+multiplicacion = undefined
+
+-- | Dadas dos listas de enteros, une las dos listas en una sola,
+-- conservando el mismo orden
+une :: [Int] -&gt; [Int] -&gt; [Int]
+une = undefined
+
+-- | Dados dos enteros, genera una lista de enteros que empieza desde
+-- el primero y termina en el segundo
+enumera :: Int -&gt; Int -&gt; [Int]
+enumera = undefined
+</pre>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Erik Rangel Limón</p>
-<p class="date">Created: 2024-08-19 Mon 12:06</p>
+<p class="date">Created: 2024-09-12 Thu 23:42</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
 </div>
 </body>

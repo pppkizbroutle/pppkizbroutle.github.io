@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-19 Mon 12:06 -->
+<!-- 2024-09-12 Thu 23:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lenguajes de programación</title>
@@ -50,40 +50,41 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org91a3884">Dinámica del laboratorio</a>
+<li><a href="#org0a3917d">Dinámica del laboratorio</a>
 <ul>
-<li><a href="#orgd05ee62">Prácticas</a></li>
+<li><a href="#orgfc45ab6">Prácticas</a></li>
 </ul>
 </li>
-<li><a href="#org4dfd601">Haskell</a>
+<li><a href="#org62d4ede">Haskell</a>
 <ul>
-<li><a href="#org22d0dbb">Instalación</a>
+<li><a href="#org10c5594">Instalación</a>
 <ul>
-<li><a href="#org9fb9de0">Requerimientos</a></li>
-<li><a href="#org2c44aca">GHCup</a></li>
+<li><a href="#orgdb0808b">Requerimientos</a></li>
+<li><a href="#org0766495">GHCup</a></li>
 </ul>
 </li>
-<li><a href="#org4ec700d">QuickCheck y Happy</a></li>
-<li><a href="#org11775e4">Introducción</a>
+<li><a href="#org4b5c6d6">QuickCheck y Happy</a></li>
+<li><a href="#org9a216f9">Introducción</a>
 <ul>
-<li><a href="#org56afc19">Variables y tipos primitivos</a></li>
-<li><a href="#orgee7db21">Funciones</a></li>
-<li><a href="#org463b757">Operadores</a></li>
-<li><a href="#orgad64e31">Precedencia</a></li>
-<li><a href="#orga04cb64">Funciones anónimas</a></li>
+<li><a href="#org7173009">Variables y tipos primitivos</a></li>
+<li><a href="#org1f2abd6">Funciones</a></li>
+<li><a href="#org38f537a">Operadores</a></li>
+<li><a href="#orga2917f5">Precedencia</a></li>
+<li><a href="#org3ba5526">Funciones anónimas</a></li>
 </ul>
 </li>
-<li><a href="#orgcff4159">Listas, definiciones de tipos de dato y coincidencia de patrones</a>
+<li><a href="#org6f4d53e">Listas, definiciones de tipos de dato y coincidencia de patrones</a>
 <ul>
-<li><a href="#org682e36c">Condicionales</a></li>
-<li><a href="#org2512f61">Coincidencia de patrones</a></li>
-<li><a href="#orgb47b97b">Funciones de orden superior</a></li>
+<li><a href="#orgf5321ce">Condicionales</a></li>
+<li><a href="#org78125b3">Coincidencia de patrones</a></li>
+<li><a href="#orga06710e">Funciones de orden superior</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgb9810d4">Clases</a></li>
-<li><a href="#orgce385b2">Práctica 1</a></li>
+<li><a href="#org0aaf92b">Clases</a></li>
+<li><a href="#org67e7778">Práctica 1</a></li>
+<li><a href="#orgd7b95a0">Happy</a></li>
 </ul>
 </div>
 </div>
@@ -91,9 +92,9 @@
 <a href="../index.html">Anterior</a>
 </p>
 
-<div id="outline-container-org91a3884" class="outline-2">
-<h2 id="org91a3884">Dinámica del laboratorio</h2>
-<div class="outline-text-2" id="text-org91a3884">
+<div id="outline-container-org0a3917d" class="outline-2">
+<h2 id="org0a3917d">Dinámica del laboratorio</h2>
+<div class="outline-text-2" id="text-org0a3917d">
 <p>
 Para este curso todas las prácticas serán hechas en <i>Haskell</i>, y para
 la gran mayoría de ellas utilizaremos una biblioteca llamada <i>Happy</i>.
@@ -108,9 +109,9 @@ vamos a ahorrar.
 </p>
 </div>
 
-<div id="outline-container-orgd05ee62" class="outline-3">
-<h3 id="orgd05ee62">Prácticas</h3>
-<div class="outline-text-3" id="text-orgd05ee62">
+<div id="outline-container-orgfc45ab6" class="outline-3">
+<h3 id="orgfc45ab6">Prácticas</h3>
+<div class="outline-text-3" id="text-orgfc45ab6">
 <p>
 Las prácticas por lo general serán varios archivos, el cuál algunos
 de ellos serán los <i>Tests</i> y que no deberán modificar.
@@ -134,9 +135,9 @@ como de páginas de internet o IA.
 </div>
 </div>
 
-<div id="outline-container-org4dfd601" class="outline-2">
-<h2 id="org4dfd601">Haskell</h2>
-<div class="outline-text-2" id="text-org4dfd601">
+<div id="outline-container-org62d4ede" class="outline-2">
+<h2 id="org62d4ede">Haskell</h2>
+<div class="outline-text-2" id="text-org62d4ede">
 <p>
 Se propone éste lenguaje pues cuenta con transparencia referencial,
 lo que garantiza que se pueda reemplazar una expresión con otra de
@@ -147,9 +148,9 @@ funcionales como si se tratasen de una expresión matemática.
 </p>
 </div>
 
-<div id="outline-container-org22d0dbb" class="outline-3">
-<h3 id="org22d0dbb">Instalación</h3>
-<div class="outline-text-3" id="text-org22d0dbb">
+<div id="outline-container-org10c5594" class="outline-3">
+<h3 id="org10c5594">Instalación</h3>
+<div class="outline-text-3" id="text-org10c5594">
 <p>
 <i>Haskell</i> es un lenguaje compilado, pero también puede comportarse
 como un programa interpretado. Ambas herramientas vienen al
@@ -181,9 +182,9 @@ siguiente página:
 </div>
 
 
-<div id="outline-container-org9fb9de0" class="outline-4">
-<h4 id="org9fb9de0">Requerimientos</h4>
-<div class="outline-text-4" id="text-org9fb9de0">
+<div id="outline-container-orgdb0808b" class="outline-4">
+<h4 id="orgdb0808b">Requerimientos</h4>
+<div class="outline-text-4" id="text-orgdb0808b">
 <ul class="org-ul">
 <li><p>
 Debian &gt;= 12:
@@ -243,9 +244,9 @@ En computadoras con <i>M1</i>, deben investiguen cómo instalar <code>llvm</code
 </div>
 </div>
 
-<div id="outline-container-org2c44aca" class="outline-4">
-<h4 id="org2c44aca">GHCup</h4>
-<div class="outline-text-4" id="text-org2c44aca">
+<div id="outline-container-org0766495" class="outline-4">
+<h4 id="org0766495">GHCup</h4>
+<div class="outline-text-4" id="text-org0766495">
 <p>
 El comando que debe utilizarse para instalarlo en <i>Linux</i>, <i>macOS</i>,
 <i>FreeBSD</i> o <i>WSL2</i> es el siguiente:
@@ -270,9 +271,9 @@ usar las versiones de ambas herramientas respectivamente.
 </div>
 </div>
 
-<div id="outline-container-org4ec700d" class="outline-3">
-<h3 id="org4ec700d">QuickCheck y Happy</h3>
-<div class="outline-text-3" id="text-org4ec700d">
+<div id="outline-container-org4b5c6d6" class="outline-3">
+<h3 id="org4b5c6d6">QuickCheck y Happy</h3>
+<div class="outline-text-3" id="text-org4b5c6d6">
 <p>
 Éstas son bibliotecas externas de <i>Haskell</i> por lo que es necesario
 instalarlas con cabal.
@@ -300,17 +301,17 @@ Happy:
 </div>
 </div>
 
-<div id="outline-container-org11775e4" class="outline-3">
-<h3 id="org11775e4">Introducción</h3>
-<div class="outline-text-3" id="text-org11775e4">
+<div id="outline-container-org9a216f9" class="outline-3">
+<h3 id="org9a216f9">Introducción</h3>
+<div class="outline-text-3" id="text-org9a216f9">
 <p>
 La extensión comúnmente usada para los archivos es <code>.hs</code>
 </p>
 </div>
 
-<div id="outline-container-org56afc19" class="outline-4">
-<h4 id="org56afc19">Variables y tipos primitivos</h4>
-<div class="outline-text-4" id="text-org56afc19">
+<div id="outline-container-org7173009" class="outline-4">
+<h4 id="org7173009">Variables y tipos primitivos</h4>
+<div class="outline-text-4" id="text-org7173009">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -378,8 +379,8 @@ c = 'a'
 
 
 <ul class="org-ul">
-<li><a id="orge450b14"></a>Inmutabilidad<br />
-<div class="outline-text-5" id="text-orge450b14">
+<li><a id="orge620b52"></a>Inmutabilidad<br />
+<div class="outline-text-5" id="text-orge620b52">
 <p>
 En <i>Haskell</i> todas las variables son inmutables, es decir, una vez
 que se definen, ya no pueden cambiar su valor.
@@ -402,9 +403,9 @@ num = 2
 </ul>
 </div>
 
-<div id="outline-container-orgee7db21" class="outline-4">
-<h4 id="orgee7db21">Funciones</h4>
-<div class="outline-text-4" id="text-orgee7db21">
+<div id="outline-container-org1f2abd6" class="outline-4">
+<h4 id="org1f2abd6">Funciones</h4>
+<div class="outline-text-4" id="text-org1f2abd6">
 <p>
 Las funciones en <i>Haskell</i> juegan un papel esencial (claro, por eso
 es un lenguaje de programación funcional).
@@ -520,9 +521,9 @@ suma3 x y z = x + y + z
 </div>
 </div>
 
-<div id="outline-container-org463b757" class="outline-4">
-<h4 id="org463b757">Operadores</h4>
-<div class="outline-text-4" id="text-org463b757">
+<div id="outline-container-org38f537a" class="outline-4">
+<h4 id="org38f537a">Operadores</h4>
+<div class="outline-text-4" id="text-org38f537a">
 <p>
 Aritméticas:
 </p>
@@ -563,9 +564,9 @@ Comparación:
 </div>
 </div>
 
-<div id="outline-container-orgad64e31" class="outline-4">
-<h4 id="orgad64e31">Precedencia</h4>
-<div class="outline-text-4" id="text-orgad64e31">
+<div id="outline-container-orga2917f5" class="outline-4">
+<h4 id="orga2917f5">Precedencia</h4>
+<div class="outline-text-4" id="text-orga2917f5">
 <p>
 Consideremos la función que dados dos números, suma los cuadrados
 de ambos
@@ -719,9 +720,9 @@ como sigue:
 </div>
 </div>
 
-<div id="outline-container-orga04cb64" class="outline-4">
-<h4 id="orga04cb64">Funciones anónimas</h4>
-<div class="outline-text-4" id="text-orga04cb64">
+<div id="outline-container-org3ba5526" class="outline-4">
+<h4 id="org3ba5526">Funciones anónimas</h4>
+<div class="outline-text-4" id="text-org3ba5526">
 <p>
 ¿Y si necesitamos hacer una función auxiliar que nada más usaré
 una vez, vale la pena definirla si quiera?
@@ -740,9 +741,9 @@ ghci&gt; (\x y z -&gt; x * y - z) 5 4 3
 </div>
 </div>
 
-<div id="outline-container-orgcff4159" class="outline-3">
-<h3 id="orgcff4159">Listas, definiciones de tipos de dato y coincidencia de patrones</h3>
-<div class="outline-text-3" id="text-orgcff4159">
+<div id="outline-container-org6f4d53e" class="outline-3">
+<h3 id="org6f4d53e">Listas, definiciones de tipos de dato y coincidencia de patrones</h3>
+<div class="outline-text-3" id="text-org6f4d53e">
 <p>
 ¿Recuerdan la definición inductiva de listas?
 </p>
@@ -932,8 +933,8 @@ enteros2 = [1.24,5.2,7.5,9.3]
 </div>
 
 <ul class="org-ul">
-<li><a id="orgfc7f492"></a>Tipos sinónimo<br />
-<div class="outline-text-5" id="text-orgfc7f492">
+<li><a id="orgcf8d02c"></a>Tipos sinónimo<br />
+<div class="outline-text-5" id="text-orgcf8d02c">
 <p>
 Nosotros podemos hacer sinónimos de tipos de dato:
 </p>
@@ -952,8 +953,8 @@ alumnos1 = [erik, juan, alberto]
 </div>
 </div>
 </li>
-<li><a id="org9642a9a"></a>Strings<br />
-<div class="outline-text-5" id="text-org9642a9a">
+<li><a id="org2a5ee34"></a>Strings<br />
+<div class="outline-text-5" id="text-org2a5ee34">
 <p>
 Sí, sí existen cadenas en haskell, pero éstas se definen como un
 sinónimo de tipo:
@@ -976,9 +977,9 @@ de usar <code>""</code> para representarlas.
 </li>
 </ul>
 
-<div id="outline-container-org682e36c" class="outline-4">
-<h4 id="org682e36c">Condicionales</h4>
-<div class="outline-text-4" id="text-org682e36c">
+<div id="outline-container-orgf5321ce" class="outline-4">
+<h4 id="orgf5321ce">Condicionales</h4>
+<div class="outline-text-4" id="text-orgf5321ce">
 <p>
 Como en cualquier lenguaje de programación, tenemos expresiones
 condicionales para manejar casos en los que se cumpla una
@@ -1056,9 +1057,9 @@ compara2 n m | n &lt; m = "El primero es menor que el segundo"
 </div>
 </div>
 
-<div id="outline-container-org2512f61" class="outline-4">
-<h4 id="org2512f61">Coincidencia de patrones</h4>
-<div class="outline-text-4" id="text-org2512f61">
+<div id="outline-container-org78125b3" class="outline-4">
+<h4 id="org78125b3">Coincidencia de patrones</h4>
+<div class="outline-text-4" id="text-org78125b3">
 <p>
 Éste se le conoce en inglés como <i>pattern matching</i> y en español
 muchas veces lo encontrarán como <i>caza de patrones</i>.
@@ -1286,9 +1287,9 @@ describe Profesor{} = "Es un profesor"
 </div>
 </div>
 
-<div id="outline-container-orgb47b97b" class="outline-4">
-<h4 id="orgb47b97b">Funciones de orden superior</h4>
-<div class="outline-text-4" id="text-orgb47b97b">
+<div id="outline-container-orga06710e" class="outline-4">
+<h4 id="orga06710e">Funciones de orden superior</h4>
+<div class="outline-text-4" id="text-orga06710e">
 <p>
 Una función de orden superior, es una función que puede recibir
 como parámetro otra función.
@@ -1359,9 +1360,9 @@ ghci&gt; mimap (\x -&gt; x + 1) [1,2,3,4,5]
 </div>
 </div>
 
-<div id="outline-container-orgb9810d4" class="outline-2">
-<h2 id="orgb9810d4">Clases</h2>
-<div class="outline-text-2" id="text-orgb9810d4">
+<div id="outline-container-org0aaf92b" class="outline-2">
+<h2 id="org0aaf92b">Clases</h2>
+<div class="outline-text-2" id="text-org0aaf92b">
 <p>
 ¿Qué tipo tiene el operador de la suma en <i>Haskell</i>?
 </p>
@@ -1622,18 +1623,179 @@ ghci&gt; Complex 1 1 * Complex 1 1
 </div>
 </div>
 
-<div id="outline-container-orgce385b2" class="outline-2">
-<h2 id="orgce385b2">Práctica 1</h2>
-<div class="outline-text-2" id="text-orgce385b2">
+<div id="outline-container-org67e7778" class="outline-2">
+<h2 id="org67e7778">Práctica 1</h2>
+<div class="outline-text-2" id="text-org67e7778">
 <p>
 <a href="./practica1/practica1.html">Práctica 1</a>
 </p>
 </div>
 </div>
+
+<div id="outline-container-orgd7b95a0" class="outline-2">
+<h2 id="orgd7b95a0">Happy</h2>
+<div class="outline-text-2" id="text-orgd7b95a0">
+<p>
+Es un generador de analizadores sintácticos en <i>Haskell</i>.
+</p>
+
+<p>
+Si tienen <i>cabal</i>, pueden instalarlo con la siguiente orden.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">$ cabal install happy
+</pre>
+</div>
+
+<p>
+La extensión que corresponde a los archivos de <i>happy</i> comúnmente es
+<code>.y</code>
+</p>
+
+<p>
+Queremos implementar el siguiente lenguaje:
+</p>
+
+<p>
+\(E\to \texttt{let <var> = }E\texttt{ in }E\)
+</p>
+
+<p>
+\(E\to N\)
+</p>
+
+<p>
+\(E\to B\)
+</p>
+
+<p>
+\(N\to N\texttt{ + }N\)
+</p>
+
+<p>
+\(N\to N\texttt{ - }N\)
+</p>
+
+<p>
+\(N\to T\)
+</p>
+
+<p>
+\(T\to T\texttt{ * }T\)
+</p>
+
+<p>
+\(T\to T\texttt{ / }T\)
+</p>
+
+<p>
+\(T\to F\)
+</p>
+
+<p>
+\(F\to\texttt{<int>}\)
+</p>
+
+<p>
+\(F\to\texttt{<var>}\)
+</p>
+
+<p>
+\(F\to \texttt{(}N\texttt{)}\)
+</p>
+
+<p>
+\(B\to B\texttt{ || }B\)
+</p>
+
+<p>
+\(B\to C\)
+</p>
+
+<p>
+\(C\to C\texttt{ \&\& }C\)
+</p>
+
+<p>
+\(C\to D\)
+</p>
+
+<p>
+\(D\to\texttt{<var>}\)
+</p>
+
+<p>
+\(D\to\texttt{True}\)
+</p>
+
+<p>
+\(D\to\texttt{False}\)
+</p>
+
+<p>
+\(D\to\texttt{(}B\texttt{)}\)
+</p>
+
+<p>
+Primero, necesitaremos un <i>lexer</i>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">module Lexer where
+
+import Data.Char
+
+data Token = TokenLet
+           | TokenVar String
+           | TokenAssign
+           | TokenIn
+           | TokenNum Int
+           | TokenAdd
+           | TokenSub
+           | TokenMul
+           | TokenDiv
+           | TokenTrue
+           | TokenFalse
+           | TokenNot
+           | TokenAnd
+           | TokenOr
+           | TokenParOp
+           | TokenParCl
+
+lexer :: String -&gt; [Token]
+lexer [] = []
+lexer ('l':'e':'t':xs) = TokenLet : lexer xs
+lexer ('=':xs) = TokenAssign : lexer xs
+lexer ('i':'n':xs) = TokenIn : lexer xs
+lexer ('+':xs) = TokenAdd : lexer xs
+lexer ('-':xs) = TokenSub : lexer xs
+lexer ('*':xs) = TokenAdd : lexer xs
+lexer ('/':xs) = TokenDiv : lexer xs
+lexer ('T':'r':'u':'e':xs) = TokenTrue : lexer xs
+lexer ('F':'a':'l':'s':'e':xs) = TokenFalse : lexer xs
+lexer ('n':'o':'t':xs) = TokenNot : lexer xs
+lexer ('&amp;':'&amp;':xs) = TokenAnd : lexer xs
+lexer ('|':'|': xs) = TokenOr : lexer xs
+lexer ('(':xs) = TokenParOp : lexer xs
+lexer (')':xs) = TokenParCl : lexer xs
+lexer xs
+  | not (null spaces) = lexer rest1
+  | not (null digits) = TokenNum (read digits) : lexer rest2
+  | not (null alpha) = TokenVar chars : lexer rest3
+  | otherwise = error "Lexer error"
+  where
+    (spaces, rest1) = span isSpace xs
+    (digits, rest2) = span isDigit xs
+    (alpha, rest3) = span isAlpha xs
+</pre>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Erik Rangel Limón</p>
-<p class="date">Created: 2024-08-19 Mon 12:06</p>
+<p class="date">Created: 2024-09-12 Thu 23:42</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
 </div>
 </body>

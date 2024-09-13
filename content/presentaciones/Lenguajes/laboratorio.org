@@ -1046,3 +1046,110 @@ ghci> Complex 1 1 * Complex 1 1
 * Práctica 1
 
   [[./practica1/practica1.org][Práctica 1]]
+
+* Happy
+
+  Es un generador de analizadores sintácticos en /Haskell/.
+
+  Si tienen /cabal/, pueden instalarlo con la siguiente orden.
+
+  #+begin_src bash
+$ cabal install happy
+  #+end_src
+
+  La extensión que corresponde a los archivos de /happy/ comúnmente es
+  =.y=
+
+  Queremos implementar el siguiente lenguaje:
+
+  $E\to \texttt{let <var> = }E\texttt{ in }E$
+
+  $E\to N$
+
+  $E\to B$
+
+  $N\to N\texttt{ + }N$
+
+  $N\to N\texttt{ - }N$
+
+  $N\to T$
+
+  $T\to T\texttt{ * }T$
+
+  $T\to T\texttt{ / }T$
+
+  $T\to F$
+
+  $F\to\texttt{<int>}$
+
+  $F\to\texttt{<var>}$
+
+  $F\to \texttt{(}N\texttt{)}$
+
+  $B\to B\texttt{ || }B$
+
+  $B\to C$
+
+  $C\to C\texttt{ \&\& }C$
+
+  $C\to D$
+
+  $D\to\texttt{<var>}$
+
+  $D\to\texttt{True}$
+
+  $D\to\texttt{False}$
+  
+  $D\to\texttt{(}B\texttt{)}$
+  
+  Primero, necesitaremos un /lexer/.
+
+  #+begin_src haskell
+module Lexer where
+
+import Data.Char
+
+data Token = TokenLet
+           | TokenVar String
+           | TokenAssign
+           | TokenIn
+           | TokenNum Int
+           | TokenAdd
+           | TokenSub
+           | TokenMul
+           | TokenDiv
+           | TokenTrue
+           | TokenFalse
+           | TokenNot
+           | TokenAnd
+           | TokenOr
+           | TokenParOp
+           | TokenParCl
+
+lexer :: String -> [Token]
+lexer [] = []
+lexer ('l':'e':'t':xs) = TokenLet : lexer xs
+lexer ('=':xs) = TokenAssign : lexer xs
+lexer ('i':'n':xs) = TokenIn : lexer xs
+lexer ('+':xs) = TokenAdd : lexer xs
+lexer ('-':xs) = TokenSub : lexer xs
+lexer ('*':xs) = TokenAdd : lexer xs
+lexer ('/':xs) = TokenDiv : lexer xs
+lexer ('T':'r':'u':'e':xs) = TokenTrue : lexer xs
+lexer ('F':'a':'l':'s':'e':xs) = TokenFalse : lexer xs
+lexer ('n':'o':'t':xs) = TokenNot : lexer xs
+lexer ('&':'&':xs) = TokenAnd : lexer xs
+lexer ('|':'|': xs) = TokenOr : lexer xs
+lexer ('(':xs) = TokenParOp : lexer xs
+lexer (')':xs) = TokenParCl : lexer xs
+lexer xs
+  | not (null spaces) = lexer rest1
+  | not (null digits) = TokenNum (read digits) : lexer rest2
+  | not (null alpha) = TokenVar chars : lexer rest3
+  | otherwise = error "Lexer error"
+  where
+    (spaces, rest1) = span isSpace xs
+    (digits, rest2) = span isDigit xs
+    (alpha, rest3) = span isAlpha xs
+  #+end_src
+  

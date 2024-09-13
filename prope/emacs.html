@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-19 Mon 12:06 -->
+<!-- 2024-09-12 Thu 23:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Introducción a Emacs</title>
@@ -18,41 +18,41 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd10901d">¿Qué es Emacs?</a></li>
-<li><a href="#org10c56a5">¿Como uso Emacs?</a></li>
-<li><a href="#org1874d61">Atajos de Emacs</a></li>
-<li><a href="#org0697dd3">Glosario de comandos</a>
+<li><a href="#org9421332">¿Qué es Emacs?</a></li>
+<li><a href="#orgcec4be2">¿Como uso Emacs?</a></li>
+<li><a href="#org335ec54">Atajos de Emacs</a></li>
+<li><a href="#orge2f4b49">Glosario de comandos</a>
 <ul>
-<li><a href="#orgf0cc950">Navegación</a></li>
-<li><a href="#orgeed68e4">Creación y edición de archivos</a></li>
+<li><a href="#org9e1d215">Navegación</a></li>
+<li><a href="#orgf683742">Creación y edición de archivos</a></li>
 </ul>
 </li>
-<li><a href="#orga0af1a5">Manejo de buffers</a></li>
-<li><a href="#org9e51f71">Versión de Emacs para emulador de terminal</a></li>
-<li><a href="#org16014de">Personalizar Emacs</a></li>
-<li><a href="#org252afa7">init.el</a>
+<li><a href="#org7877a35">Manejo de buffers</a></li>
+<li><a href="#org9a1b44a">Versión de Emacs para emulador de terminal</a></li>
+<li><a href="#orgf8d65e9">Personalizar Emacs</a></li>
+<li><a href="#orgd7d4d0e">init.el</a>
 <ul>
-<li><a href="#org89123b2">Añadiendo repositorios</a></li>
-<li><a href="#orgbbc0be2">Definiendo init.el como archivo de configuración.</a></li>
-<li><a href="#org73f0b74">Tema general de emacs</a></li>
-<li><a href="#org2b01bf3">Instalación de otras extensiones</a></li>
-<li><a href="#org3105ee6">Cargar la configuración</a></li>
+<li><a href="#org3074b3a">Añadiendo repositorios</a></li>
+<li><a href="#org828cdd2">Definiendo init.el como archivo de configuración.</a></li>
+<li><a href="#org8f4e520">Tema general de emacs</a></li>
+<li><a href="#org50ad5e7">Instalación de otras extensiones</a></li>
+<li><a href="#orgd0e81b6">Cargar la configuración</a></li>
 </ul>
 </li>
-<li><a href="#orgdd2bc86">¿Dónde puedo aprender más sobre Emacs?</a></li>
-<li><a href="#orgab3474d">Ejercicios</a>
+<li><a href="#org098235e">¿Dónde puedo aprender más sobre Emacs?</a></li>
+<li><a href="#orga96d0a2">Ejercicios</a>
 <ul>
-<li><a href="#orgbad08c8">Creen dos directorios directamente desde emacs</a></li>
-<li><a href="#org27e3d80">Personalizar Emacs con init.el</a></li>
+<li><a href="#orgcf649b7">Creen dos directorios directamente desde emacs</a></li>
+<li><a href="#org267e5b0">Personalizar Emacs con init.el</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd10901d" class="outline-2">
-<h2 id="orgd10901d">¿Qué es Emacs?</h2>
-<div class="outline-text-2" id="text-orgd10901d">
+<div id="outline-container-org9421332" class="outline-2">
+<h2 id="org9421332">¿Qué es Emacs?</h2>
+<div class="outline-text-2" id="text-org9421332">
 <p>
 Principalmente, es un editor de texto <b>libre y de código abierto</b>;
 pero puede llegar a ser la única herramienta que podrían necesitar
@@ -79,9 +79,9 @@ Pero por lo pronto, sólo véanlo como un editor de texto.
 </div>
 </div>
 
-<div id="outline-container-org10c56a5" class="outline-2">
-<h2 id="org10c56a5">¿Como uso Emacs?</h2>
-<div class="outline-text-2" id="text-org10c56a5">
+<div id="outline-container-orgcec4be2" class="outline-2">
+<h2 id="orgcec4be2">¿Como uso Emacs?</h2>
+<div class="outline-text-2" id="text-orgcec4be2">
 <p>
 Posiblemente cuándo recién lo instalen vean una interfaz con un
 fondo blanco, con un menú en la parte superior para hacer tareas
@@ -97,9 +97,9 @@ acción con el ratón.
 </div>
 </div>
 
-<div id="outline-container-org1874d61" class="outline-2">
-<h2 id="org1874d61">Atajos de Emacs</h2>
-<div class="outline-text-2" id="text-org1874d61">
+<div id="outline-container-org335ec54" class="outline-2">
+<h2 id="org335ec54">Atajos de Emacs</h2>
+<div class="outline-text-2" id="text-org335ec54">
 <p>
 Los atajos de teclado de Emacs se escriben de una manera particular
 </p>
@@ -154,13 +154,13 @@ soltar <code>Control</code>), pulsa y suelta la tecla <code>f</code>, suelta <co
 </div>
 </div>
 
-<div id="outline-container-org0697dd3" class="outline-2">
-<h2 id="org0697dd3">Glosario de comandos</h2>
-<div class="outline-text-2" id="text-org0697dd3">
+<div id="outline-container-orge2f4b49" class="outline-2">
+<h2 id="orge2f4b49">Glosario de comandos</h2>
+<div class="outline-text-2" id="text-orge2f4b49">
 </div>
-<div id="outline-container-orgf0cc950" class="outline-3">
-<h3 id="orgf0cc950">Navegación</h3>
-<div class="outline-text-3" id="text-orgf0cc950">
+<div id="outline-container-org9e1d215" class="outline-3">
+<h3 id="org9e1d215">Navegación</h3>
+<div class="outline-text-3" id="text-org9e1d215">
 <p>
 Seguro habrán notado el cursor (el cuadrito que está parpadeando).
 </p>
@@ -189,9 +189,9 @@ moverse con las flechitas del teclado.
 </div>
 </div>
 
-<div id="outline-container-orgeed68e4" class="outline-3">
-<h3 id="orgeed68e4">Creación y edición de archivos</h3>
-<div class="outline-text-3" id="text-orgeed68e4">
+<div id="outline-container-orgf683742" class="outline-3">
+<h3 id="orgf683742">Creación y edición de archivos</h3>
+<div class="outline-text-3" id="text-orgf683742">
 <ul class="org-ul">
 <li><code>C-x C-f</code>
 
@@ -264,9 +264,9 @@ comandos mostrados, si surgen dudas, no duden en decirnos.
 </div>
 </div>
 
-<div id="outline-container-orga0af1a5" class="outline-2">
-<h2 id="orga0af1a5">Manejo de buffers</h2>
-<div class="outline-text-2" id="text-orga0af1a5">
+<div id="outline-container-org7877a35" class="outline-2">
+<h2 id="org7877a35">Manejo de buffers</h2>
+<div class="outline-text-2" id="text-org7877a35">
 <p>
 La pantalla en donde ustedes escribieron su presentación es lo que
 se le conoce como un <i>buffer</i>, el cuál sería análogo a una ventana del
@@ -316,9 +316,9 @@ harían con él, pero siempre será más recomendable usar el teclado.
 </div>
 </div>
 
-<div id="outline-container-org9e51f71" class="outline-2">
-<h2 id="org9e51f71">Versión de Emacs para emulador de terminal</h2>
-<div class="outline-text-2" id="text-org9e51f71">
+<div id="outline-container-org9a1b44a" class="outline-2">
+<h2 id="org9a1b44a">Versión de Emacs para emulador de terminal</h2>
+<div class="outline-text-2" id="text-org9a1b44a">
 <p>
 Si están en un sistema sin entorno gráfico, o en un emulador de
 terminal, también pueden utilizar emacs dentro de la misma terminal.
@@ -343,9 +343,9 @@ buena idea practicar sus atajos de teclado antes que usar el ratón.
 </div>
 </div>
 
-<div id="outline-container-org16014de" class="outline-2">
-<h2 id="org16014de">Personalizar Emacs</h2>
-<div class="outline-text-2" id="text-org16014de">
+<div id="outline-container-orgf8d65e9" class="outline-2">
+<h2 id="orgf8d65e9">Personalizar Emacs</h2>
+<div class="outline-text-2" id="text-orgf8d65e9">
 <p>
 Emacs no es bueno dando primeras impresiones, parece un editor de
 texto simple que tiene una interfaz antigua, un tema claro y
@@ -381,9 +381,9 @@ la manera en la que lo encontrarán.
 </div>
 </div>
 
-<div id="outline-container-org252afa7" class="outline-2">
-<h2 id="org252afa7">init.el</h2>
-<div class="outline-text-2" id="text-org252afa7">
+<div id="outline-container-orgd7d4d0e" class="outline-2">
+<h2 id="orgd7d4d0e">init.el</h2>
+<div class="outline-text-2" id="text-orgd7d4d0e">
 <p>
 En su carpeta <code>$HOME</code> creen un directorio llamado <code>.emacs.d</code> (si es que
 no existe) y dentro de este directorio creen un archivo llamado
@@ -399,9 +399,9 @@ no existe) y dentro de este directorio creen un archivo llamado
 </p>
 </div>
 
-<div id="outline-container-org89123b2" class="outline-3">
-<h3 id="org89123b2">Añadiendo repositorios</h3>
-<div class="outline-text-3" id="text-org89123b2">
+<div id="outline-container-org3074b3a" class="outline-3">
+<h3 id="org3074b3a">Añadiendo repositorios</h3>
+<div class="outline-text-3" id="text-org3074b3a">
 <p>
 Emacs tiene su propio administrador de paquetes, que sirve
 principalmente para añadir o actualizar extensiones para el editor
@@ -485,9 +485,9 @@ posteriormente en el archivo de texto.
 </div>
 </div>
 
-<div id="outline-container-orgbbc0be2" class="outline-3">
-<h3 id="orgbbc0be2">Definiendo init.el como archivo de configuración.</h3>
-<div class="outline-text-3" id="text-orgbbc0be2">
+<div id="outline-container-org828cdd2" class="outline-3">
+<h3 id="org828cdd2">Definiendo init.el como archivo de configuración.</h3>
+<div class="outline-text-3" id="text-org828cdd2">
 <p>
 Añadan las siguientes líneas de texto al final de <code>init.el</code>
 </p>
@@ -500,9 +500,9 @@ Añadan las siguientes líneas de texto al final de <code>init.el</code>
 </div>
 </div>
 
-<div id="outline-container-org73f0b74" class="outline-3">
-<h3 id="org73f0b74">Tema general de emacs</h3>
-<div class="outline-text-3" id="text-org73f0b74">
+<div id="outline-container-org8f4e520" class="outline-3">
+<h3 id="org8f4e520">Tema general de emacs</h3>
+<div class="outline-text-3" id="text-org8f4e520">
 <p>
 La página <a href="https://emacsthemes.com/">https://emacsthemes.com/</a> contiene una galería de temas
 para emacs, si encuentran uno que les guste pueden buscarlo en <code>M-x
@@ -535,9 +535,9 @@ que tenga varios temas.
 </div>
 </div>
 
-<div id="outline-container-org2b01bf3" class="outline-3">
-<h3 id="org2b01bf3">Instalación de otras extensiones</h3>
-<div class="outline-text-3" id="text-org2b01bf3">
+<div id="outline-container-org50ad5e7" class="outline-3">
+<h3 id="org50ad5e7">Instalación de otras extensiones</h3>
+<div class="outline-text-3" id="text-org50ad5e7">
 <p>
 Para instalar otras extensiones pueden basarse en las instrucciones
 que deja el autor de la extensión, por ejemplo para la extensión
@@ -564,9 +564,9 @@ extensiones que se instalen, éstas se pueden ver a detalle aquí:
 </div>
 </div>
 
-<div id="outline-container-org3105ee6" class="outline-3">
-<h3 id="org3105ee6">Cargar la configuración</h3>
-<div class="outline-text-3" id="text-org3105ee6">
+<div id="outline-container-orgd0e81b6" class="outline-3">
+<h3 id="orgd0e81b6">Cargar la configuración</h3>
+<div class="outline-text-3" id="text-orgd0e81b6">
 <p>
 Para que la configuración tome efecto, se puede hacer con el
 comando <code>M-x ev-b RET</code>, y una vez que termine, reinicien emacs.
@@ -575,9 +575,9 @@ comando <code>M-x ev-b RET</code>, y una vez que termine, reinicien emacs.
 </div>
 </div>
 
-<div id="outline-container-orgdd2bc86" class="outline-2">
-<h2 id="orgdd2bc86">¿Dónde puedo aprender más sobre Emacs?</h2>
-<div class="outline-text-2" id="text-orgdd2bc86">
+<div id="outline-container-org098235e" class="outline-2">
+<h2 id="org098235e">¿Dónde puedo aprender más sobre Emacs?</h2>
+<div class="outline-text-2" id="text-org098235e">
 <ul class="org-ul">
 <li><b>Tutorial a detalle de Emacs</b>
 
@@ -629,18 +629,18 @@ lo pueden hacer con el comando <code>C-h t</code>.</li>
 </div>
 </div>
 
-<div id="outline-container-orgab3474d" class="outline-2">
-<h2 id="orgab3474d">Ejercicios</h2>
-<div class="outline-text-2" id="text-orgab3474d">
+<div id="outline-container-orga96d0a2" class="outline-2">
+<h2 id="orga96d0a2">Ejercicios</h2>
+<div class="outline-text-2" id="text-orga96d0a2">
 <p>
 Para los siguientes ejercicios usen lo menos posible el ratón de su
 computadora. (Salvo para buscar en internet)
 </p>
 </div>
 
-<div id="outline-container-orgbad08c8" class="outline-3">
-<h3 id="orgbad08c8">Creen dos directorios directamente desde emacs</h3>
-<div class="outline-text-3" id="text-orgbad08c8">
+<div id="outline-container-orgcf649b7" class="outline-3">
+<h3 id="orgcf649b7">Creen dos directorios directamente desde emacs</h3>
+<div class="outline-text-3" id="text-orgcf649b7">
 <p>
 Olvidé mencionar qué hace el atajo <code>M-x</code>. Éste es en general para
 ejecutar comandos propios de <i>Emacs</i>.
@@ -696,9 +696,9 @@ Creen dos nuevos archivos en la carpeta <code>dir1</code> con la extensión <cod
 </div>
 </div>
 
-<div id="outline-container-org27e3d80" class="outline-3">
-<h3 id="org27e3d80">Personalizar Emacs con init.el</h3>
-<div class="outline-text-3" id="text-org27e3d80">
+<div id="outline-container-org267e5b0" class="outline-3">
+<h3 id="org267e5b0">Personalizar Emacs con init.el</h3>
+<div class="outline-text-3" id="text-org267e5b0">
 <p>
 Éste ejercicio se quedaría más como una tarea moral, que espero que
 hagan en sus computadoras con Emacs.
@@ -969,7 +969,7 @@ caracter 80 para que procuren nunca superarla.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Erik Rangel Limón</p>
-<p class="date">Created: 2024-08-19 Mon 12:06</p>
+<p class="date">Created: 2024-09-12 Thu 23:42</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
 </div>
 </body>

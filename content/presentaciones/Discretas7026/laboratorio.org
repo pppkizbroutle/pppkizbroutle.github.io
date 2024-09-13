@@ -290,3 +290,680 @@ ghci> f 5
 ghci> a
 1.6479342945523397e22  
     #+end_src
+  
+* Tipos de dato algebraicos y coincidencia de patrones
+
+  En matemáticas discretas podemos introducir definiciones de
+  conjuntos como estructuras recursivas dando los casos de definición
+  y un axioma de clausura, indicando que ninguna otra cosa forma parte
+  de lo definido.
+
+  Los tipos de dato algebraicos han sido adoptados por distintos
+  lenguajes de programación, particularmente los funcionales, en donde
+  /Haskell/ no es la excepción.
+
+  Nosotros podemos crear tipos de dato a partir de definir quienes van
+  a ser elementos de ese tipo (ese conjunto).
+
+  Por ejemplo, tomemos en cuenta una definición simple de los colores
+  que componen el esquema de colores /RGB/.
+
+  El conjunto de colores /RGB/ se construye con las siguientes reglas:
+
+  1. El Rojo es un color /RGB/.
+  2. El Verde es un color /RGB/.
+  3. El Azul es un color /RGB/.
+  4. Sólo los elementos generados por 1, 2 y 3 son colores /RGB/.
+
+
+  En Haskell podemos dar estas mismas definiciones, con la palabra
+  reservada =data=.
+
+  #+begin_src haskell
+data RGB = Rojo
+         | Verde
+         | Azul
+  #+end_src
+
+  En donde =RGB= corresponde al nombre que queremos que tenga nuestro
+  tipo de dato, este nombre *siempre debe iniciar con mayúscula*.
+
+  Despúes del === siguen las reglas que componen a ese tipo de dato,
+  separando cada una de ellas por un =|=.
+
+  Y cada regla comienza con el nombre de lo que se conoce como el
+  *constructor*, en este caso los constructores son =Rojo=, =Verde=,
+  =Azul=. Los constructores también pueden llevar cualquier nombre
+  siempre y cuando *comiencen con mayúscula*.
+
+  Con esto definido ya podemos considerar el tipo de dato =RGB= para
+  utilizarlo en variables o funciones.
+
+  #+begin_src haskell
+azul :: RGB
+azul = Azul
+
+verde :: RGB
+verde = Rojo
+  #+end_src
+
+** Coincidencia de patrones
+
+   Y bueno, ¿cómo realizamos operaciones con éste tipo de dato que
+   acabamos de crear?
+
+   =Haskell= tiene una característica que permite descomponer la forma
+   que tiene una expresión y ver con qué caso le corresponde.
+
+   Supongamos que queremos hacer una función que nos regrese en una
+   cadena de texto cuál es el color que está recibiendo.
+
+   #+begin_src haskell
+color :: RGB -> String
+color x = case x of
+            Rojo -> "El color es rojo"
+            Verde -> "El color es verde"
+            Azul -> "El color es azul"
+   #+end_src
+
+   Una forma de hacerlo es con la expresión =case ... of=. En donde lo
+   que sigue después del =case= es la expresión que queremos
+   analizar. En este caso, por la firma que tiene la función, sabemos
+   que =x= es del tipo =RGB= y que =x= sólo tiene tres formas de
+   construirse: =Rojo=, =Verde= y =Azul=.
+
+   Con esta coincidencia de patrones =haskell= revisará con qué
+   expresión que pusieron después del =of= coincide primero la expresión
+   =x= (es decir, revisará en el orden que hayan puesto los casos, en
+   este ejemplo, primero revisará si =x= es =Rojo=, después =Verde= y al
+   final =Azul=).
+
+   #+begin_src haskell
+ghci> color Azul
+"El color es azul"
+   #+end_src
+
+   Siempre va a ser una buena práctica colocar todas las formas
+   posibles que podría tener =x=, pues =haskell= compilará aún si no
+   abarcaron todos los casos posibles, por ejemplo:
+
+   #+begin_src haskell
+color' :: RGB -> String
+color' x = case x of
+             Rojo -> "El color es rojo"
+             Verde -> "El color es verde"
+   #+end_src
+
+   Pero en este caso =haskell= nos lanzará un error cuando intentemos
+   evaluar la función con el valor =Azul=.
+
+   #+begin_src haskell
+ghci> color' Azul
+"*** Exception: ej.hs:(6,12)-(8,41): Non-exhaustive patterns in case
+   #+end_src
+   
+   Precisamente nos dice que no fuimos exhaustivos en nuestra
+   coincidencia de patrones.
+
+   No es la única forma en la que podemos hacer coincidencia de
+   patrones, en este caso como sólo nos importa qué forma tiene el
+   mismo parámetro de la función, entonces podríamos reducir la
+   función anterior como sigue:
+
+   #+begin_src haskell
+color1 :: RGB -> String
+color1 Rojo = "El color es rojo"
+color1 Verde = "El color es verde"
+color1 Azul = "El color es azul"
+   #+end_src
+
+   Poniendo definiciones distintas para cada caso de =x=.
+
+   También podemos dar definiciones incompletas y también nos
+   devolverá un error:
+
+   #+begin_src haskell
+color1' :: RGB -> String
+color1' Rojo = "El color es rojo"
+color1' Verde = "El color es verde"
+   #+end_src
+
+   #+begin_src haskell
+ghci> color1' Azul
+"*** Exception: ej.hs:(11,1)-(12,35): Non-exhaustive patterns in function color1'
+   #+end_src
+
+   ¿Cuándo queremos utilizar la función =case ... of= en lugar de
+   utilizar coincidencia de patrones directamente en el parámetro?
+
+   Imaginemos que tenemos la función que nos da el color que sigue al
+   que recibió como parámetro.
+
+   #+begin_src haskell
+siguiente :: RGB -> RGB
+siguiente Rojo = Verde
+siguiente Verde = Azul
+siguiente Azul = Rojo
+   #+end_src
+
+   Este orden es arbitrario, pero con esta expresión intento decir que
+   el color que le sigue al rojo es el verde, y al que le sigue al
+   verde es el azul.
+
+   Si quisiéramos hacer una función que nos diga en una cadena de
+   texto cuál es el color que le sigue a otro, una forma de hacerlo
+   podría ser recordando ese orden y hacer la función de esa forma.
+
+   #+begin_src haskell
+siguienteColor :: RGB -> String
+siguienteColor Rojo = "El color que sigue es el verde"
+...
+   #+end_src
+
+   Sin embargo, esto no es una buena práctica ya que nosotros de una u
+   otra forma estamos imitando la funcionalidad de =siguiente= que
+   habíamos definido con anterioridad, y los programadores siempre
+   tenemos que evitar de reinventar la rueda a toda costa.
+
+   Bueno, pues gracias a =case ... of= podemos capturar los resultados
+   que nos puede regresar la función =siguiente=.
+
+   #+begin_src haskell
+siguienteColor :: RGB -> String
+siguienteColor x = case siguiente x of
+                     Rojo -> "El color que sigue es el rojo"
+                     Verde -> "El color que sigue es el verde"
+                     Azul -> "El color que sigue es el azul"
+   #+end_src
+
+   Entonces una forma de hacer coincidencia de patrones no desprecia a
+   la otra, utilicen las dos como mejor les convenga.
+
+** Constructores con parámetros
+
+   Nuestros constructores en las definiciones de tipo de dato pueden
+   tener parámetros.
+
+   Supongamos que queremos un tipo de dato que nos diga una
+   combinación de dos colores.
+
+   #+begin_src haskell
+data Combinacion = Comb RGB RGB
+   #+end_src
+
+   En este caso =Comb= es un constructor que tiene dos parámetros, y en
+   estos sólamente indicamos el tipo que queremos que tengan esos
+   parámetros.
+   
+   ¿Y cómo manejamos éste tipo de dato?
+
+   Supongamos que queremos una función que nos diga el primer color
+   que conforma la combinación:
+
+   #+begin_src haskell
+primero :: Combinacion -> RGB
+primero c = ...
+   #+end_src
+
+   Bueno, el primer parámetro es una Combinacion, entonces podemos
+   descomponer el parámetro =c= usando coincidencia de patrones, y en
+   este caso como recibe parámetros es necesario descomponerlo entre
+   paréntesis.
+
+   #+begin_src haskell
+primero :: Combinacion -> RGB
+primero (Comb ...) = ...  
+   #+end_src
+
+   ¿Pero qué es lo que sigue? Bueno, sabemos que ambos parámetros son
+   de tipo =RGB=, entonces también los podríamos descomponer.
+
+   #+begin_src haskell
+primero :: Combinacion -> RGB
+primero (Comb Rojo Rojo) = Rojo
+primero (Comb Rojo Verde) = Rojo
+primero (Comb Rojo Azul) = Rojo
+...
+   #+end_src
+
+   Pero, ¿es necesario revisar absolutamente todas las posibilidades
+   de esas dos entradas cuando únicamente sólo nos interesa el primer
+   color? No, y por eso también podemos reemplazar esos dos parámetros
+   con variables.
+
+   #+begin_src haskell
+primero :: Combinacion -> RGB
+primero (Comb primerColor segundoColor) = primerColor
+   #+end_src
+
+   Usando variables estamos indicándole a =Haskell= que cualquier caso
+   (en este caso del =RGB=) puede ser capturado dentro esas variables.
+   
+   Supongamos que queremos hacer un tipo de dato para los números
+   complejos, es decir que contengan un número para la parte real, y
+   otro número real para la parte imaginaria.
+
+   #+begin_src haskell
+data Complejo = Comp Double Double
+   #+end_src
+
+   =Comp= va a ser el constructor que tiene dos parámetros, en este caso
+   decidimos que ambos parámetros que corresponden para la parte real
+   y la parte imaginaria (en ese orden) fueran =Double=.
+
+   Y la forma de hacer coincidencia de patrones con éste tipo de dato
+   es como sigue:
+
+   #+begin_src haskell
+parteReal :: Complejo -> Double
+parteReal (Comp r i) = r
+   #+end_src
+
+   En donde =r= corresponde al primer =Double= que es el que vamos a
+   tratar como la parte real del número e =i= como la que vamos a tratar
+   como imaginaria.
+
+   Por eso es que las tuplas se pueden manejar de la siguiente forma en =haskell=
+
+   #+begin_src haskell
+sumatupla :: (Int, Int) -> Int
+sumatupla (x,y) = x + y
+   #+end_src
+
+   Revisa la forma que tiene la tupla y hacemos coincidencia de
+   patrones con ella.
+
+** Tipos de dato recursivos
+
+   Así mismo como en matemáticas podemos también dar definiciones de
+   tipos de dato (de conjuntos) de forma inductiva/recursiva.
+
+   Recordemos las reglas para construir los números naturales:
+
+   1. $0$ es un número natural.
+   2. Si $n$ es un número natural, entonces el sucesor de $n$
+      ($Suc(n)$) también es un número natural.
+   3. Sólo los elementos generados por 1 y 2 son naturales.
+
+
+   En =Haskell= podemos recrear este tipo de dato bajo esta misma
+   semántica combinando constructores sencillos, como constructores
+   con parámetros.
+
+   #+begin_src haskell
+data Natural = Cero
+             | Suc Natural
+   #+end_src
+
+   =Cero= sería nuestro caso base, y =Suc= es un constructor que recibe
+   otro número natural como parámetro.
+
+   Nótese que en ésta definición estamos utilizando a los mismos
+   números naturales para definir a los números naturales.
+
+   Y con esto ya tenemos una definición de los naturales.
+
+   #+begin_src haskell
+cero :: Natural
+cero = Cero
+
+uno :: Natural
+uno = Suc Cero
+
+dos :: Natural
+dos = Suc (Suc (Cero))
+
+tres :: Natural
+tres = Suc dos
+   #+end_src
+
+   Como ejemplo, definamos la suma entre naturales:
+
+   #+begin_src haskell
+sumaNat :: Natural -> Natural -> Natural
+sumaNat Cero m = m
+sumaNat (Suc n) m = sumaNat n (Suc m)
+   #+end_src
+   
+** Tipos de dato con parámetros
+
+   Nuestros tipos de dato también pueden llevar parámetros en su
+   definición; recrearemos el tipo de dato =Maybe= de =Haskell=:
+
+   #+begin_src haskell
+data Talvez a = Nada
+              | Solo a
+   #+end_src
+
+   ¿Qué significa ésto?
+
+   =Talvez a= define el nombre del tipo =Talvez= y la =a= es una variable
+   que representa un tipo cualquiera que usaremos dentro de la
+   definición y la nombraremos como =a=.
+
+   Tiene un constructor básico =Nada=, y un constructor con parámetro
+   =Solo= cuyo primer parámetro debe ser algo del tipo =a=.
+
+   Ejemplos de tipos de dato =Talvez=:
+
+   #+begin_src haskell
+talvez1 :: Talvez Int
+talvez1 = Solo 10
+
+talvez2 :: Talvez Int
+talvez2 = Nada
+
+talvez3 :: Talvez String
+talvez3 = Solo "Hola"
+
+talvez4 :: Talvez Double
+talvez4 = Nada
+
+talvez5 :: Talvez Natural
+talvez5 = Solo (Suc Cero)
+
+talvez6 :: Talvez (Talvez Int)
+talvez6 = Solo (Solo 1)
+   #+end_src
+
+   ¿Qué utilidad tiene este tipo de dato?
+
+   Funciona para devolver errores y capturarlos.
+
+   Consideremos el operador =/=, qué nos devuelve si intentamos dividir
+   por cero?
+
+   #+begin_src haskell
+ghci> 1 / 0
+Infinity
+ghci> 0 / 0
+NaN
+   #+end_src
+
+   En ambos casos nos deuvelve un error que es algo complicado de
+   capturar.
+
+   Hagamos una función para realizar la división de manera "segura".
+
+   #+begin_src haskell
+safediv :: Double -> Double -> Talvez Double
+safediv x y
+  | y == 0 = Nada
+  | otherwise = Solo (x / y)
+   #+end_src
+
+   De esta forma podemos capturar estos errores al momento de realizar
+   más operaciones con éstos elementos.
+
+   Supongamos que queremos utilizar esta función y al final al
+   resultado añadirle uno si es que no ocurrió un error:
+
+   #+begin_src haskell
+divadd1 :: Double -> Double -> Talvez Double
+divadd1 x y = case safediv x y of
+                Nada -> Nada
+                Solo r -> Solo (r + 1)
+   #+end_src
+
+   La definición del tipo de dato =Maybe= (que ya viene en /haskell/) es
+   como sigue:
+
+   #+begin_src haskell
+data Maybe a = Nothing
+             | Just a 
+   #+end_src
+   
+   También las definiciones de tipo pueden llevar más de un parámetro
+   en su tipo. Definamos nuestra propia tupla
+
+   #+begin_src haskell
+data Tupla a b = Tup a b
+   #+end_src
+
+   Recibe dos tipos cualesquiera =a= y =b=, y su constructor =Tup= recibe
+   esos mismos parámetros respectivamente.
+
+   #+begin_src haskell
+intDouble :: Tupla Int Double
+intDouble = Tup 5 10.9
+
+stringDouble :: Tupla String Double
+stringDouble = Tup "Hola" 10.18
+   #+end_src
+
+* Listas
+
+  Las listas de elementos de tipo $A$ se construyen con las siguientes
+  reglas:
+
+  1. La lista vacía es una lista de elementos de tipo $A$.
+
+  2. Si $X$ es un elemento de tipo $A$ y $XS$ una lista de elementos
+     de tipo $A$, entonces la construcción de $X$ con $XS$ ($X:XS$) es
+     otra lista de elementos de tipo $A$.
+
+  3. Sólo los elementos construidos con las reglas 1 y 2 son listas de
+     elementos de tipo $A$.
+
+
+  Entonces podemos describir una lista en /haskell/ de la siguiente
+  forma:
+
+  #+begin_src haskell
+data Lista a = Nil
+             | Cons a (Lista a)
+  #+end_src
+
+  #+begin_src haskell
+nums :: Lista Int
+nums = Cons 1 (Cons 2 (Cons 3 Nil))
+
+strings :: Lista String
+strings = Cons "Hola" (Cons "grupo" Nil)
+
+nil :: Lista Double
+nil = Nil
+
+unEntero :: Lista Int
+unEntero = Cons 1 Nil
+
+listaDeListas :: Lista (Lista Int)
+listaDeListas = Cons (Cons 1 (Cons 2 Nil)) (Cons (Cons 3 (Cons 4 Nil)) Nil)
+  #+end_src
+
+  /Haskell/ ya tiene su propia definición de listas, y es algo parecido
+  a la siguiente:
+
+  #+begin_src haskell
+data [] a = []
+          | a : ([] a)
+  #+end_src
+
+  Aquí ellos utilizan un operador =:= en lugar de un constructor como
+  nosotros los hemos visto, y ésto es posible porque Haskell admite
+  operadores binarios en lugar de constructores tradicionales siempre
+  y cuando éstos comiencen con =:=
+
+  De esta forma /Haskell/ perite la construcción de listas de la
+  siguiente manera:
+
+  #+begin_src haskell
+nums :: [] Int
+nums = 1 : 2 : 3 []
+
+strings :: [] String
+strings = "Hola" : "grupo" : []
+
+nil :: [] Double
+nil = []
+
+listaDeListas :: [] ([] Int)
+listaDeListas = (1 : 2 : []) : (3 : 4 : []) : []
+  #+end_src
+
+  Y /haskell/ ofrece una sintaxis aún más sencilla para construir
+  estas mismas listas, es la siguiente:
+
+  #+begin_src haskell
+nums :: [Int]
+nums = [1,2,3]
+
+strings :: [String]
+strings = ["Hola","grupo"]
+
+nil :: [Double]
+nil = []
+
+listaDeListas :: [[Int]]
+listaDeListas = [[1,2],[3,4]]
+  #+end_src
+
+** Coincidencia de patrones
+
+   Para las listas, la coincidencia de patrones se puede realizar de
+   una forma muy versátil.
+
+   Digamos que queremos hacer una función que nos diga verdadero si
+   una lista es vacía o falso en otro caso.
+
+   #+begin_src haskell
+vacia :: [Int] -> Bool
+vacia [] = True
+vacia xs = False
+   #+end_src
+
+   Para capturar el caso de la lista vacía, lo logramos con =[]=, y
+   cualquier otro caso es capturado por la variable =xs=.
+
+   Notemos que en el segundo caso no utilizamos si quiera la variable
+   =xs=, entonces podemos indicarle a /Haskell/ que ignore totalmente su
+   valor con el uso del comodín =_=.
+
+   #+begin_src haskell
+vacia :: [Int] -> Bool
+vacia [] = True
+vacia _ = False
+   #+end_src
+
+   En la coincidencia de patrones, el comodín =_= podrá capturar
+   cualquier caso igual que con las variables, con la diferencia de
+   que /haskell/ ignorará completamente su valor y nos dará directamente
+   la definición que le hayamos dado.
+
+   ¿Y si quisiéramos una función que nos diga si una lista tiene
+   exactamente un elemento?
+
+   #+begin_src haskell
+individual :: [Int] -> Bool
+individual [x] = True
+individual _ = False
+   #+end_src
+
+   Con el patrón =[x]= indicamos que queremos capturar exactamente
+   cuando la lista tenga un único elemento.
+
+   Y de nuevo, como estamos ignorando el valor de =x= y no lo estamos
+   utilizando en la definición, podemos cambiarlo por un comodín.
+
+   #+begin_src haskell
+individual :: [Int] -> Bool
+individual [_] = True
+individual _ = False
+   #+end_src
+
+   De la misma forma, podemos capturar cuando haya exactamente cierto
+   número de elementos durante la caza de patrones.
+
+   #+begin_src haskell
+listaConTres :: [Int] -> Bool
+listaConTres [_,_,_] = True
+listaConTres _ = False
+   #+end_src
+
+   Ahora bien, supongamos que queremos una función que nos regrese el
+   primer elemento de una lista si es que tiene elementos.
+
+   #+begin_src haskell
+cabeza :: [Int] -> Int
+cabeza (x:xs) = x
+   #+end_src
+
+   Podemos hacer coincidencia de patrones con la definición inductiva
+   separando la cabeza de la lista =x= con la cola =xs=. Y de nuevo, como
+   no estamos utilizando =xs= en la definición podemos reemplazarlo con
+   un comodín.
+
+   #+begin_src haskell
+cabeza :: [Int] -> Int
+cabeza (x:_) = x
+   #+end_src
+
+   Nótese que esta es una definición incompleta, ya que sólo le
+   estamos indicando qué hacer cuando la lista tiene la forma
+   =cabeza:cola=, pero no cuando es vacía, por lo que si le pasamos una
+   lista vacía, ésta nos lanzará una excepción.
+
+   A veces querrán utilizar éste tipo de funciones para hacer más
+   sencillas ciertas operaciones, pero deben tener cuidado con los
+   parámetros que le están pasando, y asegurarse que no sea un
+   parámetro que ocasione un error.
+
+   Ahora, uno que regrese la cola de una lista.
+
+   #+begin_src haskell
+cola :: [Int] -> [Int]
+cola (_:xs) = xs
+   #+end_src
+
+   ¿Si ahora queremos uno que nos regrese el segundo elemento de una
+   lista?
+
+   #+begin_src haskell
+segundoElemento :: [Int] -> Int
+segundoElemento (x:xs) = ...
+   #+end_src
+
+   Sabemos que podemos acceder al primer elemento de la lista, y en
+   éste caso es =x=, ¿pero el segundo? no podemos devolver =xs= porque
+   ésta es una lista, no un elemento.
+
+   Bueno, aprovechemos que =xs= es una lista para descomponerla también en algo que tiene cabeza y cola.
+
+   #+begin_src haskell
+segundoElemento :: [Int] -> Int
+segundoElemento (x:(y:ys)) = y
+   #+end_src
+
+   Y por tanto el segundo elemento es =y=.
+
+   Cabe decir que los parentesis más internos no son necesarios, pues el operador =:= asocia hacia la derecha, es decir:
+
+   #+begin_src haskell
+segundoElemento :: [Int] -> Int
+segundoElemento (x:y:ys) = y
+   #+end_src
+
+* Ejercicios de recursión
+
+  #+begin_src haskell
+-- | Dada una lista de enteros, calcula la suma de todos sus elementos
+suma :: [Int] -> Int
+suma = undefined
+
+-- | Dada una lista de enteros, calcula la multiplicación de todos sus
+-- elementos.
+multiplicacion :: [Int] -> Int
+multiplicacion = undefined
+
+-- | Dadas dos listas de enteros, une las dos listas en una sola,
+-- conservando el mismo orden
+une :: [Int] -> [Int] -> [Int]
+une = undefined
+
+-- | Dados dos enteros, genera una lista de enteros que empieza desde
+-- el primero y termina en el segundo
+enumera :: Int -> Int -> [Int]
+enumera = undefined
+  #+end_src
+
+  
